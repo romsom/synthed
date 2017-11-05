@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	virus_c.xml
+
+	This instrument definition should be compatible with Virus C series.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE instrument SYSTEM "../../instrument.dtd">
+
+<instrument id="virus_c">
+
+	<module id="virus_c"/>
+	
+	<data>
+		<patch path="virus_c_banks.xml"/>
+		<patch path="virus_c_midi.xml"/>
+	</data>
+	
+	<decoders>
+		<decoder path="virus_decoder.xml"/>
+	</decoders>
+	
+	<interfaces>
+		<interface path="virus_c_ui.xml"/>
+	</interfaces>
+	
+	<modes>
+		<mode id="single" caption="Singles">
+			<bank caption="Singles Bank A" min="0" max="127"/>
+			<bank caption="Singles Bank B" min="0" max="127"/>
+			<bank caption="Singles Bank C" min="0" max="127"/>
+			<bank caption="Singles Bank D" min="0" max="127"/>
+			<bank caption="Singles Bank E" min="0" max="127"/>
+			<bank caption="Singles Bank F" min="0" max="127"/>
+			<bank caption="Singles Bank G" min="0" max="127"/>
+			<bank caption="Singles Bank H" min="0" max="127"/>
+		</mode>
+		<mode id="multi" caption="Multis">
+			<bank caption="Multis Bank" min="0" max="127"/>
+		</mode>
+		<mode id="global" caption="Globals">
+		</mode>
+	</modes>
+	
+</instrument>

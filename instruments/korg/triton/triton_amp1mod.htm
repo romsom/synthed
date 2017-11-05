@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Amp 1 Mod.</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table>
+         <tr> 
+            <th colspan="6" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Keyboard Track</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Key Low</font></td> 
+            <td><widget class="SpinWidget" decoder="list_keys">
+	       <parameter id="OSC1_AMP_KBD_key_low"></parameter>
+	       </widget></td>
+            <td><font color="#006666" face="Arial">Key High</font></td> 
+            <td><widget class="SpinWidget" decoder="list_keys">
+	       <parameter id="OSC1_AMP_KBD_key_high"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Ramp Low</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_AMP_KBD_ramp_low"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Ramp High</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_AMP_KBD_ramp_high"></parameter>
+	    </widget></td>
+         </tr>
+      </table>
+      <table>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Amp Modulation</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Velocity Intensity</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_AMP_int_velocity"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">AMS</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_1-4">
+	       <parameter id="OSC1_AMP_am_source"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td></td> 
+            <td></td>
+            <td><font color="#006666" face="Arial">Intensity</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_AMP_am_int"></parameter>
+	    </widget></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+	    <td>
+               <table>
+                  <tr> 
+                     <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+                        face="Arial"><b>LFO 1</b></font></th> 
+                  </tr> 
+                  <tr>
+                     <td><font color="#006666" face="Arial">LFO1 Intensity</font></td> 
+		     <td><widget class="SpinWidget" format="%+03d">
+		        <parameter id="OSC1_AMP_int_lfo1"></parameter>
+                     </widget></td>
+                  </tr>
+		  <tr>
+		     <td><font color="#006666" face="Arial">AMS</font></td> 
+		     <td><widget class="ChoiceWidget" decoder="list_1-4">
+		        <parameter id="OSC1_AMP_am_source_lfo1"></parameter>
+                     </widget></td>
+		  </tr>
+		  <tr>
+		     <td><font color="#006666" face="Arial">AMS Intensity</font></td> 
+		     <td><widget class="SpinWidget" format="%+03d">
+		        <parameter id="OSC1_AMP_am_int_lfo1"></parameter>
+                     </widget></td>
+		  </tr>
+               </table>
+	    </td>
+	    <td>
+               <table>
+                  <tr> 
+                     <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+                        face="Arial"><b>LFO 2</b></font></th> 
+                  </tr> 
+                  <tr>
+                     <td><font color="#006666" face="Arial">LFO2 Intensity</font></td> 
+		     <td><widget class="SpinWidget" format="%+03d">
+		        <parameter id="OSC1_AMP_int_lfo2"></parameter>
+                     </widget></td>
+                  </tr>
+		  <tr>
+		     <td><font color="#006666" face="Arial">AMS</font></td> 
+		     <td><widget class="ChoiceWidget" decoder="list_1-4">
+		        <parameter id="OSC1_AMP_am_source_lfo2"></parameter>
+                     </widget></td>
+		  </tr>
+		  <tr>
+		     <td><font color="#006666" face="Arial">AMS Intensity</font></td> 
+		     <td><widget class="SpinWidget" format="%+03d">
+		        <parameter id="OSC1_AMP_am_int_lfo2"></parameter>
+                     </widget></td>
+		  </tr>
+               </table>
+	    </td>
+	 </tr>
+      </table>
+   </body>
+</html>

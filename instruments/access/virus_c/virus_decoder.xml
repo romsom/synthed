@@ -1,0 +1,1079 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	virus_decoder.xml
+
+	This decoder should be compatible with Virus C.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE decoder SYSTEM "../../decoder.dtd">
+
+<decoder>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Lists of values that can be referenced by controls. They are arranged 
+	alphabetically in the hope that they will be easier to maintain. 
+	Lists may be nested. 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<lists>
+
+<list id="list_arp_clocks">
+    <item value="1/64"/>
+    <item value="1/32"/>
+    <item value="1/16"/>
+    <item value="1/8"/>
+    <item value="1/4"/>
+    <item value="1/2"/>
+    <item value="3/64"/>
+    <item value="3/32"/>
+    <item value="3/16"/>
+    <item value="3/8"/>
+    <item value="1/24"/>
+    <item value="1/12"/>
+    <item value="1/6"/>
+    <item value="1/3"/>
+    <item value="2/3"/>
+    <item value="3/4"/>
+    <item value="1/1"/>
+</list>
+
+<list id="list_arp_modes">
+    <item value="Off"/>
+    <item value="Up"/>
+    <item value="Down"/>
+    <item value="Up&amp;Down"/>
+    <item value="As-Played"/>
+    <item value="Random"/>
+    <item value="Chord"/>
+</list>
+
+<list id="list_banks">
+    <item value="Multi"/>
+    <item value="Bank A"/>
+    <item value="Bank B"/>
+    <item value="Bank C"/>
+    <item value="Bank D"/>
+</list>
+
+<list id="list_bank_select">
+    <item value="Bank A"/>
+    <item value="Bank B"/>
+    <item value="Bank C"/>
+    <item value="Bank D"/>
+</list>
+
+<list id="list_bender_scales">
+    <item value="Linear"/>
+    <item value="Exponential"/>
+</list>
+
+<list id="list_categories">
+    <item value="Off"/>
+    <item value="Lead"/>
+    <item value="Base"/>
+    <item value="Pad"/>
+    <item value="Decay"/>
+    <item value="Pluck"/>
+    <item value="Acid"/>
+    <item value="Classic"/>
+    <item value="Arpeggiator"/>
+    <item value="Effects"/>
+    <item value="Drums"/>
+    <item value="Percussion"/>
+    <item value="Input"/>
+    <item value="Vocoder"/>
+    <item value="Favourite 1"/>
+    <item value="Favourite 2"/>
+    <item value="Favourite 3"/>
+</list>
+
+<list id="list_control_smooth_modes">
+    <item value="Off"/>
+    <item value="On"/>
+    <item value="Auto"/>
+    <item value="Note"/>
+</list>
+
+<list id="list_delay_clocks">
+    <item value="Off"/>
+    <item value="1/64"/>
+    <item value="1/32"/>
+    <item value="1/16"/>
+    <item value="1/8"/>
+    <item value="1/4"/>
+    <item value="1/2"/>
+    <item value="3/64"/>
+    <item value="3/32"/>
+    <item value="3/16"/>
+    <item value="3/8"/>
+    <item value="1/24"/>
+    <item value="1/12"/>
+    <item value="1/6"/>
+    <item value="1/3"/>
+    <item value="2/3"/>
+    <item value="3/4"/>
+</list>
+
+<list id="list_delay_reverb_modes">
+    <item value="Off"/>
+    <item value="Delay"/>
+    <item value="Reverb"/>
+    <item value="Rev+Feedb1"/>
+    <item value="Rev+Feedb2"/>
+    <item value="Delay X:Y"/>
+    <item value="Pattern X+Y"/>
+</list>
+
+<list id="list_distortion_curves">
+    <item value="Off"/>
+    <item value="Light"/>
+    <item value="Soft"/>
+    <item value="Middle"/>
+    <item value="Hard"/>
+    <item value="Digital"/>
+    <item value="Shaper"/>
+    <item value="Rectifier"/>
+    <item value="BitReducer"/>
+    <item value="RateReducer"/>
+    <item value="LowPass"/>
+    <item value="HighPass"/>
+</list>
+
+<list id="list_dry_wet">
+	<item value="    Dry"/>
+	<item value="  1:126"/>
+	<item value="  2:125"/>
+	<item value="  3:124"/>
+	<item value="  4:123"/>
+	<item value="  5:122"/>
+	<item value="  6:121"/>
+	<item value="  7:120"/>
+	<item value="  8:119"/>
+	<item value="  9:118"/>
+	<item value=" 10:117"/>
+	<item value=" 11:116"/>
+	<item value=" 12:115"/>
+	<item value=" 13:114"/>
+	<item value=" 14:113"/>
+	<item value=" 15:112"/>
+	<item value=" 16:111"/>
+	<item value=" 17:110"/>
+	<item value=" 18:119"/>
+	<item value=" 19:108"/>
+	<item value=" 20:107"/>
+	<item value=" 21:106"/>
+	<item value=" 22:105"/>
+	<item value=" 23:104"/>
+	<item value=" 24:103"/>
+	<item value=" 25:102"/>
+	<item value=" 26:101"/>
+	<item value=" 27:100"/>
+	<item value=" 28: 99"/>
+	<item value=" 29: 98"/>
+	<item value=" 30: 97"/>
+	<item value=" 31: 96"/>
+	<item value=" 32: 95"/>
+	<item value=" 33: 94"/>
+	<item value=" 34: 93"/>
+	<item value=" 35: 92"/>
+	<item value=" 36: 91"/>
+	<item value=" 37: 90"/>
+	<item value=" 38: 89"/>
+	<item value=" 39: 88"/>
+	<item value=" 40: 87"/>
+	<item value=" 41: 86"/>
+	<item value=" 42: 85"/>
+	<item value=" 43: 84"/>
+	<item value=" 44: 83"/>
+	<item value=" 45: 82"/>
+	<item value=" 46: 81"/>
+	<item value=" 47: 80"/>
+	<item value=" 48: 79"/>
+	<item value=" 49: 78"/>
+	<item value=" 50: 77"/>
+	<item value=" 51: 76"/>
+	<item value=" 52: 75"/>
+	<item value=" 53: 74"/>
+	<item value=" 54: 73"/>
+	<item value=" 55: 72"/>
+	<item value=" 56: 71"/>
+	<item value=" 57: 70"/>
+	<item value=" 58: 69"/>
+	<item value=" 59: 68"/>
+	<item value=" 60: 67"/>
+	<item value=" 61: 66"/>
+	<item value=" 62: 65"/>
+	<item value=" 63: 64"/>
+	<item value=" 64: 63"/>
+	<item value=" 65: 62"/>
+	<item value=" 66: 61"/>
+	<item value=" 67: 60"/>
+	<item value=" 68: 59"/>
+	<item value=" 69: 58"/>
+	<item value=" 70: 57"/>
+	<item value=" 71: 56"/>
+	<item value=" 72: 55"/>
+	<item value=" 73: 54"/>
+	<item value=" 74: 53"/>
+	<item value=" 75: 52"/>
+	<item value=" 76: 51"/>
+	<item value=" 77: 50"/>
+	<item value=" 78: 49"/>
+	<item value=" 79: 48"/>
+	<item value=" 80: 47"/>
+	<item value=" 81: 46"/>
+	<item value=" 82: 45"/>
+	<item value=" 83: 44"/>
+	<item value=" 84: 43"/>
+	<item value=" 85: 42"/>
+	<item value=" 86: 41"/>
+	<item value=" 87: 40"/>
+	<item value=" 88: 39"/>
+	<item value=" 89: 38"/>
+	<item value=" 90: 37"/>
+	<item value=" 91: 36"/>
+	<item value=" 92: 35"/>
+	<item value=" 93: 34"/>
+	<item value=" 94: 33"/>
+	<item value=" 95: 32"/>
+	<item value=" 96: 31"/>
+	<item value=" 97: 30"/>
+	<item value=" 98: 29"/>
+	<item value=" 99: 28"/>
+	<item value="100: 27"/>
+	<item value="101: 26"/>
+	<item value="102: 25"/>
+	<item value="103: 24"/>
+	<item value="104: 23"/>
+	<item value="105: 22"/>
+	<item value="106: 21"/>
+	<item value="107: 20"/>
+	<item value="108: 19"/>
+	<item value="109: 18"/>
+	<item value="110: 17"/>
+	<item value="111: 16"/>
+	<item value="112: 15"/>
+	<item value="113: 14"/>
+	<item value="114: 13"/>
+	<item value="115: 12"/>
+	<item value="116: 11"/>
+	<item value="117: 10"/>
+	<item value="118:  9"/>
+	<item value="119:  8"/>
+	<item value="120:  7"/>
+	<item value="121:  6"/>
+	<item value="122:  5"/>
+	<item value="123:  4"/>
+	<item value="124:  3"/>
+	<item value="125:  2"/>
+	<item value="126:  1"/>
+	<item value="    Wet"/>
+</list>
+
+<list id="list_env_sustain_modes">
+    <item value="Sustain"/>
+    <item value="Fall"/>
+    <item value="Rise"/>
+</list>
+
+<list id="list_filter_modes">
+    <item value="LP"/>
+    <item value="HP"/>
+    <item value="BP"/>
+    <item value="BS"/>
+</list>
+
+<list id="list_filter_routings">
+    <item value="Ser4"/>
+    <item value="Ser6"/>
+    <item value="Par4"/>
+    <item value="Split"/>
+</list>
+
+<list id="list_fm_modes">
+    <item value="Pos-Tri"/>
+    <item value="Tri"/>
+    <item value="Wave"/>
+    <item value="Noise"/>
+    <item value="In L"/>
+    <item value="In L+R"/>
+    <item value="In R"/>
+    <item value="Aux 1 L"/>
+    <item value="Aux 1 L+R"/>
+    <item value="Aux 1 R"/>
+    <item value="Aux 2 L"/>
+    <item value="Aux 2 L+R"/>
+    <item value="Aux 2 R"/>
+</list>
+
+<list id="list_input_modes">
+    <item value="Off"/>
+    <item value="Dynamic"/>
+    <item value="Static"/>
+    <item value="ToEffects"/>
+</list>
+
+<list id="list_input_follower_modes">
+    <item value="Off"/>
+    <item value="In L"/>
+    <item value="In L+R"/>
+    <item value="In R"/>
+    <item value="Aux 1 L"/>
+    <item value="Aux 1 L+R"/>
+    <item value="Aux 1 R"/>
+    <item value="Aux 2 L"/>
+    <item value="Aux 2 L+R"/>
+    <item value="Aux 2 R"/>
+</list>
+
+<list id="list_input_selects">
+    <item value="In L"/>
+    <item value="In L+R"/>
+    <item value="In R"/>
+    <item value="Aux 1 L"/>
+    <item value="Aux 1 L+R"/>
+    <item value="Aux 1 R"/>
+    <item value="Aux 2 L"/>
+    <item value="Aux 2 L+R"/>
+    <item value="Aux 2 R"/>
+</list>
+
+<list id="list_key_modes">
+    <item value="Poly"/>
+    <item value="Mono1 (Multi-Trigger)"/>
+    <item value="Mono2 (Multi-Trigger + Glide)"/>
+    <item value="Mono3 (Single-Trigger)"/>
+    <item value="Mono4 (Single-Trigger + Glide)"/>
+    <item value="Poly (Hold)"/>
+</list>
+
+<list id="list_keys">
+	<item value="C-1"/>
+	<item value="C#-1"/>
+	<item value="D-1"/>
+	<item value="D#-1"/>
+	<item value="E-1"/>
+	<item value="F-1"/>
+	<item value="F#-1"/>
+	<item value="G-1"/>
+	<item value="G#-1"/>
+	<item value="A-1"/>
+	<item value="A#-1"/>
+	<item value="B-1"/>
+	<item value="C0"/>
+	<item value="C#0"/>
+	<item value="D0"/>
+	<item value="D#0"/>
+	<item value="E0"/>
+	<item value="F0"/>
+	<item value="F#0"/>
+	<item value="G0"/>
+	<item value="G#0"/>
+	<item value="A0"/>
+	<item value="A#0"/>
+	<item value="B0"/>
+	<item value="C1"/>
+	<item value="C#1"/>
+	<item value="D1"/>
+	<item value="D#1"/>
+	<item value="E1"/>
+	<item value="F1"/>
+	<item value="F#1"/>
+	<item value="G1"/>
+	<item value="G#1"/>
+	<item value="A1"/>
+	<item value="A#1"/>
+	<item value="B1"/>
+	<item value="C2"/>
+	<item value="C#2"/>
+	<item value="D2"/>
+	<item value="D#2"/>
+	<item value="E2"/>
+	<item value="F2"/>
+	<item value="F#2"/>
+	<item value="G2"/>
+	<item value="G#2"/>
+	<item value="A2"/>
+	<item value="A#2"/>
+	<item value="B2"/>
+	<item value="C3"/>
+	<item value="C#3"/>
+	<item value="D3"/>
+	<item value="D#3"/>
+	<item value="E3"/>
+	<item value="F3"/>
+	<item value="F#3"/>
+	<item value="G3"/>
+	<item value="G#3"/>
+	<item value="A3"/>
+	<item value="A#3"/>
+	<item value="B3"/>
+	<item value="C4"/>
+	<item value="C#4"/>
+	<item value="D4"/>
+	<item value="D#4"/>
+	<item value="E4"/>
+	<item value="F4"/>
+	<item value="F#4"/>
+	<item value="G4"/>
+	<item value="G#4"/>
+	<item value="A4"/>
+	<item value="A#4"/>
+	<item value="B4"/>
+	<item value="C5"/>
+	<item value="C#5"/>
+	<item value="D5"/>
+	<item value="D#5"/>
+	<item value="E5"/>
+	<item value="F5"/>
+	<item value="F#5"/>
+	<item value="G5"/>
+	<item value="G#5"/>
+	<item value="A5"/>
+	<item value="A#5"/>
+	<item value="B5"/>
+	<item value="C6"/>
+	<item value="C#6"/>
+	<item value="D6"/>
+	<item value="D#6"/>
+	<item value="E6"/>
+	<item value="F6"/>
+	<item value="F#6"/>
+	<item value="G6"/>
+	<item value="G#6"/>
+	<item value="A6"/>
+	<item value="A#6"/>
+	<item value="B6"/>
+	<item value="C7"/>
+	<item value="C#7"/>
+	<item value="D7"/>
+	<item value="D#7"/>
+	<item value="E7"/>
+	<item value="F7"/>
+	<item value="F#7"/>
+	<item value="G7"/>
+	<item value="G#7"/>
+	<item value="A7"/>
+	<item value="A#7"/>
+	<item value="B7"/>
+	<item value="C8"/>
+	<item value="C#8"/>
+	<item value="D8"/>
+	<item value="D#8"/>
+	<item value="E8"/>
+	<item value="F8"/>
+	<item value="F#8"/>
+	<item value="G8"/>
+	<item value="G#8"/>
+	<item value="A8"/>
+	<item value="A#8"/>
+	<item value="B8"/>
+	<item value="C9"/>
+	<item value="C#9"/>
+	<item value="D9"/>
+	<item value="D#9"/>
+	<item value="E9"/>
+	<item value="F9"/>
+	<item value="F#9"/>
+	<item value="G9"/>
+</list>
+
+<list id="list_lfo_clocks">
+    <item value="Off"/>
+    <item value="1/64"/>
+    <item value="1/32"/>
+    <item value="1/16"/>
+    <item value="1/8"/>
+    <item value="1/4"/>
+    <item value="1/2"/>
+    <item value="3/64"/>
+    <item value="3/32"/>
+    <item value="3/16"/>
+    <item value="3/8"/>
+    <item value="1/24"/>
+    <item value="1/12"/>
+    <item value="1/6"/>
+    <item value="1/3"/>
+    <item value="2/3"/>
+    <item value="3/4"/>
+    <item value="1/1"/>
+    <item value="2/1"/>
+    <item value="4/1"/>
+    <item value="8/1"/>
+    <item value="16/1"/>
+</list>
+
+<list id="list_lfo_destinations">
+    <item value="Osc 1"/>
+    <item value="Osc 1+2"/>
+    <item value="Osc 2"/>
+    <item value="PW 1"/>
+    <item value="PW 1+2"/>
+    <item value="PW 2"/>
+</list>
+
+<list id="list_lfo_modes">
+    <item value="Poly"/>
+    <item value="Mono"/>
+</list>
+
+<list id="list_mod_matrix_destinations">
+    <item value="Off"/>
+    <item value="PatchVol"/>
+    <item value="ChannelVol"/>
+    <item value="Panorama"/>
+    <item value="Transpose"/>
+    <item value="Portamento"/>
+    <item value="Osc1Shape"/>
+    <item value="Osc1PlsWdh"/>
+    <item value="Osc1WavSel"/>
+    <item value="Osc1Pitch"/>
+    <item value="Osc1Keyflw"/>
+    <item value="Osc2Shape"/>
+    <item value="Osc2PlsWdh"/>
+    <item value="Osc2WavSel"/>
+    <item value="Osc2Pitch"/>
+    <item value="Osc2Detune"/>
+    <item value="Osc2FmAmt"/>
+    <item value="Osc2EnvAmt"/>
+    <item value="FmEnvAmt"/>
+    <item value="Osc2Keyflw"/>
+    <item value="OscBalance"/>
+    <item value="SubOscVol"/>
+    <item value="OscMainVol"/>
+    <item value="NoiseVol"/>
+    <item value="Cutoff"/>
+    <item value="Cutoff2"/>
+    <item value="Filt1Reso"/>
+    <item value="Filt2Reso"/>
+    <item value="Flt1EnvAmt"/>
+    <item value="Flt2EnvAmt"/>
+    <item value="Flt1Keyflw"/>
+    <item value="Flt2Keyflw"/>
+    <item value="FltBalance"/>
+    <item value="FltAttack"/>
+    <item value="FltDecay"/>
+    <item value="FltSustain"/>
+    <item value="FltSusTime"/>
+    <item value="FltRelease"/>
+    <item value="AmpAttack"/>
+    <item value="AmpDecay"/>
+    <item value="AmpSustain"/>
+    <item value="AmpSusTime"/>
+    <item value="AmpRelease"/>
+    <item value="Lfo1Rate"/>
+    <item value="Lfo1Cont"/>
+    <item value="Lfo1>Osc1"/>
+    <item value="Lfo1>Osc2"/>
+    <item value="Lfo1>PlsWd"/>
+    <item value="Lfo1>Reso"/>
+    <item value="Lfo1>FltGn"/>
+    <item value="Lfo2Rate"/>
+    <item value="Lfo2Cont"/>
+    <item value="Lfo2>Shape"/>
+    <item value="Lfo2>Fm"/>
+    <item value="Lfo2>Cut1"/>
+    <item value="Lfo2>Cut2"/>
+    <item value="Lfo2>Pan"/>
+    <item value="Lfo3Rate"/>
+    <item value="Lfo3OscAmt"/>
+    <item value="UniDetune"/>
+    <item value="UniSpread"/>
+    <item value="UniLfoPhs"/>
+    <item value="ChorusMix"/>
+    <item value="ChorusRate"/>
+    <item value="ChorusDpth"/>
+    <item value="ChorusDly"/>
+    <item value="ChorusFeed"/>
+    <item value="EffectSend"/>
+    <item value="DelayTime"/>
+    <item value="DelayFeed"/>
+    <item value="DelayRate"/>
+    <item value="DelayDepth"/>
+    <item value="Osc1ShpVel"/>
+    <item value="Osc2ShpVel"/>
+    <item value="PlsWhdVel"/>
+    <item value="FmAmtVel"/>
+    <item value="Flt1EnvVel"/>
+    <item value="Flt2EnvVel"/>
+    <item value="Reso1Vel"/>
+    <item value="Reso2Vel"/>
+    <item value="AmpVel"/>
+    <item value="PanVel"/>
+    <item value="Ass1Amt1"/>
+    <item value="Ass1Amt1"/>
+    <item value="Ass2Amt2"/>
+    <item value="Ass3Amt1"/>
+    <item value="OscInitPhs"/>
+    <item value="PunchInt"/>
+    <item value="RingMod"/>
+    <item value="NoiseColor"/>
+    <item value="DelayColor"/>
+    <item value="ABoostInt"/>
+    <item value="ABoostTune"/>
+    <item value="DistInt"/>
+    <item value="RingmodMix"/>
+    <item value="Osc3Volume"/>
+    <item value="Osc3Semi"/>
+    <item value="Osc3Detune"/>
+    <item value="Lfo1AssAmt"/>
+    <item value="Lfo2AssAmt"/>
+    <item value="PhaserMix"/>
+    <item value="PhaserRate"/>
+    <item value="PhaserDept"/>
+    <item value="PhaserFreq"/>
+    <item value="PhaserFdbk"/>
+    <item value="PhaserSprd"/>
+    <item value="RevbDecay"/>
+    <item value="RevDamping"/>
+    <item value="RevbColor"/>
+    <item value="RevPreDely"/>
+    <item value="RevFeedbck"/>
+    <item value="SecBalance"/>
+    <item value="ArpNoteLen"/>
+    <item value="ArpSwing"/>
+    <item value="ArpPattern"/>
+    <item value="EqMidGain"/>
+    <item value="EqMidFreq"/>
+    <item value="EqMidQFactor"/>
+    <item value="Assign4Amt"/>
+    <item value="Assign5Amt"/>
+    <item value="Assign6Amt"/>
+</list>
+
+<list id="list_mod_matrix_sources">
+    <item value="Off"/>
+    <item value="PitchBnd"/>
+    <item value="ChanPres"/>
+    <item value="ModWheel"/>
+    <item value="Breath"/>
+    <item value="Contr3"/>
+    <item value="Foot"/>
+    <item value="Data"/>
+    <item value="Balance"/>
+    <item value="Contr9"/>
+    <item value="Express"/>
+    <item value="Contr12"/>
+    <item value="Contr13"/>
+    <item value="Contr14"/>
+    <item value="Contr15"/>
+    <item value="Contr16"/>
+    <item value="HoldPed"/>
+    <item value="PortaSw"/>
+    <item value="SostPed"/>
+    <item value="AmpEnv"/>
+    <item value="FiltEnv"/>
+    <item value="Lfo1"/>
+    <item value="Lfo2"/>
+    <item value="Lfo3"/>
+    <item value="VeloOn"/>
+    <item value="VeloOff"/>
+    <item value="KeyFlw"/>
+    <item value="Random"/>
+</list>
+
+<list id="list_off_on">
+    <item value="Off"/>
+    <item value="On"/>
+</list>
+
+<list id="list_output_selects">
+    <item value="Out 1 L"/>
+    <item value="Out 1 L+R"/>
+    <item value="Out 1 R"/>
+    <item value="Out 2 L"/>
+    <item value="Out 2 L+R"/>
+    <item value="Out 2 R"/>
+    <item value="Out 3 L"/>
+    <item value="Out 3 L+R"/>
+    <item value="Out 3 R"/>
+    <item value="Aux 1 L"/>
+    <item value="Aux 1 L+R"/>
+    <item value="Aux 1 R"/>
+    <item value="Aux 2 L"/>
+    <item value="Aux 2 L+R"/>
+    <item value="Aux 2 R"/>
+</list>
+
+<list id="list_polarities">
+    <item value="Negative"/>
+    <item value="Positive"/>
+</list>
+
+<list id="list_reverb_room_sizes">
+    <item value="Ambience"/>
+    <item value="SmallRoom"/>
+    <item value="LargeRoom"/>
+    <item value="Hall"/>
+</list>
+
+<list id="list_saturation_curves">
+    <item value="Off"/>
+    <item value="Light"/>
+    <item value="Soft"/>
+    <item value="Middle"/>
+    <item value="Hard"/>
+    <item value="Digital"/>
+    <item value="Shaper"/>
+    <item value="Rectifier"/>
+    <item value="BitReduce"/>
+    <item value="RateReduc"/>
+    <item value="Rate+Flw"/>
+    <item value="LowPass"/>
+    <item value="Low+Flw"/>
+    <item value="HighPass"/>
+    <item value="High+Flw"/>
+</list>
+
+<list id="list_soft_knob_descriptions">
+    <item value="Attack"/>
+    <item value="Sustain"/>
+    <item value="Release"/>
+    <item value="Filter"/>
+    <item value="Cutoff1"/>
+    <item value="Cutoff2"/>
+    <item value="Cutoff"/>
+    <item value="Reso"/>
+    <item value="Balance"/>
+    <item value="FX Amt"/>
+    <item value="Dly Amt"/>
+    <item value="Cho Amt"/>
+    <item value="Pha Amt"/>
+    <item value="Dis Amt"/>
+    <item value="Detune"/>
+    <item value="Shape"/>
+    <item value="Osc Vol"/>
+    <item value="Osc Bal"/>
+    <item value="Noise"/>
+    <item value="RingMod"/>
+    <item value="SubOsc"/>
+    <item value="FM"/>
+    <item value="Tone"/>
+    <item value="Tempo"/>
+    <item value="Speed"/>
+    <item value="Scream"/>
+    <item value="Depth"/>
+    <item value="Fear"/>
+    <item value="Flow"/>
+    <item value="Fast"/>
+    <item value="Slow"/>
+    <item value="Morph"/>
+    <item value="Rate"/>
+</list>
+
+<list id="list_soft_knob_destinations">
+    <item value="Off"/>
+    <item value="ModWheel"/>
+    <item value="Breath"/>
+    <item value="Contr3"/>
+    <item value="Foot"/>
+    <item value="Data"/>
+    <item value="Balance"/>
+    <item value="Contr9"/>
+    <item value="Express"/>
+    <item value="Contr12"/>
+    <item value="Contr13"/>
+    <item value="Contr14"/>
+    <item value="Contr15"/>
+    <item value="Contr16"/>
+    <item value="PatchVol"/>
+    <item value="ChannelVol"/>
+    <item value="Panorama"/>
+    <item value="Transpose"/>
+    <item value="Portamento"/>
+    <item value="UnisonDetune"/>
+    <item value="UnisonPanSprd"/>
+    <item value="UnisonLfoPhase"/>
+    <item value="ChorusMix"/>
+    <item value="ChorusRate"/>
+    <item value="ChorusDpth"/>
+    <item value="ChorusDelay"/>
+    <item value="ChorusFeedback"/>
+    <item value="EffectSend"/>
+    <item value="DelayTime(ms)"/>
+    <item value="DelayFeedback"/>
+    <item value="DelayRate"/>
+    <item value="DelayDepth"/>
+    <item value="Osc1WavSelect"/>
+    <item value="Osc1PusleWidth"/>
+    <item value="Osc1Semitone"/>
+    <item value="Osc1Keyfollow"/>
+    <item value="Osc2WavSelect"/>
+    <item value="Osc2PusleWidth"/>
+    <item value="Osc2EnvAmount"/>
+    <item value="FmEnvAmount"/>
+    <item value="Osc2Keyfollow"/>
+    <item value="NoiseVolume"/>
+    <item value="Filt1Resonance"/>
+    <item value="Filt2Resonance"/>
+    <item value="Filt1EnvAmount"/>
+    <item value="Filt2EnvAmount"/>
+    <item value="Filt1Keyfollow"/>
+    <item value="Filt2Keyfollow"/>
+    <item value="Lfo1Symmetry"/>
+    <item value="Lfo1>Osc1"/>
+    <item value="Lfo1>Osc2"/>
+    <item value="Lfo1>PulsWidth"/>
+    <item value="Lfo1>Resonance"/>
+    <item value="Lfo1>FiltGain"/>
+    <item value="Lfo2Symmetry"/>
+    <item value="Lfo2>Shape"/>
+    <item value="Lfo2>FmAmount"/>
+    <item value="Lfo2>Cutoff1"/>
+    <item value="Lfo2>Cutoff2"/>
+    <item value="Lfo2>Panorama"/>
+    <item value="Lfo3Rate"/>
+    <item value="Lfo3OscAmount"/>
+    <item value="Osc1ShapeVel"/>
+    <item value="PulsWidthVel"/>
+    <item value="FmAmountVel"/>
+    <item value="Filt1EnvVel"/>
+    <item value="Filt2EnvVel"/>
+    <item value="Resonance1Vel"/>
+    <item value="Resonance2Vel"/>
+    <item value="AmplifierVel"/>
+    <item value="PanoramaVel"/>
+    <item value="Assign1Amt1"/>
+    <item value="Assign2Amt1"/>
+    <item value="Assign2Amt2"/>
+    <item value="Assign3Amt1"/>
+    <item value="Assign3Amt2"/>
+    <item value="Assign3Amt3"/>
+    <item value="ClockTempo"/>
+    <item value="InputThru"/>
+    <item value="OscInitPhase"/>
+    <item value="PunchIntensity"/>
+    <item value="RingModulator"/>
+    <item value="NoiseColor"/>
+    <item value="DelayColor"/>
+    <item value="AnalogBoostInt"/>
+    <item value="AnalogBstTune"/>
+    <item value="DistortionInt"/>
+    <item value="RingModMix"/>
+    <item value="Osc3Volume"/>
+    <item value="Osc3Semitone"/>
+    <item value="Osc3Detune"/>
+    <item value="Lfo1AssignAmt"/>
+    <item value="Lfo2AssignAmt"/>
+    <item value="PhaserMix"/>
+    <item value="PhaserRate"/>
+    <item value="PhaserDepth"/>
+    <item value="PhaserFrequenc"/>
+    <item value="PhaserFeedback"/>
+    <item value="PhaserSpread"/>
+    <item value="RevDecayTime"/>
+    <item value="ReverbDamping"/>
+    <item value="ReverbColor"/>
+    <item value="RevFeedback"/>
+    <item value="SecondBalance"/>
+    <item value="ArpMode"/>
+    <item value="ArpPattern"/>
+    <item value="ArpClock"/>
+    <item value="ArpNoteLength"/>
+    <item value="ArpOctave"/>
+    <item value="ArpHold"/>
+    <item value="EqMidGain"/>
+    <item value="EqMidFreq"/>
+    <item value="EqMidQFactor"/>
+    <item value="Assign4Amt"/>
+    <item value="Assign5Amt"/>
+    <item value="Assign6Amt"/>
+</list>
+
+<list id="list_suboscillator_shapes">
+    <item value="Square"/>
+    <item value="Triangle"/>
+</list>
+
+<list id="list_unison_modes">
+    <item value="Off"/>
+    <item value="Twin"/>
+    <item value=" 3"/>
+    <item value=" 4"/>
+    <item value=" 5"/>
+    <item value=" 6"/>
+    <item value=" 7"/>
+    <item value=" 8"/>
+    <item value=" 9"/>
+    <item value="10"/>
+    <item value="11"/>
+    <item value="12"/>
+    <item value="13"/>
+    <item value="14"/>
+    <item value="15"/>
+    <item value="16"/>
+</list>
+
+<list id="list_vocoder_modes">
+    <item value="Off"/>
+    <item value="Osc"/>
+    <item value="OscHold"/>
+    <item value="Noise"/>
+    <item value="In L"/>
+    <item value="In L+R"/>
+    <item value="In R"/>
+    <item value="Aux 1 L"/>
+    <item value="Aux 1 L+R"/>
+    <item value="Aux 1 R"/>
+    <item value="Aux 2 L"/>
+    <item value="Aux 2 L+R"/>
+    <item value="Aux 2 R"/>
+</list>
+
+</lists>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Number scales describe number ranges to decode hexadecimal values 
+	into their corresponding decimal values. Scales may not be nested.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<scales>
+
+<scale id="scale_arp_swing" min="0" max="127">
+    <range min="0" max="127" minval="50" increment="0.19685" format="%3.1f %%"/>
+</scale>
+
+<scale id="scale_centered" min="0" max="127">
+    <range min="0" max="127" minval="-64" increment="1" format="%+d"/>
+</scale>
+
+<scale id="scale_cents" min="0" max="127">
+    <range min="0" max="63" minval="-64" increment="1" format="%-dc"/>
+    <range min="64" max="64" minval="0"/>
+    <range min="65" max="127" minval="1" increment="1" format="%+dc"/>
+</scale>
+
+<scale id="scale_clock_tempos" min="0" max="127">
+    <range min="0" max="127" minval="63" increment="1" format="%d bpm"/>
+</scale>
+
+<scale id="scale_delay_times" min="0" max="127">
+    <range min="0" max="127" minval="0.0" increment="5.4567" format="%4.1f ms"/>
+</scale>
+
+<scale id="scale_env_sustain_time" min="0" max="127">
+    <range min="0" max="0" minval="Fall"/>
+    <range min="1" max="63" minval="-63" increment="1" format="Fall %d"/>
+    <range min="64" max="64" minval="Infinite"/>
+    <range min="65" max="126" minval="1" increment="1" format="Rise %d"/>
+    <range min="127" max="127" minval="Rise"/>
+</scale>
+
+<scale id="scale_eq_gain" min="0" max="127">
+    <range min="0" max="63" minval="-16" increment="0.25" format="%-4.2f dB"/>
+    <range min="64" max="64" minval="Off"/>
+    <range min="65" max="126" minval="0.25" increment="0.25" format="%+4.2f dB"/>
+    <range min="127" max="127" minval="+16.00 dB"/>
+</scale>
+
+<scale id="scale_keyfollow" min="0" max="127">
+    <range min="0" max="0" minval="Off"/>
+    <range min="1" max="127" minval="1" increment="1"/>
+</scale>
+
+<scale id="scale_lfo_keytrigger" min="0" max="127">
+    <range min="0" max="0" minval="Off"/>
+    <range min="1" max="127" minval="2.8346" increment="2.8346" format="%3.1f deg"/>
+</scale>
+
+<scale id="scale_lfo_shapes" min="0" max="64">
+    <range min="0" max="0" minval="Sine"/>
+    <range min="1" max="1" minval="Triangle"/>
+    <range min="2" max="2" minval="Saw"/>
+    <range min="3" max="3" minval="S&amp;H"/>
+    <range min="4" max="4" minval="S&amp;G"/>
+    <range min="5" max="64" minval="5" increment="1" format="Wave %d"/>
+</scale>
+
+<scale id="scale_noise_colors" min="0" max="127">
+    <range min="0" max="63" minval="-64" increment="1" format="Lowpass %-d"/>
+    <range min="64" max="64" minval="Neutral"/>
+    <range min="65" max="127" minval="1" increment="1" format="HighPass %+d"/>
+</scale>
+
+<scale id="scale_osc_phases" min="0" max="127">
+    <range min="0" max="0" minval="Freewheel"/>
+    <range min="1" max="127" minval="1" increment="1"/>
+</scale>
+
+<scale id="scale_osc_waves" min="0" max="64">
+    <range min="0" max="0" minval="Sine"/>
+    <range min="1" max="1" minval="Triangle"/>
+    <range min="2" max="64" minval="3" increment="1" format="Wave %d"/>
+</scale>
+
+<scale id="scale_osc3_waves" min="0" max="67">
+    <range min="0" max="0" minval="Off"/>
+    <range min="1" max="1" minval="Osc2Slave"/>
+    <range min="2" max="2" minval="Saw"/>
+    <range min="3" max="3" minval="Sine"/>
+    <range min="4" max="4" minval="Triangle"/>
+    <range min="5" max="67" minval="3" increment="1" format="Wave %d"/>
+</scale>
+
+<scale id="scale_panorama" min="0" max="127">
+    <range min="0" max="0" minval="Left"/>
+    <range min="1" max="63" minval="-63" increment="1"/>
+    <range min="64" max="64" minval="Center"/>
+    <range min="65" max="126" minval="1" increment="1"/>
+    <range min="127" max="127" minval="Right"/>
+</scale>
+
+<scale id="scale_phaser_stages" min="0" max="5">
+    <range min="0" max="5" minval="1" increment="1"/>
+</scale>
+
+<scale id="scale_pulse_width" min="0" max="127">
+    <range min="0" max="127" minval="50" increment="-0.3937" format="%4.2f%%"/>
+</scale>
+
+<scale id="scale_second_balance" min="0" max="127">
+    <range min="0" max="0" minval="Off"/>
+    <range min="1" max="1" minval="Left"/>
+    <range min="2" max="63" minval="-62" increment="1" format="Left %d"/>
+    <range min="64" max="64" minval="Center"/>
+    <range min="65" max="126" minval="1" increment="1" format="Right %d"/>
+    <range min="127" max="127" minval="Right"/>
+</scale>
+
+<scale id="scale_semitone" min="0" max="127">
+    <range min="0" max="127" minval="-48" increment="1" format="%+d"/>
+</scale>
+
+<scale id="scale_unison_mode" min="0" max="15">
+    <range min="0" max="0" minval="Off"/>
+    <range min="1" max="1" minval="Twin"/>
+    <range min="2" max="15" minval="3" increment="1"/>
+</scale>
+
+<scale id="scale_vocoder_bands" min="0" max="127">
+    <range min="0" max="127" minval="1" increment=".25" format="%d"/>
+</scale>
+
+<scale id="scale_wave_shapes" min="0" max="127">
+    <range min="0" max="0" minval="Wave"/>
+    <range min="1" max="63" minval="-63" increment="1"/>
+    <range min="64" max="64" minval="Saw"/>
+    <range min="65" max="126" minval="1" increment="1"/>
+    <range min="127" max="127" minval="Pulse"/>
+</scale>
+
+</scales>
+
+</decoder>

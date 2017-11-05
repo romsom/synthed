@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Common</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+    <WIDGET CLASS="GroupWidget" ENABLE="vocoder_mode.getData() == 0 and input_follower_mode.getData() == 0">
+    <PARAMETER ID="vocoder_mode" INDEXER="false"></PARAMETER>
+    <PARAMETER ID="input_follower_mode" INDEXER="false"></PARAMETER>
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Common</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Filter Routing:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="list_filter_routings"> 
+			  <PARAMETER ID="filter_routing"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Saturation Curve:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="list_saturation_curves"> 
+			  <PARAMETER ID="saturation_curve"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Keyfollow Base:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SpinWidget" WIDTH="100%" DECODER="list_keys"> 
+			  <PARAMETER ID="filter_keytrack_base"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+	 </TABLE> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="2" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Envelope</b></font>
+           </th> 
+         </tr> 
+        <tr> 
+           <td width="40%">
+             <WIDGET CLASS="EnvelopeWidget">
+             	<PARAMETER ID="filter_env_sustain_time" INDEXER="false"></PARAMETER>
+             	
+				<PARAMETER ID="CONSTANT_0"></PARAMETER>
+				<PARAMETER ID="CONSTANT_0"></PARAMETER>
+						
+				<PARAMETER ID="filter_env_attack"></PARAMETER>
+				<PARAMETER ID="CONSTANT_127"></PARAMETER>
+						
+				<PARAMETER ID="filter_env_decay"></PARAMETER>
+				<PARAMETER ID="filter_env_sustain"></PARAMETER>
+						
+				<PARAMETER ID="v_filter_env_sustain_time"></PARAMETER>
+				<PARAMETER ID="v_filter_env_sustain_level"></PARAMETER>
+		
+				<PARAMETER ID="filter_env_release"></PARAMETER>
+				<PARAMETER ID="CONSTANT_0"></PARAMETER>
+	      </WIDGET>
+	   </td> 
+           <td> 
+              <table cellspacing="1"> 
+                  <tr>
+                    <td colspan="5">
+                    <table>
+                      <tr>
+                       <td><color="#000000" face="Arial">Sustain Mode</font></td> 
+ 		               <td><widget class="ChoiceWidget" decoder="decode_filter_env_sustain_mode">
+ 		                 <parameter id="filter_env_sustain" indexer="false"></parameter>
+ 		                 <parameter id="filter_env_sustain_time" indexer="false"></parameter>
+		                 <parameter id="v_filter_env_sustain_mode"></parameter> 
+		               </widget></td>
+		              </tr>
+		              <tr>
+                       <td><color="#000000" face="Arial">Sustain Time</font></td> 
+ 		               <td><widget class="SliderWidget" layout="horizontal">
+ 		                 <parameter id="v_filter_env_sustain_mode" indexer="false"></parameter>
+ 		                 <parameter id="filter_env_sustain_time" indexer="false"></parameter>
+		                 <parameter id="v_filter_env_sustain_time"></parameter> 
+		               </widget></td> 
+                      </tr>
+                    </table>
+                    </td>
+                  </tr>
+                  <tr valign="TOP"> 
+                     <td><font size="-1"  color="#000000" face="Arial">Atk</font></td>
+                     <td><font size="-1"  color="#000000" face="Arial">Dec</font></td> 
+                     <td><font size="-1"  color="#000000" face="Arial">Sus</font></td> 
+                     <td><font size="-1"  color="#000000" face="Arial">Tim</font></td> 
+                     <td><font size="-1"  color="#000000" face="Arial">Rel</font></td> 
+                  </tr> 
+                  <tr> 
+				    <td><widget class="SliderWidget" layout="vertical">
+				        <parameter id="filter_env_attack"/>
+		            </widget></td> 
+		            <td><widget class="SliderWidget" layout="vertical">
+		              <parameter id="filter_env_decay"></parameter> 
+		            </widget></td> 
+		            <td><widget class="SliderWidget" layout="vertical">
+		              <parameter id="filter_env_sustain"></parameter> 
+		            </widget></td> 
+		            <td><widget class="SliderWidget" layout="vertical">
+		              <parameter id="v_filter_env_sustain_time" indexer="false"></parameter>
+		              <parameter id="filter_env_sustain_time"></parameter> 
+		            </widget></td> 
+		            <td><widget class="SliderWidget" layout="vertical">
+		              <parameter id="filter_env_release"></parameter> 
+		            </widget></td> 
+		          </tr>
+             </table>
+            </td> 
+         </tr> 
+	 </TABLE>   
+   </WIDGET>
+  </BODY>
+</HTML>

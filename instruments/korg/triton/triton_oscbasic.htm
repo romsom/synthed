@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to html 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Program Basic</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table cellspacing="1"> 
+         <tr> 
+            <td><font color="#006666" face="Arial">Osc Mode</font></td>
+            <td><widget class="ChoiceWidget" decoder="list_oscmodes" 
+               tip="Single=OSC1 only.\nDouble=OSC1+OSC2.\nDrums=Drumkit.">
+               <parameter ID="COMMON_oscillator_mode"></parameter> 
+            </widget></td> 
+            <td><font color="#006666" face="Arial">Vel. SW Lo/Hi</font></td> 
+            <td><widget class="SpinWidget" format="%03d" 
+               tip="High multisample sounds if note velocity &gt; this.">
+               <parameter ID="OSC1_vel_m_sample_sw"></parameter> 
+               </widget></td> 
+         </tr> 
+      </table> 
+      <table  valign="top" cellspacing="1"> 
+         <tr> 
+            <th colspan="2" bgcolor="#FFFF99"><font SIZE="4"
+            color="#006666" face="Arial"><B>OSC1 Multisample</B></font></th> 
+         </tr> 
+         <tr> 
+            <td width="67%"> 
+               <table border="0"> 
+                  <tr> 
+                     <!-- Todo: only banks that are present in the attached synth should be enabled. -->
+                     <td><font color="#006666" face="Arial">High</font></td> 
+                     <td colspan="2"><widget class="ChoiceWidget"
+                      enable="COMMON_oscillator_mode.getData() != 2" decoder="list_msbanks"
+                      tip="High velocity multisample bank">
+                        <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                        <parameter ID="OSC1_hi_bank"></parameter> 
+                     </widget></td> 
+                     <td colspan="3"><widget class="ChoiceWidget"
+                      enable="COMMON_oscillator_mode.getData() != 2" decoder="list_multisamples"
+                      tip="High velocity multisample will sound when the note velocity &gt; Vel. SW Lo/Hi"">
+                        <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                        <parameter ID="OSC1_hi_bank"></parameter> 
+                        <parameter ID="OSC1_hi_sample_no"></parameter> 
+                     </widget></td> 
+                  </tr> 
+                  <tr> 
+                     <td><font color="#006666" face="Arial">Low</font></td> 
+                     <td colspan="2"><widget class="ChoiceWidget"
+                      enable="COMMON_oscillator_mode.getData() != 2" decoder="list_msbanks"
+                      tip="Low velocity multisample bank">
+                        <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                        <parameter ID="OSC1_low_bank"></parameter> 
+                     </widget></td> 
+                     <td colspan="3"><widget class="ChoiceWidget" decoder="list_multisamples"
+                      enable="COMMON_oscillator_mode.getData() != 2"
+                      tip="Low velocity multisample will sound when the note velocity &lt;= Vel. SW Lo/Hi">
+                        <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                        <parameter ID="OSC1_low_bank"></parameter> 
+                        <parameter ID="OSC1_low_sample_no"></parameter> 
+                     </widget></td> 
+                  </tr> 
+                  <tr> 
+                     <td></td>
+                     <td align="right" colspan="2"><font color="#006666" face="Arial">DrumKit</font></td> 
+                     <td colspan="3"><widget class="ChoiceWidget" decoder="list_drumkits"
+                      enable="COMMON_oscillator_mode.getData() == 2"
+                      tip="Drum kit">
+                        <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                        <parameter ID="OSC1_dkit_no"></parameter> 
+                     </widget></td> 
+                  </tr> 
+                  <tr>
+                     <widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() != 2">
+                        <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter> 
+                        <td><font color="#006666" face="Arial">S.Ofs</font></td> 
+                        <td><widget class="CheckWidget"
+                           tip="Start Offset. On=predetermined start point. Off=Beginning of multisample.">
+                           <parameter ID="OSC1_low_start_offset"></parameter> 
+                           </widget></td>
+                        <td><font color="#006666" face="Arial">Rev</font></td>
+                        <td><widget class="CheckWidget" tip="Reverse">
+                           <parameter ID="OSC1_low_reverse"></parameter> 
+                           </widget></td> 
+                        <td><font color="#006666" face="Arial">Level</font></td> 
+                        <td width="20%"><widget class="SpinWidget" format="%03d"
+                        tip="OSC level or volume">
+                           <parameter ID="OSC1_low_level"></parameter> 
+                           </widget></td> 
+                     </widget>
+                  </tr>
+               </table> 
+            </td> 
+            <td> 
+               <table border="0" valign="top"> 
+                  <tr> 
+                     <td width="30%"><font color="#006666" face="Arial">Oct</font></td> 
+                     <td width="70%"><widget class="SpinWidget" decoder="scale_octave_offset"
+                     tip="Octave adjusts the pitch by octaves"> 
+                        <parameter ID="OSC1_PITCH_octave"></parameter> 
+                     </widget></td> 
+                   </tr> 
+                  <tr> 
+                     <td><font color="#006666" face="Arial">Trans</font></td> 
+                     <td><widget class="SpinWidget" format="%+03d"
+                     tip="Transpose adjusts the pitch by semitones">
+                        <parameter ID="OSC1_PITCH_transpose"></parameter> 
+                     </widget></td> 
+                  </tr> 
+                  <tr> 
+                     <td><font color="#006666" face="Arial">Tune</font></td> 
+                     <td><widget class="SpinWidget" format="%+04d"
+                     tip="Tune adjusts the pitch by cents">
+                        <parameter ID="OSC1_PITCH_tune"></parameter> 
+                     </widget></td> 
+                  </tr> 
+                  <tr> 
+                     <td><font color="#006666" face="Arial">Delay</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_1-5"
+                     tip="The time delay from note-on until the oscillator sounds. KeyOff=begin sounding when note-off occurs.">
+                        <parameter ID="OSC1_delay_start"></parameter> 
+                     </widget></td> 
+                  </tr> 
+               </table> 
+            </td> 
+         </tr> 
+      </table>
+      <table cellspacing="1"> 
+         <tr> 
+         <th colspan="2" bgcolor="#FFFF99"><font SIZE="4"
+            color="#006666" face="Arial"><B>OSC2 Multisample</B></font></th> 
+         </tr> 
+         <tr> 
+         <td valign="top" width="67%"> 
+            <table> 
+               <tr> 
+               <td><font color="#006666" face="Arial">High</font></td> 
+               <td colspan="2"><widget class="ChoiceWidget"
+                  enable="COMMON_oscillator_mode.getData() == 1" decoder="list_msbanks">
+                     <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                     <parameter ID="OSC2_hi_bank"></parameter> 
+                  </widget></td> 
+               <td colspan="3"><widget class="ChoiceWidget"
+                  enable="COMMON_oscillator_mode.getData() == 1" decoder="list_multisamples">
+                     <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                     <parameter ID="OSC2_hi_bank"></parameter> 
+                     <parameter ID="OSC2_hi_sample_no"></parameter> 
+                  </widget></td> 
+               </tr> 
+               <tr> 
+               <td><font color="#006666" face="Arial">Low</font></td> 
+               <td colspan="2"><widget class="ChoiceWidget"
+                  enable="COMMON_oscillator_mode.getData() == 1" decoder="list_msbanks">
+                     <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                     <parameter ID="OSC2_low_bank"></parameter> 
+                  </widget></td> 
+               <td colspan="3"><widget class="ChoiceWidget" decoder="list_multisamples"
+                  enable="COMMON_oscillator_mode.getData() == 1">
+                     <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter>
+                     <parameter ID="OSC2_low_bank"></parameter> 
+                     <parameter ID="OSC2_low_sample_no"></parameter> 
+                  </widget></td> 
+               </tr> 
+               <tr>
+                  <widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() == 1">
+                     <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter> 
+                     <td><font color="#006666" face="Arial">S.Ofs</font></td> 
+                     <td><widget class="CheckWidget">
+                        <parameter ID="OSC2_low_start_offset"></parameter> 
+                        </widget></td> 
+                     <td><font color="#006666" face="Arial">Rev</font></td>
+                     <td><widget class="CheckWidget">
+                        <parameter ID="OSC2_low_reverse"></parameter> 
+                        </widget></td> 
+                     <td><font color="#006666" face="Arial">Level</font></td> 
+                     <td width="20%"><widget class="SpinWidget" format="%03d">
+                        <parameter ID="OSC2_low_level"></parameter> 
+                        </widget></td> 
+                  </widget> 
+               </tr>
+            </table> </td> 
+         <td>
+            <widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() == 1">
+               <parameter ID="COMMON_oscillator_mode" indexer="false"></parameter> 
+               <table cellpadding="0"> 
+               <tr> 
+                  <td width="30%"><font color="#006666" face="Arial">Oct</font></td> 
+                  <td width="70%"><widget class="SpinWidget" decoder="scale_octave_offset"> 
+                           <parameter ID="OSC2_PITCH_octave"></parameter> 
+                     </widget></td> 
+               </tr> 
+               <tr> 
+                  <td><font color="#006666" face="Arial">Trans</font></td> 
+                  <td><widget class="SpinWidget" format="%+03d">
+                        <parameter ID="OSC2_PITCH_transpose"></parameter> 
+                     </widget></td> 
+               </tr> 
+               <tr> 
+                  <td><font color="#006666" face="Arial">Tune</font></td> 
+                  <td><widget class="SpinWidget" format="%+04d">
+                        <parameter ID="OSC2_PITCH_tune"></parameter> 
+                     </widget></td> 
+               </tr> 
+               <tr> 
+                  <td><font color="#006666" face="Arial">Delay</font></td> 
+                  <td><widget class="SpinWidget" decoder="scale_1-5">
+                        <parameter ID="OSC2_delay_start"></parameter> 
+                     </widget></td> 
+               </tr> 
+               </table> 
+            </widget> </td> 
+         </tr> 
+      </table>
+   </body>
+</html>

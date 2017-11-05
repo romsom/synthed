@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	triton.xml
+
+	This instrument definition should be compatible with Korg TRITON, pro, 
+	and proX. Korg TRITON LE and KARMA differ slightly, so they 
+	can be derived from this definition at a later time.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE instrument SYSTEM "../../instrument.dtd">
+
+<instrument id="triton">
+
+	<module id="triton"/>
+	
+	<patches>
+		<patch path="triton_pcm.xml"/>
+		<patch path="triton_fx.xml"/>
+	</patches>
+	
+	<decoders>
+		<decoder path="triton_decoder.xml"/>
+	</decoders>
+	
+	<interfaces>
+		<interface path="triton_ui.xml"/>
+	</interfaces>
+	
+	<modes>
+		<mode id="prog" caption="Program">
+			<bank caption="PROG A" min="0" max="127"/>
+			<bank caption="PROG B" min="0" max="127"/>
+			<bank caption="PROG C" min="0" max="127"/>
+			<bank caption="PROG D" min="0" max="127"/>
+			<bank caption="PROG E" min="0" max="127"/>
+			<bank caption="PROG F" min="0" max="127"/>
+		</mode>
+		<mode id="combi" caption="Combination">
+			<bank caption="COMBI A" min="0" max="127"/>
+			<bank caption="COMBI B" min="0" max="127"/>
+			<bank caption="COMBI C" min="0" max="127"/>
+			<bank caption="COMBI D" min="0" max="127"/>
+		</mode>
+		<mode id="glob" caption="Global">
+		</mode>
+	</modes>
+	
+</instrument>

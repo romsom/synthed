@@ -1,0 +1,126 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 80%; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0%; COLOR: #000; PADDING-TOP: 0px; FONT-FAMILY: verdana, arial, helvetica, sans-serif
+}
+A {
+	COLOR: #900
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+.ahem {
+	DISPLAY: none
+}
+#quicklinks {
+	DISPLAY: none
+}
+#header {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #006; LINE-HEIGHT: 11px; PADDING-TOP: 0px; POSITION: relative; TOP: 0px; HEIGHT: 50px; BACKGROUND-COLOR: #fff
+}
+#mma {
+	LEFT: 0px; FLOAT: left; POSITION: absolute; TOP: 0px
+}
+#tag {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: right; BACKGROUND-IMAGE: url(/img/tagline5.jpg); PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 360px; PADDING-TOP: 0px; HEIGHT: 50px
+}
+.tagline {
+	DISPLAY: none
+}
+.sitemenu {
+	CLEAR: both; PADDING-RIGHT: 10px; BORDER-TOP: #000 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 85%; PADDING-BOTTOM: 5px; MARGIN: 0px; COLOR: #669; PADDING-TOP: 5px; BORDER-BOTTOM: #000 1px solid; BACKGROUND-COLOR: #006
+}
+.sitemenu A {
+	FONT-WEIGHT: bold; COLOR: #fff; TEXT-DECORATION: none
+}
+.sitemenu A:visited {
+	FONT-WEIGHT: bold; COLOR: #fff; TEXT-DECORATION: none
+}
+.sitemenu A:hover {
+	COLOR: #ccf; TEXT-DECORATION: underline
+}
+#home {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+#main {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: #fff; LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000; PADDING-TOP: 0px; POSITION: relative; TOP: 0px
+}
+#content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; LEFT: 160px; PADDING-BOTTOM: 40px; BORDER-LEFT: #006 1px solid; WIDTH: 70%; PADDING-TOP: 20px; POSITION: relative; TOP: 0px
+}
+#leftnav {
+	FONT-WEIGHT: normal; FONT-SIZE: 85%; LEFT: 7px; WIDTH: 145px; POSITION: absolute; TOP: 20px
+}
+#leftnav BR {
+	DISPLAY: none
+}
+#leftnav A {
+	PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 5px; PADDING-BOTTOM: 8px; MARGIN: 0px; PADDING-TOP: 4px; BACKGROUND-COLOR: #fff
+}
+#leftnav H2 {
+	PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 90%; BACKGROUND: #ccf; PADDING-BOTTOM: 4px; MARGIN: 0px 0px 2px; COLOR: #006; PADDING-TOP: 2px
+}
+.announcement {
+	BORDER-RIGHT: #000 2px solid; PADDING-RIGHT: 10px; BORDER-TOP: #006 1px solid; PADDING-LEFT: 10px; FLOAT: right; PADDING-BOTTOM: 7px; MARGIN: 0px 0px 10px; BORDER-LEFT: #006 1px solid; WIDTH: 200px; PADDING-TOP: 7px; BORDER-BOTTOM: #000 2px solid; POSITION: relative; BACKGROUND-COLOR: #fff
+}
+.announcementimg {
+	DISPLAY: block; MARGIN: 5px 0px; align: left
+}
+.caption {
+	FONT-SIZE: 90%
+}
+P {
+	FONT-SIZE: 100%
+}
+TABLE {
+	FONT-SIZE: 100%
+}
+TD {
+	FONT-SIZE: 100%
+}
+TR {
+	FONT-SIZE: 100%
+}
+#footer {
+	PADDING-RIGHT: 40px; BORDER-TOP: #006 2px solid; PADDING-LEFT: 170px; FONT-SIZE: 70%; LEFT: 0px; BACKGROUND-IMAGE: url(/img/bottom2.jpg); PADDING-BOTTOM: 5px; MARGIN: 0px; COLOR: #000; PADDING-TOP: 5px; POSITION: relative; TOP: 0px; BACKGROUND-COLOR: #fff
+}
+H1 {
+	MARGIN: 0px 0px 0.8em
+}
+H2 {
+	MARGIN: 0px 0px 0.8em
+}
+H3 {
+	MARGIN: 0px 0px 0.8em
+}
+H4 {
+	MARGIN: 0px 0px 0.8em
+}
+H5 {
+	MARGIN: 0.5em 0px
+}
+H6 {
+	MARGIN: 0.5em 0px
+}
+H1 {
+	FONT-SIZE: 120%; BACKGROUND-COLOR: #ccf
+}
+H2 {
+	FONT-SIZE: 120%
+}
+H3 {
+	CLEAR: both; FONT-SIZE: 110%
+}
+H4 {
+	FONT-SIZE: 100%; FONT-STYLE: italic
+}
+H5 {
+	FONT-SIZE: 90%; FONT-STYLE: italic
+}
+H6 {
+	FONT-SIZE: 90%; FONT-STYLE: italic
+}
+HR {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; COLOR: #ccf; HEIGHT: 3px; BACKGROUND-COLOR: #ccf; BORDER-RIGHT-WIDTH: 0px
+}
+PRE {
+	FONT-SIZE: 110%
+}

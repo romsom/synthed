@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html>
+   <head>
+      <title>Pitch EG</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table cellspacing="1"> 
+         <tr> 
+            <td><widget class="EnvelopeWidget"> 
+               <parameter id="CONSTANT_0"></parameter> 
+               <parameter id="PITCH_EG_start_level"></parameter>
+               <parameter id="PITCH_EG_attack_time"></parameter>
+               <parameter id="PITCH_EG_attack_level"></parameter>
+               <parameter id="PITCH_EG_decay_time"></parameter> 
+               <parameter id="CONSTANT_0"></parameter> 
+               <parameter id="PITCH_EG_release_time"></parameter>
+               <parameter id="PITCH_EG_release_level"></parameter> 
+            </widget></td> 
+            <td> 
+               <table cellspacing="1"> 
+                  <tr align="center" valign="top"> 
+                     <td><font size="-1" color="#006666" face="Arial">Start Level</font></td> 
+                     <td><font size="-1"  color="#006666" face="Arial">Atk Time</font></td> 
+                     <td><font size="-1"  color="#006666" face="Arial">Atk Level</font></td> 
+                     <td><font size="-1"  color="#006666" face="Arial">Dec Time</font></td> 
+                     <td><font size="-1"  color="#006666" face="Arial">Rel Time</font></td> 
+                     <td><font size="-1"  color="#006666" face="Arial">Rel Level</font></td> 
+                  </tr> 
+                  <tr> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%+03d">
+                        <parameter id="PITCH_EG_start_level"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%03d">
+                        <parameter id="PITCH_EG_attack_time"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%+03d">
+                        <parameter id="PITCH_EG_attack_level"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%03d">
+                        <parameter id="PITCH_EG_decay_time"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%03d">
+                        <parameter id="PITCH_EG_release_time"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%+03d">
+                        <parameter id="PITCH_EG_release_level"></parameter> 
+                     </widget></td> 
+                  </td> 
+               </table>
+            </td> 
+         </tr> 
+      </table> 
+      <table>
+         <tr>
+	   <td>
+      <table>
+         <tr> 
+	    <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+	       face="Arial"><b>Level Modulation</b></font></th> 
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 1</font></td> 
+	    <td><widget class="ChoiceWidget" decoder="list_1-4">
+	       <parameter id="PITCH_EG_am_source_level1"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 1 Intensity</font></td> 
+	    <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="PITCH_EG_am_int_level1"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 1 Start</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_sense">
+	       <parameter id="PITCH_EG_start_am_level1"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 1 Attack</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_sense">
+	       <parameter id="PITCH_EG_attack_am_level1"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 2 Source</font></td> 
+	    <td><widget class="ChoiceWidget" decoder="list_1-4">
+	       <parameter id="PITCH_EG_am_source_level2"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 2 Intensity</font></td> 
+	    <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="PITCH_EG_am_int_level2"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 2 Start</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_sense">
+	       <parameter id="PITCH_EG_start_am_level2"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS 2 Attack</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_sense">
+	       <parameter id="PITCH_EG_attack_am_level2"></parameter>
+	    </widget></td>
+	 </tr>
+      </table>
+      </td>
+      <td valign="top">
+      <table>
+         <tr> 
+	    <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+	       face="Arial"><b>Time Modulation</b></font></th> 
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">AMS</font></td> 
+	    <td><widget class="ChoiceWidget" decoder="list_1-4">
+	       <parameter id="PITCH_EG_am_source_time"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">Intensity</font></td> 
+	    <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="PITCH_EG_am_int_time"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">Attack</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_sense">
+	       <parameter id="PITCH_EG_attack_am_time"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">Decay</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_sense">
+	       <parameter id="PITCH_EG_decay_am_time"></parameter>
+	    </widget></td>
+	 </tr>
+      </table>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

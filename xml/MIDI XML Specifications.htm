@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0039)http://www.midi.org/dtds/midi_xml.shtml -->
+<HTML 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MIDI XML Specifications</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="midi specifications XML DTD" name=htdig-keywords><!--htdig_noindex-->
+<STYLE type=text/css media=screen>@import url( /include/web.css );
+</STYLE>
+<LINK media=print href="MIDI XML Specifications_files/print.css" type=text/css 
+rel=stylesheet>
+<META content="MSHTML 6.00.2800.1400" name=GENERATOR></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=mma><A href="http://www.midi.org/"><IMG height=50 
+alt="Midi Manufacturer's Association" 
+src="MIDI XML Specifications_files/mma1.gif" width=350 border=0></A> </DIV>
+<DIV id=tag>
+<P class=tagline>Supporting the Arts Through Technology</P></DIV></DIV>
+<P class=sitemenu><A id=home href="http://www.midi.org/">Home</A> | <A id=info 
+href="http://www.midi.org/about-midi/aboutmidi3.shtml">About MIDI</A> | <A 
+id=aboutmidi href="http://www.midi.org/about-midi/specshome.shtml">MIDI 
+Specifications</A> | <A id=aboutmma 
+href="http://www.midi.org/about-mma/abtmma.shtml">About the MMA</A> | <A 
+id=members href="http://members.midi.org/" target=_blank>Members Only</A> | <A 
+id=search href="http://www.midi.org/htdig/common/search.shtml">Search</A> | <A 
+id=jobs href="http://www.midi.org/jobs/">Job Board</A> </P>
+<P class=ahem><I>Content on this site is accessible to all versions of every 
+browser. However, your browser may not support basic web standards. Please <A 
+href="http://www.webstandards.org/upgrade">upgrade your browser</A> to 
+experience the full visual design of this website.</I> </P><!--/htdig_noindex-->
+<DIV id=main>
+<DIV id=leftnav><!--htdig_noindex-->
+<H2>About MIDI</H2><A 
+href="http://www.midi.org/about-midi/aboutmidi3.shtml">Making Music With 
+MIDI</A><BR><A href="http://www.midi.org/about-midi/abtmidi.shtml">The 
+Technology of MIDI</A><BR><A 
+href="http://www.midi.org/about-midi/gm/gminfo.shtml">General MIDI 
+("GM")</A><BR><A 
+href="http://www.midi.org/about-midi/dls/abtdls.shtml">Downloadable Sounds 
+("DLS")</A><BR><A href="http://www.midi.org/construc.shtml">Standard MIDI (SMF) 
+Files</A><BR><A href="http://www.midi.org/about-midi/xmf/index.shtml">Extensible 
+Music (XMF) Files</A><BR><A 
+href="http://www.midi.org/about-midi/abtspmidi.shtml">Scalable Polyphony MIDI 
+(SP-MIDI)</A><BR><A href="http://www.midi.org/about-midi/resource.shtml">More 
+Resources</A><BR><!--/htdig_noindex--><!--htdig_noindex-->
+<H2>MIDI Specifications</H2><A 
+href="http://www.midi.org/about-midi/specshome.shtml">Specifications Index</A> <!--/htdig_noindex--></DIV>
+<DIV id=content>
+<H2 class=section>About the MIDI XML Specifications</H2>
+<P>The objectives are:</P>
+<UL>
+  <LI>Provide a standard XML representation of a MIDI event, for use as a 
+  building block in XML formats that will follow. 
+  <LI>Create standard data interchange formats for information about MIDI 
+  devices (including virtual devices), including their MIDI 
+  transmission/reception capabilities and their patches/notes/controls. 
+  <LI>Represent numeric MIDI events (Patch Numbers, Note Numbers, Controller 
+  Numbers) with alpha-numeric names in order to Improve the user experience. 
+  <LI>Describe the contents of an SMF file in XML. </LI></UL>
+<P><B>MIDIevent.dtd</B> defines the grammar for XML representations of MIDI 
+events, which are used in building XML-based file formats such as the 
+MIDIDeviceType and MIDINameDocuments.</P>
+<P><B>MIDIDeviceType</B> documents contain information about capabilities of one 
+device type (a single device or a family of devices with the same features) -- 
+primarily its MIDI transmission and reception capabilities. A collection of 
+MIDIDeviceType documents is an effective database from which applications may 
+automatically load device information (if they support the Universal Inquiry 
+message), or from which a user may select an appropriate device description 
+within the application.</P>
+<P><B>MIDINameDocuments</B> describe corresponding names for a device's patch 
+numbers, note numbers (for drum kits and sample sets where different sounds are 
+triggered by different keys) and MIDI controller numbers (also RPNs/NRPNs). This 
+allows an application to display the name of the object they trigger/effect, 
+instead of simply showing bank selects/program changes/notes/controls in numeric 
+form.</P>
+<H3>Status</H3>
+<P>July 2003 - This specification has been approved by the MMA and AMEI, and an 
+initial implementation has been done by Apple for CoreMIDI. The text of the 
+specification is being cleaned up for publication later this summer.</P>
+<P>The three DTDs are located in the <A 
+href="http://www.midi.org/dtds">www.midi.org/dtds</A> directory.</P></DIV>
+<DIV id=footer>All materials, graphics, and text copyright © 1995-2004 MIDI 
+Manufacturers Association Incorporated.<BR>Los Angeles, California. Use is 
+prohibited without written permission. </DIV></DIV></BODY></HTML>

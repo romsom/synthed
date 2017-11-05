@@ -1,0 +1,505 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html40/loose.dtd">
+
+<html>
+         
+  <head>
+    <title>Module: parameter</title>
+  </head>
+
+  <body bgcolor="#ffffff">
+
+        <p><i><a href="index.html">Table of Contents</a></i></p>
+        
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+        <tr>
+            <th rowspan="2"
+                valign="top"
+                align="left"
+                width="10%"
+                bgcolor="#88bbee"><font color="#000000">Module: parameter</font>
+            </th>
+            <th bgcolor="#88bbee"
+                width="90%"
+                align="right"><font color="#000000">parameter.py</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<p>This module contains parameter widgets and base classes to manage parameter values.</p>
+<p>Todo:
+    CheckParam:
+        Maybe should make this tri-state<p>    GaugeParam:
+        The GaugeParam widget doesn't do what I wanted. I really want a control 
+        that displays a range with a start and stop like:<p>        |------XXXXXXXXXXXXXXXXXX----|</p>
+</p>
+<p>    KnobParam:
+        Should add a rotator knob widget</p>
+<p>    SpinParam:
+        Need to add event handler to key-repeat when user clicks and hold a spinner button
+        Need to add event handler to permit user to use +/-, up/down, home/end, 
+        ctrl-up/ctrl-down</p>
+<p>    TextParam:
+        Isn't fully functional yet.
+        Need to add validator for constraints like max length, prohibit non-printable chars?</p>
+<p>    ToggleParam:
+        Should add a toggle button as an alternative to CheckParam</p>
+<p>    Tooltips:
+        Should add tooltips and help url to &lt;parameter&gt; element and implement it in the UI</p>
+<p>    XML:
+        Should not constrain control attribute only to the widgets supported in this module.
+        It should be possible for users to add new widgets and override existing widgets.
+        Perhaps permit XHMTL or HTML elements for better positioning, images, etc.</p>
+</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Imported modules">Imported modules</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<b>import</b> array<br>
+<b>import</b> imp<br>
+<b>from</b> <a href="instrument.html">instrument</a> <b>import</b> *<br>
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-sys.html">sys</a><br>
+<b>import</b> traceback<br>
+<b>import</b> wxPython.wx<br>
+<b>from</b> <a href="xml2obj.html">xml2obj</a> <b>import</b> *<br>
+
+</td></tr>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Functions">Functions</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<a href="#AddVariable">AddVariable</a><br>
+<a href="#CreateLabel">CreateLabel</a><br>
+<a href="#EVT_DATA_CHANGED">EVT_DATA_CHANGED</a><br>
+<a href="#FormatVal">FormatVal</a><br>
+<a href="#Group">Group</a><br>
+<a href="#ShowError">ShowError</a><br>
+<a href="#TwosComplement">TwosComplement</a><br>
+<a href="#Widget">Widget</a><br>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="AddVariable"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">AddVariable&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+AddVariable ( dictionary,  object )
+
+</pre></font>
+
+<h3>Add object to a dictionary if there is an id</h3>
+<p> Utility functions</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="CreateLabel"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">CreateLabel&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+CreateLabel (
+        parent,
+        group,
+        element,
+        )
+
+</pre></font>
+
+<p>Create a label and insert left-aligned into the group</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="EVT_DATA_CHANGED"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">EVT_DATA_CHANGED&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+EVT_DATA_CHANGED ( win,  func )
+
+</pre></font>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="FormatVal"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">FormatVal&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+FormatVal ( format,  val )
+
+</pre></font>
+
+<p>Convert a value to a string using a format string</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Group"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">Group&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+Group (
+        parent,
+        group,
+        env,
+        element,
+        patch,
+        )
+
+</pre></font>
+
+<h3>Create a sizer control</h3>
+<p> Todo: Move group classes to their own module</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="ShowError"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">ShowError&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+ShowError ( parent,  style=wx.wxOK )
+
+</pre></font>
+
+<p>Display an exception and traceback in a message box</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="TwosComplement"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">TwosComplement&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+TwosComplement ( intdata )
+
+</pre></font>
+
+<p>Extend the high bit of a twos complement value to make a native int</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Widget"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">Widget&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+Widget (
+        parent,
+        group,
+        env,
+        patch,
+        element,
+        init,
+        )
+
+</pre></font>
+
+<p>Instantiate a widget from an XML element and its children (recursive)</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Exceptions">Exceptions</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+( 'Cancel' )<br>
+
+</td></tr>
+</table>
+</td></tr>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Classes">Classes</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<table border="0" cellpadding="3" cellspacing="0">
+<tr><td valign="top" align="left"><p><a href="parameter/boxsizer.html">BoxSizer</a></p></td><td valign="top" align="left">
+<p>Custom box sizer that manages (Show,Enable) children</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/buttonwidget.html">ButtonWidget</a></p></td><td valign="top" align="left">
+<p>Button widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/checkwidget.html">CheckWidget</a></p></td><td valign="top" align="left">
+<p>CheckBox widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/choicewidget.html">ChoiceWidget</a></p></td><td valign="top" align="left">
+<p>Choice widget (Dropdown read-only combo box)</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/datachangedevent.html">DataChangedEvent</a></p></td><td valign="top" align="left"></td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/editwidget.html">EditWidget</a></p></td><td valign="top" align="left">
+<p>Textedit widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/envelopewidget.html">EnvelopeWidget</a></p></td><td valign="top" align="left">
+<p>Envelope widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/flexgridsizer.html">FlexGridSizer</a></p></td><td valign="top" align="left">
+<p>Custom flex sizer</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/gaugewidget.html">GaugeWidget</a></p></td><td valign="top" align="left">
+<p>Gauge widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/labelwidget.html">LabelWidget</a></p></td><td valign="top" align="left">
+<p>Standalone label</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/param.html">Param</a></p></td><td valign="top" align="left">
+<p>A parameter represents a single value from a sysex data dump.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/parambyte.html">ParamByte</a></p></td><td valign="top" align="left">
+<p>Sysex parameter values are packed into bytes, possibly</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/radiowidget.html">RadioWidget</a></p></td><td valign="top" align="left">
+<p>Radiobox widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/sizerbase.html">SizerBase</a></p></td><td valign="top" align="left">
+<p>Custom Sizer class to manage child windows</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/sliderwidget.html">SliderWidget</a></p></td><td valign="top" align="left">
+<p>Slider widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/spacewidget.html">SpaceWidget</a></p></td><td valign="top" align="left">
+<p>SpaceWidget is a blank &quot;filler&quot; space in a group on a panel</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/spinwidget.html">SpinWidget</a></p></td><td valign="top" align="left">
+<p>Spinner widget that supports a variety of data types and formats</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/staticboxsizer.html">StaticBoxSizer</a></p></td><td valign="top" align="left">
+<p>Custom static box sizer</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/synthenv.html">SynthEnv</a></p></td><td valign="top" align="left">
+<p>Editor environment attributes</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/textwidget.html">TextWidget</a></p></td><td valign="top" align="left">
+<p>Textbox widget</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/valuelist.html">ValueList</a></p></td><td valign="top" align="left">
+<p>A Value list is a list of nested lists and item values.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/valuescale.html">ValueScale</a></p></td><td valign="top" align="left">
+<p>Computes display values using a scale (a set of stepped ranges).</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/widgetbase.html">WidgetBase</a></p></td><td valign="top" align="left">
+<p>Base widget class that connects the widget to the associated params</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="parameter/widgetparam.html">WidgetParam</a></p></td><td valign="top" align="left">
+<p>A wrapper around a Param with some additional UI attributes.</p>
+</td></tr>
+</table>
+</td></tr>
+</td></tr>
+</table>
+
+        </td>
+        </tr>
+        </table>
+
+        <hr>
+
+        <p><i><a href="index.html">Table of Contents</a></i></p>
+
+        <font size="-2"><i>This document was automatically generated
+        on Sat Sep 28 20:01:30 2002 by
+        <a href="http://happydoc.sourceforge.net">HappyDoc</a> version
+        2.1</i></font>
+        
+        </body>
+        </html>
+        

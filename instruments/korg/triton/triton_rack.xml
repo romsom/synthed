@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	triton_rack.xml
+
+	This instrument definition should be compatible with Korg TRITON, pro, 
+	proX, Rack and Studio. Korg TRITON LE and KARMA differ slightly, so they 
+	can be derived from this definition at a later time.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE instrument SYSTEM "../../instrument.dtd">
+
+<instrument id="triton_rack">
+
+	<module id="triton"/>
+	
+	<data>
+		<patch path="triton_pcm.xml"/>
+		<patch path="triton_fx.xml"/>
+		<patch path="triton_midi.xml"/>
+	</data>
+	
+	<decoders>
+		<decoder path="triton_decoder.xml"/>
+	</decoders>
+	
+	<interfaces>
+		<interface path="triton_ui.xml"/>
+	</interfaces>
+	
+	<modes>
+		<mode id="prog" caption="Program">
+			<bank caption="PROG INT-A" min="0" max="127"/>
+			<bank caption="PROG INT-B" min="0" max="127"/>
+			<bank caption="PROG INT-C" min="0" max="127"/>
+			<bank caption="PROG INT-D" min="0" max="127"/>
+			<bank caption="PROG INT-E" min="0" max="127"/>
+			<bank caption="PROG INT-F" min="0" max="127"/>
+			<bank caption="PROG EXT-A" min="0" max="127"/>
+			<bank caption="PROG EXT-B" min="0" max="127"/>
+			<bank caption="PROG EXT-C" min="0" max="127"/>
+			<bank caption="PROG EXT-D" min="0" max="127"/>
+			<bank caption="PROG EXT-E" min="0" max="127"/>
+			<bank caption="PROG EXT-F" min="0" max="127"/>
+			<bank caption="PROG EXT-G" min="0" max="127"/>
+			<bank caption="PROG EXT-H" min="0" max="127"/>
+		</mode>
+		<mode id="combi" caption="Combination">
+			<bank caption="COMBI INT-A" min="0" max="127"/>
+			<bank caption="COMBI INT-B" min="0" max="127"/>
+			<bank caption="COMBI INT-C" min="0" max="127"/>
+			<bank caption="COMBI INT-D" min="0" max="127"/>
+			<bank caption="COMBI INT-E" min="0" max="127"/>
+			<bank caption="COMBI INT-F" min="0" max="127"/>
+			<bank caption="COMBI EXT-A" min="0" max="127"/>
+			<bank caption="COMBI EXT-B" min="0" max="127"/>
+			<bank caption="COMBI EXT-C" min="0" max="127"/>
+			<bank caption="COMBI EXT-D" min="0" max="127"/>
+			<bank caption="COMBI EXT-E" min="0" max="127"/>
+			<bank caption="COMBI EXT-F" min="0" max="127"/>
+			<bank caption="COMBI EXT-G" min="0" max="127"/>
+			<bank caption="COMBI EXT-H" min="0" max="127"/>
+		</mode>
+		<mode id="glob" caption="Global">
+		</mode>
+	</modes>
+	
+</instrument>

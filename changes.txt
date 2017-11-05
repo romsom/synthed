@@ -1,0 +1,23 @@
+29 Oct 2002
+---------------
+
+1. Eliminated the widget 'reference' attribute and changed the meaning 
+of the 'decoder' attribute:
+
+    Old: <widget class="ClassName" decoder="list" reference="list-1_2">
+    New: <widget class="ClassName" decoder="list-1_2">
+
+2. Added widget 'tip' attribute. Example:
+
+    <widget class="CheckWidget" tip="This text will display in a tool tip.">
+    
+3. Reimplemented dynamic content switching.
+
+Also updated the SynthEd Developer Guide to reflect the changes.
+
+25 May 2004
+---------------
+1. After a long hiatus, resumed development.
+2. Wrote a 'C' Windows MIDI library that is callable from Python. It is not yet
+wired in.
+3. Started an implementation for Access VIRUS.

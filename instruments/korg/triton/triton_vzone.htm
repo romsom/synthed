@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+	<head> 
+		<title>Velocity Zone</title> 
+	</head> 
+	<body bgcolor="#CCFFCC"> 
+		<table>
+			<tr>
+				<td width="60"></td>
+				<td width="70"><font color="#006666" face="Arial">Bottom</font></td> 
+				<td align="center"><font color="#006666" face="Arial">Velocity Zone</font></td> 
+				<td width="70"><font color="#006666" face="Arial">Top</font></td> 
+			</tr>
+			<tr>
+				<td><font color="#006666" face="Arial">OSC 1</font></td> 
+				<td><widget class="SpinWidget" format="%03d">
+					<parameter id="OSC1_vel_zone_bottom"></parameter>	
+				</widget></td>
+				<td><widget class="GaugeWidget">
+					<parameter id="OSC1_vel_zone_bottom"></parameter>	
+					<parameter id="OSC1_vel_zone_top"></parameter>	
+				</widget></td>
+				<td><widget class="SpinWidget" format="%03d">
+					<parameter id="OSC1_vel_zone_top"></parameter>	
+				</widget></td>
+			</tr>
+			<widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() == 1">
+				<parameter id="COMMON_oscillator_mode" indexer="false"></parameter>
+				<tr>
+					<td><font color="#006666" face="Arial">OSC 2</font></td> 
+					<td><widget class="SpinWidget" format="%03d">
+						<parameter id="OSC2_vel_zone_bottom"></parameter>	
+					</widget></td>
+					<td><widget class="GaugeWidget">
+						<parameter id="OSC2_vel_zone_bottom"></parameter>	
+						<parameter id="OSC2_vel_zone_top"></parameter>	
+					</widget></td>
+					<td><widget class="SpinWidget" format="%03d">
+						<parameter id="OSC2_vel_zone_top"></parameter>	
+					</widget></td>
+				</tr>
+			</widget>
+		</table>
+	</body>
+</html>

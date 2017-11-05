@@ -1,0 +1,24 @@
+<!DOCTYPE decode SYSTEM "../decode.dtd">
+
+<decode>
+
+<lists id="lists">
+    <list id="list_layout">
+        <item value="vertical" />
+        <item value="horizontal" />
+    </list>
+    
+    <list id="list_decoder">
+        <item value="list" />
+        <item value="scale" />
+    </list>
+    
+    <list id="list_ids">
+        <!-- populated at run time -->
+    </list>
+</lists>
+
+<scales id="scales">
+</scales>
+
+</decode>

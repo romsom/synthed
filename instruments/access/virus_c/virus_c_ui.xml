@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	virus_c_ui.xml
+
+	This user interface definition should be compatible with Virus C.
+	
+	Copyright (c) 2004 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE interface SYSTEM "../../interface.dtd">
+
+<interface id="virus_c" caption="Virus C">
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Each editable mode is described here.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<modes>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Single mode.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<mode id="single" patch="single" caption="Single">
+	<page caption="Main Edit">
+		<tab caption="Main" url="virus_c_main.htm"/>
+		<tab caption="Inputs" url="virus_c_main_inputs.htm"/>
+	</page>
+	<page caption="Arpeggiator">
+		<tab caption="Arp" url="virus_c_arp.htm"/>
+	</page>
+	<page caption="LFO/Mod">
+		<tab caption="LFO1" url="virus_c_mod_lfo1.htm"/>
+		<tab caption="LFO2" url="virus_c_mod_lfo2.htm"/>
+		<tab caption="LFO3" url="virus_c_mod_lfo3.htm"/>
+		<tab caption="Mod Matrix" url="virus_c_mod_matrix.htm"/>
+	</page>
+	<page caption="Oscillators">
+		<tab caption="Common" url="virus_c_osc_common.htm"/>
+		<tab caption="Oscillator 1" url="virus_c_osc1.htm"/>
+		<tab caption="Oscillator 2" url="virus_c_osc2.htm"/>
+		<tab caption="Oscillator 3" url="virus_c_osc3.htm"/>
+	</page>
+	<page caption="Filters">
+		<tab caption="Common" url="virus_c_filter_common.htm"/>
+		<tab caption="Filter 1" url="virus_c_filter1.htm"/>
+		<tab caption="Filter 2" url="virus_c_filter2.htm"/>
+	</page>
+	<page caption="Amplifier">
+		<tab caption="Mixer" url="virus_c_amp_mixer.htm"/>
+		<tab caption="Envelope" url="virus_c_amp_env.htm"/>
+	</page>
+	<page caption="Effects">
+		<tab caption="Vocoder" url="virus_c_fx_vocoder.htm"/>
+		<tab caption="Dist/Chorus/Phaser" url="virus_c_fx_fx.htm"/>
+		<tab caption="Delay/Reverb" url="virus_c_fx_delay.htm"/>
+		<tab caption="Boost/EQ" url="virus_c_fx_eq.htm"/>
+	</page>
+</mode>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Todo: multi and global modes
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+</modes>
+</interface>

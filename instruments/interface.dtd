@@ -1,0 +1,77 @@
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    interface.dtd
+
+    This interface definition schema is designed to describe and 
+    facilitate editing of MIDI synthesizer sysex parameters.
+    
+    Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+    
+    This program is free software; you can redistribute it and/or modify it 
+    under the terms of the GNU General Public License as published by the 
+    Free Software Foundation; either version 2 of the License, or (at your 
+    option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but 
+    WITHOUT ANY WARRANTY; without even the implied warranty of 
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+    General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License 
+    along with this program; if not, write to the Free Software Foundation, 
+    Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!ELEMENT interface (modes)>
+<!ATTLIST interface
+    id ID #REQUIRED
+    caption CDATA #IMPLIED>
+
+<!ELEMENT modes (mode*)>
+
+<!ELEMENT mode (page+)>
+<!ATTLIST mode
+    id ID #IMPLIED
+    caption CDATA #IMPLIED
+    patch CDATA #IMPLIED>
+    
+<!ELEMENT page (tab+)>
+<!ATTLIST page
+    id ID #IMPLIED
+    caption CDATA #IMPLIED>
+    
+<!ELEMENT tab (parameter*,group*)>
+<!ATTLIST tab
+    id ID #IMPLIED
+    url CDATA #IMPLIED
+    caption CDATA #IMPLIED
+    decoder CDATA #IMPLIED
+    enable CDATA #IMPLIED
+    mode CDATA #IMPLIED
+    patch CDATA #IMPLIED
+    reset CDATA #IMPLIED>
+    
+<!ELEMENT group (parameter*,(group|widget)*)>
+<!ATTLIST group
+    id ID #IMPLIED
+    border (none|normal|bold) #IMPLIED
+    caption CDATA #IMPLIED
+    layout (horizontal|vertical) #IMPLIED
+    rows CDATA #IMPLIED
+    columns CDATA #IMPLIED
+    enable CDATA #IMPLIED>
+    
+<!ELEMENT widget (parameter)*>
+<!ATTLIST widget
+    caption CDATA #IMPLIED
+    control (button|check|choice|diagram|edit|envelope|gauge|label|radio|slider|space|spin|text) #REQUIRED
+    layout (horizontal|vertical) #IMPLIED
+    format CDATA #IMPLIED
+    decoder CDATA #IMPLIED
+    enable CDATA #IMPLIED>
+
+<!ELEMENT parameter EMPTY>
+<!ATTLIST parameter
+    id CDATA #REQUIRED
+    indexer (true|false) #IMPLIED>

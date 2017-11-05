@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Filter 1 LFO Mod.</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>LFO 1</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Intensity to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_FILTERA_int_lfo1"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">AMS</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_1-4">
+	       <parameter id="OSC1_FILTER_am_source_lfo1"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Intensity to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC1_FILTER_type.getData() == 1">
+	       <parameter id="OSC1_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC1_FILTERB_int_lfo1"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Intensity to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_FILTERA_am_int_lfo1"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">JS-Y Int. to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_FILTERA_lfo1_js_minus_y"></parameter>
+	   </widget></td>
+            <td><font color="#006666" face="Arial">Intensity to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC1_FILTER_type.getData() == 1">
+	       <parameter id="OSC1_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC1_FILTERB_am_int_lfo1"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">JS-Y Int. to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC1_FILTER_type.getData() == 1">
+	       <parameter id="OSC1_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC1_FILTERB_lfo1_js_minus_y"></parameter>
+	   </widget></td>
+         </tr>
+      </table>
+      <table>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>LFO 2</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Intensity to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_FILTERA_int_lfo2"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">AMS</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_1-4">
+	       <parameter id="OSC1_FILTER_am_source_lfo2"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Intensity to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC1_FILTER_type.getData() == 1">
+	       <parameter id="OSC1_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC1_FILTERB_int_lfo2"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Intensity to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_FILTERA_am_int_lfo2"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">JS-Y Int. to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC1_FILTERA_lfo2_js_minus_y"></parameter>
+	   </widget></td>
+            <td><font color="#006666" face="Arial">Intensity to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC1_FILTER_type.getData() == 1">
+	       <parameter id="OSC1_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC1_FILTERB_am_int_lfo2"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">JS-Y Int. to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC1_FILTER_type.getData() == 1">
+	       <parameter id="OSC1_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC1_FILTERB_lfo2_js_minus_y"></parameter>
+	   </widget></td>
+         </tr>
+      </table>
+   </body>
+</html>

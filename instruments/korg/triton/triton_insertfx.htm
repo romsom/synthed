@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Insert FX</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table cellspacing="1"> 
+         <tr>
+	    <th width="7%"></th>
+            <th width="7%"><font size="-1" color="#006666" face="Arial">On</font></th>
+            <th><font size="-1" color="#006666" face="Arial">Effect</font></th>
+            <th width="10%"><font size="-1" color="#006666" face="Arial">Chain</font></th> 
+            <th width="12%"><font size="-1" color="#006666" face="Arial">Pan</font></th> 
+            <th width="10%"><font size="-1" color="#006666" face="Arial">Bus</font></th> 
+            <th width="12%"><font size="-1" color="#006666" face="Arial">Send 1</font></th> 
+            <th width="12%"><font size="-1" color="#006666" face="Arial">Send 2</font></th> 
+         </tr>
+         <tr> 
+            <td><font size="-1" color="#006666" face="Arial">IFX1</font></td> 
+            <td><widget class="ButtonWidget" decoder="list_off_on">
+	       <parameter id="IFX1_off_on"></parameter>
+	    </widget></td>
+	    <td><widget class="ChoiceWidget" decoder="list_effects_single">
+	       <parameter id="IFX1_effect_no"></parameter>
+	    </widget></td>
+	    <widget class="GroupWidget" enable="IFX1_off_on.getData() == 1">
+	       <parameter id="IFX1_off_on" indexer="false"></parameter>	    
+	       <td><widget class="ButtonWidget" decoder="list_chain">
+		  <parameter id="IFX1_chain"></parameter>
+	       </widget></td>
+	       <widget class="GroupWidget" enable="IFX1_chain.getData() == 0">
+		  <parameter id="IFX1_chain" indexer="false"></parameter>
+		  <td><widget class="SpinWidget" decoder="scale_pan">
+		     <parameter id="IFX1_pan"></parameter>
+		  </widget></td>
+		  <td><widget class="ChoiceWidget" decoder="list_fx_bus_select">
+		     <parameter id="IFX1_bus_select"></parameter>
+		  </widget></td>
+		  <td><widget class="SpinWidget" format="%03d">
+		     <parameter id="IFX1_send1"></parameter>
+		  </widget>
+		  </td>
+		  <td><widget class="SpinWidget" format="%03d">
+		     <parameter id="IFX1_send2"></parameter>
+		  </widget></td>
+	       </widget>
+	    </widget>
+         </tr>
+         <tr> 
+            <td><font size="-1" color="#006666" face="Arial">IFX2</font></td> 
+            <td><widget class="ButtonWidget" decoder="list_off_on">
+	       <parameter id="IFX2_off_on"></parameter>
+	    </widget></td>
+	    <td><widget class="ChoiceWidget" decoder="list_effects_all">
+	       <parameter id="IFX2_effect_no"></parameter>
+	    </widget></td>
+	    <widget class="GroupWidget" enable="IFX2_off_on.getData() == 1">
+	       <parameter id="IFX2_off_on" indexer="false"></parameter>	    
+	       <td><widget class="ButtonWidget" decoder="list_chain">
+		  <parameter id="IFX2_chain"></parameter>
+	       </widget></td>
+	       <widget class="GroupWidget" enable="IFX2_chain.getData() == 0">
+		  <parameter id="IFX2_chain" indexer="false"></parameter>
+		  <td><widget class="SpinWidget" decoder="scale_pan">
+		     <parameter id="IFX2_pan"></parameter>
+		  </widget></td>
+		  <td><widget class="ChoiceWidget" decoder="list_fx_bus_select">
+		     <parameter id="IFX2_bus_select"></parameter>
+		  </widget></td>
+		  <td><widget class="SpinWidget" format="%03d">
+		     <parameter id="IFX2_send1"></parameter>
+		  </widget>
+		  </td>
+		  <td><widget class="SpinWidget" format="%03d">
+		     <parameter id="IFX2_send2"></parameter>
+		  </widget></td>
+	       </widget>
+	    </widget>
+         </tr>
+         <tr> 
+	    <widget class="GroupWidget" enable="IFX2_effect_no.getData() &lt; 90" >
+	       <parameter id="IFX2_effect_no" indexer="false"></parameter>
+	       <td><font size="-1" color="#006666" face="Arial">IFX3</font></td> 
+	       <td><widget class="ButtonWidget" decoder="list_off_on"
+		  <parameter id="IFX3_off_on"></parameter>
+	       </widget></td>
+	       <td><widget class="ChoiceWidget" decoder="list_effects_all">
+		  <parameter id="IFX3_effect_no"></parameter>
+	       </widget></td>
+	       <widget class="GroupWidget" enable="IFX3_off_on.getData() == 1">
+		  <parameter id="IFX3_off_on" indexer="false"></parameter>	    
+		  <td><widget class="ButtonWidget" decoder="list_chain">
+		     <parameter id="IFX3_chain"></parameter>
+		  </widget></td>
+		  <widget class="GroupWidget" enable="IFX3_chain.getData() == 0">
+		     <parameter id="IFX3_chain" indexer="false"></parameter>
+		     <td><widget class="SpinWidget" decoder="scale_pan">
+			<parameter id="IFX3_pan"></parameter>
+		     </widget></td>
+		     <td><widget class="ChoiceWidget" decoder="list_fx_bus_select">
+			<parameter id="IFX3_bus_select"></parameter>
+		     </widget></td>
+		     <td><widget class="SpinWidget" format="%03d">
+			<parameter id="IFX3_send1"></parameter>
+		     </widget>
+		     </td>
+		     <td><widget class="SpinWidget" format="%03d">
+			<parameter id="IFX3_send2"></parameter>
+		     </widget></td>
+		  </widget>
+	       </widget>
+	    </widget>
+         </tr>
+         <tr> 
+	    <widget class="GroupWidget" enable="IFX3_effect_no.getData() &lt; 90" >
+	       <parameter id="IFX3_effect_no" indexer="false"></parameter>
+	       <td><font size="-1" color="#006666" face="Arial">IFX4</font></td> 
+	       <td><widget class="ButtonWidget" decoder="list_off_on"
+		  <parameter id="IFX4_off_on"></parameter>
+	       </widget></td>
+	       <td><widget class="ChoiceWidget" decoder="list_effects_all">
+		  <parameter id="IFX4_effect_no"></parameter>
+	       </widget></td>
+	       <widget class="GroupWidget" enable="IFX4_off_on.getData() == 1">
+		  <parameter id="IFX4_off_on" indexer="false"></parameter>	    
+		  <td><widget class="ButtonWidget" decoder="list_chain">
+		     <parameter id="IFX4_chain"></parameter>
+		  </widget></td>
+		  <widget class="GroupWidget" enable="IFX4_chain.getData() == 0">
+		     <parameter id="IFX4_chain" indexer="false"></parameter>
+		     <td><widget class="SpinWidget" decoder="scale_pan">
+			<parameter id="IFX4_pan"></parameter>
+		     </widget></td>
+		     <td><widget class="ChoiceWidget" decoder="list_fx_bus_select">
+			<parameter id="IFX4_bus_select"></parameter>
+		     </widget></td>
+		     <td><widget class="SpinWidget" format="%03d">
+			<parameter id="IFX4_send1"></parameter>
+		     </widget>
+		     </td>
+		     <td><widget class="SpinWidget" format="%03d">
+			<parameter id="IFX4_send2"></parameter>
+		     </widget></td>
+		  </widget>
+	       </widget>
+	    </widget>
+         </tr>
+         <tr> 
+	    <widget class="GroupWidget" enable="IFX4_effect_no.getData() &lt; 90" >
+	       <parameter id="IFX4_effect_no" indexer="false"></parameter>
+	       <td><font size="-1" color="#006666" face="Arial">IFX5</font></td> 
+	       <td><widget class="ButtonWidget" decoder="list_off_on"
+		  <parameter id="IFX5_off_on"></parameter>
+	       </widget></td>
+	       <td><widget class="ChoiceWidget" decoder="list_effects_single">
+		  <parameter id="IFX5_effect_no"></parameter>
+	       </widget></td>
+	       <widget class="GroupWidget" enable="IFX5_off_on.getData() == 1">
+		  <parameter id="IFX5_off_on" indexer="false"></parameter>	    
+		  <td><widget class="ButtonWidget" decoder="list_chain">
+		     <parameter id="IFX5_chain"></parameter>
+		  </widget></td>
+		  <widget class="GroupWidget" enable="IFX5_chain.getData() == 0">
+		     <parameter id="IFX5_chain" indexer="false"></parameter>
+		     <td><widget class="SpinWidget" decoder="scale_pan">
+			<parameter id="IFX5_pan"></parameter>
+		     </widget></td>
+		     <td><widget class="ChoiceWidget" decoder="list_fx_bus_select">
+			<parameter id="IFX5_bus_select"></parameter>
+		     </widget></td>
+		     <td><widget class="SpinWidget" format="%03d">
+			<parameter id="IFX5_send1"></parameter>
+		     </widget>
+		     </td>
+		     <td><widget class="SpinWidget" format="%03d">
+			<parameter id="IFX5_send2"></parameter>
+		     </widget></td>
+		  </widget>
+	       </widget>
+	    </widget>
+         </tr>
+      </table>
+         <center><img width="500" height="130" src="images/tritonrack.jpg"/></center>
+   </body>
+</html>

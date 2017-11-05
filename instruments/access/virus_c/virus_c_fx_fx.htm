@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Effects</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Distortion</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Type:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_distortion_curves"> 
+			  <PARAMETER ID="distortion_curve"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Intensity:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="distortion_curve.getData() &gt; 0"> 
+			  <PARAMETER ID="distortion_curve" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="distortion_intensity"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Chorus</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Dry/Wet:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_dry_wet"> 
+			  <PARAMETER ID="chorus_mix"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Depth:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_depth"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Rate:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_rate"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Delay:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_delay"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Feedback:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0" DECODER="scale_centered"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_feedback"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Shape:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0" DECODER="scale_lfo_shapes"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_lfo_shape"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Phaser</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Dry/Wet:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_dry_wet"> 
+			  <PARAMETER ID="phaser_mix"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Depth:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="phaser_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="phaser_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="phaser_feedback"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Rate:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="phaser_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="phaser_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="phaser_rate"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Frequency:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="phaser_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="phaser_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="phaser_frequency"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Stages:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="phaser_mix.getData() &gt; 0" DECODER="scale_phaser_stages"> 
+			  <PARAMETER ID="phaser_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="phaser_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Spread:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="phaser_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="phaser_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="phaser_spread"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+
+	 </TABLE> 
+  </BODY>
+</HTML>

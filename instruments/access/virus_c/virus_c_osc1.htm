@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Oscillator 1</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Waveform</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Shape:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="scale_wave_shapes"> 
+			  <PARAMETER ID="osc1_shape"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Wave Select:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="osc1_shape.getData() &lt; 64" 
+			  DECODER="scale_osc_waves"> 
+			  <PARAMETER ID="osc1_shape" INDEXER="false"/></PARAMETER>
+			  <PARAMETER ID="osc1_wave_select"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<tr>
+		  <TD></TD> 
+		  <TD></TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Pulse Width:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SpinWidget" WIDTH="100%" ENABLE="osc1_shape.getData() &gt; 64"
+			  DECODER="scale_pulse_width"> 
+			  <PARAMETER ID="osc1_shape" INDEXER="false"/></PARAMETER>
+			  <PARAMETER ID="osc1_pulsewidth"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</tr>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Pitch</b></font>
+           </th> 
+         </tr> 
+		<tr>
+		  <TD WIDTH="75"><FONT FACE="Arial">Semitone:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" DECODER="scale_centered"> 
+			  <PARAMETER ID="osc1_semitone"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</tr>
+		<tr>
+		  <TD WIDTH="75"><FONT FACE="Arial">Keyfollow:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" DECODER="scale_centered"> 
+			  <PARAMETER ID="osc1_keyfollow"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</tr>
+	 </TABLE> 
+  </BODY>
+</HTML>

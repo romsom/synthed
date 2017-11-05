@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Program Basic</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#CCFFCC"> 
+	 <TABLE CELLSPACING="1"> 
+		<TR> 
+		  <TH COLSPAN="4" BGCOLOR="#FFFF99"><FONT SIZE="4" COLOR="#006666"
+			 FACE="Arial"><B>Voice Assign</B></FONT></TH> 
+		</TR> 
+		<TR> 
+		  <TD WIDTH="100"><WIDGET CAPTION="Mode" CLASS="RadioWidget"
+			 DECODER="list_keyassigns"> 
+			 	<PARAMETER ID="COMMON_key_assign"></PARAMETER> 
+			 </WIDGET></TD> 
+		  <TD> 
+			 <TABLE> 
+				<TR> 
+				  <TD WIDTH="150"><FONT COLOR="#006666"
+					 FACE="Arial">Hold</FONT></TD> 
+				  <TD WIDTH="50"><WIDGET CLASS="CheckWidget">
+						<PARAMETER ID="COMMON_hold"></PARAMETER> 
+					 </WIDGET></TD> 
+				</TR> 
+				<TR> 
+				  <TD><FONT COLOR="#006666" FACE="Arial">Single Trigger</FONT></TD>
+				  
+				  <TD><WIDGET CLASS="CheckWidget">
+						<PARAMETER ID="COMMON_single_trigger"></PARAMETER> 
+					 </WIDGET></TD> 
+				</TR> 
+				<TR> 
+				  <TD><FONT COLOR="#006666" FACE="Arial">Legato</FONT></TD> 
+				  <TD><WIDGET CLASS="CheckWidget"> <PARAMETER
+						ID="COMMON_legato"></PARAMETER> 
+					 </WIDGET></TD> 
+				</TR> 
+			 </TABLE> </TD> 
+		</TR> 
+		<TR> 
+		  <TD><FONT COLOR="#006666" FACE="Arial">Priority</FONT></TD> 
+		  <TD><WIDGET CLASS="ChoiceWidget" DECODER="list_priorities"> 
+		  	<PARAMETER ID="COMMON_priority"></PARAMETER> 
+		  </WIDGET></TD> 
+		</TR> 
+	 </TABLE> 
+	 <TABLE> 
+		<TR> 
+		  <TH COLSPAN="4" BGCOLOR="#FFFF99"><FONT SIZE="4" COLOR="#006666"
+			 FACE="Arial"><B>Scale</B></FONT></TH> 
+		</TR> 
+		<TR> 
+		  <TD WIDTH="100"><FONT COLOR="#006666" FACE="Arial">Type</FONT></TD> 
+		  <TD><WIDGET CLASS="ChoiceWidget" DECODER="list_scales"> 
+		    <PARAMETER ID="COMMON_scale_type"></PARAMETER> 
+		  </WIDGET></TD> 
+		</TR> 
+		<TR> 
+		  <TD><FONT COLOR="#006666" FACE="Arial">Key</FONT></TD> 
+		  <TD><WIDGET CLASS="ChoiceWidget" DECODER="list_scalekeys"> 
+		    <PARAMETER ID="COMMON_scale_key"></PARAMETER> 
+		  </WIDGET></TD> 
+		</TR> 
+		<TR> 
+		  <TD><FONT COLOR="#006666" FACE="Arial">Random</FONT></TD> 
+		  <TD><WIDGET CLASS="SpinWidget"> <PARAMETER
+				ID="COMMON_random_intensity"></PARAMETER> 
+			 </WIDGET></TD> 
+		</TR> 
+	 </TABLE>
+  </BODY>
+</HTML>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>OSC2 LFO1</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() == 1">
+         <parameter id="COMMON_oscillator_mode" indexer="false"></parameter>
+         <table>
+            <tr> 
+               <th colspan="6" bgcolor="#FFFF99"><font size="4" color="#006666"
+                  face="Arial"><b>OSC 2 LFO 1</b></font></th> 
+            </tr> 
+            <tr>
+               <td><font color="#006666" face="Arial">Waveform</font></td> 
+               <td colspan="2"><widget class="ChoiceWidget" decoder="list_1-6">
+                  <parameter id="OSC2_LFO1_waveform"></parameter>
+               </widget></td>
+            </tr>
+            <tr>
+               <td><font color="#006666" face="Arial">Frequency</font></td> 
+               <td><widget class="SpinWidget" format="%02d">
+                  <parameter id="OSC2_LFO1_frequency"></parameter>
+               </widget></td>
+               <td><font color="#006666" face="Arial">Offset</font></td> 
+               <td><widget class="SpinWidget" format="%+03d">
+                  <parameter id="OSC2_LFO1_offset"/>
+               </widget></td>
+            </tr>
+            <tr>
+               <td><font color="#006666" face="Arial">Key Sync</font></td> 
+               <td><widget class="CheckWidget">
+                  <parameter id="OSC2_LFO1_key_sync"></parameter>
+               </widget></td>
+               <td><font color="#006666" face="Arial">Fade</font></td> 
+               <td><widget class="SpinWidget" format="%02d">
+                  <parameter id="OSC2_LFO1_fade"></parameter>
+               </widget></td>
+               <td><font color="#006666" face="Arial">Delay</font></td> 
+               <td><widget class="SpinWidget" format="%02d">
+                  <parameter id="OSC2_LFO1_delay"></parameter>
+               </widget></td>
+            </tr>
+         </table>
+         <table>
+            <tr> 
+               <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+                  face="Arial"><b>Frequency Modulation</b></font></th> 
+            </tr> 
+            <tr>
+               <td><font color="#006666" face="Arial">AMS 1</font></td> 
+               <td><widget class="ChoiceWidget" decoder="list_1-4">
+                  <parameter id="OSC2_LFO1_am_source_time1"></parameter>
+               </widget></td>
+               <td><font color="#006666" face="Arial">AMS 2</font></td> 
+               <td><widget class="ChoiceWidget" decoder="list_1-4">
+                  <parameter id="OSC2_LFO1_am_source_time2"></parameter>
+               </widget></td>
+            </tr>
+            <tr>
+               <td><font color="#006666" face="Arial">Intensity</font></td> 
+               <td><widget class="SpinWidget" format="%+03d">
+                  <parameter id="OSC2_LFO1_am_int_time1"></parameter>
+               </widget></td>
+               <td><font color="#006666" face="Arial">Intensity</font></td> 
+               <td><widget class="SpinWidget" format="%+03d">
+                  <parameter id="OSC2_LFO1_am_int_time2"></parameter>
+               </widget></td>
+            </tr>
+         </table>
+         <table>
+            <tr> 
+               <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+                  face="Arial"><b>Frequency MIDI/Tempo Sync</b></font></th> 
+            </tr> 
+            <tr>
+               <td><font color="#006666" face="Arial">MIDI/Tempo Sync.</font></td> 
+               <td><widget class="CheckWidget" decoder="list_1-4">
+                  <parameter id="OSC2_LFO1_midi_tempo_sync"></parameter>
+               </widget></td>
+               <td><font color="#006666" face="Arial">Base Note</font></td> 
+               <td><widget class="ChoiceWidget" decoder="list_base_notes" 
+                  enable="OSC2_LFO1_midi_tempo_sync.getData() == 0">
+                  <parameter id="OSC2_LFO1_midi_tempo_sync" indexer="false"></parameter>
+                  <parameter id="OSC2_LFO1_sync_base_note"></parameter>
+               </widget></td>
+            </tr>
+            <tr>
+               <td></td> 
+               <td></td>
+               <td><font color="#006666" face="Arial">Times</font></td> 
+               <td><widget class="SpinWidget" decoder="scale_1" format="%02d" 
+                  enable="OSC2_LFO1_midi_tempo_sync.getData() == 0">
+                  <parameter id="OSC2_LFO1_midi_tempo_sync" indexer="false"></parameter>
+                  <parameter id="OSC2_LFO1_times"></parameter>
+               </widget></td>
+            </tr>
+         </table>
+      </widget>
+   </body>
+</html>

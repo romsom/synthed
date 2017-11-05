@@ -1,0 +1,66 @@
+BODY {
+	FONT-SIZE: 11pt; FONT-FAMILY: verdana, arial, sans-serif
+}
+.tagline {
+	PADDING-RIGHT: 10pt; DISPLAY: block; PADDING-LEFT: 10pt; FONT-SIZE: 9pt; PADDING-BOTTOM: 2pt; MARGIN: 0pt 0pt 5pt; COLOR: #fff; PADDING-TOP: 2pt; BACKGROUND-COLOR: #000; TEXT-ALIGN: right
+}
+.ahem {
+	DISPLAY: none
+}
+.sitemenu {
+	DISPLAY: none
+}
+#quicklinks {
+	DISPLAY: none
+}
+#externallinks {
+	DISPLAY: none
+}
+#primarynav {
+	DISPLAY: none
+}
+#leftnav {
+	DISPLAY: none
+}
+.altversions {
+	DISPLAY: none
+}
+#footer {
+	BORDER-TOP: #000 1pt solid; MARGIN-TOP: 20pt; PADDING-LEFT: 30pt; FONT-SIZE: 9pt; PADDING-TOP: 5pt
+}
+HR {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; COLOR: #000; HEIGHT: 1pt; BACKGROUND-COLOR: #000; BORDER-RIGHT-WIDTH: 0px
+}
+H1 {
+	PADDING-RIGHT: 0pt; BORDER-TOP: #000 0.5pt solid; PADDING-LEFT: 0pt; FONT-WEIGHT: bold; FONT-SIZE: 14pt; MARGIN-BOTTOM: 10pt; PADDING-BOTTOM: 5pt; PADDING-TOP: 5pt; BORDER-BOTTOM: #000 0.5pt solid
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt
+}
+P {
+	MARGIN-LEFT: 30pt
+}
+UL {
+	MARGIN-LEFT: 30pt
+}
+LI {
+	MARGIN-BOTTOM: 5pt
+}
+.resumesection H1 {
+	BORDER-TOP: #000 0pt solid; BORDER-BOTTOM: #000 0pt solid
+}
+.resumesection H2 {
+	BORDER-TOP: #000 0.5pt solid
+}
+.resumesection H3 {
+	MARGIN-BOTTOM: 0pt; MARGIN-LEFT: 30pt
+}
+.resumesection H4 {
+	FONT-SIZE: 9pt; MARGIN: 2pt 10pt 10pt 30pt; LINE-HEIGHT: 10pt
+}
+.resumesection H2 {
+	BORDER-TOP: #000 0.5pt solid
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Filter 2</title> 
+   </head> 
+   <body bgcolor="#CCFFCC">
+    <widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() == 1">
+      <parameter id="COMMON_oscillator_mode" indexer="false"></parameter>
+      <table>
+         <tr> 
+            <th colspan="5" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Filter Type</b></font></th> 
+         </tr> 
+         <tr>
+            <td width="200"><widget class="RadioWidget" decoder="list_filtertype">
+               <parameter id="OSC2_FILTER_type"></parameter>
+            </widget></td>
+            <td width="30"></td>
+            <td width="50"><font color="#006666" face="Arial">Trim</font></td> 
+            <td width="130"><widget class="SliderWidget" layout="horizontal" format="%02d">
+               <parameter id="OSC2_FILTER_trim"></parameter>
+            </widget></td>
+            <td></td>
+         </tr>
+      </table>
+      <table>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Filter A</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Frequency</font></td> 
+            <td><widget class="SliderWidget" layout="horizontal" format="%02d">
+               <parameter id="OSC2_FILTERA_frequency"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">Resonance AMS</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_1-4"
+               enable="OSC2_FILTER_type.getData() == 0">
+               <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+               <parameter id="OSC2_FILTER_am_source_reso"></parameter>
+            </widget></td>
+         </tr>
+         <tr>
+            <widget class="GroupWidget" enable="OSC2_FILTER_type.getData() == 0">
+               <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+               <td><font color="#006666" face="Arial">Resonance</font></td> 
+               <td><widget class="SliderWidget" layout="horizontal" format="%02d">
+                  <parameter id="OSC2_FILTER_resonance"></parameter>
+               </widget></td>
+               <td><font color="#006666" face="Arial">Intensity</font></td> 
+               <td><widget class="SpinWidget" format="%+03d">
+                  <parameter id="OSC2_FILTER_am_int_reso"></parameter>
+               </widget></td>
+            </widget>
+         </tr>
+      </table>
+      <table>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Filter B</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Frequency</font></td> 
+            <td><widget class="SliderWidget" layout="horizontal" 
+                enable="OSC2_FILTER_type.getData() == 1" format="%02d">
+               <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+               <parameter id="OSC2_FILTERB_frequency"></parameter>
+            </widget></td>
+            <td></td>
+            <td></td>
+         </tr>
+      </table>
+    </widget>
+   </body>
+</html>

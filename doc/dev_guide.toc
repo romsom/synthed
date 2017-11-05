@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Directory Structure}{2}{section.1}
+\contentsline {section}{\numberline {2}About XML}{3}{section.2}
+\contentsline {section}{\numberline {3}SynthEd Configuration File (config.xml)}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}$<$instrument$>$}{4}{subsection.3.1}
+\contentsline {section}{\numberline {4}Instrument File}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}$<$module$>$}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}$<$patch$>$}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}$<$decoder$>$}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}$<$interface$>$}{7}{subsection.4.4}
+\contentsline {section}{\numberline {5}Patch Files}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}$<$patch$>$}{10}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Attribute Expressions}{11}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Parameter Child Elements}{11}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}$<$array$>$}{11}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}$<$byte$>$}{12}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}Parameter Naming Conventions}{13}{subsection.5.4}
+\contentsline {section}{\numberline {6}Decoder Files}{13}{section.6}
+\contentsline {subsection}{\numberline {6.1}$<$list$>$}{16}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}List Child Elements}{17}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}$<$item$>$}{17}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}$<$scale$>$}{18}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}range}{19}{subsubsection.6.3.1}

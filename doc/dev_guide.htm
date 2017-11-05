@@ -1,0 +1,929 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>SynthEd Developer Guide</TITLE><LINK REL="STYLESHEET"
+	 HREF="doc.css"> 
+  </HEAD> 
+  <BODY> 
+	 <H1>SynthEd Developer Guide</H1> 
+	 <P>A SynthEd module is composed of several component files: </P> 
+	 <UL> 
+		<LI><A HREF="#config_file">SynthEd Configuration file</A></LI> 
+		<LI><A HREF="#instrument_file">Instrument file</A></LI> 
+		<LI><A HREF="#patch_files">Patch files</A></LI> 
+		<LI><A HREF="#decoder_files">Decoder files</A></LI> 
+		<LI><A HREF="#interface_files">Interface files</A></LI>
+		<LI>Edit pages</LI> 
+		<LI>Script files</LI> 
+	 </UL> 
+	 <H3>Directory Structure</H3> 
+	 <P>Here is a simplified version of the SynthEd directory structure:</P> 
+	 <PRE>
+    |
+    |---synthed/
+    |   |---config.dtd
+    |   |---config.xml
+    |   |
+    |   |---doc/
+    |   |
+    |   |---instruments/
+    |   |   |---data.dtd
+    |   |   |---decoder.dtd
+    |   |   |---instrument.dtd
+    |   |   |---interface.dtd
+    |   |   |
+    |   |   |---access/
+    |   |   |
+    |   |   |---korg/
+    |   |   |   |
+    |   |   |   |---triton/
+    |   |   |   |   |---triton.xml
+    |   |   |   |   |---triton_rack.xml
+    |   |   |   |   |---triton_pcm.xml
+    |   |   |   |   |---triton_decoder.xml
+    |   |   |   |   |---triton_ui.xml
+    |   |   |   |   |---triton.py
+    |   |   |   |   |---triton_arp.htm
+    |   |   |   |   |---triton_perfedit.htm
+    |   |   |   |   |---triton_pgmbasic.htm
+    |   |   |   |   |---triton_pitcheg.htm
+    |   |   |   |   |---images/
+    |   |   |   |   |   |---	 
+</PRE> 
+	 <P><CODE></CODE>SynthEd module files may be placed anywhere, but by convention they
+		reside under the <CODE>instruments/</CODE> subdirectory, and they are organized into a <CODE>manufacturer/family/model</CODE> hierarchy where possible.</P> 
+	 <H3>About XML</H3> 
+	 <P>XML documents use a self-describing, simple grammar. If you are not
+		already familiar with XML, check out this
+		<A HREF="http://www.w3schools.com/xml/default.asp">XML tutorial</A>.There are
+		several good XML editors available. <A HREF="http://xmlcooktop.com/">XML
+		Cooktop</A> is one example of a free XML editor for Windows. After editing an
+		XML file, always validate the file against the DTD (Data Type Definition). Find
+		and fix any problems before using the file with SynthEd. Use of invalid or
+		malformed XML documents can cause unpredictable results.</P> 
+	 <H3><A NAME="config_file">SynthEd Configuration File (config.xml)</A></H3> 
+	 <P>The <CODE>config.xml</CODE> file contains installation-specific configuration info or preferences.
+		Typically this will include information about which synths are installed, the
+		MIDI ports, sysex device numbers and channels to use, etc. Here is a minimal <CODE>config.xml</CODE> file:</P> 
+	 <PRE>
+&lt;?xml version="1.0"?&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    config.xml
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+
+&lt;!DOCTYPE synthed SYSTEM "config.dtd"&gt;
+
+&lt;synthed&gt;
+	&lt;instruments&gt;
+		&lt;!-- &lt;instrument id="k2000" caption="K2600XS" path="instruments/kurzweil/k2000/k2000.xml"/&gt; --&gt;
+		&lt;instrument id="triton_rack" caption="TRITON-Rack" path="instruments/korg/triton/triton_rack.xml"/&gt;
+		&lt;instrument id="synthdev" caption="SynthEd" path="instruments/synthed/synthdev.xml"/&gt;
+	&lt;/instruments&gt;
+&lt;/synthed&gt;
+</PRE> 
+	 <P>Each synth or MIDI device that is to be managed by SynthEd must be
+		described by an <CODE>&lt;instrument&gt;</CODE> element.</P> 
+	 <H4><CODE>&lt;instrument&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>id</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>a unique name for the synth.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>caption</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>the name that SynthEd will display for the synth.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>path</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the path to the instrument file. Relative paths are evaluated
+			 relative to the SynthEd home directory.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>The <CODE>config.xml</CODE> file will be extended with more attributes as needed.</P> 
+	 <H3><A NAME="instrument_file">Instrument File</A></H3> 
+	 <P>The instrument file serves as an index to the rest of the synth "module"
+		information. Here is an example instrument file for the Korg TRITON-Rack:</P> 
+	 <PRE>
+&lt;?xml version="1.0"?&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	triton_rack.xml
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+
+&lt;!DOCTYPE instrument SYSTEM "../../instrument.dtd"&gt;
+
+&lt;instrument id="triton_rack"&gt;
+
+	&lt;module id="triton"/&gt;
+	
+	&lt;data&gt;
+		&lt;patch path="triton_pcm.xml"/&gt;
+		&lt;patch path="triton_fx.xml"/&gt;
+	&lt;/data&gt;
+	
+	&lt;decoders&gt;
+		&lt;decoder path="triton_decoder.xml"/&gt;
+	&lt;/decoders&gt;
+	
+	&lt;interfaces&gt;
+		&lt;interface path="triton_ui.xml"/&gt;
+	&lt;/interfaces&gt;
+	
+	&lt;modes&gt;
+		&lt;mode id="prog" caption="Program"&gt;
+			&lt;bank caption="PROG INT-A" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-B" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-C" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-D" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-E" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-F" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-A" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-B" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-C" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-D" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-E" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-F" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-G" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-H" min="0" max="127"/&gt;
+		&lt;/mode&gt;
+		&lt;mode id="combi" caption="Combination"&gt;
+			&lt;bank caption="COMBI INT-A" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-B" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-C" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-D" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-E" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-F" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-A" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-B" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-C" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-D" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-E" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-F" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-G" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-H" min="0" max="127"/&gt;
+		&lt;/mode&gt;
+		&lt;mode id="GLOB" caption="Global"&gt;
+		&lt;/mode&gt;
+	&lt;/modes&gt;
+	
+&lt;/instrument&gt;
+</PRE> 
+	 <P>The instrument file contains the following elements:</P> 
+	 <H4><CODE>&lt;module&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>id</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the Python module name.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>An instrument file may have one or more <CODE>&lt;module&gt;</CODE> elements. The Python module contains objects and functions that are too
+		complex to describe in XML. The Python module is imported into the instrument's
+		namespace when the instrument definition is loaded. Python module objects may
+		be referenced by certain XML elements. The specified module name should not
+		include the ".py" extension as the Python runtime will take care of this.</P> 
+	 <H4><CODE>&lt;patch&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>path</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the path for a patch definition file. Relative paths are evaluated
+			 relative to the path of the instrument file.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>An instrument file may have one or more <CODE>&lt;patch&gt;</CODE> elements. Each <CODE>&lt;patch&gt;</CODE> element defines the path for a patch data definition file. describes
+		the parameter layout for one type of patch. Note that the word "patch" is used
+		to mean the layout or schema of any one data type. For example, a given
+		instrument may have a Program patch, a Performance patch and a Global patch.
+		Our use of the word "patch" should not be confused with the use of the word
+		"patch" by some synth manufacturers. For example, a Roland JP-8080 has a
+		"Patch", a "Performance" and a "System" data type. Each of these data types
+		would have a corresponding <CODE>&lt;patch&gt;</CODE> element in a SynthEd instrument file.</P> 
+	 <H4><CODE>&lt;decoder&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>path</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the path for a decoder file. Relative paths are evaluated relative
+			 to the path of the instrument file.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>An instrument file may have one or more <CODE>&lt;decoder&gt;</CODE> elements. Each <CODE>&lt;decoder&gt;</CODE> describes the location of a decoder file. Decoder files contain a sets
+		of specifications for converting between internal (data) values and external
+		(display) values. As an example of one such decoder spec, an oscillator mode
+		parameter may decode as:</P> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Data Value</TH> 
+		  <TH>Display Value</TH> 
+		</TR> 
+		<TR> 
+		  <TD>0</TD> 
+		  <TD>Single</TD> 
+		</TR> 
+		<TR> 
+		  <TD>1</TD> 
+		  <TD>Double</TD> 
+		</TR> 
+		<TR> 
+		  <TD>2</TD> 
+		  <TD>Drumkit</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>More information on the content of the decoder files will be presented
+		later.</P> 
+	 <H4><CODE>&lt;interface&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>path</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the path for a interface file. Relative paths are evaluated
+			 relative to the path of the instrument file.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>An interface file maps patches to patch editors. Each <CODE>&lt;interface&gt;</CODE> describes the location of an interface file.</P> 
+	 <H3><A NAME="patch_files">Patch Files</A></H3> 
+	 <P> Most synths provide one or more ways to send (save) and receive (dump)
+		their internal data objects. Patch files are used to describe the parameter
+		layout for each of the data objects. Here is an excerpt of a sample patch file
+		for the Korg TRITON family of synths.</P> 
+	 <PRE>&lt;?xml version="1.0"?&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	triton_pcm.xml
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+
+&lt;!DOCTYPE data SYSTEM "../../data.dtd"&gt;
+
+&lt;data&gt;
+&lt;patch id="pcm" caption="Program (PCM)"&gt;
+
+	&lt;!-- Patch name --&gt;
+	&lt;parameter id="name" type="str" pad=" "&gt;
+		&lt;array offset="0" length="16"/&gt;
+	&lt;/parameter&gt;
+	
+	&lt;!-- Constants --&gt;
+	&lt;parameter id="CONSTANT_0" min="0" max="0"/&gt;
+	&lt;parameter id="CONSTANT_1" min="1" max="1"/&gt;
+	&lt;parameter id="CONSTANT_2" min="2" max="2"/&gt;
+	&lt;parameter id="CONSTANT_3" min="3" max="3"/&gt;
+	&lt;parameter id="CONSTANT_4" min="4" max="4"/&gt;
+
+	&lt;!-- Performance parameters are temporary values and are not stored in the bank dump --&gt;
+	&lt;parameter id="PERFORMANCE_octave" alt="00,00" min="0xFD" max="0x03"/&gt;
+	&lt;parameter id="PERFORMANCE_pitch_stretch" alt="00,01" min="0xF4" max="0x0C"/&gt;
+	&lt;parameter id="PERFORMANCE_osc_balance" alt="00,02" min="0xF6" max="0x0A"/&gt;
+	&lt;parameter id="PERFORMANCE_amp_level" alt="00,03" min="0xF6" max="0x0A"/&gt;
+	&lt;parameter id="PERFORMANCE_attack_time" alt="00,04" min="0xF6" max="0x0A"/&gt;
+	&lt;parameter id="PERFORMANCE_decay_time" alt="00,05" min="0xF6" max="0x0A"/&gt;
+	&lt;parameter id="PERFORMANCE_ifx_balance" alt="00,06" min="0xF6" max="0x0A"/&gt;
+	&lt;parameter id="PERFORMANCE_mfx_balance" alt="00,07" min="0xF6" max="0x0A"/&gt;
+	
+	&lt;!-- Insert Effects --&gt;
+	&lt;!-- IFX1_initialize tells if IFX1 should be initialized--&gt;
+	&lt;parameter id="IFX1_initialize" min="0x00" max="0x01"/&gt;
+	&lt;!-- IFX1_data_offset holds the patch offset of IFX1 --&gt;
+	&lt;parameter id="IFX1_data_offset" min="16" max="16"/&gt;
+	&lt;parameter id="IFX1_effect_no" min="0x00" max="0x59"&gt;
+		&lt;byte offset="32"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX1_midi_channel" min="0x00" max="0x10"&gt;
+		&lt;byte offset="33" bitstart="0" bitstop="5"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX1_off_on" min="0x00" max="0x01"&gt;
+		&lt;byte offset="33" bitstart="6" bitstop="6"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX1_chain" min="0x00" max="0x01"&gt;
+		&lt;byte offset="33" bitstart="7" bitstop="7"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX1_pan" min="0x00" max="0x7F"&gt;
+		&lt;byte offset="36"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX1_bus_select" min="0x00" max="0x07"&gt;
+		&lt;byte offset="37"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX1_send1" min="0x00" max="0xF7"&gt;
+		&lt;byte offset="38"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX1_send2" min="0x00" max="0xF7"&gt;
+		&lt;byte offset="39"/&gt;
+	&lt;/parameter&gt;
+	&lt;!-- IFX2_initialize tells if IFX2 should be initialized--&gt;
+	&lt;parameter id="IFX2_initialize" min="0x00" max="0x01"/&gt;
+	&lt;!-- IFX2_data_offset holds the patch offset of IFX2 --&gt;
+	&lt;parameter id="IFX2_data_offset" min="16+24" max="16+24"/&gt;
+	&lt;parameter id="IFX2_effect_no" min="0x00" max="0x66"&gt;
+		&lt;byte offset="32+24"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX2_midi_channel" min="0x00" max="0x10"&gt;
+		&lt;byte offset="33+24" bitstart="0" bitstop="5"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX2_off_on" min="0x00" max="0x01"&gt;
+		&lt;byte offset="33+24" bitstart="6" bitstop="6"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX2_chain" min="0x00" max="0x01"&gt;
+		&lt;byte offset="33+24" bitstart="7" bitstop="7"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX2_pan" min="0x00" max="0x7F"&gt;
+		&lt;byte offset="36+24"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX2_bus_select" min="0x00" max="0x07"&gt;
+		&lt;byte offset="37+24"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX2_send1" min="0x00" max="0xF7"&gt;
+		&lt;byte offset="38+24"/&gt;
+	&lt;/parameter&gt;
+	&lt;parameter id="IFX2_send2" min="0x00" max="0xF7"&gt;
+		&lt;byte offset="39+24"/&gt;
+	&lt;/parameter&gt;
+&lt;/patch&gt;
+&lt;/data&gt;
+</PRE> 
+	 <P>A patch (synth data object) is treated as a byte array. The <CODE>&lt;patch&gt;</CODE> element defines the parameter values that may be used by SynthEd. A
+		patch may use zero or more <CODE>&lt;parameter&gt;</CODE> elements. Each <CODE>&lt;parameter&gt;</CODE> describes the value type and limits of a single value.</P> 
+	 <H4><CODE>&lt;parameter&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>id</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>a unique identifier for the parameter. The id can be referenced by
+			 certain XML elements to get and set the parameter value, so it must adhere to
+			 the Python language rules for names. </TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>type</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>Most parameters are integers. A few parameters, such as categories
+			 and program names are 'str' (string) values.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>pad</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>If the parameter is of type 'str', it will be padded with this
+			 char. If the type is not 'str', the pad attribute is ignored.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>alt</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>The meaning of this attribute is instrument-dependent.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>min</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>The minimum integer value for this parameter.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>max</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>The maximum integer value for this parameter.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>init</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>The integer value to set if this parameter is initialized; default
+			 = (min+max)/2.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <H4>Attribute expressions</H4> 
+	 <P>Numeric attributes accept any legal Python numeric expression. For
+		example, the following are equivalent and legal:</P> 
+	 <UL> 
+		<LI><CODE>min="0xFD" max="0x03"</CODE></LI> 
+		<LI><CODE>min="-3" max="3"</CODE></LI> 
+		<LI><CODE>min="3*(-1)/1" max="1+2"</CODE></LI> 
+	 </UL> 
+	 <P>If an attribute expects an integer expression and a non-integer
+		expression is specified, the expression will be evaluated and then converted
+		using the int() function.</P> 
+	 <P>Attribute expressions may reference variables, objects and methods. For
+		example:</P> 
+	 <P><CODE>	max="PERFORMANCE_ifx_max.getData()"</CODE></P> 
+	 <P>is a legal expression as long as <CODE>PERFORMANCE_ifx_max</CODE> has been defined as a parameter object.</P> 
+	 <P>Wherever <CODE>min</CODE> and <CODE>max</CODE> attributes appear, if the <CODE>min</CODE> value evaluates to be greater than the <CODE>max</CODE> value, then SynthEd will interpret the <CODE>min</CODE> value as twos-complement number and will extend the leading bit to form
+		a native twos-complement integer. </P> 
+	 <H3>Parameter child elements</H3> 
+	 <P>A <CODE>&lt;parameter&gt;</CODE> may contain zero or more <CODE>&lt;array&gt;</CODE> or <CODE>&lt;byte&gt;</CODE> elements. An <CODE>&lt;array&gt;</CODE> is a contiguous set of bytes in a patch, while a <CODE>&lt;byte&gt;</CODE> is a single byte (or contiguous set of bits in a byte) in a patch. A
+		temporary <CODE>&lt;parameter&gt;</CODE> is a <CODE>&lt;parameter&gt;</CODE> with no child elements. A constant <CODE>&lt;parameter&gt;</CODE> is a temporary parameter where <CODE>min=max</CODE>.</P> 
+	 <H4><CODE>&lt;array&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>offset</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>Starting offset in the patch</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>length</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>Array length in bytes</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>For example, to define a "name" parameter as a space padded string 16
+		bytes long at the start of a patch:</P> 
+	 <PRE>	
+	&lt;!-- Patch name --&gt;
+	&lt;parameter id="name" type="str" pad=" "&gt;
+		&lt;array offset="0" length="16"/&gt;
+	&lt;/parameter&gt;
+</PRE> 
+	 <H4><CODE>&lt;byte&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>offset</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>Starting offset in the patch</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>bitstart</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>Starting bit [0,7] default = 0</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>bitstop</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>Stop bit [0,7] default = 7</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>For example, to define a parameter value of a single byte at offset
+		32:</P> 
+	 <PRE>	
+	&lt;parameter id="IFX1_effect_no" min="0x00" max="0x59"&gt;
+		&lt;byte offset="32"/&gt;
+	&lt;/parameter&gt;
+</PRE> 
+	 <P>For example, to define a parameter value of bits [0,5] at offset 33:</P>
+	 
+	 <PRE>	
+	&lt;parameter id="IFX1_midi_channel" min="0x00" max="0x10"&gt;
+		&lt;byte offset="33" bitstart="0" bitstop="5"/&gt;
+	&lt;/parameter&gt;
+</PRE> 
+	 <P>For example, to define an 7-bit parameter value that is packed into byte
+		33 bit 7 and byte 34 [0,5]:</P> 
+	 <PRE>	
+	&lt;parameter id="PGM_sample_no" min="0" max="127"&gt;
+		&lt;byte offset="33" bitstart="7" bitstop="7"/&gt;
+		&lt;byte offset="34" bitstart="0" bitstop="5"/&gt;
+	&lt;/parameter&gt;
+</PRE> 
+	 <P>Note: multi-byte parameter values are computed by bit-shifting and
+		OR'ing using an MSB (Most Significant Byte) order.</P> 
+	 <P>For example, to define a temporary parameter with a value of 0 or 1:</P>
+	 
+	 <PRE>	
+	&lt;parameter id="IFX1_initialize" min="0x00" max="0x01"/&gt;
+</PRE> 
+	 <P>For example, to define a constant parameter with a value of 16:</P> 
+	 <PRE>	
+	&lt;parameter id="IFX1_data_offset" min="16" max="16"/&gt;
+</PRE> 
+	 <H4>Parameter Naming Conventions</H4> 
+	 <P>A typical synth data object may contain hundreds of parameters.
+		Furthermore, similar parameters may be appear many places in a data object.
+		Also, each parameter id must be unique over all parameters for the synth.
+		Therefore, some parameter naming conventions are recommended:</P> 
+	 <P><CODE>PREFIX_parameter_name</CODE></P> 
+	 <P>Group related parameters together and use a capitalized prefix to denote
+		that the parameters are related.</P> 
+	 <P>Using lower case, form the balance of the parameter name to closely
+		resemble the manufacturer's documented parameter name, substituting underscores
+		for spaces or special characters.</P> 
+	 <P>These naming conventions will make it easier to refer to manufacturer
+		documentation and maintain uniqueness of identifiers.</P> 
+	 <H3><A NAME="decoder_files">Decoder Files</A></H3> 
+	 <P>Decoder files specify how to convert between internal (data) and
+		external (display) values. Here is an excerpt from a decoder file for the Korg
+		TRITON family of synths:</P> 
+	 <PRE>
+&lt;?xml version="1.0"?&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	triton_decoder.xml
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+
+&lt;!DOCTYPE decoder SYSTEM "../../decoder.dtd"&gt;
+
+&lt;decoder&gt;
+
+&lt;lists&gt;
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Modulation source list from Note **1-2 in the TRITON sysex document.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+&lt;list id="list_1-2"&gt;
+	&lt;item value="OFF"/&gt;
+	&lt;item value="SW 1/2 Mod:CC#80/CC#81"/&gt;
+	&lt;item value="Porta SW"/&gt;
+	&lt;item value="Octave Down:N/A"/&gt;
+	&lt;item value="Octave Up:N/A"/&gt;
+	&lt;item value="JS X Lock:N/A"/&gt;
+	&lt;item value="JS+Y Lock:N/A"/&gt;
+	&lt;item value="JS-Y LOCK:N/A"/&gt;
+	&lt;item value="Ribbon Lock:N/A"/&gt;
+	&lt;item value="JS X and Ribbon Lock:N/A"/&gt;
+	&lt;item value="JS+Y and Ribbon Lock:N/A"/&gt;
+	&lt;item value="JS-Y and Ribbon Lock:N/A"/&gt;
+	&lt;item value="After Touch Lock:N/A"/&gt;
+&lt;/list&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Multisamples are described as a nested list (2 dimensional array). 
+	The bank number selects the correct list. 
+	The multisample number is the index into the selected list.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+&lt;list id="list_multisamples"&gt;
+	&lt;list id="list_internal_multisamples"&gt;
+		&lt;item value="000: A.Piano"/&gt;
+		&lt;item value="001: A.Piano-M1"/&gt;
+		&lt;item value="002: E.Grand Piano"/&gt;
+		&lt;item value="003: E.P.-FM 1"/&gt;
+		&lt;item value="004: E.P.-FM 1 LP"/&gt;
+		&lt;item value="005: E.P.-FM 2"/&gt;
+		&lt;item value="006: E.P.8-FM 3"/&gt;
+		&lt;item value="007: E.P.-FM 3 LP"/&gt;
+		&lt;item value="008: E.P.-Dyno Soft"/&gt;
+		&lt;item value="009: E.P.-Dyno Sft LP"/&gt;
+		&lt;item value="010: E.P.-Dyno Medium"/&gt;
+		&lt;item value="011: E.P.-Dyno Med LP"/&gt;
+	&lt;/list&gt;
+	&lt;list id="list_ram_multisamples"&gt;
+	&lt;/list&gt;
+	&lt;list id="list_exb1_multisamples"&gt;
+		&lt;item value="000: L1 Stereo Piano"/&gt;
+		&lt;item value="001: R1 Stereo Piano"/&gt;
+		&lt;item value="002: L2 Stereo Piano"/&gt;
+		&lt;item value="003: R2 Stereo Piano"/&gt;
+		&lt;item value="004: SG Piano"/&gt;
+		&lt;item value="005: Concert Piano"/&gt;
+		&lt;item value="006: A.Piano-TR"/&gt;
+		&lt;item value="007: E.P.-Stage2 Soft"/&gt;
+		&lt;item value="008: E.P.-Stage2 Hard"/&gt;
+		&lt;item value="009: E.P.-Suit Soft"/&gt;
+		&lt;item value="010: E.P.-Suit Hard"/&gt;
+		&lt;item value="011: E.P.-Wurly2 Soft"/&gt;
+		&lt;item value="012: E.P.-Wurly2 Hard"/&gt;
+		&lt;item value="013: E.P.-Pnet Soft"/&gt;
+		&lt;item value="014: E.P.-Pnet Hard"/&gt;
+	&lt;/list&gt;
+	&lt;list id="list_exb2_multisamples"&gt;
+		&lt;item value="000: Flute Vibrato"/&gt;
+		&lt;item value="001: Bass Clarinet"/&gt;
+		&lt;item value="002: WoodwindEns."/&gt;
+		&lt;item value="003: Tenor Sax-Soft"/&gt;
+		&lt;item value="004: Tenor Sax-Hard"/&gt;
+		&lt;item value="005: Alto Sax-Hard"/&gt;
+		&lt;item value="006: Soprano Sax-Hard"/&gt;
+		&lt;item value="007: SaxEnsemble"/&gt;
+		&lt;item value="008: SaxEnsemble-LP"/&gt;
+	&lt;/list&gt;
+&lt;/list&gt;
+&lt;/lists&gt;
+
+&lt;scales&gt;
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Intensity scale from Note **1-7 in the TRITON sysex document.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+&lt;scale id="scale_1-7" min="0x8D" max="0x73" format="%04.2f"&gt;
+	&lt;range min="0x8D" max="0xC3" minval="-12.00" increment="0.20"/&gt;
+	&lt;range min="0xC4" max="0xCD" minval="-1.00" increment="0.05"/&gt;
+	&lt;range min="0xCE" max="0x32" minval="-0.50" increment="0.01"/&gt;
+	&lt;range min="0x33" max="0x3C" minval="+0.55" increment="0.05"/&gt;
+	&lt;range min="0x3D" max="0x73" minval="+1.20" increment="0.20"/&gt;
+&lt;/scale&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Octave offset scale
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+&lt;scale id="scale_octave_offset" min="0xFE" max="0x01"&gt;
+	&lt;range min="0xFE" max="0xFE" minval="-2 [32']"/&gt;
+	&lt;range min="0xFF" max="0xFF" minval="-1 [16']"/&gt;
+	&lt;range min="0x00" max="0x00" minval="+0 [8']"/&gt;
+	&lt;range min="0x01" max="0x01" minval="+1 [4']"/&gt;
+&lt;/scale&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Pan scale
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+&lt;scale id="scale_pan" min="0x00" max="0x7F"&gt;
+	&lt;range min="0x00" max="0x00" minval="RND" increment="0"/&gt;
+	&lt;range min="0x01" max="0x3f" minval="1" increment="1" format="L%03d"/&gt;
+	&lt;range min="0x40" max="0x40" minval="C064" increment="0"/&gt;
+	&lt;range min="0x41" max="0x7f" minval="65" increment="1" format="R%03d"/&gt;
+&lt;/scale&gt;
+
+&lt;/scales&gt;
+</PRE> 
+	 <P>Currently, two types of decoder elements may be used: <CODE>&lt;list&gt;</CODE> elements may be used to create indexed tables of string values, and <CODE>&lt;scale&gt;</CODE> elements may be used to create stepped scales of alphanumeric values.
+		These two decoder types can be used to decode most parameter values.</P> 
+	 <H4><CODE>&lt;list&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>id</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>a unique identifier for the list. The id can be referenced by
+			 certain XML elements to get list items, so it must adhere to the Python
+			 language rules for names. </TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>It is recommended that list id's follow the convention:</P> 
+	 <P><CODE>list_name</CODE></P> 
+	 <P>where <CODE>name</CODE> is either:</P> 
+	 <UL> 
+		<LI>A reference to a table in the manufacturer's documentation, or</LI> 
+		<LI>A name that associates the list with a type of parameter</LI> 
+	 </UL> 
+	 <H4>List child elements</H4> 
+	 <P>A list may contain zero or more <CODE>&lt;item&gt;</CODE> or <CODE>&lt;list&gt;</CODE> elements (i.e. nested lists).</P> 
+	 <H4><CODE>&lt;item&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>value</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>A string literal value</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>Lists are always indexed such that a value of 0 selects the first item
+		from a list, and a value of n-1 selects the n'th item from a list. For example,
+		a value of <CODE>3</CODE> corresponds to <CODE>"Octave Down:N/A"</CODE>from the following list of modulation sources:</P> 
+	 <PRE>
+&lt;list id="list_1-2"&gt;
+	&lt;item value="OFF"/&gt;
+	&lt;item value="SW 1/2 Mod:CC#80/CC#81"/&gt;
+	&lt;item value="Porta SW"/&gt;
+	&lt;item value="Octave Down:N/A"/&gt;
+	&lt;item value="Octave Up:N/A"/&gt;
+	&lt;item value="JS X Lock:N/A"/&gt;
+	&lt;item value="JS+Y Lock:N/A"/&gt;
+	&lt;item value="JS-Y LOCK:N/A"/&gt;
+	&lt;item value="Ribbon Lock:N/A"/&gt;
+	&lt;item value="JS X and Ribbon Lock:N/A"/&gt;
+	&lt;item value="JS+Y and Ribbon Lock:N/A"/&gt;
+	&lt;item value="JS-Y and Ribbon Lock:N/A"/&gt;
+	&lt;item value="After Touch Lock:N/A"/&gt;
+&lt;/list&gt;</PRE> 
+	 <P>Lists may be nested. For example, a bank parameter value = <CODE>2</CODE> and multisample parameter value = <CODE>4</CODE>corresponds to <CODE>004: SG Piano</CODE> in the following nested list:</P> 
+	 <PRE>
+&lt;list id="list_multisamples"&gt;
+	&lt;list id="list_internal_multisamples"&gt;
+		&lt;item value="000: A.Piano"/&gt;
+		&lt;item value="001: A.Piano-M1"/&gt;
+		&lt;item value="002: E.Grand Piano"/&gt;
+		&lt;item value="003: E.P.-FM 1"/&gt;
+		&lt;item value="004: E.P.-FM 1 LP"/&gt;
+		&lt;item value="005: E.P.-FM 2"/&gt;
+		&lt;item value="006: E.P.8-FM 3"/&gt;
+		&lt;item value="007: E.P.-FM 3 LP"/&gt;
+		&lt;item value="008: E.P.-Dyno Soft"/&gt;
+		&lt;item value="009: E.P.-Dyno Sft LP"/&gt;
+		&lt;item value="010: E.P.-Dyno Medium"/&gt;
+		&lt;item value="011: E.P.-Dyno Med LP"/&gt;
+	&lt;/list&gt;
+	&lt;list id="list_ram_multisamples"&gt;
+	&lt;/list&gt;
+	&lt;list id="list_exb1_multisamples"&gt;
+		&lt;item value="000: L1 Stereo Piano"/&gt;
+		&lt;item value="001: R1 Stereo Piano"/&gt;
+		&lt;item value="002: L2 Stereo Piano"/&gt;
+		&lt;item value="003: R2 Stereo Piano"/&gt;
+		&lt;item value="004: SG Piano"/&gt;
+		&lt;item value="005: Concert Piano"/&gt;
+		&lt;item value="006: A.Piano-TR"/&gt;
+		&lt;item value="007: E.P.-Stage2 Soft"/&gt;
+		&lt;item value="008: E.P.-Stage2 Hard"/&gt;
+		&lt;item value="009: E.P.-Suit Soft"/&gt;
+		&lt;item value="010: E.P.-Suit Hard"/&gt;
+		&lt;item value="011: E.P.-Wurly2 Soft"/&gt;
+		&lt;item value="012: E.P.-Wurly2 Hard"/&gt;
+		&lt;item value="013: E.P.-Pnet Soft"/&gt;
+		&lt;item value="014: E.P.-Pnet Hard"/&gt;
+	&lt;/list&gt;
+</PRE> 
+	 <P>Lists may be empty and may also be populated at runtime.</P> 
+	 <H4><CODE>&lt;scale&gt;</CODE></H4> 
+	 <P>Scales are used to decode ordered sets of values that cannot be easily
+		specified as lists.</P> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>id</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>a unique identifier for the scale. The id can be referenced by
+			 certain XML elements to get scale values, so it must adhere to the Python
+			 language rules for names. </TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>min</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>The minimum integer value for the scale.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>max</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>The maximum integer value for the scale.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>format</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>A 'C' style format string that will be used to generate the display
+			 scale values, unless overridden by a child element.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>It is recommended that scale id's follow the convention:</P> 
+	 <P><CODE>scale_name</CODE></P> 
+	 <P>where <CODE>name</CODE> is either:</P> 
+	 <UL> 
+		<LI>A reference to a table in the manufacturer's documentation, or</LI> 
+		<LI>A name that associates the scale with a type of parameter</LI> 
+	 </UL> 
+	 <P>A <CODE>&lt;scale&gt;</CODE> may contain one or more disjoint ranges.</P> 
+	 <H4><CODE>&lt;range&gt;</CODE></H4> 
+	 <P> Each <CODE>&lt;range&gt;</CODE> specifies a homogeneous range of one or more values.</P> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>min</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>The minimum integer value for the range.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>max</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>The maximum integer value for the range.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>minval</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>The minimum display value for the range.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>increment</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>The step or interval between values in the range.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>format</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>A 'C' style format string that will be used to generate the display
+			 range values.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>For example, the following scale:</P> 
+	 <PRE>
+&lt;scale id="scale_pan" min="0x00" max="0x7F"&gt;
+	&lt;range min="0x00" max="0x00" minval="RND" increment="0"/&gt;
+	&lt;range min="0x01" max="0x3f" minval="1" increment="1" format="L%03d"/&gt;
+	&lt;range min="0x40" max="0x40" minval="C064" increment="0"/&gt;
+	&lt;range min="0x41" max="0x7f" minval="65" increment="1" format="R%03d"/&gt;
+&lt;/scale&gt;
+</PRE> 
+	 <P>Will generate the following display values given the input:</P> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Data Value</TH> 
+		  <TH>Display Value</TH> 
+		</TR> 
+		<TR> 
+		  <TD>0</TD> 
+		  <TD>RND</TD> 
+		</TR> 
+		<TR> 
+		  <TD>1</TD> 
+		  <TD>L001</TD> 
+		</TR> 
+		<TR> 
+		  <TD>2</TD> 
+		  <TD>L002</TD> 
+		</TR> 
+		<TR> 
+		  <TD>64</TD> 
+		  <TD>C064</TD> 
+		</TR> 
+		<TR> 
+		  <TD>100</TD> 
+		  <TD>R100</TD> 
+		</TR> 
+		<TR> 
+		  <TD>127</TD> 
+		  <TD>R127</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>Range values may be integers, floating point numbers or strings,
+		although only numeric values may be incremented. The following <CODE>&lt;scale&gt;</CODE>:</P> 
+	 <PRE>
+&lt;scale id="scale_1-7" min="0x8D" max="0x73" format="%04.2f"&gt;
+	&lt;range min="0x8D" max="0xC3" minval="-12.00" increment="0.20"/&gt;
+	&lt;range min="0xC4" max="0xCD" minval="-1.00" increment="0.05"/&gt;
+	&lt;range min="0xCE" max="0x32" minval="-0.50" increment="0.01"/&gt;
+	&lt;range min="0x33" max="0x3C" minval="+0.55" increment="0.05"/&gt;
+	&lt;range min="0x3D" max="0x73" minval="+1.20" increment="0.20"/&gt;
+&lt;/scale&gt;
+</PRE> 
+	 <P>Will generate the following display values given the inputs:</P> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Data Value</TH> 
+		  <TH>Display Value</TH> 
+		</TR> 
+		<TR> 
+		  <TD>-115</TD> 
+		  <TD>-12.00</TD> 
+		</TR> 
+		<TR> 
+		  <TD>-50</TD> 
+		  <TD>-00.50</TD> 
+		</TR> 
+		<TR> 
+		  <TD>-2</TD> 
+		  <TD>-00.02</TD> 
+		</TR> 
+		<TR> 
+		  <TD>0</TD> 
+		  <TD>00.00</TD> 
+		</TR> 
+		<TR> 
+		  <TD>2</TD> 
+		  <TD>00.02</TD> 
+		</TR> 
+		<TR> 
+		  <TD>115</TD> 
+		  <TD>12.00</TD> 
+		</TR> 
+	 </TABLE>
+	 <H4>Decoder Design Guidelines</H4> 
+	 <P>Many decodes can be implemented using either a <CODE>&lt;list&gt;</CODE> or a <CODE>&lt;scale&gt;</CODE> element. Generally, lists are better suited for decodes that use mostly
+		string values, while scales are better suited for decodes that are mostly
+		numeric. However, if a parameter can have a negative internal (data) value, a
+		scale decode may be the only choice, since lists do not support negative index
+		values.</P>
+	 <P>The decoder choice may also be affected by the type of widget that will
+		be used to edit a parameter, since combo boxes are generally better matched
+		with lists while spinners, sliders and knobs are generally better matched with
+		scales.</P>
+	 <P>In the unlikely case that a decode cannot be described using either a
+		list or a scale, then it may be necessary to write a custom decoder function
+		using Python in the instrument module.</P>
+	 <H3><A NAME="interface_files">Interface Files</A></H3>
+	 <P>Interface files associate patches with edit pages.</P>
+  </BODY>
+</HTML>

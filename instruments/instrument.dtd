@@ -1,0 +1,63 @@
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    instrument.dtd
+
+    This instrument definition schema is designed to describe and 
+    facilitate editing of MIDI synthesizer sysex parameters.
+    
+    Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+    
+    This program is free software; you can redistribute it and/or modify it 
+    under the terms of the GNU General Public License as published by the 
+    Free Software Foundation; either version 2 of the License, or (at your 
+    option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but 
+    WITHOUT ANY WARRANTY; without even the implied warranty of 
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+    General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License 
+    along with this program; if not, write to the Free Software Foundation, 
+    Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!ELEMENT instrument (module,data,decoders,interfaces,modes)>
+<!ATTLIST instrument
+    id ID #REQUIRED>
+
+<!ELEMENT module EMPTY>
+<!ATTLIST module
+	id CDATA #REQUIRED>
+
+<!ELEMENT data (patch*)>
+
+<!ELEMENT patch EMPTY>
+<!ATTLIST patch
+	path CDATA #REQUIRED>
+
+<!ELEMENT decoders (decoder*)>
+
+<!ELEMENT decoder EMPTY>
+<!ATTLIST decoder
+	path CDATA #REQUIRED>
+
+<!ELEMENT interfaces (interface*)>
+
+<!ELEMENT interface EMPTY>
+<!ATTLIST interface
+	path CDATA #REQUIRED>
+
+<!ELEMENT modes (mode*)>
+
+<!ELEMENT mode (bank*)>
+<!ATTLIST mode
+    id ID #IMPLIED
+    caption CDATA #IMPLIED>
+    
+<!ELEMENT bank EMPTY>
+<!ATTLIST bank
+	caption CDATA #REQUIRED
+    min CDATA #REQUIRED
+    max CDATA #REQUIRED>

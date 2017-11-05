@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Mixer</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+    <table cellspacing="1"> 
+         <tr> 
+           <th colspan="6" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Mixer</b></font>
+           </th> 
+         </tr> 
+          <tr valign="TOP"> 
+             <td><font size="-1"  color="#000000" face="Arial">Osc 3</font></td>
+             <td><font size="-1"  color="#000000" face="Arial">Osc Bal</font></td>
+             <td><font size="-1"  color="#000000" face="Arial">Sub Osc</font></td> 
+             <td><font size="-1"  color="#000000" face="Arial">Osc Vol</font></td> 
+             <td><font size="-1"  color="#000000" face="Arial">Noise</font></td> 
+             <td><font size="-1"  color="#000000" face="Arial">Ring Mod</font></td> 
+          </tr> 
+          <tr> 
+		    <td><widget class="SliderWidget" layout="vertical" ENABLE="osc3_mode.getData() &gt; 1">
+			    <PARAMETER ID="osc3_mode" INDEXER="false"/></PARAMETER>
+		        <parameter id="osc3_volume"/>
+            </widget></td> 
+            <td><widget class="SliderWidget" layout="vertical">
+              <parameter id="osc_balance"></parameter> 
+            </widget></td> 
+            <td><widget class="SliderWidget" layout="vertical">
+              <parameter id="suboscillator_volume"></parameter> 
+            </widget></td> 
+            <td><widget class="SliderWidget" layout="vertical">
+              <parameter id="osc_mainvolume"></parameter>
+            </widget></td> 
+            <td><widget class="SliderWidget" layout="vertical">
+              <parameter id="noise_volume"></parameter> 
+            </widget></td> 
+            <td><widget class="SliderWidget" layout="vertical">
+              <parameter id="ringmodulator_volume"></parameter> 
+            </widget></td> 
+          </tr>
+     </table>
+  </BODY>
+</HTML>

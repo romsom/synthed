@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+   <HEAD> 
+      <TITLE>Performance Edit</TITLE> 
+   </HEAD> 
+   <BODY BGCOLOR="#CCFFCC"> 
+      <TABLE CELLSPACING="1"> 
+         <TR> 
+         <TD WIDTH="100"><FONT COLOR="#006666"
+            FACE="Arial">Category:</FONT></TD> 
+         <TD>
+            <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_categories">
+               <PARAMETER ID="COMMON_category"></PARAMETER> 
+            </WIDGET> </TD> 
+         <TD WIDTH="60"><FONT COLOR="#006666" FACE="Arial">BPM:</FONT></TD> 
+         <TD> <WIDGET CLASS="SpinWidget" WIDTH="100%" DECODER="scale_arp_gate">
+               <PARAMETER ID="ARP_gate"></PARAMETER> 
+            </WIDGET> </TD> 
+         </TR> 
+      </TABLE> 
+      <TABLE BGCOLOR="#FFFF99" CELLSPACING="1"> 
+         <TR> 
+         <TD VALIGN="TOP"> 
+            <TABLE BGCOLOR="#FFFF99" CELLSPACING="1"> 
+               <TR> 
+               <TD WIDTH="60"><FONT COLOR="#006666" FACE="Arial">SW
+                  1:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_1-2">
+                     <PARAMETER ID="COMMON_sw1_assign_type"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">SW 2:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_1-2">
+                     <PARAMETER ID="COMMON_sw2_assign_type"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">MFX1:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_effects_single">
+                     <PARAMETER ID="MFX1_effect_no"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">MFX2:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_effects_single">
+                     <PARAMETER ID="MFX2_effect_no"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+            </TABLE> </TD> 
+         <TD> 
+            <TABLE BGCOLOR="#FFFF99" CELLSPACING="1"> 
+               <TR> 
+               <TD WIDTH="60"><FONT COLOR="#006666"
+                  FACE="Arial">IFX1:</FONT></TD> 
+               <TD>
+                  <WIDGET CLASS="TextWidget" DECODER="list_effects_single"
+                  ENABLE="IFX1_off_on.getData() == 1">
+                     <PARAMETER ID="IFX1_off_on" INDEXER="false"></PARAMETER>
+                     <PARAMETER ID="IFX1_effect_no"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">IFX2:</FONT></TD> 
+               <TD>
+                  <WIDGET CLASS="TextWidget" DECODER="list_effects_all"
+                  ENABLE="IFX2_off_on.getData() == 1">
+                     <PARAMETER ID="IFX2_off_on" INDEXER="false"></PARAMETER>
+                     <PARAMETER ID="IFX2_effect_no"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">IFX3:</FONT></TD> 
+               <TD>
+                  <WIDGET CLASS="TextWidget" DECODER="list_effects_all"
+                  ENABLE="IFX3_off_on.getData() == 1">
+                     <PARAMETER ID="IFX3_off_on" INDEXER="false"></PARAMETER>
+                     <PARAMETER ID="IFX3_effect_no"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">IFX4:</FONT></TD> 
+               <TD>
+                  <WIDGET CLASS="TextWidget" DECODER="list_effects_all"
+                  ENABLE="IFX4_off_on.getData() == 1">
+                     <PARAMETER ID="IFX4_off_on" INDEXER="false"></PARAMETER>
+                     <PARAMETER ID="IFX4_effect_no"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">IFX5:</FONT></TD> 
+               <TD>
+                  <WIDGET CLASS="TextWidget" DECODER="list_effects_single"
+                  ENABLE="IFX5_off_on.getData() == 1">
+                     <PARAMETER ID="IFX5_off_on" INDEXER="false"></PARAMETER>
+                     <PARAMETER ID="IFX5_effect_no"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+            </TABLE> </TD> 
+         <TD VALIGN="TOP"> 
+            <TABLE BGCOLOR="#FFFF99" CELLSPACING="1"> 
+               <TR> 
+               <TD WIDTH="80"><FONT COLOR="#006666" FACE="Arial">Knob
+                  1B:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_1-3">
+                     <PARAMETER ID="COMMON_knob1_assign_type"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">Knob 2B:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_1-3">
+                     <PARAMETER ID="COMMON_knob2_assign_type"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">Knob 3B:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_1-3">
+                     <PARAMETER ID="COMMON_knob3_assign_type"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+               <TR> 
+               <TD><FONT COLOR="#006666" FACE="Arial">Knob 4B:</FONT></TD> 
+               <TD> <WIDGET CLASS="TextWidget" DECODER="list_1-3">
+                     <PARAMETER ID="COMMON_knob4_assign_type"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+            </TABLE> </TD> 
+         </TR> 
+      </TABLE> 
+      <P></P> 
+      <TABLE>
+         <TR> 
+         <TD width="60%"> 
+            <TABLE CELLSPACING="1"> 
+               <TR align="center" VALIGN="TOP">
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">Oct- ave</FONT></TD> 
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">Pitch Strch</FONT></TD> 
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">OSC Bal</FONT></TD> 
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">Amp Level</FONT></TD> 
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">Atk Time</FONT></TD> 
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">Dec Time</FONT></TD> 
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">IFX Bal</FONT></TD> 
+               <TD><FONT size="-1" COLOR="#006666" FACE="Arial">MFX Bal</FONT></TD> 
+               </TR>
+               <TR> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_octave"></PARAMETER> 
+                  </WIDGET> </TD> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_pitch_stretch"></PARAMETER> 
+                  </WIDGET> </TD> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_osc_balance"></PARAMETER> 
+                  </WIDGET> </TD> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_amp_level"></PARAMETER> 
+                  </WIDGET> </TD> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_attack_time"></PARAMETER> 
+                  </WIDGET> </TD> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_decay_time"></PARAMETER> 
+                  </WIDGET> </TD> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_ifx_balance"></PARAMETER> 
+                  </WIDGET> </TD> 
+               <TD>
+                  <WIDGET CLASS="SliderWidget" LAYOUT="vertical" FORMAT="%+03d">
+                     <PARAMETER ID="PERFORMANCE_mfx_balance"></PARAMETER> 
+                  </WIDGET> </TD> 
+               </TR> 
+            </TABLE></TD> 
+         <TD> 
+            <TABLE CELLSPACING="1"> 
+               <TR> 
+               <TD> 
+                  <TABLE CELLSPACING="1"> 
+                     <TR> 
+                        <TD WIDTH="60"><FONT COLOR="#006666" FACE="Arial">SW
+                           1</FONT></TD> 
+                        <TD> <WIDGET CLASS="ButtonWidget" DECODER="list_off_on">
+                              <PARAMETER ID="COMMON_sw1_on_off"></PARAMETER> 
+                           </WIDGET> </TD> 
+                     </TR> 
+                     <TR> 
+                        <TD><FONT COLOR="#006666" FACE="Arial">SW 2</FONT></TD> 
+                        <TD> <WIDGET CLASS="ButtonWidget" DECODER="list_off_on">
+                              <PARAMETER ID="COMMON_sw2_on_off"></PARAMETER> 
+                           </WIDGET> </TD> 
+                     </TR> 
+                  </TABLE> </TD> 
+               <TD> 
+                  <TABLE CELLSPACING="1"> 
+                     <TR> 
+                        <TD>
+                           <WIDGET CLASS="RadioWidget" CAPTION="Realtime"
+                           DECODER="DecodeRealtimeControls"> <PARAMETER
+                              ID="COMMON_realtime_controls_msb"></PARAMETER>
+                              <PARAMETER ID="COMMON_realtime_controls"></PARAMETER> 
+                           </WIDGET> </TD> 
+                     </TR> 
+                  </TABLE></TD> 
+               </TR> 
+            </TABLE></TD> 
+         </TR> 
+      </TABLE> 
+   </BODY>
+</HTML>

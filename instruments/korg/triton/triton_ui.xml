@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	triton_ui.xml
+
+	This user interface definition should be compatible with Korg TRITON, pro, 
+	proX, Rack and Studio. Korg TRITON LE and KARMA differ slightly, so they 
+	can be derived from this definition at a later time.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE interface SYSTEM "../../interface.dtd">
+
+<interface id="triton" caption="TRITON">
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Each editable mode is described here.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<modes>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Program mode.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<mode id="pcm" patch="pcm" caption="Program (PCM)">
+	<page caption="Play">
+		<tab caption="Performance Edit" url="triton_perfedit.htm"/>
+		<tab caption="Arpeggiator" url="triton_arp.htm"/>
+	</page>
+	<page caption="Basic">
+	        <tab caption="Program Basic" url="triton_pgmbasic.htm"/>
+		<tab caption="OSC Basic" url="triton_oscbasic.htm"/>
+		<tab caption="Velocity Zone" url="triton_vzone.htm"/>
+		<tab caption="Controllers" url="triton_controllers.htm"/>
+	</page>
+	<page caption="Pitch">
+		<tab caption="OSC1 Pitch Mod." url="triton_osc1pitch.htm"/>
+		<tab caption="OSC2 Pitch Mod." url="triton_osc2pitch.htm"/>
+		<tab caption="Pitch EG" url="triton_pitcheg.htm"/>
+	</page>
+	<page caption="Filter">
+		<tab caption="Filter 1" url="triton_filter1.htm"/>
+		<tab caption="Filter 1 Mod." url="triton_filter1mod.htm"/>
+		<tab caption="Filter 1 LFO" url="triton_filter1lfo.htm"/>
+		<tab caption="Filter 1 EG" url="triton_filter1eg.htm"/>
+		<tab caption="Filter 2" url="triton_filter2.htm"/>
+		<tab caption="Filter 2 Mod." url="triton_filter2mod.htm"/>
+		<tab caption="Filter 2 LFO" url="triton_filter2lfo.htm"/>
+		<tab caption="Filter 2 EG" url="triton_filter2eg.htm"/>
+	</page>
+	<page caption="Amp">
+		<tab caption="Amp 1 Level/Pan" url="triton_amp1.htm"/>
+		<tab caption="Amp 1 Mod." url="triton_amp1mod.htm"/>
+		<tab caption="Amp 1 EG" url="triton_amp1eg.htm"/>
+		<tab caption="Amp 2 Level/Pan" url="triton_amp2.htm"/>
+		<tab caption="Amp 2 Mod." url="triton_amp2mod.htm"/>
+		<tab caption="Amp 2 EG" url="triton_amp2eg.htm"/>
+	</page>
+	<page caption="Common LFO">
+		<tab caption="OSC1 LFO1" url="triton_osc1lfo1.htm"/>
+		<tab caption="OSC1 LFO2" url="triton_osc1lfo2.htm"/>
+		<tab caption="OSC2 LFO1" url="triton_osc2lfo1.htm"/>
+		<tab caption="OSC2 LFO2" url="triton_osc2lfo2.htm"/>
+	</page>
+	<page caption="Arpeggiator">
+		<tab caption="Setup" url="triton_arpsetup.htm"/>
+		<tab caption="Zone" url="triton_arpzone.htm"/>
+	</page>
+	<page caption="Insert Effect">
+		<tab caption="Routing" url="triton_routing.htm"/>
+		<tab caption="Insert FX" url="triton_insertfx.htm"/>
+		<!-- The mode attribute in the following tabs indicates dynamic content.-->
+		<tab caption="IFX 1" mode="fx" decoder="scale_fx_tabs" reset="true">
+			<parameter id="IFX1_data_offset"/>
+			<parameter id="IFX1_effect_no"/>
+		</tab>
+		<tab caption="IFX 2" mode="fx" decoder="scale_fx_tabs" reset="true">
+			<parameter id="IFX2_data_offset"/>
+			<parameter id="IFX2_effect_no"/>
+		</tab>
+		<tab caption="IFX 3" mode="fx" decoder="scale_fx_tabs" reset="true">
+			<parameter id="IFX3_data_offset"/>
+			<parameter id="IFX3_effect_no"/>
+		</tab>
+		<tab caption="IFX 4" mode="fx" decoder="scale_fx_tabs" reset="true">
+			<parameter id="IFX4_data_offset"/>
+			<parameter id="IFX4_effect_no"/>
+		</tab>
+		<tab caption="IFX 5" mode="fx" decoder="scale_fx_tabs" reset="true">
+			<parameter id="IFX5_data_offset"/>
+			<parameter id="IFX5_effect_no"/>
+		</tab>
+	</page>
+</mode>
+
+<mode id="fx" caption="Effects">
+	<page caption="Effects Editors">
+		<tab patch="fx_000" caption="No Effect" url="triton_fx000.htm"/>
+		<tab patch="fx_001" caption="St.Amp Simulation" url="triton_fx001.htm"/>
+		<tab patch="fx_002" caption="Stereo Compressor" url="triton_fx002.htm"/>
+		<tab patch="fx_003" caption="Stereo Limiter" url="triton_fx003.htm"/>
+		<tab patch="fx_004" caption="Multiband Limiter" url="triton_fx004.htm"/>
+		<tab patch="fx_005" caption="Stereo Gate" url="triton_fx005.htm"/>
+		<tab patch="fx_006" caption="OD/Hi.Gain Wah" url="triton_fx006.htm"/>
+		<tab patch="fx_007" caption="St. Parametric 4EQ" url="triton_fx007.htm"/>
+		<tab patch="fx_008" caption="St. Graphic 7EQ" url="triton_fx008.htm"/>
+		<tab patch="fx_009" caption="St. Wah/Auto Wah" url="triton_fx009.htm"/>
+		<tab patch="fx_010" caption="St. Random Filter" url="triton_fx010.htm"/>
+	</page>
+</mode>
+
+</modes>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Todo: GLOBAL, COMBI, MULTI and SAMPLING modes
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</interface>

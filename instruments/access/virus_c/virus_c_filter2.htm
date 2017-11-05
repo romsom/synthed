@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Filter 1</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+    <WIDGET CLASS="GroupWidget" ENABLE="vocoder_mode.getData() == 0">
+    <PARAMETER ID="vocoder_mode" INDEXER="false"></PARAMETER>
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Frequency</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Mode:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_filter_modes"> 
+			  <PARAMETER ID="filter2_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Cutoff Link:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_off_on"> 
+			  <PARAMETER ID="filter2_cutoff_link"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Cutoff:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="cutoff2"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Resonance:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="filter2_resonance"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Env Polarity:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_polarities"> 
+			  <PARAMETER ID="filter2_env_polarity"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Env Amount:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="filter2_env_amt"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Keyfollow:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="filter2_keyfollow"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+	 </TABLE> 
+   </WIDGET>
+  </BODY>
+</HTML>

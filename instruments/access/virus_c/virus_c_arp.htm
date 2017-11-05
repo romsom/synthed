@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Arpeggiator</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Arpeggiator</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Mode:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_arp_modes"> 
+			  <PARAMETER ID="arp_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD></TD> 
+		  <TD></TD> 
+		</TR>
+		<tr>
+		  <TD WIDTH="75"><FONT FACE="Arial">Octaves:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SpinWidget" WIDTH="100%" ENABLE="arp_mode.getData() &gt; 0"> 
+			  <PARAMETER ID="arp_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="arp_octave_range"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Pattern:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SpinWidget" WIDTH="100%" ENABLE="arp_mode.getData() &gt; 0"> 
+			  <PARAMETER ID="arp_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="arp_pattern_select"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</tr>
+		<tr>
+		  <TD WIDTH="75"><FONT FACE="Arial">Note Length:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="arp_mode.getData() &gt; 0" DECODER="scale_centered"> 
+			  <PARAMETER ID="arp_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="arp_note_length"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Swing:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" ENABLE="arp_mode.getData() &gt; 0" 
+			  DECODER="scale_arp_swing"> 
+			  <PARAMETER ID="arp_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="arp_swing"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</tr>
+		<tr>
+		  <TD WIDTH="75"><FONT FACE="Arial">Clock:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="arp_mode.getData() &gt; 0" DECODER="list_arp_clocks"> 
+			  <PARAMETER ID="arp_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="arp_clock"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Hold:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ButtonWidget" WIDTH="100%" ENABLE="arp_mode.getData() &gt; 0" 
+			  DECODER="list_off_on"> 
+			  <PARAMETER ID="arp_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="arp_hold_enable"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</tr>
+	 </TABLE> 
+  </BODY>
+</HTML>

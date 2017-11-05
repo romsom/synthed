@@ -1,0 +1,169 @@
+<!DOCTYPE interface SYSTEM "../interface.dtd">
+
+<interface id="synthed" caption="SynthEd">
+
+<modes>
+    <mode id="edit_instrument">
+        <page>
+            <tab id="instrument">
+                <group caption="instrument" layout="vertical" columns="2">
+                    <widget caption="id" control="edit"/>
+                    <widget caption="caption" control="edit" />
+                </group>
+            </tab>
+        </page>
+    </mode>
+    
+    <mode id="edit_list">
+        <page>
+            <tab id="list">
+                <group caption="list" layout="vertical" columns="2">
+                    <widget caption="id" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+            
+    <mode id="edit_item">
+        <page>
+            <tab id="item">
+                <group caption="item" layout="vertical" columns="2">
+                    <widget caption="value" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+           
+    <mode id="edit_scale">
+        <page>
+            <tab id="scale">	
+                <group caption="scale" layout="vertical" columns="2">
+                    <widget caption="id" control="edit"/>
+                    <widget caption="format" control="edit"/>
+                    <widget caption="unit" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+    
+    <mode id="edit_range">
+        <page>
+            <tab id="range">
+                <group caption="range" layout="vertical" columns="2">
+                    <widget caption="mindata" control="edit"/>
+                    <widget caption="maxdata" control="edit"/>
+                    <widget caption="minval" control="edit"/>
+                    <widget caption="increment" control="edit"/>
+                    <widget caption="format" control="edit"/>
+                    <widget caption="unit" control="edit"/>
+                    <widget caption="multiplier" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+    
+    <mode id="edit_mode">
+        <page>
+            <tab id="mode">	
+                <group caption="mode" layout="vertical" columns="2">
+                    <widget caption="id" control="edit"/>
+                    <widget caption="caption" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+    
+    <mode id="edit_page">
+        <page>
+            <tab id="page">
+                <group caption="page" layout="vertical" columns="2">
+                    <widget caption="id" control="edit"/>
+                    <widget caption="caption" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+        
+    <mode id="edit_tab">
+        <page>
+            <tab id="tab">
+                <group caption="tab" layout="vertical" columns="2">
+                    <widget caption="id" control="edit"/>
+                    <widget caption="caption" control="edit"/>
+                    <widget caption="enable" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+        
+    <mode id="edit_group">
+        <page>
+            <tab id="group">
+                <group caption="group" layout="vertical" columns="2">
+                    <widget caption="caption" control="edit"/>
+                    <widget caption="layout" control="choice" decoder="list" reference="list_layout"/>
+                    <widget caption="rows" control="spin"/>
+                    <widget caption="columns" control="spin"/>
+                    <widget caption="enable" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+        
+    <mode id="edit_widget">
+        <page>
+            <tab id="widget">
+                <group caption="widget" layout="vertical" columns="2">
+                    <widget caption="caption" control="edit"/>
+                    <widget caption="control" control="choice"/>
+                    <widget caption="layout" control="choice" decoder="list" reference="list_layout"/>
+                    <widget caption="format" control="edit"/>
+                    <widget caption="decoder" control="choice" decoder="list" reference="list_decoder"/>
+                    <widget caption="reference" control="choice" decoder="list" reference="list_ids"/>
+                    <widget caption="enable" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+    
+    <mode id="edit_parameter">
+        <page>
+            <tab id="value">
+                <group caption="value" layout="vertical" columns="2">
+                    <widget caption="display" control="edit"/>
+                    <widget caption="indexer" control="edit"/>
+                    <widget caption="min" control="edit"/>
+                    <widget caption="max" control="edit"/>
+                    <widget caption="type" control="edit"/>
+                    <widget caption="pad" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+    
+    <mode id="edit_byte">
+        <page>
+            <tab id="byte">
+                <group caption="byte" layout="vertical" columns="2">
+                    <widget caption="offset" control="edit"/>
+                    <widget caption="bitstart" control="edit"/>
+                    <widget caption="bitstop" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+    
+    <mode id="edit_array">
+        <page>
+            <tab id="array">
+                <group caption="array" layout="vertical" columns="2">
+                    <widget caption="offset" control="edit"/>
+                    <widget caption="length" control="edit"/>
+                </group>
+            </tab>
+        </page>
+    </mode>
+        
+</modes>
+
+</interface>

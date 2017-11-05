@@ -1,0 +1,1571 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	triton_pcm.xml
+
+	This data definition should be compatible with Korg TRITON, pro, 
+	proX, Rack and Studio. Korg TRITON LE and KARMA differ slightly, so they 
+	can be derived from this definition at a later time.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE data SYSTEM "../../data.dtd">
+
+<data>
+<patch id="pcm" caption="Program (PCM) Bank">
+
+	<!-- Patch name -->
+	<parameter id="name" type="str" pad=" ">
+		<array offset="0" length="16"/>
+	</parameter>
+	
+	<!-- Constants -->
+	<parameter id="CONSTANT_0" min="0" max="0"/>
+	<parameter id="CONSTANT_1" min="1" max="1"/>
+	<parameter id="CONSTANT_2" min="2" max="2"/>
+	<parameter id="CONSTANT_3" min="3" max="3"/>
+	<parameter id="CONSTANT_4" min="4" max="4"/>
+
+	<!-- Performance parameters are temporary values and are not stored in the bank dump -->
+	<parameter id="PERFORMANCE_octave" alt="00,00" min="0xFD" max="0x03"/>
+	<parameter id="PERFORMANCE_pitch_stretch" alt="00,01" min="0xF4" max="0x0C"/>
+	<parameter id="PERFORMANCE_osc_balance" alt="00,02" min="0xF6" max="0x0A"/>
+	<parameter id="PERFORMANCE_amp_level" alt="00,03" min="0xF6" max="0x0A"/>
+	<parameter id="PERFORMANCE_attack_time" alt="00,04" min="0xF6" max="0x0A"/>
+	<parameter id="PERFORMANCE_decay_time" alt="00,05" min="0xF6" max="0x0A"/>
+	<parameter id="PERFORMANCE_ifx_balance" alt="00,06" min="0xF6" max="0x0A"/>
+	<parameter id="PERFORMANCE_mfx_balance" alt="00,07" min="0xF6" max="0x0A"/>
+	
+	<!-- Insert Effects -->
+	<!-- IFX1_initialize tells if IFX1 should be initialized-->
+	<parameter id="IFX1_initialize" min="0x00" max="0x01"/>
+	<!-- IFX1_data_offset holds the patch offset of IFX1 -->
+	<parameter id="IFX1_data_offset" min="16" max="16"/>
+	<parameter id="IFX1_effect_no" min="0x00" max="0x59">
+		<byte offset="32"/>
+	</parameter>
+	<parameter id="IFX1_midi_channel" min="0x00" max="0x10">
+		<byte offset="33" bitstart="0" bitstop="5"/>
+	</parameter>
+	<parameter id="IFX1_off_on" min="0x00" max="0x01">
+		<byte offset="33" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="IFX1_chain" min="0x00" max="0x01">
+		<byte offset="33" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="IFX1_pan" min="0x00" max="0x7F">
+		<byte offset="36"/>
+	</parameter>
+	<parameter id="IFX1_bus_select" min="0x00" max="0x07">
+		<byte offset="37"/>
+	</parameter>
+	<parameter id="IFX1_send1" min="0x00" max="0xF7">
+		<byte offset="38"/>
+	</parameter>
+	<parameter id="IFX1_send2" min="0x00" max="0xF7">
+		<byte offset="39"/>
+	</parameter>
+	<!-- IFX2_initialize tells if IFX2 should be initialized-->
+	<parameter id="IFX2_initialize" min="0x00" max="0x01"/>
+	<!-- IFX2_data_offset holds the patch offset of IFX2 -->
+	<parameter id="IFX2_data_offset" min="16+24" max="16+24"/>
+	<parameter id="IFX2_effect_no" min="0x00" max="0x66">
+		<byte offset="32+24"/>
+	</parameter>
+	<parameter id="IFX2_midi_channel" min="0x00" max="0x10">
+		<byte offset="33+24" bitstart="0" bitstop="5"/>
+	</parameter>
+	<parameter id="IFX2_off_on" min="0x00" max="0x01">
+		<byte offset="33+24" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="IFX2_chain" min="0x00" max="0x01">
+		<byte offset="33+24" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="IFX2_pan" min="0x00" max="0x7F">
+		<byte offset="36+24"/>
+	</parameter>
+	<parameter id="IFX2_bus_select" min="0x00" max="0x07">
+		<byte offset="37+24"/>
+	</parameter>
+	<parameter id="IFX2_send1" min="0x00" max="0xF7">
+		<byte offset="38+24"/>
+	</parameter>
+	<parameter id="IFX2_send2" min="0x00" max="0xF7">
+		<byte offset="39+24"/>
+	</parameter>
+	<!-- IFX3_initialize tells if IFX3 should be initialized-->
+	<parameter id="IFX3_initialize" min="0x00" max="0x01"/>
+	<!-- IFX3_data_offset holds the patch offset of IFX3 -->
+	<parameter id="IFX3_data_offset" min="16+24*2" max="16+24*2"/>
+	<parameter id="IFX3_effect_no" min="0x00" max="0x66">
+		<byte offset="32+24*2"/>
+	</parameter>
+	<parameter id="IFX3_midi_channel" min="0x00" max="0x10">
+		<byte offset="33+24*2" bitstart="0" bitstop="5"/>
+	</parameter>
+	<parameter id="IFX3_off_on" min="0x00" max="0x01">
+		<byte offset="33+24*2" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="IFX3_chain" min="0x00" max="0x01">
+		<byte offset="33+24*2" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="IFX3_pan" min="0x00" max="0x7F">
+		<byte offset="36+24*2"/>
+	</parameter>
+	<parameter id="IFX3_bus_select" min="0x00" max="0x07">
+		<byte offset="37+24*2"/>
+	</parameter>
+	<parameter id="IFX3_send1" min="0x00" max="0xF7">
+		<byte offset="38+24*2"/>
+	</parameter>
+	<parameter id="IFX3_send2" min="0x00" max="0xF7">
+		<byte offset="39+24*2"/>
+	</parameter>
+	<!-- IFX4_initialize tells if IFX4 should be initialized-->
+	<parameter id="IFX4_initialize" min="0x00" max="0x01"/>
+	<!-- IFX4_data_offset holds the patch offset of IFX4 -->
+	<parameter id="IFX4_data_offset" min="16+24*3" max="16+24*3"/>
+	<parameter id="IFX4_effect_no" min="0x00" max="0x66">
+		<byte offset="32+24*3"/>
+	</parameter>
+	<parameter id="IFX4_midi_channel" min="0x00" max="0x10">
+		<byte offset="33+24*3" bitstart="0" bitstop="5"/>
+	</parameter>
+	<parameter id="IFX4_off_on" min="0x00" max="0x01">
+		<byte offset="33+24*3" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="IFX4_chain" min="0x00" max="0x01">
+		<byte offset="33+24*3" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="IFX4_pan" min="0x00" max="0x7F">
+		<byte offset="36+24*3"/>
+	</parameter>
+	<parameter id="IFX4_bus_select" min="0x00" max="0x07">
+		<byte offset="37+24*3"/>
+	</parameter>
+	<parameter id="IFX4_send1" min="0x00" max="0xF7">
+		<byte offset="38+24*3"/>
+	</parameter>
+	<parameter id="IFX4_send2" min="0x00" max="0xF7">
+		<byte offset="39+24*3"/>
+	</parameter>
+	<!-- IFX5_initialize tells if IFX5 should be initialized-->
+	<parameter id="IFX5_initialize" min="0x00" max="0x01"/>
+	<!-- IFX5_data_offset holds the patch offset of IFX5 -->
+	<parameter id="IFX5_data_offset" min="16+24*4" max="16+24*4"/>
+	<parameter id="IFX5_effect_no" min="0x00" max="0x59">
+		<byte offset="32+24*4"/>
+	</parameter>
+	<parameter id="IFX5_midi_channel" min="0x00" max="0x10">
+		<byte offset="33+24*4" bitstart="0" bitstop="5"/>
+	</parameter>
+	<parameter id="IFX5_off_on" min="0x00" max="0x01">
+		<byte offset="33+24*4" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="IFX5_chain" min="0x00" max="0x01">
+		<byte offset="33+24*4" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="IFX5_pan" min="0x00" max="0x7F">
+		<byte offset="36+24*4"/>
+	</parameter>
+	<parameter id="IFX5_bus_select" min="0x00" max="0x07">
+		<byte offset="37+24*4"/>
+	</parameter>
+	<parameter id="IFX5_send1" min="0x00" max="0xF7">
+		<byte offset="38+24*4"/>
+	</parameter>
+	<parameter id="IFX5_send2" min="0x00" max="0xF7">
+		<byte offset="39+24*4"/>
+	</parameter>
+
+	<!-- Master Effect Parameters -->
+	<!-- MFX1_initialize tells if MFX1 should be initialized-->
+	<parameter id="MFX1_initialize" min="0x00" max="0x01"/>
+	<!-- MFX1_data_offset holds the patch offset of MFX1 -->
+	<parameter id="MFX1_data_offset" min="136" max="136"/>
+	<parameter id="MFX1_effect_no" min="0x00" max="0x59">
+		<byte offset="152"/>
+	</parameter>
+	<parameter id="MFX1_off_on" min="0x00" max="0x01">
+		<byte offset="153" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="MFX1_chain" min="0x00" max="0x01">
+		<byte offset="153" bitstart="7" bitstop="7"/>
+	</parameter>
+	<!-- MFX2_initialize tells if MFX2 should be initialized-->
+	<parameter id="MFX2_initialize" min="0x00" max="0x01"/>
+	<!-- MFX2_data_offset holds the patch offset of MFX2 -->
+	<parameter id="MFX2_data_offset" min="156" max="156"/>
+	<parameter id="MFX2_effect_no" min="0x00" max="0x59">
+		<byte offset="172"/>
+	</parameter>
+	<parameter id="MFX2_off_on" min="0x00" max="0x01">
+		<byte offset="173" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="MFX2_chain" min="0x00" max="0x01">
+		<byte offset="173" bitstart="7" bitstop="7"/>
+	</parameter>
+	
+	<!-- Return -->
+	<parameter id="RETURN_return1" min="0x00" max="0x7F">
+		<byte offset="176"/>
+	</parameter>
+	<parameter id="RETURN_return2" min="0x00" max="0x7F">
+		<byte offset="177"/>
+	</parameter>
+	
+	<!-- Chain -->
+	<parameter id="CHAIN_signal" min="0x00" max="0x02">
+		<byte offset="178" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="CHAIN_direction" min="0x00" max="0x01">
+		<byte offset="178" bitstart="2" bitstop="2"/>
+	</parameter>
+	<parameter id="CHAIN_chain" min="0x00" max="0x01">
+		<byte offset="178" bitstart="3" bitstop="3"/>
+	</parameter>
+	<parameter id="CHAIN_level" min="0x00" max="0x7F">
+		<byte offset="179"/>
+	</parameter>
+	
+	<!-- Master EQ -->
+	<parameter id="MASTER_EQ_low_gain" min="0xDC" max="0x24">
+		<byte offset="180"/>
+	</parameter>
+	<parameter id="MASTER_EQ_mid_gain" min="0xDC" max="0x24">
+		<byte offset="181"/>
+	</parameter>
+	<parameter id="MASTER_EQ_high_gain" min="0xDC" max="0x24">
+		<byte offset="182"/>
+	</parameter>
+	<parameter id="MASTER_EQ_low_frequency" min="0x00" max="0x00">
+		<byte offset="183"/>
+	</parameter>
+	<parameter id="MASTER_EQ_mid_frequency" min="0x00" max="0x00">
+		<byte offset="184"/>
+	</parameter>
+	<parameter id="MASTER_EQ_high_frequency" min="0x00" max="0x00">
+		<byte offset="185"/>
+	</parameter>
+	<parameter id="MASTER_EQ_mid_q" min="0x00" max="0x00">
+		<byte offset="186"/>
+	</parameter>
+	<parameter id="MASTER_EQ_low_gain_dmod" min="0x00" max="0x1F">
+		<byte offset="187"/>
+	</parameter>
+	<parameter id="MASTER_EQ_high_gain_dmod" min="0x00" max="0x1F">
+		<byte offset="188"/>
+	</parameter>
+	
+	<!-- Arpeggiator parameters -->
+	<parameter id="ARP_tempo" alt="1C,00" min="0x28" max="0xF0">
+		<byte offset="192"/>
+	</parameter>
+	<parameter id="ARP_switch" alt="1C,01" min="0x00" max="0x01">
+		<byte offset="193"/>
+	</parameter>
+	<parameter id="ARP_pattern_no" alt="1D,00" min="0x00" max="0x0147">
+		<byte offset="195" bitstart="5" bitstop="5"/>
+		<byte offset="194"/>
+	</parameter>
+	<parameter id="ARP_octave" alt="1D,02" min="0x00" max="0x03">
+		<byte offset="195" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="ARP_resolution" alt="1D,01" min="0x00" max="0x05">
+		<byte offset="195" bitstart="2" bitstop="4"/>
+	</parameter>
+	<parameter id="ARP_gate" alt="1D,03" min="0x00" max="0x65">
+		<byte offset="196"/>
+	</parameter>
+	<parameter id="ARP_velocity" alt="1D,04" min="0x01" max="0x81">
+		<byte offset="197"/>
+	</parameter>
+	<parameter id="ARP_swing" alt="1D,05" min="0x9C" max="0x64">
+		<byte offset="198"/>
+	</parameter>
+	<parameter id="ARP_sort" alt="1D,06" min="0x00" max="0x01">
+		<byte offset="199" bitstart="0" bitstop="0"/>
+	</parameter>
+	<parameter id="ARP_latch" alt="1D,07" min="0x00" max="0x01">
+		<byte offset="199" bitstart="1" bitstop="1"/>
+	</parameter>
+	<parameter id="ARP_key_sync" alt="1D,08" min="0x00" max="0x01">
+		<byte offset="199" bitstart="2" bitstop="2"/>
+	</parameter>
+	<parameter id="ARP_keyboard" alt="1D,09" min="0x00" max="0x01">
+		<byte offset="199" bitstart="3" bitstop="3"/>
+	</parameter>
+	<parameter id="ARP_top_key" alt="1D,0A" min="0x00" max="0x7F" validate="ARP_bottom_key.getData() &lt;= _value">
+		<byte offset="200"/>
+	</parameter>
+	<parameter id="ARP_bottom_key" alt="1D,0B" min="0x00" max="0x7F" validate="_value &lt;= ARP_top_key.getData()">
+		<byte offset="201"/>
+	</parameter>
+	<parameter id="ARP_top_velocity" alt="1D,0C" min="0x00" max="0x7F" validate="ARP_bottom_velocity.getData() &lt;= _value">
+		<byte offset="202"/>
+	</parameter>
+	<parameter id="ARP_bottom_velocity" alt="1D,0D" min="0x00" max="0x7F" validate="_value &lt;= ARP_top_velocity.getData()">
+		<byte offset="203"/>
+	</parameter>
+	
+	<!-- Common parameters -->
+	<parameter id="COMMON_oscillator_mode" alt="00,01" min="0x00" max="0x02">
+		<byte offset="204" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="COMMON_key_assign" alt="00,02" min="0x00" max="0x01">
+		<byte offset="204" bitstart="2" bitstop="2"/>
+	</parameter>
+	<parameter id="COMMON_legato" alt="00,03" min="0x00" max="0x01">
+		<byte offset="204" bitstart="3" bitstop="3"/>
+	</parameter>
+	<parameter id="COMMON_priority" alt="00,04" min="0x00" max="0x02">
+		<byte offset="204" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="COMMON_single_trigger" alt="00,05" min="0x00" max="0x01">
+		<byte offset="204" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="COMMON_hold" alt="00,06" min="0x00" max="0x01">
+		<byte offset="204" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="COMMON_bus_select" alt="00,07" min="0x00" max="0x0C">
+		<byte offset="205" bitstart="0" bitstop="6"/>
+	</parameter>
+	<parameter id="COMMON_use_dkit_setting" alt="00,08" min="0x00" max="0x01">
+		<byte offset="205" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="COMMON_category" alt="00,00" min="0x00" max="0x0F">
+		<byte offset="206"/>
+	</parameter>
+	<parameter id="COMMON_scale_type" alt="00,09" min="0x00" max="0x1A">
+		<byte offset="207"/>
+	</parameter>
+	<parameter id="COMMON_scale_key" alt="00,0A" min="0x00" max="0x0C">
+		<byte offset="208"/>
+	</parameter>
+	<parameter id="COMMON_random_intensity" alt="00,0B" min="0x00" max="0x07">
+		<byte offset="209"/>
+	</parameter>
+	<parameter id="COMMON_sw1_assign_type" alt="00,0C" min="0x00" max="0x0C">
+		<byte offset="210" bitstart="0" bitstop="5"/>
+	</parameter>
+	<parameter id="COMMON_sw1_toggle_momentary" alt="00,10" min="0x00" max="0x01">
+		<byte offset="210" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="COMMON_sw1_on_off" alt="00,0E" min="0x00" max="0x01">
+		<byte offset="210" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="COMMON_sw2_assign_type" alt="00,0D" min="0x00" max="0x0C">
+		<byte offset="211" bitstart="0" bitstop="5"/>
+	</parameter>
+	<parameter id="COMMON_sw2_toggle_momentary" alt="00,11" min="0x00" max="0x01">
+		<byte offset="211" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="COMMON_sw2_on_off" alt="00,0F" min="0x00" max="0x01">
+		<byte offset="211" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="COMMON_knob1_assign_type" alt="00,12" min="0x00" max="0x1A">
+		<byte offset="212" bitstart="0" bitstop="6"/>
+	</parameter>
+	<parameter id="COMMON_realtime_controls" alt="00,16" min="0x00" max="0x01">
+		<byte offset="212" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="COMMON_knob2_assign_type" alt="00,13" min="0x00" max="0x1A">
+		<byte offset="213" bitstart="0" bitstop="6"/>
+	</parameter>
+	<parameter id="COMMON_realtime_controls_msb" alt="00,19" min="0x00" max="0x01">
+		<byte offset="213" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="COMMON_knob3_assign_type" alt="00,14" min="0x00" max="0x1A">
+		<byte offset="214"/>
+	</parameter>
+	<parameter id="COMMON_knob4_assign_type" alt="00,15" min="0x00" max="0x1A">
+		<byte offset="215"/>
+	</parameter>
+	
+	<!-- Pitch EG -->
+	<parameter id="PITCH_EG_start_level" alt="01,00" min="0x9D" max="0x63">
+		<byte offset="216"/>
+	</parameter>
+	<parameter id="PITCH_EG_attack_time" alt="01,01" min="0x00" max="0x63">
+		<byte offset="217"/>
+	</parameter>
+	<parameter id="PITCH_EG_attack_level" alt="01,02" min="0x9D" max="0x63">
+		<byte offset="218"/>
+	</parameter>
+	<parameter id="PITCH_EG_decay_time" alt="01,03" min="0x00" max="0x63">
+		<byte offset="219"/>
+	</parameter>
+	<parameter id="PITCH_EG_release_time" alt="01,04" min="0x00" max="0x63">
+		<byte offset="220"/>
+	</parameter>
+	<parameter id="PITCH_EG_release_level" alt="01,05" min="0x9D" max="0x63">
+		<byte offset="221"/>
+	</parameter>
+	<parameter id="PITCH_EG_am_source_level1" alt="01,08" min="0x00" max="0x2A">
+		<byte offset="222"/>
+	</parameter>
+	<parameter id="PITCH_EG_am_int_level1" alt="01,09" min="0x9D" max="0x63">
+		<byte offset="223"/>
+	</parameter>
+	<parameter id="PITCH_EG_am_source_level2" alt="01,0A" min="0x00" max="0x2A">
+		<byte offset="224"/>
+	</parameter>
+	<parameter id="PITCH_EG_am_int_level2" alt="01,0B" min="0x9D" max="0x63">
+		<byte offset="225"/>
+	</parameter>
+	<parameter id="PITCH_EG_am_source_time" alt="01,06" min="0x00" max="0x2A">
+		<byte offset="226"/>
+	</parameter>
+	<parameter id="PITCH_EG_am_int_time" alt="01,07" min="0x9D" max="0x63">
+		<byte offset="227"/>
+	</parameter>
+	<parameter id="PITCH_EG_start_am_level1" alt="01,0E" min="0xFF" max="0x01">
+		<byte offset="228" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="PITCH_EG_attack_am_level1" alt="01,0F" min="0xFF" max="0x01">
+		<byte offset="228" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="PITCH_EG_start_am_level2" alt="01,10" min="0xFF" max="0x01">
+		<byte offset="228" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="PITCH_EG_attack_am_level2" alt="01,11" min="0xFF" max="0x01">
+		<byte offset="228" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="PITCH_EG_attack_am_time" alt="01,0C" min="0xFF" max="0x01">
+		<byte offset="229" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="PITCH_EG_decay_am_time" alt="01,0D" min="0xFF" max="0x01">
+		<byte offset="228" bitstart="2" bitstop="3"/>
+	</parameter>
+	
+	<!-- Oscillator 1 -->
+	<parameter id="OSC1_hi_start_offset" alt="02,02" min="0x00" max="0x01">
+		<byte offset="230" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_hi_reverse" alt="02,03" min="0xFF" max="0x01">
+		<byte offset="230" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC1_hi_sample_no" alt="02,01" min="0x0000" max="0x03E7">
+		<byte offset="230" bitstart="0" bitstop="6"/>
+		<byte offset="231"/>
+	</parameter>
+	<parameter id="OSC1_dkit_no" alt="02,01" min="0x00" max="0x98">
+		<byte offset="230" bitstart="0" bitstop="6"/>
+		<byte offset="231"/>
+	</parameter>
+	<parameter id="OSC1_hi_bank" alt="02,00" min="0x00" max="0x09">
+		<byte offset="232"/>
+	</parameter>
+	<parameter id="OSC1_hi_level" alt="02,04" min="0x00" max="0x7F">
+		<byte offset="233"/>
+	</parameter>
+	<parameter id="OSC1_low_start_offset" alt="02,07" min="0x00" max="0x01">
+		<byte offset="234" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_low_reverse" alt="02,08" min="0xFF" max="0x01">
+		<byte offset="234" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC1_low_sample_no" alt="02,06" min="0x0000" max="0x03E7">
+		<byte offset="234" bitstart="0" bitstop="6"/>
+		<byte offset="235"/>
+	</parameter>
+	<parameter id="OSC1_low_bank" alt="02,05" min="0x00" max="0x09">
+		<byte offset="236"/>
+	</parameter>
+	<parameter id="OSC1_low_level" alt="02,09" min="0x00" max="0x7F">
+		<byte offset="237"/>
+	</parameter>
+	<parameter id="OSC1_delay_start" alt="02,0A" min="0x00" max="0x61">
+		<byte offset="238"/>
+	</parameter>
+	<parameter id="OSC1_vel_m_sample_sw" alt="02,0B" min="0x00" max="0x7F">
+		<byte offset="239"/>
+	</parameter>
+	<parameter id="OSC1_vel_zone_bottom" alt="02,0C" min="0x00" max="0x7F" validate="_value &lt;= OSC1_vel_zone_top.getData()">
+		<byte offset="240"/>
+	</parameter>
+	<parameter id="OSC1_vel_zone_top" alt="02,0D" min="0x00" max="0x7F" validate="OSC1_vel_zone_bottom.getData() &lt;= _value">
+		<byte offset="241"/>
+	</parameter>
+	
+	<!-- Oscillator 1 LFO 1 -->
+	<parameter id="OSC1_LFO1_waveform" alt="03,00" min="0x00" max="0x14">
+		<byte offset="242" bitstart="0" bitstop="4"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_key_sync" alt="03,01" min="0x00" max="0x01">
+		<byte offset="242" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_frequency" alt="03,02" min="0x00" max="0x63">
+		<byte offset="243"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_offset" alt="03,03" min="0x9D" max="0x63">
+		<byte offset="244"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_delay" alt="03,04" min="0x00" max="0x63">
+		<byte offset="245"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_fade" alt="03,05" min="0x00" max="0x63">
+		<byte offset="246"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_midi_tempo_sync" alt="03,0A" min="0x00" max="0x01">
+		<byte offset="247" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_sync_base_note" alt="03,0B" min="0x00" max="0x07">
+		<byte offset="247" bitstart="4" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_times" alt="03,0C" min="0x00" max="0x0F">
+		<byte offset="247" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_am_source_time1" alt="03,06" min="0x00" max="0x2A">
+		<byte offset="248"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_am_int_time1" alt="03,07" min="0x9D" max="0x63">
+		<byte offset="249"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_am_source_time2" alt="03,08" min="0x00" max="0x2A">
+		<byte offset="250"/>
+	</parameter>
+	<parameter id="OSC1_LFO1_am_int_time2" alt="03,09" min="0x9D" max="0x63">
+		<byte offset="251"/>
+	</parameter>
+	
+	<!-- Oscillator 1 LFO 2 -->
+	<parameter id="OSC1_LFO2_waveform" alt="04,00" min="0x00" max="0x14">
+		<byte offset="242+10" bitstart="0" bitstop="4"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_key_sync" alt="04,01" min="0x00" max="0x01">
+		<byte offset="242+10" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_frequency" alt="04,02" min="0x00" max="0x63">
+		<byte offset="243+10"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_offset" alt="04,03" min="0x9D" max="0x63">
+		<byte offset="244+10"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_delay" alt="04,04" min="0x00" max="0x63">
+		<byte offset="245+10"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_fade" alt="04,05" min="0x00" max="0x63">
+		<byte offset="246+10"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_midi_tempo_sync" alt="04,0A" min="0x00" max="0x01">
+		<byte offset="247+10" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_sync_base_note" alt="04,0B" min="0x00" max="0x07">
+		<byte offset="247+10" bitstart="4" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_times" alt="04,0C" min="0x00" max="0x0F">
+		<byte offset="247+10" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_am_source_time1" alt="04,06" min="0x00" max="0x2A">
+		<byte offset="248+10"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_am_int_time1" alt="04,07" min="0x9D" max="0x63">
+		<byte offset="249+10"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_am_source_time2" alt="04,08" min="0x00" max="0x2A">
+		<byte offset="250+10"/>
+	</parameter>
+	<parameter id="OSC1_LFO2_am_int_time2" alt="04,09" min="0x9D" max="0x63">
+		<byte offset="251+10"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Pitch -->
+	<parameter id="OSC1_PITCH_octave" alt="05,00" min="0xFE" max="0x01">
+		<byte offset="262"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_transpose" alt="05,01" min="0xF4" max="0x0C">
+		<byte offset="263"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_tune" alt="05,02" min="0xFB50" max="0x04B0">
+		<byte offset="264"/>
+		<byte offset="265"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_source_pitch" alt="05,03" min="0x00" max="0x2A">
+		<byte offset="266"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_int_pitch" alt="05,04" min="0x8D" max="0x73">
+		<byte offset="267"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_pitch_slope" alt="05,05" min="0xF6" max="0x14">
+		<byte offset="268"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_int_pitch_eg" alt="05,06" min="0x8D" max="0x73">
+		<byte offset="269"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_source_pitch_eg" alt="05,07" min="0x00" max="0x2A">
+		<byte offset="270"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_int_pitch_eg" alt="05,08" min="0x8D" max="0x73">
+		<byte offset="271"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_int_osc1_lfo1" alt="05,09" min="0x8D" max="0x73">
+		<byte offset="272"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_int_osc1_lfo2" alt="05,0A" min="0x8D" max="0x73">
+		<byte offset="273"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_portamento" alt="05,0B" min="0x00" max="0x01">
+		<byte offset="274" bitstart="0" bitstop="0"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_portamento_fingered" alt="05,0C" min="0x00" max="0x01">
+		<byte offset="274" bitstart="1" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_portamento_time" alt="05,0D" min="0x00" max="0x7F">
+		<byte offset="275"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_pitch_js_plus_x" alt="05,0E" min="0xC4" max="0x0C">
+		<byte offset="276"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_pitch_js_minus_x" alt="05,0F" min="0xC4" max="0x0C">
+		<byte offset="277"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_pitch_ribbon_x" alt="05,10" min="0xF4" max="0x0C">
+		<byte offset="278"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_lfo1_int_js_plus_y" alt="05,11" min="0x8D" max="0x73">
+		<byte offset="280"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_lfo2_int_js_plus_y" alt="05,12" min="0x8D" max="0x73">
+		<byte offset="281"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_source_lfo1_int" alt="05,13" min="0x00" max="0x2A">
+		<byte offset="282"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_int_lfo1_int" alt="05,14" min="0x8D" max="0x73">
+		<byte offset="283"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_source_lfo2_int" alt="05,15" min="0x00" max="0x2A">
+		<byte offset="284"/>
+	</parameter>
+	<parameter id="OSC1_PITCH_am_int_lfo2_int" alt="05,16" min="0x8D" max="0x73">
+		<byte offset="285"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Filter -->
+	<parameter id="OSC1_FILTER_type" alt="06,00" min="0x00" max="0x01">
+		<byte offset="286"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_trim" alt="06,01" min="0x00" max="0x63">
+		<byte offset="287"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_resonance" alt="06,02" min="0x00" max="0x63">
+		<byte offset="288"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_am_source_reso" alt="06,03" min="0x00" max="0x2A">
+		<byte offset="289"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_am_int_reso" alt="06,04" min="0x9D" max="0x63">
+		<byte offset="290"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_am_source_eg" alt="06,05" min="0x00" max="0x2A">
+		<byte offset="291"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_am_source_lfo1" alt="06,06" min="0x00" max="0x2A">
+		<byte offset="292"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_am_source_lfo2" alt="06,07" min="0x00" max="0x2A">
+		<byte offset="293"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Filter A -->
+	<parameter id="OSC1_FILTERA_frequency" alt="07,00" min="0x00" max="0x63">
+		<byte offset="294"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_kbd_track_intensity" alt="07,01" min="0x9D" max="0x63">
+		<byte offset="295"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_am_source_mod1" alt="07,02" min="0x00" max="0x2A">
+		<byte offset="296"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_am_int_mod1" alt="07,03" min="0x9D" max="0x63">
+		<byte offset="297"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_am_source_mod2" alt="07,04" min="0x00" max="0x2A">
+		<byte offset="298"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_am_int_mod2" alt="07,05" min="0x9D" max="0x63">
+		<byte offset="299"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_eg_intensity" alt="07,06" min="0x9D" max="0x63">
+		<byte offset="300"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_eg_velocity" alt="07,07" min="0x9D" max="0x63">
+		<byte offset="301"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_int_lfo1" alt="07,08" min="0x9D" max="0x63">
+		<byte offset="302"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_int_lfo2" alt="07,09" min="0x9D" max="0x63">
+		<byte offset="303"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_lfo1_js_minus_y" alt="07,0A" min="0x9D" max="0x63">
+		<byte offset="304"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_lfo2_js_minus_y" alt="07,0B" min="0x9D" max="0x63">
+		<byte offset="305"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_am_int_eg" alt="07,0C" min="0x9D" max="0x63">
+		<byte offset="306"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_am_int_lfo1" alt="07,0D" min="0x9D" max="0x63">
+		<byte offset="307"/>
+	</parameter>
+	<parameter id="OSC1_FILTERA_am_int_lfo2" alt="07,0E" min="0x9D" max="0x63">
+		<byte offset="308"/>
+	</parameter>
+		
+	<!-- Oscillator 1 Filter B -->
+	<parameter id="OSC1_FILTERB_frequency" alt="08,00" min="0x00" max="0x63">
+		<byte offset="294+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_kbd_track_intensity" alt="08,01" min="0x9D" max="0x63">
+		<byte offset="295+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_am_source_mod1" alt="08,02" min="0x00" max="0x2A">
+		<byte offset="296+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_am_int_mod1" alt="08,03" min="0x9D" max="0x63">
+		<byte offset="297+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_am_source_mod2" alt="08,04" min="0x00" max="0x2A">
+		<byte offset="298+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_am_int_mod2" alt="08,05" min="0x9D" max="0x63">
+		<byte offset="299+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_eg_intensity" alt="08,06" min="0x9D" max="0x63">
+		<byte offset="300+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_eg_velocity" alt="08,07" min="0x9D" max="0x63">
+		<byte offset="301+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_int_lfo1" alt="08,08" min="0x9D" max="0x63">
+		<byte offset="302+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_int_lfo2" alt="08,09" min="0x9D" max="0x63">
+		<byte offset="303+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_lfo1_js_minus_y" alt="08,0A" min="0x9D" max="0x63">
+		<byte offset="304+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_lfo2_js_minus_y" alt="08,0B" min="0x9D" max="0x63">
+		<byte offset="305+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_am_int_eg" alt="08,0C" min="0x9D" max="0x63">
+		<byte offset="306+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_am_int_lfo1" alt="08,0D" min="0x9D" max="0x63">
+		<byte offset="307+15"/>
+	</parameter>
+	<parameter id="OSC1_FILTERB_am_int_lfo2" alt="08,0E" min="0x9D" max="0x63">
+		<byte offset="308+15"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Filter EG -->
+	<parameter id="OSC1_FILTER_EG_start_level" alt="09,00" min="0x9D" max="0x63">
+		<byte offset="324"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_attack_time" alt="09,01" min="0x00" max="0x63">
+		<byte offset="325"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_attack_level" alt="09,02" min="0x9D" max="0x63">
+		<byte offset="326"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_decay_time" alt="09,03" min="0x00" max="0x63">
+		<byte offset="327"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_break_point_level" alt="09,04" min="0x9D" max="0x63">
+		<byte offset="328"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_slope_time" alt="09,05" min="0x00" max="0x63">
+		<byte offset="329"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_sustain_level" alt="09,06" min="0x9D" max="0x63">
+		<byte offset="330"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_release_time" alt="09,07" min="0x00" max="0x63">
+		<byte offset="331"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_release_level" alt="09,08" min="0x9D" max="0x63">
+		<byte offset="332"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_release_am_time1" alt="09,12" min="0xFF" max="0x01">
+		<byte offset="333" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_slope_am_time1" alt="09,11" min="0xFF" max="0x01">
+		<byte offset="333" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_decay_am_time1" alt="09,10" min="0xFF" max="0x01">
+		<byte offset="333" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_attack_am_time1" alt="09,0F" min="0xFF" max="0x01">
+		<byte offset="333" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_release_am_time2" alt="09,16" min="0xFF" max="0x01">
+		<byte offset="334" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_slope_am_time2" alt="09,15" min="0xFF" max="0x01">
+		<byte offset="334" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_decay_am_time2" alt="09,14" min="0xFF" max="0x01">
+		<byte offset="334" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_attack_am_time2" alt="09,13" min="0xFF" max="0x01">
+		<byte offset="334" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_break_am_level" alt="09,19" min="0xFF" max="0x01">
+		<byte offset="335" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_attack_am_level" alt="09,18" min="0xFF" max="0x01">
+		<byte offset="335" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_start_am_level" alt="09,17" min="0xFF" max="0x01">
+		<byte offset="335" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_am_source_time1" alt="09,09" min="0x00" max="0x2A">
+		<byte offset="336"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_am_int_time1" alt="09,0A" min="0x9D" max="0x63">
+		<byte offset="337"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_am_source_time2" alt="09,0B" min="0x00" max="0x2A">
+		<byte offset="338"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_am_int_time2" alt="09,0C" min="0x9D" max="0x63">
+		<byte offset="339"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_am_source_level" alt="09,0D" min="0x00" max="0x2A">
+		<byte offset="340"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_EG_am_int_level" alt="09,0E" min="0x9D" max="0x63">
+		<byte offset="341"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Filter Keyboard Track -->
+	<parameter id="OSC1_FILTER_KBD_key_low" alt="0A,00" min="0x00" max="0x7F">
+		<byte offset="342"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_KBD_ramp_low" alt="0A,01" min="0x9D" max="0x63">
+		<byte offset="343"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_KBD_key_high" alt="0A,02" min="0x00" max="0x7F">
+		<byte offset="344"/>
+	</parameter>
+	<parameter id="OSC1_FILTER_KBD_ramp_high" alt="0A,03" min="0x9D" max="0x63">
+		<byte offset="345"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Amplifier -->
+	<parameter id="OSC1_AMP_level" alt="0B,00" min="0x00" max="0x7F">
+		<byte offset="346"/>
+	</parameter>
+	<parameter id="OSC1_AMP_int_velocity" alt="0B,01" min="0x9D" max="0x63">
+		<byte offset="347"/>
+	</parameter>
+	<parameter id="OSC1_AMP_am_source" alt="0B,02" min="0x00" max="0x2A" validate="_value != 15">
+		<byte offset="348"/>
+	</parameter>
+	<parameter id="OSC1_AMP_am_int" alt="0B,03" min="0x9D" max="0x63">
+		<byte offset="349"/>
+	</parameter>
+	<parameter id="OSC1_AMP_int_lfo1" alt="0B,04" min="0x9D" max="0x63">
+		<byte offset="350"/>
+	</parameter>
+	<parameter id="OSC1_AMP_int_lfo2" alt="0B,05" min="0x9D" max="0x63">
+		<byte offset="351"/>
+	</parameter>
+	<parameter id="OSC1_AMP_am_source_lfo1" alt="0B,06" min="0x00" max="0x2A">
+		<byte offset="352"/>
+	</parameter>
+	<parameter id="OSC1_AMP_am_int_lfo1" alt="0B,07" min="0x9D" max="0x63">
+		<byte offset="353"/>
+	</parameter>
+	<parameter id="OSC1_AMP_am_source_lfo2" alt="0B,08" min="0x00" max="0x2A">
+		<byte offset="354"/>
+	</parameter>
+	<parameter id="OSC1_AMP_am_int_lfo2" alt="0B,09" min="0x9D" max="0x63">
+		<byte offset="355"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Ampfifier EG -->
+	<parameter id="OSC1_AMP_EG_start_level" alt="0C,00" min="0x9D" max="0x63">
+		<byte offset="356"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_attack_time" alt="0C,01" min="0x00" max="0x63">
+		<byte offset="357"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_attack_level" alt="0C,02" min="0x9D" max="0x63">
+		<byte offset="358"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_decay_time" alt="0C,03" min="0x00" max="0x63">
+		<byte offset="359"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_break_point_level" alt="0C,04" min="0x9D" max="0x63">
+		<byte offset="360"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_slope_time" alt="0C,05" min="0x00" max="0x63">
+		<byte offset="361"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_sustain_level" alt="0C,06" min="0x9D" max="0x63">
+		<byte offset="362"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_release_time" alt="0C,07" min="0x00" max="0x63">
+		<byte offset="363"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_am_source_time1" alt="0C,08" min="0x00" max="0x2A">
+		<byte offset="364"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_am_int_time1" alt="0C,09" min="0x9D" max="0x63">
+		<byte offset="365"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_am_source_time2" alt="0C,0A" min="0x00" max="0x2A">
+		<byte offset="366"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_am_int_time2" alt="0C,0B" min="0x9D" max="0x63">
+		<byte offset="367"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_am_source_level" alt="0C,0C" min="0x00" max="0x2A">
+		<byte offset="368"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_am_int_level" alt="0C,0D" min="0x9D" max="0x63">
+		<byte offset="369"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_release_am_time1" alt="0C,11" min="0xFF" max="0x01">
+		<byte offset="370" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_slope_am_time1" alt="0C,10" min="0xFF" max="0x01">
+		<byte offset="370" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_decay_am_time1" alt="0C,0F" min="0xFF" max="0x01">
+		<byte offset="370" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_attack_am_time1" alt="0C,0E" min="0xFF" max="0x01">
+		<byte offset="370" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_release_am_time2" alt="0C,15" min="0xFF" max="0x01">
+		<byte offset="371" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_slope_am_time2" alt="0C,14" min="0xFF" max="0x01">
+		<byte offset="371" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_decay_am_time2" alt="0C,13" min="0xFF" max="0x01">
+		<byte offset="371" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_attack_am_time2" alt="0C,12" min="0xFF" max="0x01">
+		<byte offset="371" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_break_am_level" alt="0C,18" min="0xFF" max="0x01">
+		<byte offset="372" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_attack_am_level" alt="0C,17" min="0xFF" max="0x01">
+		<byte offset="372" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC1_AMP_EG_start_am_level" alt="0C,16" min="0xFF" max="0x01">
+		<byte offset="372" bitstart="0" bitstop="1"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Amplifier Keyboard Track -->
+	<parameter id="OSC1_AMP_KBD_key_low" alt="0D,00" min="0x00" max="0x7F">
+		<byte offset="374"/>
+	</parameter>
+	<parameter id="OSC1_AMP_KBD_ramp_low" alt="0D,01" min="0x9D" max="0x63">
+		<byte offset="375"/>
+	</parameter>
+	<parameter id="OSC1_AMP_KBD_key_high" alt="0D,02" min="0x00" max="0x7F">
+		<byte offset="376"/>
+	</parameter>
+	<parameter id="OSC1_AMP_KBD_ramp_high" alt="0D,03" min="0x9D" max="0x63">
+		<byte offset="377"/>
+	</parameter>
+	
+	<!-- Oscillator 1 Output -->
+	<parameter id="OSC1_OUTPUT_pan" alt="0E,00" min="0x00" max="0x7F">
+		<byte offset="379"/>
+	</parameter>
+	<parameter id="OSC1_OUTPUT_am_source_pan" alt="0E,01" min="0x00" max="0x2A">
+		<byte offset="380"/>
+	</parameter>
+	<parameter id="OSC1_OUTPUT_am_int_pan" alt="0E,02" min="0x9D" max="0x63">
+		<byte offset="381"/>
+	</parameter>
+	<parameter id="OSC1_OUTPUT_send_mfx1" alt="0E,03" min="0x00" max="0x7F">
+		<byte offset="382"/>
+	</parameter>
+	<parameter id="OSC1_OUTPUT_send_mfx2" alt="0E,04" min="0x00" max="0x7F">
+		<byte offset="383"/>
+	</parameter>
+	
+	<!-- Oscillator 2 -->
+	<parameter id="OSC2_hi_start_offset" alt="0F,02" min="0x00" max="0x01">
+		<byte offset="230+154" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_hi_reverse" alt="0F,03" min="0xFF" max="0x01">
+		<byte offset="230+154" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC2_hi_sample_no" alt="0F,01" min="0x0000" max="0x03E7">
+		<byte offset="230+154" bitstart="0" bitstop="6"/>	
+		<byte offset="231+154"/>
+	</parameter>
+	<parameter id="OSC2_hi_bank" alt="0F,00" min="0x00" max="0x09">
+		<byte offset="232+154"/>
+	</parameter>
+	<parameter id="OSC2_hi_level" alt="0F,04" min="0x00" max="0x7F">
+		<byte offset="233+154"/>
+	</parameter>
+	<parameter id="OSC2_low_start_offset" alt="0F,07" min="0x00" max="0x01">
+		<byte offset="234+154" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_low_reverse" alt="0F,08" min="0xFF" max="0x01">
+		<byte offset="234+154" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC2_low_sample_no" alt="0F,06" min="0x0000" max="0x03E7">
+		<byte offset="234+154" bitstart="0" bitstop="6"/>
+		<byte offset="235+154"/>
+	</parameter>
+	<parameter id="OSC2_low_bank" alt="0F,05" min="0x00" max="0x09">
+		<byte offset="236+154"/>
+	</parameter>
+	<parameter id="OSC2_low_level" alt="0F,09" min="0x00" max="0x7F">
+		<byte offset="237+154"/>
+	</parameter>
+	<parameter id="OSC2_delay_start" alt="0F,0A" min="0x00" max="0x61">
+		<byte offset="238+154"/>
+	</parameter>
+	<parameter id="OSC2_vel_m_sample_sw" alt="0F,0B" min="0x00" max="0x7F">
+		<byte offset="239+154"/>
+	</parameter>
+	<parameter id="OSC2_vel_zone_bottom" alt="0F,0C" min="0x00" max="0x7F" validate="_value &lt;= OSC2_vel_zone_top.getData()">
+		<byte offset="240+154"/>
+	</parameter>
+	<parameter id="OSC2_vel_zone_top" alt="0F,0D" min="0x00" max="0x7F" validate="OSC2_vel_zone_bottom.getData() &lt;= _value">
+		<byte offset="241+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 LFO 1 -->
+	<parameter id="OSC2_LFO1_waveform" alt="10,00" min="0x00" max="0x14">
+		<byte offset="242+154" bitstart="0" bitstop="4"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_key_sync" alt="10,01" min="0x00" max="0x01">
+		<byte offset="242+154" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_frequency" alt="10,02" min="0x00" max="0x63">
+		<byte offset="243+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_offset" alt="10,03" min="0x9D" max="0x63">
+		<byte offset="244+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_delay" alt="10,04" min="0x00" max="0x63">
+		<byte offset="245+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_fade" alt="10,05" min="0x00" max="0x63">
+		<byte offset="246+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_midi_tempo_sync" alt="10,0A" min="0x00" max="0x01">
+		<byte offset="247+154" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_sync_base_note" alt="10,0B" min="0x00" max="0x07">
+		<byte offset="247+154" bitstart="4" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_times" alt="10,0C" min="0x00" max="0x0F">
+		<byte offset="247+154" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_am_source_time1" alt="10,06" min="0x00" max="0x2A">
+		<byte offset="248+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_am_int_time1" alt="10,07" min="0x9D" max="0x63">
+		<byte offset="249+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_am_source_time2" alt="10,08" min="0x00" max="0x2A">
+		<byte offset="250+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO1_am_int_time2" alt="10,09" min="0x9D" max="0x63">
+		<byte offset="251+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 LFO 2 -->
+	<parameter id="OSC2_LFO2_waveform" alt="11,00" min="0x00" max="0x14">
+		<byte offset="242+10+154" bitstart="0" bitstop="4"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_key_sync" alt="11,01" min="0x00" max="0x01">
+		<byte offset="242+10+154" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_frequency" alt="11,02" min="0x00" max="0x63">
+		<byte offset="243+10+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_offset" alt="11,03" min="0x9D" max="0x63">
+		<byte offset="244+10+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_delay" alt="11,04" min="0x00" max="0x63">
+		<byte offset="245+10+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_fade" alt="11,05" min="0x00" max="0x63">
+		<byte offset="246+10+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_midi_tempo_sync" alt="11,0A" min="0x00" max="0x01">
+		<byte offset="247+10+154" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_sync_base_note" alt="11,0B" min="0x00" max="0x07">
+		<byte offset="247+10+154" bitstart="4" bitstop="6"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_times" alt="11,0C" min="0x00" max="0x0F">
+		<byte offset="247+10+154" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_am_source_time1" alt="11,06" min="0x00" max="0x2A">
+		<byte offset="248+10+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_am_int_time1" alt="11,07" min="0x9D" max="0x63">
+		<byte offset="249+10+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_am_source_time2" alt="11,08" min="0x00" max="0x2A">
+		<byte offset="250+10+154"/>
+	</parameter>
+	<parameter id="OSC2_LFO2_am_int_time2" alt="11,09" min="0x9D" max="0x63">
+		<byte offset="251+10+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Pitch -->
+	<parameter id="OSC2_PITCH_octave" alt="12,00" min="0xFE" max="0x01">
+		<byte offset="262+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_transpose" alt="12,01" min="0xF4" max="0x0C">
+		<byte offset="263+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_tune" alt="12,02" min="0xFB50" max="0x04B0">
+		<byte offset="264+154"/>
+		<byte offset="265+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_source_pitch" alt="12,03" min="0x00" max="0x2A">
+		<byte offset="266+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_int_pitch" alt="12,04" min="0x8D" max="0x73">
+		<byte offset="267+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_pitch_slope" alt="12,05" min="0xF6" max="0x14">
+		<byte offset="268+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_int_pitch_eg" alt="12,06" min="0x8D" max="0x73">
+		<byte offset="269+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_source_pitch_eg" alt="12,07" min="0x00" max="0x2A">
+		<byte offset="270+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_int_pitch_eg" alt="12,08" min="0x8D" max="0x73">
+		<byte offset="271+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_int_osc2_lfo1" alt="12,09" min="0x8D" max="0x73">
+		<byte offset="272+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_int_osc2_lfo2" alt="12,0A" min="0x8D" max="0x73">
+		<byte offset="273+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_portamento" alt="12,0B" min="0x00" max="0x01">
+		<byte offset="274+154" bitstart="0" bitstop="0"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_portamento_fingered" alt="12,0C" min="0x00" max="0x01">
+		<byte offset="274+154" bitstart="1" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_portamento_time" alt="12,0D" min="0x00" max="0x7F">
+		<byte offset="275+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_pitch_js_plus_x" alt="12,0E" min="0xC4" max="0x0C">
+		<byte offset="276+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_pitch_js_minus_x" alt="12,0F" min="0xC4" max="0x0C">
+		<byte offset="277+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_pitch_ribbon_x" alt="12,10" min="0xF4" max="0x0C">
+		<byte offset="278+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_lfo1_int_js_plus_y" alt="12,11" min="0x8D" max="0x73">
+		<byte offset="280+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_lfo2_int_js_plus_y" alt="12,12" min="0x8D" max="0x73">
+		<byte offset="281+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_source_lfo1_int" alt="12,13" min="0x00" max="0x2A">
+		<byte offset="282+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_int_lfo1_int" alt="12,14" min="0x8D" max="0x73">
+		<byte offset="283+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_source_lfo2_int" alt="12,15" min="0x00" max="0x2A">
+		<byte offset="284+154"/>
+	</parameter>
+	<parameter id="OSC2_PITCH_am_int_lfo2_int" alt="12,16" min="0x8D" max="0x73">
+		<byte offset="285+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Filter -->
+	<parameter id="OSC2_FILTER_type" alt="13,00" min="0x00" max="0x01">
+		<byte offset="286+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_trim" alt="13,01" min="0x00" max="0x63">
+		<byte offset="287+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_resonance" alt="13,02" min="0x00" max="0x63">
+		<byte offset="288+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_am_source_reso" alt="13,03" min="0x00" max="0x2A">
+		<byte offset="289+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_am_int_reso" alt="13,04" min="0x9D" max="0x63">
+		<byte offset="290+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_am_source_eg" alt="13,05" min="0x00" max="0x2A">
+		<byte offset="291+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_am_source_lfo1" alt="13,06" min="0x00" max="0x2A">
+		<byte offset="292+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_am_source_lfo2" alt="13,07" min="0x00" max="0x2A">
+		<byte offset="293+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Filter A -->
+	<parameter id="OSC2_FILTERA_frequency" alt="14,00" min="0x00" max="0x63">
+		<byte offset="294+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_kbd_track_intensity" alt="14,01" min="0x9D" max="0x63">
+		<byte offset="295+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_am_source_mod1" alt="14,02" min="0x00" max="0x2A">
+		<byte offset="296+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_am_int_mod1" alt="14,03" min="0x9D" max="0x63">
+		<byte offset="297+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_am_source_mod2" alt="14,04" min="0x00" max="0x2A">
+		<byte offset="298+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_am_int_mod2" alt="14,05" min="0x9D" max="0x63">
+		<byte offset="299+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_eg_intensity" alt="14,06" min="0x9D" max="0x63">
+		<byte offset="300+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_eg_velocity" alt="14,07" min="0x9D" max="0x63">
+		<byte offset="301+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_int_lfo1" alt="14,08" min="0x9D" max="0x63">
+		<byte offset="302+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_int_lfo2" alt="14,09" min="0x9D" max="0x63">
+		<byte offset="303+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_lfo1_js_minus_y" alt="14,0A" min="0x9D" max="0x63">
+		<byte offset="304+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_lfo2_js_minus_y" alt="14,0B" min="0x9D" max="0x63">
+		<byte offset="305+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_am_int_eg" alt="14,0C" min="0x9D" max="0x63">
+		<byte offset="306+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_am_int_lfo1" alt="14,0D" min="0x9D" max="0x63">
+		<byte offset="307+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERA_am_int_lfo2" alt="14,0E" min="0x9D" max="0x63">
+		<byte offset="308+154"/>
+	</parameter>
+		
+	<!-- Oscillator 2 Filter B -->
+	<parameter id="OSC2_FILTERB_frequency" alt="15,00" min="0x00" max="0x63">
+		<byte offset="294+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_kbd_track_intensity" alt="15,01" min="0x9D" max="0x63">
+		<byte offset="295+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_am_source_mod1" alt="15,02" min="0x00" max="0x2A">
+		<byte offset="296+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_am_int_mod1" alt="15,03" min="0x9D" max="0x63">
+		<byte offset="297+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_am_source_mod2" alt="15,04" min="0x00" max="0x2A">
+		<byte offset="298+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_am_int_mod2" alt="15,05" min="0x9D" max="0x63">
+		<byte offset="299+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_eg_intensity" alt="15,06" min="0x9D" max="0x63">
+		<byte offset="300+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_eg_velocity" alt="15,07" min="0x9D" max="0x63">
+		<byte offset="301+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_int_lfo1" alt="15,08" min="0x9D" max="0x63">
+		<byte offset="302+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_int_lfo2" alt="15,09" min="0x9D" max="0x63">
+		<byte offset="303+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_lfo1_js_minus_y" alt="15,0A" min="0x9D" max="0x63">
+		<byte offset="304+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_lfo2_js_minus_y" alt="15,0B" min="0x9D" max="0x63">
+		<byte offset="305+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_am_int_eg" alt="15,0C" min="0x9D" max="0x63">
+		<byte offset="306+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_am_int_lfo1" alt="15,0D" min="0x9D" max="0x63">
+		<byte offset="307+15+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTERB_am_int_lfo2" alt="15,0E" min="0x9D" max="0x63">
+		<byte offset="308+15+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Filter EG -->
+	<parameter id="OSC2_FILTER_EG_start_level" alt="16,00" min="0x9D" max="0x63">
+		<byte offset="324+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_attack_time" alt="16,01" min="0x00" max="0x63">
+		<byte offset="325+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_attack_level" alt="16,02" min="0x9D" max="0x63">
+		<byte offset="326+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_decay_time" alt="16,03" min="0x00" max="0x63">
+		<byte offset="327+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_break_point_level" alt="16,04" min="0x9D" max="0x63">
+		<byte offset="328+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_slope_time" alt="16,05" min="0x00" max="0x63">
+		<byte offset="329+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_sustain_level" alt="16,06" min="0x9D" max="0x63">
+		<byte offset="330+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_release_time" alt="16,07" min="0x00" max="0x63">
+		<byte offset="331+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_release_level" alt="16,08" min="0x9D" max="0x63">
+		<byte offset="332+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_release_am_time1" alt="16,12" min="0xFF" max="0x01">
+		<byte offset="333+154" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_slope_am_time1" alt="16,11" min="0xFF" max="0x01">
+		<byte offset="333+154" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_decay_am_time1" alt="16,10" min="0xFF" max="0x01">
+		<byte offset="333+154" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_attack_am_time1" alt="16,0F" min="0xFF" max="0x01">
+		<byte offset="333+154" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_release_am_time2" alt="16,16" min="0xFF" max="0x01">
+		<byte offset="334+154" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_slope_am_time2" alt="16,15" min="0xFF" max="0x01">
+		<byte offset="334+154" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_decay_am_time2" alt="16,14" min="0xFF" max="0x01">
+		<byte offset="334+154" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_attack_am_time2" alt="16,13" min="0xFF" max="0x01">
+		<byte offset="334+154" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_break_am_level" alt="16,19" min="0xFF" max="0x01">
+		<byte offset="335+154" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_attack_am_level" alt="16,18" min="0xFF" max="0x01">
+		<byte offset="335+154" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_start_am_level" alt="16,17" min="0xFF" max="0x01">
+		<byte offset="335+154" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_am_source_time1" alt="16,09" min="0x00" max="0x2A">
+		<byte offset="336+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_am_int_time1" alt="16,0A" min="0x9D" max="0x63">
+		<byte offset="337+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_am_source_time2" alt="16,0B" min="0x00" max="0x2A">
+		<byte offset="338+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_am_int_time2" alt="16,0C" min="0x9D" max="0x63">
+		<byte offset="339+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_am_source_level" alt="16,0D" min="0x00" max="0x2A">
+		<byte offset="340+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_EG_am_int_level" alt="16,0E" min="0x9D" max="0x63">
+		<byte offset="341+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Filter Keyboard Track -->
+	<parameter id="OSC2_FILTER_KBD_key_low" alt="17,00" min="0x00" max="0x7F">
+		<byte offset="342+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_KBD_ramp_low" alt="17,01" min="0x9D" max="0x63">
+		<byte offset="343+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_KBD_key_high" alt="17,02" min="0x00" max="0x7F">
+		<byte offset="344+154"/>
+	</parameter>
+	<parameter id="OSC2_FILTER_KBD_ramp_high" alt="17,03" min="0x9D" max="0x63">
+		<byte offset="345+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Amplifier -->
+	<parameter id="OSC2_AMP_level" alt="18,00" min="0x00" max="0x7F">
+		<byte offset="346+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_int_velocity" alt="18,01" min="0x9D" max="0x63">
+		<byte offset="347+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_am_source" alt="18,02" min="0x00" max="0x2A" validate="_value != 15">
+		<byte offset="348+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_am_int" alt="18,03" min="0x9D" max="0x63">
+		<byte offset="349+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_int_lfo1" alt="18,04" min="0x9D" max="0x63">
+		<byte offset="350+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_int_lfo2" alt="18,05" min="0x9D" max="0x63">
+		<byte offset="351+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_am_source_lfo1" alt="18,06" min="0x00" max="0x2A">
+		<byte offset="352+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_am_int_lfo1" alt="18,07" min="0x9D" max="0x63">
+		<byte offset="353+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_am_source_lfo2" alt="18,08" min="0x00" max="0x2A">
+		<byte offset="354+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_am_int_lfo2" alt="18,09" min="0x9D" max="0x63">
+		<byte offset="355+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Ampfifier EG -->
+	<parameter id="OSC2_AMP_EG_start_level" alt="19,00" min="0x9D" max="0x63">
+		<byte offset="356+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_attack_time" alt="19,01" min="0x00" max="0x63">
+		<byte offset="357+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_attack_level" alt="19,02" min="0x9D" max="0x63">
+		<byte offset="358+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_decay_time" alt="19,03" min="0x00" max="0x63">
+		<byte offset="359+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_break_point_level" alt="19,04" min="0x9D" max="0x63">
+		<byte offset="360+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_slope_time" alt="19,05" min="0x00" max="0x63">
+		<byte offset="361+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_sustain_level" alt="19,06" min="0x9D" max="0x63">
+		<byte offset="362+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_release_time" alt="19,07" min="0x00" max="0x63">
+		<byte offset="363+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_am_source_time1" alt="19,08" min="0x00" max="0x2A">
+		<byte offset="364+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_am_int_time1" alt="19,09" min="0x9D" max="0x63">
+		<byte offset="365+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_am_source_time2" alt="19,0A" min="0x00" max="0x2A">
+		<byte offset="366+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_am_int_time2" alt="19,0B" min="0x9D" max="0x63">
+		<byte offset="367+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_am_source_level" alt="19,0C" min="0x00" max="0x2A">
+		<byte offset="368+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_am_int_level" alt="19,0D" min="0x9D" max="0x63">
+		<byte offset="369+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_release_am_time1" alt="19,11" min="0xFF" max="0x01">
+		<byte offset="370+154" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_slope_am_time1" alt="19,10" min="0xFF" max="0x01">
+		<byte offset="370+154" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_decay_am_time1" alt="19,0F" min="0xFF" max="0x01">
+		<byte offset="370+154" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_attack_am_time1" alt="19,0E" min="0xFF" max="0x01">
+		<byte offset="370+154" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_release_am_time2" alt="19,15" min="0xFF" max="0x01">
+		<byte offset="371+154" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_slope_am_time2" alt="19,14" min="0xFF" max="0x01">
+		<byte offset="371+154" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_decay_am_time2" alt="19,13" min="0xFF" max="0x01">
+		<byte offset="371+154" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_attack_am_time2" alt="19,12" min="0xFF" max="0x01">
+		<byte offset="371+154" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_break_am_level" alt="19,18" min="0xFF" max="0x01">
+		<byte offset="372+154" bitstart="4" bitstop="5"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_attack_am_level" alt="19,17" min="0xFF" max="0x01">
+		<byte offset="372+154" bitstart="2" bitstop="3"/>
+	</parameter>
+	<parameter id="OSC2_AMP_EG_start_am_level" alt="19,16" min="0xFF" max="0x01">
+		<byte offset="372+154" bitstart="0" bitstop="1"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Amplifier Keyboard Track -->
+	<parameter id="OSC2_AMP_KBD_key_low" alt="1A,00" min="0x00" max="0x7F">
+		<byte offset="374+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_KBD_ramp_low" alt="1A,01" min="0x9D" max="0x63">
+		<byte offset="375+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_KBD_key_high" alt="1A,02" min="0x00" max="0x7F">
+		<byte offset="376+154"/>
+	</parameter>
+	<parameter id="OSC2_AMP_KBD_ramp_high" alt="1A,03" min="0x9D" max="0x63">
+		<byte offset="377+154"/>
+	</parameter>
+	
+	<!-- Oscillator 2 Output -->
+	<parameter id="OSC2_OUTPUT_pan" alt="1F,00" min="0x00" max="0x7F">
+		<byte offset="379+154"/>
+	</parameter>
+	<parameter id="OSC2_OUTPUT_am_source_pan" alt="1F,01" min="0x00" max="0x2A">
+		<byte offset="380+154"/>
+	</parameter>
+	<parameter id="OSC2_OUTPUT_am_int_pan" alt="1F,02" min="0x9D" max="0x63">
+		<byte offset="381+154"/>
+	</parameter>
+	<parameter id="OSC2_OUTPUT_send_mfx1" alt="1F,03" min="0x00" max="0x7F">
+		<byte offset="382+154"/>
+	</parameter>
+	<parameter id="OSC2_OUTPUT_send_mfx2" alt="1F,04" min="0x00" max="0x7F">
+		<byte offset="383+154"/>
+	</parameter>
+	
+</patch>
+</data>

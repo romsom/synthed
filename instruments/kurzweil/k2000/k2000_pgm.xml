@@ -1,0 +1,1580 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	k2000_pgm.xml
+
+	This data definition should be compatible with the Kurzweil K2000, 
+	K2500 and K2600 series.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+	Special thanks to Geoffrey Mayer (geoffrey@bright.net) for researching 
+	and publishing many of the details of the Kurzweil K2XX file/sysex format.
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE data SYSTEM "../../data.dtd">
+
+<data>
+
+<!--
+	A K2000 program dump contains the following segments:
+	 
+	PGM ASR2 FUN2 LFO2 FUN4 EFX (LYR ASR ASR2 FUN FUN2 LFO LFO2 FUN3 FUN4 ENC 
+	ENV ENV2 ENV3 CAL HOB HOB2 HOB3 HOB4)+
+
+	A K2500 w/KDFX or K2600 program dump contains the following segments:
+		
+	PGM ASR2 FUN2 LFO2 FUN4 EFX (FXRT FXPT FXPT FXPT FXPT FXPT FXPT FXPT FXPT 
+	FXPT FXPT FXPT FXPT FXPT FXPT FXPT FXPT FXPT FXPT ASR ASR2 FUN FUN2 LFO 
+	LFO2 FUN3 FUN4) (HMD HMD2 HMD3) (LYR ASR ASR2 FUN FUN2 LFO LFO2 FUN3 FUN4 
+	ENC IMP ENV ENV2 ENV3 CAL HOB HOB2 HOB3 HOB4)+
+-->
+<patch id="pgm" caption="Program">
+
+	<!-- PGM segment = 16 bytes -->
+	<parameter id="pgm_segment_tag" min="0x08" max="0x08">
+		<byte offset="0x00"/>
+	</parameter>
+	<parameter id="pgm_dump_format" min="0" max="4">
+		<byte offset="0x01"/>
+	</parameter>
+	<parameter id="pgm_layer_count" min="0" max="32">
+		<byte offset="0x02"/>
+	</parameter>
+	<parameter id="COMMON_monophonic" min="0x00" max="0x01">
+		<byte offset="0x03" bitstart="0" bitstop="0"/>
+	</parameter>
+	<parameter id="COMMON_portamento" min="0x00" max="0x01">
+		<byte offset="0x03" bitstart="1" bitstop="1"/>
+	</parameter>
+	<parameter id="COMMON_globals" min="0x00" max="0x01">
+		<byte offset="0x03" bitstart="3" bitstop="3"/>
+	</parameter>
+	<parameter id="COMMON_attack_portamento" min="0x00" max="0x01">
+		<byte offset="0x03" bitstart="4" bitstop="4"/>
+	</parameter>
+	<parameter id="COMMON_legato_play" min="0x00" max="0x01">
+		<byte offset="0x03" bitstart="5" bitstop="5"/>
+	</parameter>
+	<parameter id="COMMON_kb3_program" min="0x00" max="0x01">
+		<byte offset="0x03" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="COMMON_pitch_bend_range" min="-123" max="123">
+		<byte offset="0x04"/>
+	</parameter>
+	<parameter id="COMMON_portamento_rate" min="1" max="127">
+		<byte offset="0x05"/>
+	</parameter>
+	<parameter id="EFFECT_wet_dry_mix_source" min="0" max="132">
+		<byte offset="0x06"/>
+	</parameter>
+	<parameter id="EFFECT_wet_dry_mix_depth" min="-128" max="127">
+		<byte offset="0x07"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param1_adjust" min="-128" max="127">
+		<byte offset="0x08"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param1_source" min="0" max="132">
+		<byte offset="0x09"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param1_depth" min="-128" max="127">
+		<byte offset="0x0A"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param1" min="0x00" max="0xFF">
+		<byte offset="0x0B"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param2_adjust" min="-128" max="127">
+		<byte offset="0x0C"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param2_source" min="0" max="132">
+		<byte offset="0x0D"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param2_depth" min="-128" max="127">
+		<byte offset="0x0E"/>
+	</parameter>
+	<parameter id="EFFECT_realtime_effect_param2" min="0x00" max="0xFF">
+		<byte offset="0x0F"/>
+	</parameter>
+	
+	<!-- GASR2 (Global ASR2) segment = 8 bytes -->
+	<parameter id="GASR2_segment_tag" min="0x11" max="0x11">
+		<byte offset="16+0"/>
+	</parameter>
+	<parameter id="GASR2_trig" min="0" max="132">
+		<byte offset="16+2"/>
+	</parameter>
+	<parameter id="GASR2_mode" min="0" max="2">
+		<byte offset="16+3" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="GASR2_delay" min="0" max="249">
+		<byte offset="16+4"/>
+	</parameter>
+	<parameter id="GASR2_attack" min="0" max="249">
+		<byte offset="16+5"/>
+	</parameter>
+	<parameter id="GASR2_release" min="0" max="249">
+		<byte offset="16+7"/>
+	</parameter>
+	
+	<!-- GFUN2 (Global FUN2) segment = 4 bytes -->
+	<parameter id="GFUN2_segment_tag" min="0x19" max="0x19">
+		<byte offset="24+0"/>
+	</parameter>
+	<parameter id="GFUN2_function" min="0" max="69">
+		<byte offset="24+1"/>
+	</parameter>
+	<parameter id="GFUN2_input_a" min="0" max="255">
+		<byte offset="24+2"/>
+	</parameter>
+	<parameter id="GFUN2_input_b" min="0" max="255">
+		<byte offset="24+3"/>
+	</parameter>
+	
+	<!-- GLFO2 (Global LFO2) segment = 8 bytes -->
+	<parameter id="GLFO2_segment_tag" min="0x15" max="0x15">
+		<byte offset="28+0"/>
+	</parameter>
+	<parameter id="GLFO2_rate_source" min="0" max="132">
+		<byte offset="28+2"/>
+	</parameter>
+	<parameter id="GLFO2_min_rate" min="0" max="184">
+		<byte offset="28+3"/>
+	</parameter>
+	<parameter id="GLFO2_max_rate" min="0" max="184">
+		<byte offset="28+4"/>
+	</parameter>
+	<parameter id="GLFO2_phase" min="0" max="3">
+		<byte offset="28+5"/>
+	</parameter>
+	<parameter id="GLFO2_shape" min="0" max="39">
+		<byte offset="28+6"/>
+	</parameter>
+	
+	<!-- GFUN4 (Global FUN4) segment = 4 bytes -->
+	<parameter id="GFUN4_segment_tag" min="0x1B" max="0x1B">
+		<byte offset="36+0"/>
+	</parameter>
+	<parameter id="GFUN4_function" min="0" max="69">
+		<byte offset="36+1"/>
+	</parameter>
+	<parameter id="GFUN4_input_a" min="0" max="255">
+		<byte offset="36+2"/>
+	</parameter>
+	<parameter id="GFUN4_input_b" min="0" max="255">
+		<byte offset="36+3"/>
+	</parameter>
+	
+	<!-- EFFECT (Effect Control) segment = 8 bytes -->
+	<parameter id="EFFECT_segment_tag" min="0x0F" max="0x0F">
+		<byte offset="40+0"/>
+	</parameter>
+	<parameter id="EFFECT_channel" min="0x00" max="0x0F">
+		<byte offset="40+1"/>
+	</parameter>
+	<parameter id="EFFECT_preset_no" min="0" max="127">
+		<byte offset="40+2"/>
+	</parameter>
+	<parameter id="EFFECT_wet_dry_mix_adjust" min="0" max="100">
+		<byte offset="40+3"/>
+	</parameter>
+	<parameter id="EFFECT_input1" min="0x00" max="0x0F">
+		<byte offset="40+4"/>
+	</parameter>
+	<parameter id="EFFECT_output_midi_ctl1" min="0x00" max="0x0F">
+		<byte offset="40+5"/>
+	</parameter>
+	<parameter id="EFFECT_input2" min="0x00" max="0x0F">
+		<byte offset="40+6"/>
+	</parameter>
+	<parameter id="EFFECT_output_midi_ctl2" min="0x00" max="0x0F">
+		<byte offset="40+7"/>
+	</parameter>
+	
+	<!-- FXRT (KFDX Studio) segment = 8 bytes  (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXRT_segment_tag" min="0x68" max="0x68">
+		<byte offset="48+0"/>
+	</parameter>
+	<parameter id="KDFX_version_no" min="0x00" max="0x00">
+		<byte offset="48+1"/>
+	</parameter>
+	<parameter id="KDFX_studio_no" min="0" max="999">
+		<byte offset="48+2"/>
+		<byte offset="48+3"/>
+	</parameter>
+	
+	<!-- FXPT (KDFX FXMod1) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD1_segment_tag" min="0x69" max="0x69">
+		<byte offset="56+0"/>
+	</parameter>
+	<parameter id="FXMOD1_no" min="1" max="1">
+		<byte offset="56+1"/>
+	</parameter>
+	<parameter id="FXMOD1_bus" min="1" max="14">
+		<byte offset="56+2"/>
+	</parameter>
+	<parameter id="FXMOD1_parameter" min="0x00" max="0xFF">
+		<byte offset="56+3"/>
+	</parameter>
+	<parameter id="FXMOD1_adjust" min="-128" max="127">
+		<byte offset="56+4"/>
+	</parameter>
+	<parameter id="FXMOD1_source" min="0" max="132">
+		<byte offset="56+5"/>
+	</parameter>
+	<parameter id="FXMOD1_depth" min="-128" max="127">
+		<byte offset="56+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod2) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD2_segment_tag" min="0x69" max="0x69">
+		<byte offset="64+0"/>
+	</parameter>
+	<parameter id="FXMOD2_no" min="1" max="1">
+		<byte offset="64+1"/>
+	</parameter>
+	<parameter id="FXMOD2_bus" min="1" max="14">
+		<byte offset="64+2"/>
+	</parameter>
+	<parameter id="FXMOD2_parameter" min="0x00" max="0xFF">
+		<byte offset="64+3"/>
+	</parameter>
+	<parameter id="FXMOD2_adjust" min="-128" max="127">
+		<byte offset="64+4"/>
+	</parameter>
+	<parameter id="FXMOD2_source" min="0" max="132">
+		<byte offset="64+5"/>
+	</parameter>
+	<parameter id="FXMOD2_depth" min="-128" max="127">
+		<byte offset="64+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod3) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD3_segment_tag" min="0x69" max="0x69">
+		<byte offset="72+0"/>
+	</parameter>
+	<parameter id="FXMOD3_no" min="1" max="1">
+		<byte offset="72+1"/>
+	</parameter>
+	<parameter id="FXMOD3_bus" min="1" max="14">
+		<byte offset="72+2"/>
+	</parameter>
+	<parameter id="FXMOD3_parameter" min="0x00" max="0xFF">
+		<byte offset="72+3"/>
+	</parameter>
+	<parameter id="FXMOD3_adjust" min="-128" max="127">
+		<byte offset="72+4"/>
+	</parameter>
+	<parameter id="FXMOD3_source" min="0" max="132">
+		<byte offset="72+5"/>
+	</parameter>
+	<parameter id="FXMOD3_depth" min="-128" max="127">
+		<byte offset="72+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod4) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD4_segment_tag" min="0x69" max="0x69">
+		<byte offset="80+0"/>
+	</parameter>
+	<parameter id="FXMOD4_no" min="1" max="1">
+		<byte offset="80+1"/>
+	</parameter>
+	<parameter id="FXMOD4_bus" min="1" max="14">
+		<byte offset="80+2"/>
+	</parameter>
+	<parameter id="FXMOD4_parameter" min="0x00" max="0xFF">
+		<byte offset="80+3"/>
+	</parameter>
+	<parameter id="FXMOD4_adjust" min="-128" max="127">
+		<byte offset="80+4"/>
+	</parameter>
+	<parameter id="FXMOD4_source" min="0" max="132">
+		<byte offset="80+5"/>
+	</parameter>
+	<parameter id="FXMOD4_depth" min="-128" max="127">
+		<byte offset="80+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod5) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD5_segment_tag" min="0x69" max="0x69">
+		<byte offset="88+0"/>
+	</parameter>
+	<parameter id="FXMOD5_no" min="1" max="1">
+		<byte offset="88+1"/>
+	</parameter>
+	<parameter id="FXMOD5_bus" min="1" max="14">
+		<byte offset="88+2"/>
+	</parameter>
+	<parameter id="FXMOD5_parameter" min="0x00" max="0xFF">
+		<byte offset="88+3"/>
+	</parameter>
+	<parameter id="FXMOD5_adjust" min="-128" max="127">
+		<byte offset="88+4"/>
+	</parameter>
+	<parameter id="FXMOD5_source" min="0" max="132">
+		<byte offset="88+5"/>
+	</parameter>
+	<parameter id="FXMOD5_depth" min="-128" max="127">
+		<byte offset="88+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod6) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD6_segment_tag" min="0x69" max="0x69">
+		<byte offset="96+0"/>
+	</parameter>
+	<parameter id="FXMOD6_no" min="1" max="1">
+		<byte offset="96+1"/>
+	</parameter>
+	<parameter id="FXMOD6_bus" min="1" max="14">
+		<byte offset="96+2"/>
+	</parameter>
+	<parameter id="FXMOD6_parameter" min="0x00" max="0xFF">
+		<byte offset="96+3"/>
+	</parameter>
+	<parameter id="FXMOD6_adjust" min="-128" max="127">
+		<byte offset="96+4"/>
+	</parameter>
+	<parameter id="FXMOD6_source" min="0" max="132">
+		<byte offset="96+5"/>
+	</parameter>
+	<parameter id="FXMOD6_depth" min="-128" max="127">
+		<byte offset="96+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod7) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD7_segment_tag" min="0x69" max="0x69">
+		<byte offset="104+0"/>
+	</parameter>
+	<parameter id="FXMOD7_no" min="1" max="1">
+		<byte offset="104+1"/>
+	</parameter>
+	<parameter id="FXMOD7_bus" min="1" max="14">
+		<byte offset="104+2"/>
+	</parameter>
+	<parameter id="FXMOD7_parameter" min="0x00" max="0xFF">
+		<byte offset="104+3"/>
+	</parameter>
+	<parameter id="FXMOD7_adjust" min="-128" max="127">
+		<byte offset="104+4"/>
+	</parameter>
+	<parameter id="FXMOD7_source" min="0" max="132">
+		<byte offset="104+5"/>
+	</parameter>
+	<parameter id="FXMOD7_depth" min="-128" max="127">
+		<byte offset="104+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod8) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD8_segment_tag" min="0x69" max="0x69">
+		<byte offset="112+0"/>
+	</parameter>
+	<parameter id="FXMOD8_no" min="1" max="1">
+		<byte offset="112+1"/>
+	</parameter>
+	<parameter id="FXMOD8_bus" min="1" max="14">
+		<byte offset="112+2"/>
+	</parameter>
+	<parameter id="FXMOD8_parameter" min="0x00" max="0xFF">
+		<byte offset="112+3"/>
+	</parameter>
+	<parameter id="FXMOD8_adjust" min="-128" max="127">
+		<byte offset="112+4"/>
+	</parameter>
+	<parameter id="FXMOD8_source" min="0" max="132">
+		<byte offset="112+5"/>
+	</parameter>
+	<parameter id="FXMOD8_depth" min="-128" max="127">
+		<byte offset="112+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod9) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD9_segment_tag" min="0x69" max="0x69">
+		<byte offset="120+0"/>
+	</parameter>
+	<parameter id="FXMOD9_no" min="1" max="1">
+		<byte offset="120+1"/>
+	</parameter>
+	<parameter id="FXMOD9_bus" min="1" max="14">
+		<byte offset="120+2"/>
+	</parameter>
+	<parameter id="FXMOD9_parameter" min="0x00" max="0xFF">
+		<byte offset="120+3"/>
+	</parameter>
+	<parameter id="FXMOD9_adjust" min="-128" max="127">
+		<byte offset="120+4"/>
+	</parameter>
+	<parameter id="FXMOD9_source" min="0" max="132">
+		<byte offset="120+5"/>
+	</parameter>
+	<parameter id="FXMOD9_depth" min="-128" max="127">
+		<byte offset="120+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod10) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD10_segment_tag" min="0x69" max="0x69">
+		<byte offset="128+0"/>
+	</parameter>
+	<parameter id="FXMOD10_no" min="1" max="1">
+		<byte offset="128+1"/>
+	</parameter>
+	<parameter id="FXMOD10_bus" min="1" max="14">
+		<byte offset="128+2"/>
+	</parameter>
+	<parameter id="FXMOD10_parameter" min="0x00" max="0xFF">
+		<byte offset="128+3"/>
+	</parameter>
+	<parameter id="FXMOD10_adjust" min="-128" max="127">
+		<byte offset="128+4"/>
+	</parameter>
+	<parameter id="FXMOD10_source" min="0" max="132">
+		<byte offset="128+5"/>
+	</parameter>
+	<parameter id="FXMOD10_depth" min="-128" max="127">
+		<byte offset="128+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod11) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD11_segment_tag" min="0x69" max="0x69">
+		<byte offset="136+0"/>
+	</parameter>
+	<parameter id="FXMOD11_no" min="1" max="1">
+		<byte offset="136+1"/>
+	</parameter>
+	<parameter id="FXMOD11_bus" min="1" max="14">
+		<byte offset="136+2"/>
+	</parameter>
+	<parameter id="FXMOD11_parameter" min="0x00" max="0xFF">
+		<byte offset="136+3"/>
+	</parameter>
+	<parameter id="FXMOD11_adjust" min="-128" max="127">
+		<byte offset="136+4"/>
+	</parameter>
+	<parameter id="FXMOD11_source" min="0" max="132">
+		<byte offset="136+5"/>
+	</parameter>
+	<parameter id="FXMOD11_depth" min="-128" max="127">
+		<byte offset="136+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod12) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD12_segment_tag" min="0x69" max="0x69">
+		<byte offset="144+0"/>
+	</parameter>
+	<parameter id="FXMOD12_no" min="1" max="1">
+		<byte offset="144+1"/>
+	</parameter>
+	<parameter id="FXMOD12_bus" min="1" max="14">
+		<byte offset="144+2"/>
+	</parameter>
+	<parameter id="FXMOD12_parameter" min="0x00" max="0xFF">
+		<byte offset="144+3"/>
+	</parameter>
+	<parameter id="FXMOD12_adjust" min="-128" max="127">
+		<byte offset="144+4"/>
+	</parameter>
+	<parameter id="FXMOD12_source" min="0" max="132">
+		<byte offset="144+5"/>
+	</parameter>
+	<parameter id="FXMOD12_depth" min="-128" max="127">
+		<byte offset="144+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod13) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD13_segment_tag" min="0x69" max="0x69">
+		<byte offset="152+0"/>
+	</parameter>
+	<parameter id="FXMOD13_no" min="1" max="1">
+		<byte offset="152+1"/>
+	</parameter>
+	<parameter id="FXMOD13_bus" min="1" max="14">
+		<byte offset="152+2"/>
+	</parameter>
+	<parameter id="FXMOD13_parameter" min="0x00" max="0xFF">
+		<byte offset="152+3"/>
+	</parameter>
+	<parameter id="FXMOD13_adjust" min="-128" max="127">
+		<byte offset="152+4"/>
+	</parameter>
+	<parameter id="FXMOD13_source" min="0" max="132">
+		<byte offset="152+5"/>
+	</parameter>
+	<parameter id="FXMOD13_depth" min="-128" max="127">
+		<byte offset="152+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod14) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD14_segment_tag" min="0x69" max="0x69">
+		<byte offset="160+0"/>
+	</parameter>
+	<parameter id="FXMOD14_no" min="1" max="1">
+		<byte offset="160+1"/>
+	</parameter>
+	<parameter id="FXMOD14_bus" min="1" max="14">
+		<byte offset="160+2"/>
+	</parameter>
+	<parameter id="FXMOD14_parameter" min="0x00" max="0xFF">
+		<byte offset="160+3"/>
+	</parameter>
+	<parameter id="FXMOD14_adjust" min="-128" max="127">
+		<byte offset="160+4"/>
+	</parameter>
+	<parameter id="FXMOD14_source" min="0" max="132">
+		<byte offset="160+5"/>
+	</parameter>
+	<parameter id="FXMOD14_depth" min="-128" max="127">
+		<byte offset="160+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod15) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD15_segment_tag" min="0x69" max="0x69">
+		<byte offset="168+0"/>
+	</parameter>
+	<parameter id="FXMOD15_no" min="1" max="1">
+		<byte offset="168+1"/>
+	</parameter>
+	<parameter id="FXMOD15_bus" min="1" max="14">
+		<byte offset="168+2"/>
+	</parameter>
+	<parameter id="FXMOD15_parameter" min="0x00" max="0xFF">
+		<byte offset="168+3"/>
+	</parameter>
+	<parameter id="FXMOD15_adjust" min="-128" max="127">
+		<byte offset="168+4"/>
+	</parameter>
+	<parameter id="FXMOD15_source" min="0" max="132">
+		<byte offset="168+5"/>
+	</parameter>
+	<parameter id="FXMOD15_depth" min="-128" max="127">
+		<byte offset="168+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod16) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD16_segment_tag" min="0x69" max="0x69">
+		<byte offset="176+0"/>
+	</parameter>
+	<parameter id="FXMOD16_no" min="1" max="1">
+		<byte offset="176+1"/>
+	</parameter>
+	<parameter id="FXMOD16_bus" min="1" max="14">
+		<byte offset="176+2"/>
+	</parameter>
+	<parameter id="FXMOD16_parameter" min="0x00" max="0xFF">
+		<byte offset="176+3"/>
+	</parameter>
+	<parameter id="FXMOD16_adjust" min="-128" max="127">
+		<byte offset="176+4"/>
+	</parameter>
+	<parameter id="FXMOD16_source" min="0" max="132">
+		<byte offset="176+5"/>
+	</parameter>
+	<parameter id="FXMOD16_depth" min="-128" max="127">
+		<byte offset="176+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod17) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD17_segment_tag" min="0x69" max="0x69">
+		<byte offset="184+0"/>
+	</parameter>
+	<parameter id="FXMOD17_no" min="1" max="1">
+		<byte offset="184+1"/>
+	</parameter>
+	<parameter id="FXMOD17_bus" min="1" max="14">
+		<byte offset="184+2"/>
+	</parameter>
+	<parameter id="FXMOD17_parameter" min="0x00" max="0xFF">
+		<byte offset="184+3"/>
+	</parameter>
+	<parameter id="FXMOD17_adjust" min="-128" max="127">
+		<byte offset="184+4"/>
+	</parameter>
+	<parameter id="FXMOD17_source" min="0" max="132">
+		<byte offset="184+5"/>
+	</parameter>
+	<parameter id="FXMOD17_depth" min="-128" max="127">
+		<byte offset="184+6"/>
+	</parameter>	
+
+	<!-- FXPT (KDFX FXMod) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXMOD18_segment_tag" min="0x69" max="0x69">
+		<byte offset="192+0"/>
+	</parameter>
+	<parameter id="FXMOD18_no" min="1" max="1">
+		<byte offset="192+1"/>
+	</parameter>
+	<parameter id="FXMOD18_bus" min="1" max="14">
+		<byte offset="192+2"/>
+	</parameter>
+	<parameter id="FXMOD18_parameter" min="0x00" max="0xFF">
+		<byte offset="192+3"/>
+	</parameter>
+	<parameter id="FXMOD18_adjust" min="-128" max="127">
+		<byte offset="192+4"/>
+	</parameter>
+	<parameter id="FXMOD18_source" min="0" max="132">
+		<byte offset="192+5"/>
+	</parameter>
+	<parameter id="FXMOD18_depth" min="-128" max="127">
+		<byte offset="192+6"/>
+	</parameter>	
+	
+	<!-- FXASR1 (KDFX ASR1) segment = 8 bytes  (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXASR1_segment_tag" min="0x10" max="0x10">
+		<byte offset="200+0"/>
+	</parameter>
+	<parameter id="FXASR1_trig" min="0" max="132">
+		<byte offset="200+2"/>
+	</parameter>
+	<parameter id="FXASR1_mode" min="0" max="2">
+		<byte offset="200+3" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="FXASR1_delay" min="0" max="249">
+		<byte offset="200+4"/>
+	</parameter>
+	<parameter id="FXASR1_attack" min="0" max="249">
+		<byte offset="200+5"/>
+	</parameter>
+	<parameter id="FXASR1_release" min="0" max="249">
+		<byte offset="200+7"/>
+	</parameter>
+	
+	<!-- FXASR2 (KDFX ASR2) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXASR2_segment_tag" min="0x11" max="0x11">
+		<byte offset="208+0"/>
+	</parameter>
+	<parameter id="FXASR2_trig" min="0" max="132">
+		<byte offset="208+2"/>
+	</parameter>
+	<parameter id="FXASR2_mode" min="0" max="2">
+		<byte offset="208+3" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="FXASR2_delay" min="0" max="249">
+		<byte offset="208+4"/>
+	</parameter>
+	<parameter id="FXASR2_attack" min="0" max="249">
+		<byte offset="208+5"/>
+	</parameter>
+	<parameter id="FXASR2_release" min="0" max="249">
+		<byte offset="208+7"/>
+	</parameter>
+	
+	<!-- FXFUN1 (FDFX FUN1) segment = 4 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXFUN1_segment_tag" min="0x19" max="0x19">
+		<byte offset="216+0"/>
+	</parameter>
+	<parameter id="FXFUN1_function" min="0" max="69">
+		<byte offset="216+1"/>
+	</parameter>
+	<parameter id="FXFUN1_input_a" min="0" max="255">
+		<byte offset="216+2"/>
+	</parameter>
+	<parameter id="FXFUN1_input_b" min="0" max="255">
+		<byte offset="216+3"/>
+	</parameter>
+	
+	<!-- FXFUN2 (FDFX FUN2) segment = 4 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXFUN2_segment_tag" min="0x19" max="0x19">
+		<byte offset="220+0"/>
+	</parameter>
+	<parameter id="FXFUN2_function" min="0" max="69">
+		<byte offset="220+1"/>
+	</parameter>
+	<parameter id="FXFUN2_input_a" min="0" max="255">
+		<byte offset="220+2"/>
+	</parameter>
+	<parameter id="FXFUN2_input_b" min="0" max="255">
+		<byte offset="220+3"/>
+	</parameter>
+	
+	<!-- FXLFO1 (KDFX LFO1) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXLFO1_segment_tag" min="0x15" max="0x15">
+		<byte offset="224+0"/>
+	</parameter>
+	<parameter id="FXLFO1_rate_source" min="0" max="132">
+		<byte offset="224+2"/>
+	</parameter>
+	<parameter id="FXLFO1_min_rate" min="0" max="184">
+		<byte offset="224+3"/>
+	</parameter>
+	<parameter id="FXLFO1_max_rate" min="0" max="184">
+		<byte offset="224+4"/>
+	</parameter>
+	<parameter id="FXLFO1_phase" min="0" max="3">
+		<byte offset="224+5"/>
+	</parameter>
+	<parameter id="FXLFO1_shape" min="0" max="39">
+		<byte offset="224+6"/>
+	</parameter>
+	
+	<!-- FXLFO2 (KDFX LFO2) segment = 8 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXLFO2_segment_tag" min="0x15" max="0x15">
+		<byte offset="232+0"/>
+	</parameter>
+	<parameter id="FXLFO2_rate_source" min="0" max="132">
+		<byte offset="232+2"/>
+	</parameter>
+	<parameter id="FXLFO2_min_rate" min="0" max="184">
+		<byte offset="232+3"/>
+	</parameter>
+	<parameter id="FXLFO2_max_rate" min="0" max="184">
+		<byte offset="232+4"/>
+	</parameter>
+	<parameter id="FXLFO2_phase" min="0" max="3">
+		<byte offset="232+5"/>
+	</parameter>
+	<parameter id="FXLFO2_shape" min="0" max="39">
+		<byte offset="232+6"/>
+	</parameter>
+	
+	<!-- FXFUN3 (FDFX FUN3) segment = 4 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXFUN3_segment_tag" min="0x19" max="0x19">
+		<byte offset="240+0"/>
+	</parameter>
+	<parameter id="FXFUN3_function" min="0" max="69">
+		<byte offset="240+1"/>
+	</parameter>
+	<parameter id="FXFUN3_input_a" min="0" max="255">
+		<byte offset="240+2"/>
+	</parameter>
+	<parameter id="FXFUN3_input_b" min="0" max="255">
+		<byte offset="240+3"/>
+	</parameter>
+	
+	<!-- FXFUN4 (FDFX FUN4) segment = 4 bytes (K2500 w/KDFX and K2600 only) -->
+	<parameter id="FXFUN4_segment_tag" min="0x19" max="0x19">
+		<byte offset="244+0"/>
+	</parameter>
+	<parameter id="FXFUN4_function" min="0" max="69">
+		<byte offset="244+1"/>
+	</parameter>
+	<parameter id="FXFUN4_input_a" min="0" max="255">
+		<byte offset="244+2"/>
+	</parameter>
+	<parameter id="FXFUN4_input_b" min="0" max="255">
+		<byte offset="244+3"/>
+	</parameter>
+
+	<!-- Hammond1 segment = 32 bytes  (K2500 and K2600 only) -->
+	<parameter id="HMD1_segment_tag" min="0x78" max="0x78">
+		<byte offset="248+0"/>
+	</parameter>	
+	<parameter id="HMD1_version_no" min="0x01" max="0x01">
+		<byte offset="248+1"/>
+	</parameter>
+	<parameter id="TONEWL_lowest_pitch" min="12" max="96">
+		<byte offset="248+2"/>
+	</parameter>
+	<parameter id="TONEWL_num_tone_wheels" min="24" max="95">
+		<byte offset="248+3"/>
+	</parameter>
+	<parameter id="TONEWL_use_lowpass_filter" min="0x00" max="0x01">
+		<byte offset="248+4" bitstart="0" bitstop="0"/>
+	</parameter>
+	<parameter id="TONEWL_noise_wheel_multi_trigger" min="0x00" max="0x01" init="0x01">
+		<byte offset="248+4" bitstart="1" bitstop="1"/>
+	</parameter>
+	<parameter id="KEYCLK_keyclick" min="0x00" max="0x01">
+		<byte offset="248+4" bitstart="2" bitstop="2"/>
+	</parameter>
+	<parameter id="DRAWBR_steps" min="0x00" max="0x01">
+		<byte offset="248+4" bitstart="3" bitstop="3"/>
+	</parameter>
+	<parameter id="DRAWBR_mode" min="0x00" max="0x01">
+		<byte offset="248+4" bitstart="4" bitstop="4"/>
+	</parameter>
+	<parameter id="HMD1_percussion_retrigger" min="0x00" max="0x01">
+		<byte offset="248+4" bitstart="5" bitstop="5"/>
+	</parameter>
+	<parameter id="MISC_preamp_response_disable" min="0x00" max="0x01">
+		<byte offset="248+4" bitstart="6" bitstop="6"/>
+	</parameter>
+	<parameter id="TONEWL_upper_lower_swap" min="0x00" max="0x01">
+		<byte offset="248+4" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="MISC_leakage" min="0" max="192">
+		<byte offset="248+5"/>
+	</parameter>
+	<parameter id="TONEWL_organ_map" min="0" max="3">
+		<byte offset="248+6"/>
+	</parameter>
+	<parameter id="DRAWBR_1_tune" min="-128" max="127" init="-12">
+		<byte offset="248+7"/>
+	</parameter>
+	<parameter id="DRAWBR_2_tune" min="-128" max="127" init="7">
+		<byte offset="248+8"/>
+	</parameter>
+	<parameter id="DRAWBR_3_tune" min="-128" max="127" init="0">
+		<byte offset="248+9"/>
+	</parameter>
+	<parameter id="DRAWBR_4_tune" min="-128" max="127" init="12">
+		<byte offset="248+10"/>
+	</parameter>
+	<parameter id="DRAWBR_5_tune" min="-128" max="127" init="19">
+		<byte offset="248+11"/>
+	</parameter>
+	<parameter id="DRAWBR_6_tune" min="-128" max="127" init="24">
+		<byte offset="248+12"/>
+	</parameter>
+	<parameter id="DRAWBR_7_tune" min="-128" max="127" init="28">
+		<byte offset="248+13"/>
+	</parameter>
+	<parameter id="DRAWBR_8_tune" min="-128" max="127" init="31">
+		<byte offset="248+14"/>
+	</parameter>
+	<parameter id="DRAWBR_9_tune" min="-128" max="127" init="36">
+		<byte offset="248+15"/>
+	</parameter>
+	<parameter id="TONEWL_volume_map" min="0" max="3">
+		<byte offset="248+16"/>
+	</parameter>
+	<parameter id="MISC_volume_adjust" min="-96" max="96">
+		<byte offset="248+17"/>
+	</parameter>
+	<parameter id="TONEWL_upper_volume_adjust" min="-96" max="96">
+		<byte offset="248+18"/>
+	</parameter>
+	<parameter id="HMD1_preemphasis_gain" min="0" max="0">
+		<byte offset="248+19"/>
+	</parameter>
+	<parameter id="HMD1_preemphasis_frequency" min="0" max="0">
+		<byte offset="248+20"/>
+	</parameter>
+	<parameter id="EQ_loshelf_gain" min="-120" max="120">
+		<byte offset="248+21"/>
+	</parameter>
+	<parameter id="EQ_loshelf_frequency" min="0" max="127">
+		<byte offset="248+22"/>
+	</parameter>
+	<parameter id="EQ_para_mid1_gain" min="-120" max="120">
+		<byte offset="248+23"/>
+	</parameter>
+	<parameter id="EQ_para_mid1_frequency" min="0" max="127">
+		<byte offset="248+24"/>
+	</parameter>
+	<parameter id="EQ_para_mid1_width" min="-64" max="64">
+		<byte offset="248+25"/>
+	</parameter>
+	<parameter id="EQ_para_mid2_gain" min="-120" max="120">
+		<byte offset="248+26"/>
+	</parameter>
+	<parameter id="EQ_para_mid2_frequency" min="0" max="127">
+		<byte offset="248+27"/>
+	</parameter>
+	<parameter id="EQ_para_mid2_width" min="-64" max="64">
+		<byte offset="248+28"/>
+	</parameter>
+	<parameter id="EQ_hishelf_gain" min="-120" max="120">
+		<byte offset="248+29"/>
+	</parameter>
+	<parameter id="EQ_hishelf_frequency" min="0" max="127">
+		<byte offset="248+30"/>
+	</parameter>
+	<parameter id="HMD1_noise_volume_adjust" min="0" max="0">
+		<byte offset="248+31"/>
+	</parameter>
+	
+	<!-- Hammond2 segment = 32 bytes  (K2500 and K2600 only) -->
+	<parameter id="HMD2_segment_tag" min="0x79" max="0x79">
+		<byte offset="280+0"/>
+	</parameter>	
+	<parameter id="KEYCLK_pitch" min="-128" max="127">
+		<byte offset="280+1"/>
+	</parameter>	
+	<parameter id="KEYCLK_volume" min="0" max="192">
+		<byte offset="280+2"/>
+	</parameter>	
+	<parameter id="KEYCLK_decay" min="0" max="255">
+		<byte offset="280+3"/>
+	</parameter>
+	<parameter id="PERC_percussion" min="0" max="1">
+		<byte offset="280+4" bitstart="0" bitstop="0"/>
+	</parameter>
+	<parameter id="PERC_harmonic" min="0" max="1">
+		<byte offset="280+4" bitstart="1" bitstop="1"/>
+	</parameter>
+	<parameter id="PERC_decay" min="0" max="1">
+		<byte offset="280+4" bitstart="3" bitstop="3"/>
+	</parameter>
+	<parameter id="PERC_volume" min="0" max="1">
+		<byte offset="280+4" bitstart="4" bitstop="4"/>
+	</parameter>
+	<parameter id="PERC_steal_bar" min="1" max="9">
+		<byte offset="280+4" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="PERC_high_harmonic_drawbar" min="1" max="9">
+		<byte offset="280+5" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter id="PERC_low_harmonic_drawbar" min="1" max="9">
+		<byte offset="280+5" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="KEYCLK_velocity_track" min="0" max="100">
+		<byte offset="280+6"/>
+	</parameter>
+	<parameter id="PERC_velocity_track" min="0" max="100">
+		<byte offset="280+7"/>
+	</parameter>
+	<parameter id="PERC2_loud_fast_perc_level" min="0" max="240">
+		<byte offset="280+8"/>
+	</parameter>
+	<parameter id="PERC2_loud_slow_perc_level" min="0" max="240">
+		<byte offset="280+9"/>
+	</parameter>
+	<parameter id="PERC2_soft_fast_perc_level" min="0" max="240">
+		<byte offset="280+10"/>
+	</parameter>
+	<parameter id="PERC2_soft_slow_perc_level" min="0" max="240">
+		<byte offset="280+11"/>
+	</parameter>
+	<parameter id="PERC2_loud_fast_decay_time" min="0" max="255">
+		<byte offset="280+12"/>
+	</parameter>
+	<parameter id="PERC2_loud_slow_decay_time" min="0" max="255">
+		<byte offset="280+13"/>
+	</parameter>
+	<parameter id="PERC2_soft_fast_decay_time" min="0" max="255">
+		<byte offset="280+14"/>
+	</parameter>
+	<parameter id="PERC2_soft_slow_decay_time" min="0" max="255">
+		<byte offset="280+15"/>
+	</parameter>
+	<parameter id="PERC2_loud_fast_org_level" min="-120" max="120">
+		<byte offset="280+16"/>
+	</parameter>
+	<parameter id="PERC2_loud_slow_org_level" min="-120" max="120">
+		<byte offset="280+17"/>
+	</parameter>
+	<parameter id="PERC2_soft_fast_org_level" min="-120" max="120">
+		<byte offset="280+18"/>
+	</parameter>
+	<parameter id="PERC2_soft_slow_org_level" min="-120" max="120">
+		<byte offset="280+19"/>
+	</parameter>
+	<parameter id="EQ_loshelf_width" min="-64" max="64">
+		<byte offset="280+24"/>
+	</parameter>
+	<parameter id="EQ_hishelf_width" min="-64" max="64">
+		<byte offset="280+25"/>
+	</parameter>
+	<parameter id="KEYCLK_retrigger_threshold" min="0" max="192">
+		<byte offset="280+26"/>
+	</parameter>
+	<parameter id="MISC_leak_mode" min="0" max="4">
+		<byte offset="280+27"/>
+	</parameter>
+	<parameter id="MISC_speed_control" min="0" max="1">
+		<byte offset="280+28"/>
+	</parameter>
+	<parameter id="MISC_vibrato_chorus_control" min="0" max="1">
+		<byte offset="280+29"/>
+	</parameter>
+	<parameter id="MISC_vibrato_chorus_select" min="0" max="5">
+		<byte offset="280+30"/>
+	</parameter>
+		
+	<!-- Hammond3 segment = 32 bytes  (K2500 and K2600 only) -->
+	<parameter id="HMD3_segment_tag" min="0x80" max="0x80">
+		<byte offset="312+0"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar1_volume" min="0" max="127">
+		<byte offset="312+1"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar2_volume" min="0" max="127">
+		<byte offset="312+2"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar3_volume" min="0" max="127">
+		<byte offset="312+3"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar4_volume" min="0" max="127">
+		<byte offset="312+4"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar5_volume" min="0" max="127">
+		<byte offset="312+5"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar6_volume" min="0" max="127">
+		<byte offset="312+6"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar7_volume" min="0" max="127">
+		<byte offset="312+7"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar8_volume" min="0" max="127">
+		<byte offset="312+8"/>
+	</parameter>	
+	<parameter id="DRAWBR_drawbar9_volume" min="0" max="127">
+		<byte offset="312+9"/>
+	</parameter>	
+	<parameter id="KEYCLK_note_attack" min="0" max="2">
+		<byte offset="312+12"/>
+	</parameter>	
+	<parameter id="KEYCLK_note_release" min="0" max="1">
+		<byte offset="312+13"/>
+	</parameter>	
+	<parameter id="KEYCLK_random" min="0" max="100">
+		<byte offset="312+14"/>
+	</parameter>	
+	<parameter id="TONEWL_lower_xpose" min="-120" max="127">
+		<byte offset="312+16"/>
+	</parameter>
+	
+	<!-- Starting offset of layer data -->
+	<parameter id="LAYER_data_offset" min="328" max="328"/>
+	
+</patch>
+
+<patch id="LAYER">
+
+	<!-- LAYER segment = 16 bytes -->
+	<parameter id="LAYER_segment_tag" min="0x09" max="0x09">
+		<byte offset="0"/>
+	</parameter>	
+	<parameter id="LAYER_enable_min" min="0" max="255">
+		<byte offset="1"/>
+	</parameter>	
+	<parameter id="LAYER_lo_key" min="0" max="127">
+		<byte offset="4"/>
+	</parameter>	
+	<parameter id="LAYER_hi_key" min="0" max="127">
+		<byte offset="5"/>
+	</parameter>	
+	<parameter id="LAYER_hi_velocity" min="0" max="7">
+		<byte offset="6" bitstart="0" bitstop="2"/>
+	</parameter>	
+	<parameter id="LAYER_lo_velocity" min="0" max="7">
+		<byte offset="6" bitstart="3" bitstop="5"/>
+	</parameter>	
+	<parameter id="LAYER_enable" min="0" max="127">
+		<byte offset="7"/>
+	</parameter>	
+	<parameter id="LAYER_ignore_release" min="0" max="1">
+		<byte offset="8" bitstart="0" bitstop="0"/>
+	</parameter>	
+	<parameter id="LAYER_sustain_pedal" min="0" max="2">
+		<byte offset="8" bitstart="1" bitstop="1"/>
+		<!-- Next bit is not used by K2000 -->
+		<byte offset="8" bitstart="6" bitstop="6"/>
+	</parameter>	
+	<parameter id="KB3_MISC_sustain" min="0" max="1">
+		<byte offset="8" bitstart="1" bitstop="1"/>
+	</parameter>	
+	<parameter id="LAYER_sostenuto_pedal" min="0" max="1">
+		<byte offset="8" bitstart="2" bitstop="2"/>
+	</parameter>	
+	<parameter id="KB3_MISC_sostenuto_pedal" min="0" max="1">
+		<byte offset="8" bitstart="2" bitstop="2"/>
+	</parameter>	
+	<parameter id="LAYER_freeze_pedal" min="0" max="1">
+		<byte offset="8" bitstart="3" bitstop="3"/>
+	</parameter>	
+	<parameter id="LAYER_thr_att" min="0" max="1">
+		<byte offset="8" bitstart="4" bitstop="4"/>
+	</parameter>	
+	<parameter id="LAYER_til_dec" min="0" max="1">
+		<byte offset="8" bitstart="5" bitstop="5"/>
+	</parameter>	
+	<parameter id="LAYER_pb_mode" min="0" max="2">
+		<byte offset="9" bitstart="0" bitstop="1"/>
+	</parameter>	
+	<parameter id="LAYER_enable_sense" min="0" max="1">
+		<byte offset="9" bitstart="2" bitstop="2"/>
+	</parameter>	
+	<parameter id="LAYER_opaque" min="0" max="1">
+		<byte offset="9" bitstart="3" bitstop="3"/>
+	</parameter>
+	<parameter id="OUTPUT_xfade_sense" min="0" max="1">
+		<byte offset="9" bitstart="4" bitstop="4"/>
+	</parameter>
+	<parameter id="KEYMAP_stereo" min="0" max="1">
+		<byte offset="9" bitstart="5" bitstop="5"/>
+	</parameter>	
+	<parameter id="LAYER_trigger" min="0" max="1">
+		<byte offset="9" bitstart="7" bitstop="7"/>
+	</parameter>	
+	<parameter id="VTRIG_vtrig1_level" min="0" max="7">
+		<byte offset="10" bitstart="0" bitstop="2"/>
+	</parameter>	
+	<parameter id="VTRIG_vtrig1_sense" min="0" max="1">
+		<byte offset="10" bitstart="3" bitstop="3"/>
+	</parameter>	
+	<parameter id="VTRIG_vtrig2_level" min="0" max="7">
+		<byte offset="10" bitstart="4" bitstop="6"/>
+	</parameter>	
+	<parameter id="VTRIG_vtrig2_sense" min="0" max="1">
+		<byte offset="10" bitstart="7" bitstop="7"/>
+	</parameter>
+	<parameter id="LAYER_enable_max" min="0" max="255">
+		<byte offset="11"/>
+	</parameter>
+	<parameter id="LAYER_delay_control_source" min="0" max="127">
+		<byte offset="12"/>
+	</parameter>
+	<parameter id="LAYER_min_delay" min="0" max="255">
+		<byte offset="13"/>
+	</parameter>
+	<parameter id="LAYER_max_delay" min="0" max="255">
+		<byte offset="14"/>
+	</parameter>
+	<parameter id="OUTPUT_xfade" min="0" max="127">
+		<byte offset="15"/>
+	</parameter>
+
+	<!-- ASR1 segment = 8 bytes -->
+	<parameter id="ASR1_segment_tag" min="0x10" max="0x10">
+		<byte offset="16+0"/>
+	</parameter>
+	<parameter id="ASR1_trig" min="0" max="132">
+		<byte offset="16+2"/>
+	</parameter>
+	<parameter id="ASR1_mode" min="0" max="2">
+		<byte offset="16+3" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="ASR1_delay" min="0" max="249">
+		<byte offset="16+4"/>
+	</parameter>
+	<parameter id="ASR1_attack" min="0" max="249">
+		<byte offset="16+5"/>
+	</parameter>
+	<parameter id="ASR1_release" min="0" max="249">
+		<byte offset="16+7"/>
+	</parameter>
+	
+	<!-- ASR2 segment = 8 bytes -->
+	<parameter id="ASR2_segment_tag" min="0x10" max="0x10">
+		<byte offset="24+0"/>
+	</parameter>
+	<parameter id="ASR2_trig" min="0" max="132">
+		<byte offset="24+2"/>
+	</parameter>
+	<parameter id="ASR2_mode" min="0" max="2">
+		<byte offset="24+3" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="ASR2_delay" min="0" max="249">
+		<byte offset="24+4"/>
+	</parameter>
+	<parameter id="ASR2_attack" min="0" max="249">
+		<byte offset="24+5"/>
+	</parameter>
+	<parameter id="ASR2_release" min="0" max="249">
+		<byte offset="24+7"/>
+	</parameter>
+	
+	<!-- FUN1 segment = 4 bytes -->
+	<parameter id="FUN1_segment_tag" min="0x19" max="0x19">
+		<byte offset="32+0"/>
+	</parameter>
+	<parameter id="FUN1_function" min="0" max="69">
+		<byte offset="32+1"/>
+	</parameter>
+	<parameter id="FUN1_input_a" min="0" max="255">
+		<byte offset="32+2"/>
+	</parameter>
+	<parameter id="FUN1_input_b" min="0" max="255">
+		<byte offset="32+3"/>
+	</parameter>
+	
+	<!-- FUN2 segment = 4 bytes -->
+	<parameter id="FUN2_segment_tag" min="0x19" max="0x19">
+		<byte offset="36+0"/>
+	</parameter>
+	<parameter id="FUN2_function" min="0" max="69">
+		<byte offset="36+1"/>
+	</parameter>
+	<parameter id="FUN2_input_a" min="0" max="255">
+		<byte offset="36+2"/>
+	</parameter>
+	<parameter id="FUN2_input_b" min="0" max="255">
+		<byte offset="36+3"/>
+	</parameter>
+	
+	<!-- LFO1 segment = 8 bytes -->
+	<parameter id="LFO1_segment_tag" min="0x15" max="0x15">
+		<byte offset="40+0"/>
+	</parameter>
+	<parameter id="LFO1_rate_source" min="0" max="132">
+		<byte offset="40+2"/>
+	</parameter>
+	<parameter id="LFO1_min_rate" min="0" max="184">
+		<byte offset="40+3"/>
+	</parameter>
+	<parameter id="LFO1_max_rate" min="0" max="184">
+		<byte offset="40+4"/>
+	</parameter>
+	<parameter id="LFO1_phase" min="0" max="3">
+		<byte offset="40+5"/>
+	</parameter>
+	<parameter id="LFO1_shape" min="0" max="39">
+		<byte offset="40+6"/>
+	</parameter>
+	
+	<!-- LFO2 segment = 8 bytes -->
+	<parameter id="LFO2_segment_tag" min="0x15" max="0x15">
+		<byte offset="48+0"/>
+	</parameter>
+	<parameter id="LFO2_rate_source" min="0" max="132">
+		<byte offset="48+2"/>
+	</parameter>
+	<parameter id="LFO2_min_rate" min="0" max="184">
+		<byte offset="48+3"/>
+	</parameter>
+	<parameter id="LFO2_max_rate" min="0" max="184">
+		<byte offset="48+4"/>
+	</parameter>
+	<parameter id="LFO2_phase" min="0" max="3">
+		<byte offset="48+5"/>
+	</parameter>
+	<parameter id="LFO2_shape" min="0" max="39">
+		<byte offset="48+6"/>
+	</parameter>
+	
+	<!-- FUN3 segment = 4 bytes -->
+	<parameter id="FUN3_segment_tag" min="0x19" max="0x19">
+		<byte offset="56+0"/>
+	</parameter>
+	<parameter id="FUN3_function" min="0" max="69">
+		<byte offset="56+1"/>
+	</parameter>
+	<parameter id="FUN3_input_a" min="0" max="255">
+		<byte offset="56+2"/>
+	</parameter>
+	<parameter id="FUN3_input_b" min="0" max="255">
+		<byte offset="56+3"/>
+	</parameter>
+	
+	<!-- FUN4 segment = 4 bytes -->
+	<parameter id="FUN4_segment_tag" min="0x19" max="0x19">
+		<byte offset="60+0"/>
+	</parameter>
+	<parameter id="FUN4_function" min="0" max="69">
+		<byte offset="60+1"/>
+	</parameter>
+	<parameter id="FUN4_input_a" min="0" max="255">
+		<byte offset="60+2"/>
+	</parameter>
+	<parameter id="FUN4_input_b" min="0" max="255">
+		<byte offset="60+3"/>
+	</parameter>
+	
+	<!-- ENVCTL (Envelope Control) segment = 16 bytes -->
+	<parameter id="ENVCTL_segment_tag" min="0x20" max="0x20">
+		<byte offset="64+0"/>
+	</parameter>
+	<parameter id="AMPENV_mode" min="0" max="1">
+		<byte offset="64+2" bitstart="0" bitstop="1"/>
+	</parameter>
+	<parameter id="ENVCTL_attack_adjust" min="-43" max="43">
+		<byte offset="64+3"/>
+	</parameter>
+	<parameter id="ENVCTL_attack_key_track" min="-43" max="43">
+		<byte offset="64+4"/>
+	</parameter>
+	<parameter id="ENVCTL_attack_velocity_track" min="-43" max="43">
+		<byte offset="64+5"/>
+	</parameter>
+	<parameter id="ENVCTL_attack_source" min="0" max="127">
+		<byte offset="64+6"/>
+	</parameter>
+	<parameter id="ENVCTL_attack_depth" min="-43" max="43">
+		<byte offset="64+7"/>
+	</parameter>
+	<parameter id="ENVCTL_decay_adjust" min="-43" max="43">
+		<byte offset="64+8"/>
+	</parameter>
+	<parameter id="ENVCTL_decay_key_track" min="-43" max="43">
+		<byte offset="64+9"/>
+	</parameter>
+	<parameter id="ENVCTL_decay_source" min="0" max="127">
+		<byte offset="64+10"/>
+	</parameter>
+	<parameter id="ENVCTL_decay_depth" min="-43" max="43">
+		<byte offset="64+11"/>
+	</parameter>
+	<parameter id="ENVCTL_release_adjust" min="-43" max="43">
+		<byte offset="64+12"/>
+	</parameter>
+	<parameter id="ENVCTL_release_key_track" min="-43" max="43">
+		<byte offset="64+13"/>
+	</parameter>
+	<parameter id="ENVCTL_release_source" min="0" max="127">
+		<byte offset="64+14"/>
+	</parameter>
+	<parameter id="ENVCTL_release_depth" min="-43" max="43">
+		<byte offset="64+15"/>
+	</parameter>
+	
+	<!-- IMPACT (Impact Envelope) segment = 16 bytes (K2500 and K2600 only) -->
+	<parameter id="IMPACT_segment_tag" min="0x27" max="0x27">
+		<byte offset="80+0"/>
+	</parameter>
+	<parameter id="ENVCTL_impact_adjust" min="-120" max="120">
+		<byte offset="80+3"/>
+	</parameter>
+	<parameter id="ENVCTL_impact_key_track" min="-100" max="100">
+		<byte offset="80+4"/>
+	</parameter>
+	<parameter id="ENVCTL_impact_velocity_track" min="-120" max="120">
+		<byte offset="80+5"/>
+	</parameter>
+	<parameter id="ENVCTL_source" min="0" max="127">
+		<byte offset="80+6"/>
+	</parameter>
+	<parameter id="ENVCTL_impact_depth" min="-120" max="120">
+		<byte offset="80+7"/>
+	</parameter>
+	
+	<!-- AMPENV segment = 16 bytes -->
+	<parameter id="AMPENV_segment_tag" min="0x21" max="0x21">
+		<byte offset="96+0"/>
+	</parameter>
+	<parameter id="AMPENV_loop_type" min="0" max="7">
+		<byte offset="96+1" bitstart="0" bitstop="2"/>
+	</parameter>
+	<parameter id="AMPENV_number_of_loops" min="0" max="31">
+		<byte offset="96+1" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="AMPENV_attack1_level" min="0" max="100">
+		<byte offset="96+2"/>
+	</parameter>
+	<parameter id="AMPENV_attack1_time" min="0" max="255">
+		<byte offset="96+3"/>
+	</parameter>
+	<parameter id="AMPENV_attack2_level" min="0" max="100">
+		<byte offset="96+4"/>
+	</parameter>
+	<parameter id="AMPENV_attack2_time" min="0" max="255">
+		<byte offset="96+5"/>
+	</parameter>
+	<parameter id="AMPENV_attack3_level" min="0" max="100">
+		<byte offset="96+6"/>
+	</parameter>
+	<parameter id="AMPENV_attack3_time" min="0" max="255">
+		<byte offset="96+7"/>
+	</parameter>
+	<parameter id="AMPENV_decay1_level" min="0" max="100">
+		<byte offset="96+8"/>
+	</parameter>
+	<parameter id="AMPENV_decay1_time" min="0" max="255">
+		<byte offset="96+9"/>
+	</parameter>
+	<parameter id="AMPENV_release1_level" min="0" max="100">
+		<byte offset="96+10"/>
+	</parameter>
+	<parameter id="AMPENV_release1_time" min="0" max="255">
+		<byte offset="96+11"/>
+	</parameter>
+	<parameter id="AMPENV_release2_level" min="0" max="100">
+		<byte offset="96+12"/>
+	</parameter>
+	<parameter id="AMPENV_release2_time" min="0" max="255">
+		<byte offset="96+13"/>
+	</parameter>
+	<parameter id="AMPENV_release3_time" min="0" max="255">
+		<byte offset="96+15"/>
+	</parameter>
+	
+	<!-- ENV2 segment = 16 bytes -->
+	<parameter id="ENV2_segment_tag" min="0x22" max="0x22">
+		<byte offset="112+0"/>
+	</parameter>
+	<parameter id="ENV2_loop_type" min="0" max="7">
+		<byte offset="112+1" bitstart="0" bitstop="2"/>
+	</parameter>
+	<parameter id="ENV2_number_of_loops" min="0" max="31">
+		<byte offset="112+1" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="ENV2_attack1_level" min="-100" max="100">
+		<byte offset="112+2"/>
+	</parameter>
+	<parameter id="ENV2_attack1_time" min="0" max="255">
+		<byte offset="112+3"/>
+	</parameter>
+	<parameter id="ENV2_attack2_level" min="-100" max="100">
+		<byte offset="112+4"/>
+	</parameter>
+	<parameter id="ENV2_attack2_time" min="0" max="255">
+		<byte offset="112+5"/>
+	</parameter>
+	<parameter id="ENV2_attack3_level" min="-100" max="100">
+		<byte offset="112+6"/>
+	</parameter>
+	<parameter id="ENV2_attack3_time" min="0" max="255">
+		<byte offset="112+7"/>
+	</parameter>
+	<parameter id="ENV2_decay1_level" min="-100" max="100">
+		<byte offset="112+8"/>
+	</parameter>
+	<parameter id="ENV2_decay1_time" min="0" max="255">
+		<byte offset="112+9"/>
+	</parameter>
+	<parameter id="ENV2_release1_level" min="-100" max="100">
+		<byte offset="112+10"/>
+	</parameter>
+	<parameter id="ENV2_release1_time" min="0" max="255">
+		<byte offset="112+11"/>
+	</parameter>
+	<parameter id="ENV2_release2_level" min="-100" max="100">
+		<byte offset="112+12"/>
+	</parameter>
+	<parameter id="ENV2_release2_time" min="0" max="255">
+		<byte offset="112+13"/>
+	</parameter>
+	<parameter id="ENV2_release3_level" min="-100" max="255">
+		<byte offset="112+14"/>
+	</parameter>
+	<parameter id="ENV2_release3_time" min="0" max="255">
+		<byte offset="112+15"/>
+	</parameter>
+
+	<!-- ENV3 segment = 16 bytes -->
+	<parameter id="ENV3_segment_tag" min="0x23" max="0x23">
+		<byte offset="128+0"/>
+	</parameter>
+	<parameter id="ENV3_loop_type" min="0" max="7">
+		<byte offset="128+1" bitstart="0" bitstop="2"/>
+	</parameter>
+	<parameter id="ENV3_number_of_loops" min="0" max="31">
+		<byte offset="128+1" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="ENV3_attack1_level" min="-100" max="100">
+		<byte offset="128+2"/>
+	</parameter>
+	<parameter id="ENV3_attack1_time" min="0" max="255">
+		<byte offset="128+3"/>
+	</parameter>
+	<parameter id="ENV3_attack2_level" min="-100" max="100">
+		<byte offset="128+4"/>
+	</parameter>
+	<parameter id="ENV3_attack2_time" min="0" max="255">
+		<byte offset="128+5"/>
+	</parameter>
+	<parameter id="ENV3_attack3_level" min="-100" max="100">
+		<byte offset="128+6"/>
+	</parameter>
+	<parameter id="ENV3_attack3_time" min="0" max="255">
+		<byte offset="128+7"/>
+	</parameter>
+	<parameter id="ENV3_decay1_level" min="-100" max="100">
+		<byte offset="128+8"/>
+	</parameter>
+	<parameter id="ENV3_decay1_time" min="0" max="255">
+		<byte offset="128+9"/>
+	</parameter>
+	<parameter id="ENV3_release1_level" min="-100" max="100">
+		<byte offset="128+10"/>
+	</parameter>
+	<parameter id="ENV3_release1_time" min="0" max="255">
+		<byte offset="128+11"/>
+	</parameter>
+	<parameter id="ENV3_release2_level" min="-100" max="100">
+		<byte offset="128+12"/>
+	</parameter>
+	<parameter id="ENV3_release2_time" min="0" max="255">
+		<byte offset="128+13"/>
+	</parameter>
+	<parameter id="ENV3_release3_level" min="-100" max="255">
+		<byte offset="128+14"/>
+	</parameter>
+	<parameter id="ENV3_release3_time" min="0" max="255">
+		<byte offset="128+15"/>
+	</parameter>
+
+
+	<!-- CALVIN segment = 32 bytes -->
+	<parameter id="CALVIN_segment_tag" min="0x40" max="0x40">
+		<byte offset="144+0"/>
+	</parameter>
+	<parameter id="CALVIN_sub_tag" min="127" max="127">
+		<byte offset="144+1"/>
+	</parameter>
+	<parameter id="KEYMAP_transpose_timbreshift" min="-128" max="127">
+		<byte offset="144+2"/>
+	</parameter>
+	<!-- Same offset as above -->
+	<parameter id="KB3_TONEWL_upper_xpose" min="-168" max="127">
+		<byte offset="144+2"/>
+	</parameter>
+	<parameter id="KEYMAP_key_track" min="-120" max="120">
+		<byte offset="144+4"/>
+	</parameter>
+	<parameter id="KEYMAP_velocity_track" min="-123" max="123">
+		<byte offset="144+5"/>
+	</parameter>
+	<parameter id="KEYMAP_keymap2" min="0" max="999">
+		<byte offset="144+8"/>
+		<byte offset="144+9"/>
+	</parameter>
+	<!-- Todo: figure out KB3 Lower Tonewheels -->
+	<parameter id="KB3_TONEWL_lower_tone_wheels" min="0" max="1">
+		<byte offset="144+11" bitstart="4" bitstop="4"/>
+	</parameter>
+	<parameter id="KEYMAP_alt_method" min="0" max="1">
+		<byte offset="144+11" bitstart="5" bitstop="5"/>
+	</parameter>
+	<parameter id="KEYMAP_sample_skip" min="0" max="2">
+		<byte offset="144+11" bitstart="6" bitstop="7"/>
+	</parameter>
+	<parameter id="KEYMAP_keymap1" min="0" max="999">
+		<byte offset="144+12"/>
+		<byte offset="144+13"/>
+	</parameter>
+	<parameter id="KEYMAP_alt_control" min="0" max="127">
+		<byte offset="144+15"/>
+	</parameter>
+	<parameter id="KEYMAP_timbre_shift" min="-60" max="60">
+		<byte offset="144+16"/>
+	</parameter>
+	<parameter id="PITCH_coarse" min="-128" max="127">
+		<byte offset="144+18"/>
+	</parameter>
+	<parameter id="PITCH_fine" min="-100" max="100">
+		<byte offset="144+19"/>
+	</parameter>
+	<parameter id="PITCH_key_track" min="-120" max="120">
+		<byte offset="144+20"/>
+	</parameter>
+	<parameter id="PITCH_velocity_track" min="-123" max="123">
+		<byte offset="144+21"/>
+	</parameter>
+	<parameter id="PITCH_source1" min="0" max="127">
+		<byte offset="144+22"/>
+	</parameter>
+	<parameter id="PITCH_depth" min="-123" max="123">
+		<byte offset="144+23"/>
+	</parameter>
+	<parameter id="PITCH_depth_control" min="0" max="127">
+		<byte offset="144+24"/>
+	</parameter>
+	<parameter id="PITCH_min_depth" min="-123" max="123">
+		<byte offset="144+25"/>
+	</parameter>
+	<parameter id="PITCH_max_depth" min="-123" max="123">
+		<byte offset="144+26"/>
+	</parameter>
+	<parameter id="PITCH_source2" min="0" max="127">
+		<byte offset="144+27"/>
+	</parameter>
+	<parameter id="KEYMAP_playback_mode" min="0" max="3">
+		<byte offset="144+29" bitstart="1" bitstop="2"/>
+	</parameter>
+	<parameter id="PITCH_algorithm" min="1" max="99">
+		<byte offset="144+30"/>
+	</parameter>
+	<parameter id="PITCH_fine_hz" min="-60" max="60">
+		<byte offset="144+31"/>
+	</parameter>
+	
+	
+</patch>
+
+</data>

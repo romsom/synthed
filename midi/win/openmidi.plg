@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: openmidi - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\JOHNBA~1\LOCALS~1\Temp\RSP56.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /I "C:\Python22\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "OPENMIDI_EXPORTS" /Fp"Release/openmidi.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"W:\openmidi\openmidi.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\JOHNBA~1\LOCALS~1\Temp\RSP56.tmp" 
+Creating temporary file "C:\DOCUME~1\JOHNBA~1\LOCALS~1\Temp\RSP57.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib python22.lib winmm.lib /nologo /dll /incremental:no /pdb:"Release/midi.pdb" /machine:I386 /out:"Release/midi.pyd" /implib:"Release/midi.lib" /libpath:"C:\Python22\libs" 
+.\Release\MidiException.obj
+.\Release\MidiInWin.obj
+.\Release\MidiOutWin.obj
+.\Release\openmidi.obj
+.\Release\StdAfx.obj
+.\Release\SysexMessage.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\JOHNBA~1\LOCALS~1\Temp\RSP57.tmp"
+<h3>Output Window</h3>
+Compiling...
+openmidi.cpp
+Linking...
+   Creating library Release/midi.lib and object Release/midi.exp
+
+
+
+<h3>Results</h3>
+midi.pyd - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

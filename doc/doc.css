@@ -1,0 +1,52 @@
+
+$DOCUMENT {
+  font-family: sans-serif;
+}
+
+CODE {
+  color: green;
+  font-family: Courier;
+  font-size: medium;
+}
+
+H1 {
+  color: navy;
+  text-align: center;
+}
+
+H2 {
+  color: navy;
+  text-align: center;
+}
+
+H3 {
+  color: navy;
+}
+
+H4 {
+  color: navy;
+}
+
+H5 {
+  color: navy;
+}
+
+H6 {
+  color: navy;
+}
+
+HEAD {
+  font-family: sans-serif;
+  background-color: #CDFEDD;
+}
+
+BODY {
+  font-family: sans-serif;
+  background-color: #CDFEDD;
+  color: #003300;
+}
+
+PRE {
+  font-family: Courier;
+  color: green;
+}

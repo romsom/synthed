@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Oscillator 1</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Waveform</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Mode:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="scale_osc3_waves"> 
+			  <PARAMETER ID="osc3_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Volume:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" ENABLE="osc3_mode.getData() &gt; 1"> 
+			  <PARAMETER ID="osc3_mode" INDEXER="false"/></PARAMETER>
+			  <PARAMETER ID="osc3_volume"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+        <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Pitch</b></font>
+           </th> 
+        </tr> 
+		<tr>
+		  <TD WIDTH="75"><FONT FACE="Arial">Semitone:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" DECODER="scale_centered" ENABLE="osc3_mode.getData() &gt; 1"> 
+			  <PARAMETER ID="osc3_mode" INDEXER="false"/></PARAMETER>
+			  <PARAMETER ID="osc3_semitone"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Detune:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" DECODER="scale_centered" ENABLE="osc3_mode.getData() &gt; 1"> 
+			  <PARAMETER ID="osc3_mode" INDEXER="false"/></PARAMETER>
+			  <PARAMETER ID="osc3_detune"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</tr>
+	 </TABLE> 
+  </BODY>
+</HTML>

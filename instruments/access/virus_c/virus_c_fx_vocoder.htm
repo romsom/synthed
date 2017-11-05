@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Vocoder</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Vocoder</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="100"><font face="Arial">Mode:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_vocoder_modes"> 
+			  <PARAMETER ID="vocoder_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><font face="Arial">Osc Vol:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="scale_centered" 
+			  ENABLE="vocoder_mode.getData() &gt; 0"> 
+			  <PARAMETER ID="vocoder_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="distortion_intensity"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+ 		<WIDGET CLASS="GroupWidget" ENABLE="vocoder_mode.getData() &gt; 0">
+ 		<PARAMETER ID="vocoder_mode" INDEXER="false"></PARAMETER>
+		<TR> 
+		  <TD WIDTH="100"><font face="Arial">In Select:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_input_selects"> 
+			  <PARAMETER ID="input_select"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Band Qty:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_vocoder_bands"> 
+			  <PARAMETER ID="vocoder_band_qty"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="100"><font face="Arial">Center Freq:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="vocoder_center_frequency"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Delay:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_delay"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Feedback:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0" DECODER="scale_centered"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_feedback"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Shape:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  ENABLE="chorus_mix.getData() &gt; 0" DECODER="scale_lfo_shapes"> 
+			  <PARAMETER ID="chorus_mix" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="chorus_lfo_shape"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+        </WIDGET>
+	 </TABLE> 
+  </BODY>
+</HTML>

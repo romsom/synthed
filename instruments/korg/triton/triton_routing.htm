@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Routing</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table cellspacing="1"> 
+         <tr>
+            <th width="10%"></th>
+            <th width="15%"><font color="#006666" face="Arial">On/Off</font></th>
+            <th><font color="#006666" face="Arial">Effect</font></th>
+            <th width="10%"><font color="#006666" face="Arial">Chain</font></th> 
+            <th></th>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">IFX1</font></td> 
+            <td><widget class="TextWidget" decoder="list_off_on">
+               <parameter id="IFX1_off_on"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_effects_single" 
+               enable="IFX1_off_on.getData() == 1">
+               <parameter id="IFX1_off_on" indexer="false"></parameter>
+               <parameter id="IFX1_effect_no"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_chain" 
+               enable="IFX1_off_on.getData() == 1">
+               <parameter id="IFX1_off_on" indexer="false"></parameter>
+               <parameter id="IFX1_chain"></parameter>
+            </widget>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">IFX2</font></td> 
+            <td><widget class="TextWidget" decoder="list_off_on">
+               <parameter id="IFX2_off_on"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_effects_all" 
+               enable="IFX2_off_on.getData() == 1">
+               <parameter id="IFX2_off_on" indexer="false"></parameter>
+               <parameter id="IFX2_effect_no"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_chain" 
+               enable="IFX2_off_on.getData() == 1">
+               <parameter id="IFX2_off_on" indexer="false"></parameter>
+               <parameter id="IFX2_chain"></parameter>
+            </widget>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">IFX3</font></td> 
+            <td><widget class="TextWidget" decoder="list_off_on">
+               <parameter id="IFX3_off_on"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_effects_all" 
+               enable="IFX3_off_on.getData() == 1">
+               <parameter id="IFX3_off_on" indexer="false"></parameter>
+               <parameter id="IFX3_effect_no"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_chain" 
+               enable="IFX3_off_on.getData() == 1">
+               <parameter id="IFX3_off_on" indexer="false"></parameter>
+               <parameter id="IFX3_chain"></parameter>
+            </widget>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">IFX4</font></td> 
+            <td><widget class="TextWidget" decoder="list_off_on">
+               <parameter id="IFX4_off_on"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_effects_all" 
+               enable="IFX4_off_on.getData() == 1">
+               <parameter id="IFX4_off_on" indexer="false"></parameter>
+               <parameter id="IFX4_effect_no"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_chain" 
+               enable="IFX4_off_on.getData() == 1">
+               <parameter id="IFX4_off_on" indexer="false"></parameter>
+               <parameter id="IFX4_chain"></parameter>
+            </widget>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">IFX5</font></td> 
+            <td><widget class="TextWidget" decoder="list_off_on">
+               <parameter id="IFX5_off_on"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_effects_single" 
+               enable="IFX5_off_on.getData() == 1">
+               <parameter id="IFX5_off_on" indexer="false"></parameter>
+               <parameter id="IFX5_effect_no"></parameter>
+            </widget></td>
+            <td><widget class="TextWidget" decoder="list_chain" 
+               enable="IFX5_off_on.getData() == 1">
+               <parameter id="IFX5_off_on" indexer="false"></parameter>
+               <parameter id="IFX5_chain"></parameter>
+            </widget>
+         </tr>
+      </table>
+      <table>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>BUS Select (IFX/Indiv.Out Assign)</b></font></th> 
+         </tr> 
+         <tr> 
+            <td><font color="#006666" face="Arial">Use DKit Setting</font></td> 
+            <td><widget class="CheckWidget" 
+               enable="COMMON_oscillator_mode.getData() == 2">
+               <parameter id="COMMON_oscillator_mode" indexer="false"></parameter>
+               <parameter id="COMMON_use_dkit_setting"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">All OSCs to</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_bus_select"
+               enable="COMMON_oscillator_mode.getData() != 2 or COMMON_use_dkit_setting.getData() == 0">
+               <parameter id="COMMON_oscillator_mode" indexer="false"/>
+               <parameter id="COMMON_use_dkit_setting" indexer="false"/>
+               <parameter id="COMMON_bus_select"></parameter>
+            </widget></td>
+         </tr>
+      </table>
+      <widget class="GroupWidget" 
+         enable="(COMMON_oscillator_mode.getData() != 2 or COMMON_use_dkit_setting.getData() == 0) and COMMON_bus_select.getData() in (0,12)">
+         <parameter id="COMMON_oscillator_mode" indexer="false"/>
+         <parameter id="COMMON_use_dkit_setting" indexer="false"/>
+         <parameter id="COMMON_bus_select" indexer="false"/>
+         <table>
+            <tr> 
+               <th bgcolor="#FFFF99"><font size="4" color="#006666"
+                  face="Arial"><b>OSC1 MFX Send</b></font></th> 
+               <th bgcolor="#FFFF99"><font size="4" color="#006666"
+                  face="Arial"><b>OSC2 MFX Send</b></font></th> 
+            </tr> 
+            <tr>
+               <td>
+                  <table>
+                     <tr>
+                        <td><font color="#006666" face="Arial">Send1 (MFX1)</font></td> 
+                        <td><widget class="SpinWidget" format="%03d">
+                           <parameter id="OSC1_OUTPUT_send_mfx1"></parameter>
+                        </widget></td>
+                     </tr>
+                     <tr>
+                        <td><font color="#006666" face="Arial">Send2 (MFX2)</font></td> 
+                        <td><widget class="SpinWidget" format="%03d">
+                           <parameter id="OSC1_OUTPUT_send_mfx2"></parameter>
+                        </widget></td>
+                     </tr>
+                  </table>
+               </td>
+               <td>
+                  <widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() == 1">
+                     <parameter id="COMMON_oscillator_mode"></parameter>
+                     <table>
+                        <tr> 
+                           <td><font color="#006666" face="Arial">Send1 (MFX1)</font></td> 
+                           <td><widget class="SpinWidget" format="%03d">
+                              <parameter id="OSC2_OUTPUT_send_mfx1"></parameter>
+                           </widget></td>
+                        </tr>
+                        <tr>
+                           <td><font color="#006666" face="Arial">Send2 (MFX2)</font></td> 
+                           <td><widget class="SpinWidget" format="%03d">
+                              <parameter id="OSC2_OUTPUT_send_mfx2"></parameter>
+                           </widget></td>
+                        </tr>
+                     </widget>
+                  </table>
+               </td>
+            </tr>
+         </table>
+      </widget>
+   </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Filter 2 Mod.</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+    <widget class="GroupWidget" enable="COMMON_oscillator_mode.getData() == 1">
+      <parameter id="COMMON_oscillator_mode" indexer="false"></parameter>
+      <table>
+         <tr> 
+            <th colspan="6" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Keyboard Track</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Key Low</font></td> 
+            <td><widget class="SpinWidget" decoder="list_keys">
+	       <parameter id="OSC2_FILTER_KBD_key_low"></parameter>
+	       </widget></td>
+            <td><font color="#006666" face="Arial">Key High</font></td> 
+            <td><widget class="SpinWidget" decoder="list_keys">
+	       <parameter id="OSC2_FILTER_KBD_key_high"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Int. to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC2_FILTERA_kbd_track_intensity"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Ramp Low</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC2_FILTER_KBD_ramp_low"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Ramp High</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC2_FILTER_KBD_ramp_high"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Int. to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC2_FILTER_type.getData() == 1">
+	       <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC2_FILTERB_kbd_track_intensity"></parameter>
+	    </widget></td>
+         </tr>
+      </table>
+      <table>
+         <tr> 
+            <th colspan="6" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Filter EG</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Vel. to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC2_FILTERA_eg_velocity"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Int. to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC2_FILTERA_eg_intensity"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">AMS</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_1-4">
+	       <parameter id="OSC2_FILTER_am_source_eg"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Vel. to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC2_FILTER_type.getData() == 1">
+	       <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC2_FILTERB_eg_velocity"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Int. to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" 
+	       enable="OSC2_FILTER_type.getData() == 1">
+	       <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC2_FILTERB_eg_intensity"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Int. to A</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="OSC2_FILTERA_am_int_eg"></parameter>
+	    </widget></td>
+         </tr>
+         <tr>
+            <td></td> 
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td><font color="#006666" face="Arial">Int. to B</font></td> 
+            <td><widget class="SpinWidget" format="%+03d" enable="OSC2_FILTER_type.getData() == 1">
+	       <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+	       <parameter id="OSC2_FILTERB_am_int_eg"></parameter>
+	    </widget></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+	    <td>
+               <table>
+                  <tr> 
+                     <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+                        face="Arial"><b>Filter A Modulation</b></font></th> 
+                  </tr> 
+                  <tr>
+                     <td><font color="#006666" face="Arial">AMS 1</font></td> 
+		     <td><widget class="ChoiceWidget" decoder="list_1-4">
+		        <parameter id="OSC2_FILTERA_am_source_mod1"></parameter>
+		     </widget></td>
+		     <td><font color="#006666" face="Arial">AMS 2</font></td> 
+		     <td><widget class="ChoiceWidget" decoder="list_1-4">
+		        <parameter id="OSC2_FILTERA_am_source_mod2"></parameter>
+		     </widget></td>
+                  </tr>
+		  <tr>
+		     <td><font color="#006666" face="Arial">Int.</font></td> 
+		     <td><widget class="SpinWidget" format="%+03d">
+		        <parameter id="OSC2_FILTERA_am_int_mod1"></parameter>
+                     </widget></td>
+		     <td><font color="#006666" face="Arial">Int.</font></td> 
+		     <td><widget class="SpinWidget" format="%+03d">
+		        <parameter id="OSC2_FILTERA_am_int_mod2"></parameter>
+                     </widget></td>
+		  </tr>
+               </table>
+	    </td>
+	    <td>
+	       <widget class="GroupWidget" enable="OSC2_FILTER_type.getData() == 1">
+	          <parameter id="OSC2_FILTER_type" indexer="false"></parameter>
+                  <table>
+                     <tr> 
+                        <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+                           face="Arial"><b>Filter B Modulation</b></font></th> 
+                     </tr> 
+                     <tr>
+                        <td><font color="#006666" face="Arial">AMS 1</font></td> 
+		        <td><widget class="ChoiceWidget" decoder="list_1-4">
+		           <parameter id="OSC2_FILTERB_am_source_mod1"></parameter>
+		        </widget></td>
+		        <td><font color="#006666" face="Arial">AMS 2</font></td> 
+		        <td><widget class="ChoiceWidget" decoder="list_1-4">
+		           <parameter id="OSC2_FILTERB_am_source_mod2"></parameter>
+		        </widget></td>
+                     </tr>
+		     <tr>
+		        <td><font color="#006666" face="Arial">Int.</font></td> 
+		        <td><widget class="SpinWidget" format="%+03d">
+		           <parameter id="OSC2_FILTERB_am_int_mod1"></parameter>
+                        </widget></td>
+		        <td><font color="#006666" face="Arial">Int.</font></td> 
+		        <td><widget class="SpinWidget" format="%+03d">
+		           <parameter id="OSC2_FILTERB_am_int_mod2"></parameter>
+                        </widget></td>
+		     </tr>
+                  </table>
+	       </widget>
+	    </td>
+	 </tr>
+      </table>
+    </widget>
+   </body>
+</html>

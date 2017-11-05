@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Effects</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Analog Boost</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Tune:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="bass_tune"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Intensity:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="bass_intensity"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Low EQ</b></font></th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Frequency:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="low_eq_frequency"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Gain:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_eq_gain"> 
+			  <PARAMETER ID="low_eq_gain"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Mid EQ</b></font></th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Frequency:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="mid_eq_frequency"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Gain:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" DECODER="scale_eq_gain"> 
+			  <PARAMETER ID="mid_eq_gain"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Q-Factor:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="mid_eq_factor"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>High EQ</b></font></th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><font face="Arial">Frequency:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="high_eq_frequency"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Gain:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" DECODER="scale_eq_gain"> 
+			  <PARAMETER ID="high_eq_gain"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+
+	 </TABLE> 
+  </BODY>
+</HTML>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Amp 1 Level/Pan</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Amp Level</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Amp Level</font></td> 
+            <td><widget class="SliderWidget" layout="horizontal" format="%03d">
+               <parameter id="OSC1_AMP_level"></parameter>
+            </widget></td>
+         </tr>
+         <tr> 
+            <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Pan</b></font></th> 
+         </tr> 
+         <tr>
+            <td><font color="#006666" face="Arial">Pan</font></td> 
+            <td><widget class="SliderWidget" layout="horizontal" decoder="scale_pan" 
+               enable="COMMON_oscillator_mode.getData() != 2 or COMMON_use_dkit_setting.getData() == 0">
+               <parameter id="COMMON_oscillator_mode" indexer="false"></parameter>
+               <parameter id="COMMON_use_dkit_setting" indexer="false"></parameter>
+               <parameter id="OSC1_OUTPUT_pan"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">AMS</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_1-4">
+               <parameter id="OSC1_OUTPUT_am_source_pan"></parameter>
+            </widget></td>
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Use DKit Setting</font></td> 
+            <td><widget class="CheckWidget" enable="COMMON_oscillator_mode.getData() == 2">
+               <parameter id="COMMON_oscillator_mode" indexer="false"></parameter>
+               <parameter id="COMMON_use_dkit_setting"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">Intensity</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+               <parameter id="OSC1_OUTPUT_am_int_pan"></parameter>
+            </widget></td>
+         </tr>
+      </table>
+   </body>
+</html>

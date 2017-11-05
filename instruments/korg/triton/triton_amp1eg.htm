@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html>
+   <head>
+      <title>Amp 1 EG</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table cellspacing="1"> 
+         <tr> 
+            <td width="40%"><widget class="EnvelopeWidget">
+	       <parameter id="CONSTANT_0"></parameter>
+	       <parameter id="OSC1_AMP_EG_start_level"></parameter> 
+	       <parameter id="OSC1_AMP_EG_attack_time"></parameter>
+	       <parameter id="OSC1_AMP_EG_attack_level"></parameter>
+	       <parameter id="OSC1_AMP_EG_decay_time"></parameter>
+	       <parameter id="OSC1_AMP_EG_break_point_level"></parameter>
+	       <parameter id="OSC1_AMP_EG_slope_time"></parameter>
+	       <parameter id="OSC1_AMP_EG_sustain_level"></parameter>
+	       <parameter id="OSC1_AMP_EG_release_time"></parameter>
+	       <parameter id="CONSTANT_0"></parameter>
+	    </widget></td> 
+            <td> 
+               <table cellspacing="1"> 
+                  <tr valign="top"> 
+                     <td><font size="-1" color="#006666" face="Arial">Start Lvl</font></td> 
+                     <td><font size="-1" color="#006666" face="Arial">Atk Tim</font></td> 
+                     <td><font size="-1" color="#006666" face="Arial">Atk Lvl</font></td> 
+                     <td><font size="-1" color="#006666" face="Arial">Dec Tim</font></td> 
+                     <td><font size="-1" color="#006666" face="Arial">Brk Lvl</font></td> 
+                     <td><font size="-1" color="#006666" face="Arial">Slp Tim</font></td> 
+                     <td><font size="-1" color="#006666" face="Arial">Sus Lvl</font></td> 
+                     <td><font size="-1" color="#006666" face="Arial">Rel Tim</font></td> 
+                  </tr> 
+                  <tr> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%+03d">
+               		<parameter id="OSC1_AMP_EG_start_level"></parameter>
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%03d">
+                        <parameter id="OSC1_AMP_EG_attack_time"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%+03d">
+                        <parameter id="OSC1_AMP_EG_attack_level"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%03d">
+                        <parameter id="OSC1_AMP_EG_decay_time"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%+03d">
+                        <parameter id="OSC1_AMP_EG_break_point_level"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%03d">
+                        <parameter id="OSC1_AMP_EG_slope_time"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%+03d">
+                        <parameter id="OSC1_AMP_EG_sustain_level"></parameter> 
+                     </widget></td> 
+                     <td><widget class="SliderWidget" layout="vertical" format="%03d">
+                        <parameter id="OSC1_AMP_EG_release_time"></parameter> 
+                     </widget></td> 
+                  </tr> 
+               </table>
+            </td> 
+         </tr> 
+      </table> 
+      <table>
+         <tr>
+            <td valign="top" width="33%">
+               <table>
+                  <tr> 
+                     <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+                        face="Arial"><b>Level Mod.</b></font></th> 
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">AMS</font></td> 
+                     <td><widget class="ChoiceWidget" decoder="list_1-4">
+                        <parameter id="OSC1_AMP_EG_am_source_level"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Intensity</font></td> 
+                     <td><widget class="SpinWidget" format="%+03d">
+                        <parameter id="OSC1_AMP_EG_am_int_level"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Start</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_start_am_level"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Attack</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_attack_am_level"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Break</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_break_am_level"></parameter>
+                     </widget></td>
+                  </tr>
+               </table>
+            </td>
+            <td valign="top">
+               <table>
+                  <tr> 
+                     <th colspan="4" bgcolor="#FFFF99"><font size="4" color="#006666"
+                        face="Arial"><b>Time Modulation</b></font></th> 
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">AMS 1</font></td> 
+                     <td><widget class="ChoiceWidget" decoder="list_1-4">
+                        <parameter id="OSC1_AMP_EG_am_source_time1"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">AMS 2</font></td> 
+                     <td><widget class="ChoiceWidget" decoder="list_1-4">
+                        <parameter id="OSC1_AMP_EG_am_source_time2"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Intensity</font></td> 
+                     <td><widget class="SpinWidget" format="%+03d">
+                        <parameter id="OSC1_AMP_EG_am_int_time1"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">Intensity</font></td> 
+                     <td><widget class="SpinWidget" format="%+03d">
+                        <parameter id="OSC1_AMP_EG_am_int_time2"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Attack</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_attack_am_time1"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">Attack</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_attack_am_time2"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Decay</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_decay_am_time1"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">Decay</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_decay_am_time2"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Slope</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_slope_am_time1"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">Slope</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_slope_am_time2"></parameter>
+                        </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Release</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_release_am_time1"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">Release</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_sense">
+                        <parameter id="OSC1_AMP_EG_release_am_time2"></parameter>
+                     </widget></td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

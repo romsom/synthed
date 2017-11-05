@@ -1,0 +1,715 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	virus_banks.xml
+
+	This data definition should be compatible with Virus C OS5.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE data SYSTEM "../../data.dtd">
+
+<data>
+<patch id="single" caption="Single" type="bank">
+
+	<!-- Constants -->
+	<parameter id="CONSTANT_0" min="0" max="0"/>
+	<parameter id="CONSTANT_127" min="127" max="127"/>
+	
+	<!-- Temporary Variables -->
+	<parameter id="v_amp_env_sustain_mode" min="0" max="2" init="0"/>
+	<parameter id="v_amp_env_sustain_level" min="0" max="127" init ="0"/>
+	<parameter id="v_amp_env_sustain_time" min="1" max="64" init ="1"/>
+	<parameter id="v_filter_env_sustain_mode" min="0" max="2" init="0"/>
+	<parameter id="v_filter_env_sustain_level" min="0" max="127" init ="0"/>
+	<parameter id="v_filter_env_sustain_time" min="1" max="64" init ="1"/>
+
+	<!-- Page A -->
+	<parameter id="bank_select" min="0" max="3">
+		<byte offset="0"/>
+	</parameter>
+	<parameter id="modulation_wheel" min="0" max="127">
+		<byte offset="1"/>
+	</parameter>
+	<parameter id="breath_controller" min="0" max="127">
+		<byte offset="2"/>
+	</parameter>
+	<parameter id="contr_3" min="0" max="127">
+		<byte offset="3"/>
+	</parameter>
+	<parameter id="foot_controller" min="0" max="127">
+		<byte offset="4"/>
+	</parameter>
+	<parameter id="portamento_time" min="0" max="127">
+		<byte offset="5"/>
+	</parameter>
+	<parameter id="data_slider" min="0" max="127">
+		<byte offset="6"/>
+	</parameter>
+	<parameter id="channel_volume" min="0" max="127">
+		<byte offset="7"/>
+	</parameter>
+	<parameter id="balance" min="0" max="127">
+		<byte offset="8"/>
+	</parameter>
+	<parameter id="contr_9" min="0" max="127">
+		<byte offset="9"/>
+	</parameter>
+	<parameter id="panorama" min="0" max="127">
+		<byte offset="10"/>
+	</parameter>
+	<parameter id="expression" min="0" max="127">
+		<byte offset="11"/>
+	</parameter>
+	<parameter id="contr_12" min="0" max="127">
+		<byte offset="12"/>
+	</parameter>
+	<parameter id="contr_13" min="0" max="127">
+		<byte offset="13"/>
+	</parameter>
+	<parameter id="contr_14" min="0" max="127">
+		<byte offset="14"/>
+	</parameter>
+	<parameter id="contr_15" min="0" max="127">
+		<byte offset="15"/>
+	</parameter>
+	<parameter id="contr_16" min="0" max="127">
+		<byte offset="16"/>
+	</parameter>
+	<parameter id="osc1_shape" min="0" max="127">
+		<byte offset="17"/>
+	</parameter>
+	<parameter id="osc1_pulsewidth" min="0" max="127">
+		<byte offset="18"/>
+	</parameter>
+	<parameter id="osc1_wave_select" min="0" max="64">
+		<byte offset="19"/>
+	</parameter>
+	<parameter id="osc1_semitone" min="0" max="127">
+		<byte offset="20"/>
+	</parameter>
+	<parameter id="osc1_keyfollow" min="0" max="127" init="32">
+		<byte offset="21"/>
+	</parameter>
+	<parameter id="osc2_shape" min="0" max="127">
+		<byte offset="22"/>
+	</parameter>
+	<parameter id="osc2_pulsewidth" min="0" max="127">
+		<byte offset="23"/>
+	</parameter>
+	<parameter id="osc2_wave_select" min="0" max="64">
+		<byte offset="24"/>
+	</parameter>
+	<parameter id="osc2_semitone" min="0" max="127">
+		<byte offset="25"/>
+	</parameter>
+	<parameter id="osc2_detune" min="0" max="127">
+		<byte offset="26"/>
+	</parameter>
+	<parameter id="osc2_fm_amount" min="0" max="127">
+		<byte offset="27"/>
+	</parameter>
+	<parameter id="osc2_sync" min="0" max="1">
+		<byte offset="28"/>
+	</parameter>
+	<parameter id="osc2_filter_env_amt" min="0" max="127">
+		<byte offset="29"/>
+	</parameter>
+	<parameter id="fm_filter_env_amt" min="0" max="127">
+		<byte offset="30"/>
+	</parameter>
+	<parameter id="osc2_keyfollow" min="0" max="127">
+		<byte offset="31"/>
+	</parameter>
+	<parameter id="bank_select_2" min="0" max="3">
+		<byte offset="32"/>
+	</parameter>
+	<parameter id="osc_balance" min="0" max="127">
+		<byte offset="33"/>
+	</parameter>
+	<parameter id="suboscillator_volume" min="0" max="127">
+		<byte offset="34"/>
+	</parameter>
+	<parameter id="suboscillator_shape" min="0" max="1">
+		<byte offset="35"/>
+	</parameter>
+	<parameter id="osc_mainvolume" min="0" max="127">
+		<byte offset="36"/>
+	</parameter>
+	<parameter id="noise_volume" min="0" max="127">
+		<byte offset="37"/>
+	</parameter>
+	<parameter id="ringmodulator_volume" min="0" max="127">
+		<byte offset="38"/>
+	</parameter>
+	<parameter id="noise_color" min="0" max="127">
+		<byte offset="39"/>
+	</parameter>
+	<parameter id="cutoff" min="0" max="127">
+		<byte offset="40"/>
+	</parameter>
+	<parameter id="vocoder_center_frequency" min="0" max="127">
+		<byte offset="40"/>
+	</parameter>
+	<parameter id="cutoff2" min="0" max="127">
+		<byte offset="41"/>
+	</parameter>
+	<parameter id="filter1_resonance" min="0" max="127">
+		<byte offset="42"/>
+	</parameter>
+	<parameter id="filter2_resonance" min="0" max="127">
+		<byte offset="43"/>
+	</parameter>
+	<parameter id="filter1_env_amt" min="0" max="127">
+		<byte offset="44"/>
+	</parameter>
+	<parameter id="filter2_env_amt" min="0" max="127">
+		<byte offset="45"/>
+	</parameter>
+	<parameter id="filter1_keyfollow" min="0" max="127">
+		<byte offset="46"/>
+	</parameter>
+	<parameter id="filter2_keyfollow" min="0" max="127">
+		<byte offset="47"/>
+	</parameter>
+	<parameter id="filter_balance" min="0" max="127">
+		<byte offset="48"/>
+	</parameter>
+	<parameter id="saturation_curve" min="0" max="6">
+		<byte offset="49"/>
+	</parameter>
+	<parameter id="filter1_mode" min="0" max="3">
+		<byte offset="51"/>
+	</parameter>
+	<parameter id="filter2_mode" min="0" max="3">
+		<byte offset="52"/>
+	</parameter>
+	<parameter id="filter_routing" min="0" max="3">
+		<byte offset="53"/>
+	</parameter>
+	<parameter id="filter_env_attack" min="0" max="127">
+		<byte offset="54"/>
+	</parameter>
+	<parameter id="filter_env_decay" min="0" max="127">
+		<byte offset="55"/>
+	</parameter>
+	<parameter id="filter_env_sustain" min="0" max="127">
+		<byte offset="56"/>
+	</parameter>
+	<parameter id="filter_env_sustain_time" min="0" max="127">
+		<byte offset="57"/>
+	</parameter>
+	<parameter id="filter_env_release" min="0" max="127">
+		<byte offset="58"/>
+	</parameter>
+	<parameter id="vocoder_band_qty" min="0" max="127">
+		<byte offset="58"/>
+	</parameter>
+	<parameter id="amp_env_attack" min="0" max="127">
+		<byte offset="59"/>
+	</parameter>
+	<parameter id="amp_env_decay" min="0" max="127">
+		<byte offset="60"/>
+	</parameter>
+	<parameter id="amp_env_sustain" min="0" max="127">
+		<byte offset="61"/>
+	</parameter>
+	<parameter id="amp_env_sustain_time" min="0" max="127">
+		<byte offset="62"/>
+	</parameter>
+	<parameter id="amp_env_release" min="0" max="127">
+		<byte offset="63"/>
+	</parameter>
+	<parameter id="hold_pedal" min="0" max="127">
+		<byte offset="64"/>
+	</parameter>
+	<parameter id="portamento_pedal" min="0" max="127">
+		<byte offset="65"/>
+	</parameter>
+	<parameter id="sostenuto_pedal" min="0" max="127">
+		<byte offset="66"/>
+	</parameter>
+	<parameter id="lfo1_rate" min="0" max="127">
+		<byte offset="67"/>
+	</parameter>
+	<parameter id="lfo1_shape" min="0" max="64">
+		<byte offset="68"/>
+	</parameter>
+	<parameter id="lfo1_env_mode" min="0" max="1">
+		<byte offset="69"/>
+	</parameter>
+	<parameter id="lfo1_mode" min="0" max="1">
+		<byte offset="70"/>
+	</parameter>
+	<parameter id="lfo1_symmetry" min="0" max="127">
+		<byte offset="71"/>
+	</parameter>
+	<parameter id="lfo1_keyfollow" min="0" max="127">
+		<byte offset="72"/>
+	</parameter>
+	<parameter id="lfo1_keytrigger" min="0" max="127">
+		<byte offset="73"/>
+	</parameter>
+	<parameter id="osc1_lfo1_amount" min="0" max="127">
+		<byte offset="74"/>
+	</parameter>
+	<parameter id="osc2_lfo1_amount" min="0" max="127">
+		<byte offset="75"/>
+	</parameter>
+	<parameter id="pw_lfo1_amount" min="0" max="127">
+		<byte offset="76"/>
+	</parameter>
+	<parameter id="reso_lfo1_amount" min="0" max="127">
+		<byte offset="77"/>
+	</parameter>
+	<parameter id="filtgain_lfo1_amount" min="0" max="127">
+		<byte offset="78"/>
+	</parameter>
+	<parameter id="lfo2_rate" min="0" max="127">
+		<byte offset="79"/>
+	</parameter>
+	<parameter id="lfo2_shape" min="0" max="64">
+		<byte offset="80"/>
+	</parameter>
+	<parameter id="lfo2_env_mode" min="0" max="1">
+		<byte offset="81"/>
+	</parameter>
+	<parameter id="lfo2_mode" min="0" max="1">
+		<byte offset="82"/>
+	</parameter>
+	<parameter id="lfo2_symmetry" min="0" max="127">
+		<byte offset="83"/>
+	</parameter>
+	<parameter id="lfo2_keyfollow" min="0" max="127">
+		<byte offset="84"/>
+	</parameter>
+	<parameter id="lfo2_keytrigger" min="0" max="127">
+		<byte offset="85"/>
+	</parameter>
+	<parameter id="osc_shape_lfo2_amount" min="0" max="127">
+		<byte offset="86"/>
+	</parameter>
+	<parameter id="fm_amount_lfo2_amount" min="0" max="127">
+		<byte offset="87"/>
+	</parameter>
+	<parameter id="cutoff1_lfo2_amount" min="0" max="127">
+		<byte offset="88"/>
+	</parameter>
+	<parameter id="cutoff2_lfo2_amount" min="0" max="127">
+		<byte offset="89"/>
+	</parameter>
+	<parameter id="panorama_lfo2_amount" min="0" max="127">
+		<byte offset="90"/>
+	</parameter>
+	<parameter id="patch_volume" min="0" max="127">
+		<byte offset="91"/>
+	</parameter>
+	<parameter id="transpose" min="0" max="127">
+		<byte offset="93"/>
+	</parameter>
+	<parameter id="key_mode" min="0" max="5">
+		<byte offset="94"/>
+	</parameter>
+	<parameter id="unison_mode" min="0" max="15">
+		<byte offset="97"/>
+	</parameter>
+	<parameter id="unison_detune" min="0" max="127">
+		<byte offset="98"/>
+	</parameter>
+	<parameter id="unison_panorama_spread" min="0" max="127">
+		<byte offset="99"/>
+	</parameter>
+	<parameter id="unison_lfo_phase" min="0" max="127">
+		<byte offset="100"/>
+	</parameter>
+	<parameter id="input_mode" min="0" max="3">
+		<byte offset="101"/>
+	</parameter>
+	<parameter id="input_select" min="0" max="8">
+		<byte offset="102"/>
+	</parameter>
+	<parameter id="chorus_mix" min="0" max="127">
+		<byte offset="105"/>
+	</parameter>
+	<parameter id="chorus_rate" min="0" max="127">
+		<byte offset="106"/>
+	</parameter>
+	<parameter id="chorus_depth" min="0" max="127">
+		<byte offset="107"/>
+	</parameter>
+	<parameter id="chorus_delay" min="0" max="127">
+		<byte offset="108"/>
+	</parameter>
+	<parameter id="chorus_feedback" min="0" max="127">
+		<byte offset="109"/>
+	</parameter>
+	<parameter id="chorus_lfo_shape" min="0" max="64">
+		<byte offset="110"/>
+	</parameter>
+	<parameter id="delay_reverb_mode" min="0" max="6">
+		<byte offset="112"/>
+	</parameter>
+	<parameter id="effect_send" min="0" max="127">
+		<byte offset="113"/>
+	</parameter>
+	<parameter id="delay_time" min="0" max="127">
+		<byte offset="114"/>
+	</parameter>
+	<parameter id="delay_feedback" min="0" max="127">
+		<byte offset="115"/>
+	</parameter>
+	<parameter id="delay_rate" min="0" max="127">
+		<byte offset="116"/>
+	</parameter>
+	<parameter id="reverb_decay_time" min="0" max="127">
+		<byte offset="116"/>
+	</parameter>
+	<parameter id="delay_depth" min="0" max="127">
+		<byte offset="117"/>
+	</parameter>
+	<parameter id="reverb_room_size" min="0" max="3">
+		<byte offset="117"/>
+	</parameter>
+	<parameter id="delay_lfo_shape" min="0" max="64">
+		<byte offset="118"/>
+	</parameter>
+	<parameter id="reverb_damping" min="0" max="127">
+		<byte offset="118"/>
+	</parameter>
+	<parameter id="delay_color" min="0" max="127">
+		<byte offset="119"/>
+	</parameter>
+	<parameter id="keyb_local" min="0" max="1">
+		<byte offset="122"/>
+	</parameter>
+	<parameter id="all_notes_off" min="0" max="127">
+		<byte offset="123"/>
+	</parameter>
+	
+	<!-- Page B -->
+	<parameter id="arp_mode" min="0" max="6">
+		<byte offset="128+1"/>
+	</parameter>
+	<parameter id="arp_pattern_select" min="0" max="31">
+		<byte offset="128+2"/>
+	</parameter>
+	<parameter id="arp_octave_range" min="0" max="3">
+		<byte offset="128+3"/>
+	</parameter>
+	<parameter id="arp_hold_enable" min="0" max="1">
+		<byte offset="128+4"/>
+	</parameter>
+	<parameter id="arp_note_length" min="0" max="127">
+		<byte offset="128+5"/>
+	</parameter>
+	<parameter id="arp_swing" min="0" max="127">
+		<byte offset="128+6"/>
+	</parameter>
+	<parameter id="lfo3_rate" min="0" max="127">
+		<byte offset="128+7"/>
+	</parameter>
+	<parameter id="lfo3_shape" min="0" max="64">
+		<byte offset="128+8"/>
+	</parameter>
+	<parameter id="lfo3_mode" min="0" max="1">
+		<byte offset="128+9"/>
+	</parameter>
+	<parameter id="lfo3_keyfollow" min="0" max="127">
+		<byte offset="128+10"/>
+	</parameter>
+	<parameter id="lfo3_destination" min="0" max="5">
+		<byte offset="128+11"/>
+	</parameter>
+	<parameter id="osc_lfo3_amount" min="0" max="127">
+		<byte offset="128+12"/>
+	</parameter>
+	<parameter id="lfo3_fade_in_time" min="0" max="127">
+		<byte offset="128+13"/>
+	</parameter>
+	<parameter id="clock_tempo" min="0" max="127">
+		<byte offset="128+16"/>
+	</parameter>
+	<parameter id="arp_clock" min="0" max="16">
+		<byte offset="128+17"/>
+	</parameter>
+	<parameter id="lfo1_clock" min="0" max="21">
+		<byte offset="128+18"/>
+	</parameter>
+	<parameter id="lfo2_clock" min="0" max="21">
+		<byte offset="128+19"/>
+	</parameter>
+	<parameter id="delay_clock" min="0" max="16">
+		<byte offset="128+20"/>
+	</parameter>
+	<parameter id="lfo3_clock" min="0" max="21">
+		<byte offset="128+21"/>
+	</parameter>
+	<parameter id="control_smooth_mode" min="0" max="3">
+		<byte offset="128+25"/>
+	</parameter>
+	<parameter id="bender_range_up" min="0" max="127">
+		<byte offset="128+26"/>
+	</parameter>
+	<parameter id="bender_range_down" min="0" max="127">
+		<byte offset="128+27"/>
+	</parameter>
+	<parameter id="bender_scale" min="0" max="1">
+		<byte offset="128+28"/>
+	</parameter>
+	<parameter id="filter1_env_polarity" min="0" max="1">
+		<byte offset="128+30"/>
+	</parameter>
+	<parameter id="filter2_env_polarity" min="0" max="1">
+		<byte offset="128+31"/>
+	</parameter>
+	<parameter id="filter2_cutoff_link" min="0" max="1">
+		<byte offset="128+32"/>
+	</parameter>
+	<parameter id="filter_keytrack_base" min="0" max="127">
+		<byte offset="128+33"/>
+	</parameter>
+	<parameter id="osc_fm_mode" min="0" max="12">
+		<byte offset="128+34"/>
+	</parameter>
+	<parameter id="osc_init_phase" min="0" max="127">
+		<byte offset="128+35"/>
+	</parameter>
+	<parameter id="punch_intensity" min="0" max="127">
+		<byte offset="128+36"/>
+	</parameter>
+	<parameter id="input_follower_mode" min="0" max="9">
+		<byte offset="128+38"/>
+	</parameter>
+	<parameter id="vocoder_mode" min="0" max="12">
+		<byte offset="128+39"/>
+	</parameter>
+	<parameter id="osc3_mode" min="0" max="67">
+		<byte offset="128+41"/>
+	</parameter>
+	<parameter id="osc3_volume" min="0" max="127">
+		<byte offset="128+42"/>
+	</parameter>
+	<parameter id="osc3_semitone" min="0" max="127">
+		<byte offset="128+43"/>
+	</parameter>
+	<parameter id="osc3_detune" min="0" max="127">
+		<byte offset="128+44"/>
+	</parameter>
+	<parameter id="low_eq_frequency" min="0" max="127">
+		<byte offset="128+45"/>
+	</parameter>
+	<parameter id="high_eq_frequency" min="0" max="127">
+		<byte offset="128+46"/>
+	</parameter>
+	<parameter id="osc1_shape_velocity" min="0" max="127">
+		<byte offset="128+47"/>
+	</parameter>
+	<parameter id="osc2_shape_velocity" min="0" max="127">
+		<byte offset="128+48"/>
+	</parameter>
+	<parameter id="pulse_width_velocity" min="0" max="127">
+		<byte offset="128+49"/>
+	</parameter>
+	<parameter id="fm_amount_velocity" min="0" max="127">
+		<byte offset="128+50"/>
+	</parameter>
+	<parameter id="soft_knob1_shortname" min="0" max="127">
+		<byte offset="128+51"/>
+	</parameter>
+	<parameter id="soft_knob2_shortname" min="0" max="127">
+		<byte offset="128+52"/>
+	</parameter>
+	<parameter id="filter1_env_amt_velocity" min="0" max="127">
+		<byte offset="128+54"/>
+	</parameter>
+	<parameter id="filter2_env_amt_velocity" min="0" max="127">
+		<byte offset="128+55"/>
+	</parameter>
+	<parameter id="resonance1_velocity" min="0" max="127">
+		<byte offset="128+56"/>
+	</parameter>
+	<parameter id="resonance2_velocity" min="0" max="127">
+		<byte offset="128+57"/>
+	</parameter>
+	<parameter id="second_output_balance" min="0" max="127">
+		<byte offset="128+58"/>
+	</parameter>
+	<parameter id="amp_velocity" min="0" max="127">
+		<byte offset="128+60"/>
+	</parameter>
+	<parameter id="panorama_velocity" min="0" max="127">
+		<byte offset="128+61"/>
+	</parameter>
+	<parameter id="soft_knob1_single" min="0" max="127">
+		<byte offset="128+62"/>
+	</parameter>
+	<parameter id="soft_knob2_single" min="0" max="127">
+		<byte offset="128+63"/>
+	</parameter>
+	<parameter id="assign1_source" min="0" max="27">
+		<byte offset="128+64"/>
+	</parameter>
+	<parameter id="assign1_destination" min="0" max="122">
+		<byte offset="128+65"/>
+	</parameter>
+	<parameter id="assign1_amount" min="0" max="127">
+		<byte offset="128+66"/>
+	</parameter>
+	<parameter id="assign2_source" min="0" max="27">
+		<byte offset="128+67"/>
+	</parameter>
+	<parameter id="assign2_destination1" min="0" max="122">
+		<byte offset="128+68"/>
+	</parameter>
+	<parameter id="assign2_amount1" min="0" max="127">
+		<byte offset="128+69"/>
+	</parameter>
+	<parameter id="assign2_destination2" min="0" max="122">
+		<byte offset="128+70"/>
+	</parameter>
+	<parameter id="assign2_amount2" min="0" max="127">
+		<byte offset="128+71"/>
+	</parameter>
+	<parameter id="assign3_source" min="0" max="27">
+		<byte offset="128+72"/>
+	</parameter>
+	<parameter id="assign3_destination1" min="0" max="122">
+		<byte offset="128+73"/>
+	</parameter>
+	<parameter id="assign3_amount1" min="0" max="127">
+		<byte offset="128+74"/>
+	</parameter>
+	<parameter id="assign3_destination2" min="0" max="122">
+		<byte offset="128+75"/>
+	</parameter>
+	<parameter id="assign3_amount2" min="0" max="127">
+		<byte offset="128+76"/>
+	</parameter>
+	<parameter id="assign3_destination3" min="0" max="122">
+		<byte offset="128+77"/>
+	</parameter>
+	<parameter id="assign3_amount3" min="0" max="127">
+		<byte offset="128+78"/>
+	</parameter>
+	<parameter id="lfo1_assign_destination" min="0" max="127">
+		<byte offset="128+79"/>
+	</parameter>
+	<parameter id="lfo1_assign_amount" min="0" max="127">
+		<byte offset="128+80"/>
+	</parameter>
+	<parameter id="lfo2_assign_destination" min="0" max="127">
+		<byte offset="128+81"/>
+	</parameter>
+	<parameter id="lfo2_assign_amount" min="0" max="127">
+		<byte offset="128+82"/>
+	</parameter>
+	<parameter id="phaser_mode" min="0" max="5">
+		<byte offset="128+84"/>
+	</parameter>
+	<parameter id="phaser_mix" min="0" max="127">
+		<byte offset="128+85"/>
+	</parameter>
+	<parameter id="phaser_rate" min="0" max="127">
+		<byte offset="128+86"/>
+	</parameter>
+	<parameter id="phaser_depth" min="0" max="127">
+		<byte offset="128+87"/>
+	</parameter>
+	<parameter id="phaser_frequency" min="0" max="127">
+		<byte offset="128+88"/>
+	</parameter>
+	<parameter id="phaser_feedback" min="0" max="127">
+		<byte offset="128+89"/>
+	</parameter>
+	<parameter id="phaser_spread" min="0" max="127">
+		<byte offset="128+90"/>
+	</parameter>
+	<parameter id="mid_eq_gain" min="0" max="127">
+		<byte offset="128+92"/>
+	</parameter>
+	<parameter id="mid_eq_frequency" min="0" max="127">
+		<byte offset="128+93"/>
+	</parameter>
+	<parameter id="mid_eq_factor" min="0" max="127">
+		<byte offset="128+94"/>
+	</parameter>
+	<parameter id="low_eq_gain" min="0" max="127">
+		<byte offset="128+95"/>
+	</parameter>
+	<parameter id="high_eq_gain" min="0" max="127">
+		<byte offset="128+96"/>
+	</parameter>
+	<parameter id="bass_intensity" min="0" max="127">
+		<byte offset="128+97"/>
+	</parameter>
+	<parameter id="bass_tune" min="0" max="127">
+		<byte offset="128+98"/>
+	</parameter>
+	<parameter id="input_ringmodulator" min="0" max="127">
+		<byte offset="128+99"/>
+	</parameter>
+	<parameter id="distortion_curve" min="0" max="6">
+		<byte offset="128+100"/>
+	</parameter>
+	<parameter id="distortion_intensity" min="0" max="127">
+		<byte offset="128+101"/>
+	</parameter>
+	<parameter id="assign4_source" min="0" max="27">
+		<byte offset="128+102"/>
+	</parameter>
+	<parameter id="assign4_destination" min="0" max="122">
+		<byte offset="128+103"/>
+	</parameter>
+	<parameter id="assign4_amount" min="0" max="127">
+		<byte offset="128+104"/>
+	</parameter>
+	<parameter id="assign5_source" min="0" max="27">
+		<byte offset="128+105"/>
+	</parameter>
+	<parameter id="assign5_destination" min="0" max="122">
+		<byte offset="128+106"/>
+	</parameter>
+	<parameter id="assign5_amount" min="0" max="127">
+		<byte offset="128+107"/>
+	</parameter>
+	<parameter id="assign6_source" min="0" max="27">
+		<byte offset="128+108"/>
+	</parameter>
+	<parameter id="assign6_destination" min="0" max="122">
+		<byte offset="128+109"/>
+	</parameter>
+	<parameter id="assign6_amount" min="0" max="127">
+		<byte offset="128+110"/>
+	</parameter>
+	<parameter id="single_name" type="str">
+		<array offset="128+112" length="10"/>
+	</parameter>
+	<parameter id="filter_select" min="0" max="2">
+		<byte offset="128+122"/>
+	</parameter>
+	<parameter id="category_1" min="0" max="127">
+		<byte offset="128+123"/>
+	</parameter>
+	<parameter id="category_2" min="0" max="127">
+		<byte offset="128+124"/>
+	</parameter>
+	
+</patch>
+</data>

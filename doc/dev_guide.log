@@ -1,0 +1,1295 @@
+This is pdfTeX, Version 3.14159-1.10a (MiKTeX 2.2) (preloaded format=latex 2000.11.28)  30 OCT 2002 00:04
+**dev_guide.tex
+(dev_guide.tex{pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for english, french, german, ngerman, du
+mylang, nohyphenation, loaded.
+(C:\texmf\tex\latex\base\article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(C:\texmf\tex\latex\base\size12.clo
+File: size12.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (C:\texmf\tex\latex\latex2html\html.sty
+(C:\texmf\tex\latex\hyperref\hyperref.sty
+Package: hyperref 2002/09/12 v6.72y Hypertext links for LaTeX
+
+(C:\texmf\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\@linkdim=\dimen103
+\Hy@linkcounter=\count87
+\Hy@pagecounter=\count88
+
+(C:\texmf\tex\latex\hyperref\pd1enc.def
+File: pd1enc.def 2002/09/12 v6.72y Hyperref: PDFDocEncoding definition (HO)
+)
+(C:\texmf\tex\latex\00miktex\hyperref.cfg)
+Package hyperref Info: Hyper figures OFF on input line 1787.
+Package hyperref Info: Link nesting OFF on input line 1792.
+Package hyperref Info: Hyper index ON on input line 1795.
+Package hyperref Info: Plain pages ON on input line 1800.
+Package hyperref Info: Backreferencing OFF on input line 1807.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 1911.
+(C:\texmf\tex\latex\ltxmisc\url.sty
+\Urlmuskip=\muskip10
+Package: url 1999/03/28  ver 1.5x  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 2050.
+\Fld@menulength=\count89
+\Field@Width=\dimen104
+\Fld@charsize=\dimen105
+\Choice@toks=\toks15
+\Field@toks=\toks16
+Package hyperref Info: Hyper figures OFF on input line 2508.
+Package hyperref Info: Link nesting OFF on input line 2513.
+Package hyperref Info: Hyper index ON on input line 2516.
+Package hyperref Info: backreferencing OFF on input line 2523.
+Package hyperref Info: Link coloring OFF on input line 2528.
+\c@Item=\count90
+\c@Hfootnote=\count91
+)
+*hyperref using driver hpdftex*
+(C:\texmf\tex\latex\hyperref\hpdftex.def
+File: hpdftex.def 2002/09/12 v6.72y Hyperref driver for pdfTeX
+ (C:\texmf\tex\latex\psnfss\pifont.sty
+Package: pifont 2001/06/04 PSNFSS-v8.2 Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 62.
+
+(C:\texmf\tex\latex\psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 63.
+ (C:\texmf\tex\latex\psnfss\upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\Fld@listcount=\count92
+\@outlinefile=\write3
+)
+Package: html 1999/07/19 v1.38 hypertext commands for latex2html (nd, hws, rrm)
+
+\c@lpart=\count93
+\c@lchapter=\count94
+\c@chapter=\count95
+\c@lsection=\count96
+\c@lsubsection=\count97
+\c@lsubsubsection=\count98
+\c@lparagraph=\count99
+\c@lsubparagraph=\count100
+\c@lsubsubparagraph=\count101
+\ptrfile=\write4
+)
+(C:\texmf\tex\latex\graphics\color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+ (C:\texmf\tex\latex\00miktex\color.cfg)
+Package color Info: Driver file: pdftex.def on input line 125.
+
+(C:\texmf\tex\latex\graphics\pdftex.def
+File: pdftex.def 2001/11/29 v0.03i graphics/color for pdftex
+\Gread@gobject=\count102
+))
+(C:\texmf\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\texmf\tex\latex\graphics\graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+ (C:\texmf\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (C:\texmf\tex\latex\00miktex\graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+)
+\Gin@req@height=\dimen106
+\Gin@req@width=\dimen107
+) (dev_guide.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+Package hyperref Info: Link coloring OFF on input line 16.
+
+(C:\texmf\tex\latex\hyperref\nameref.sty
+Package: nameref 2001/01/27 v2.19 Cross-referencing by name of section
+\c@section@level=\count103
+)
+LaTeX Info: Redefining \ref on input line 16.
+LaTeX Info: Redefining \pageref on input line 16.
+ (dev_guide.out) (dev_guide.out)
+(C:\texmf\tex\context\base\supp-pdf.tex (C:\texmf\tex\context\base\supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count104
+\scratchcounter=\count105
+\scratchdimen=\dimen108
+\scratchskip=\skip43
+\scratchmuskip=\muskip11
+\scratchbox=\box26
+\scratchread=\read1
+\scratchwrite=\write5
+\nextbox=\box27
+\nextdepth=\dimen109
+\everyline=\toks17
+\!!counta=\count106
+\!!countb=\count107
+\recursecounter=\count108
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count109
+\nofMParguments=\count110
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 18.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 18.
+ [1
+
+{sfonts.map}] [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 101.
+
+ (C:\texmf\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 101.
+ [3]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 144.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 144.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 144.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 144.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 150.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 150.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 150.
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--165
+
+ []
+
+[4] [5]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 239.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 239.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 239.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 239.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--257
+
+ []
+
+[6]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 261.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 261.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 261.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 261.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--286
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 287.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 287.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 287.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 287.
+
+
+Overfull \hbox (9.20078pt too wide) in paragraph at lines 288--306
+/cmr12/An in-stru-ment file may have one or more []/cmtt12/<decoder>[] /cmr12/e
+l-e-ments. Each []/cmtt12/<decoder>[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--306
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 307.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 307.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 307.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 307.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--322
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--322
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--322
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--322
+
+ []
+
+
+Underfull \vbox (badness 1122) has occurred while \output is active []
+
+ [7]
+[8] [9]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 430.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 430.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 430.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 430.
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 452--453
+[]/cmr12/The mean-ing of this at-tribute is instrument-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--462
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--462
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--462
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--462
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--462
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
+
+ []
+
+[11]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 489.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--508
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--508
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--508
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--508
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 515.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--535
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--535
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--535
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--535
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 557--561
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--578
+
+ []
+
+[13]
+Overfull \hbox (42.25021pt too wide) in paragraph at lines 724--724
+[]    /cmtt12/Multisamples are described as a nested list (2 dimensional array)
+.[] 
+ []
+
+[14] [15]
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 724--724
+[]    /cmtt12/Intensity scale from Note **1-7 in the TRITON sysex document.[] 
+ []
+
+
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 724--724
+[]/cmtt12/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->[] 
+ []
+
+
+Overfull \hbox (23.7252pt too wide) in paragraph at lines 724--724
+[]    /cmtt12/<range min="0x8D" max="0xC3" minval="-12.00" increment="0.20"/>[]
+ 
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 724--724
+[]    /cmtt12/<range min="0xC4" max="0xCD" minval="-1.00" increment="0.05"/>[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 724--724
+[]    /cmtt12/<range min="0xCE" max="0x32" minval="-0.50" increment="0.01"/>[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 724--724
+[]    /cmtt12/<range min="0x33" max="0x3C" minval="+0.55" increment="0.05"/>[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 724--724
+[]    /cmtt12/<range min="0x3D" max="0x73" minval="+1.20" increment="0.20"/>[] 
+
+ []
+
+
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 724--724
+[]/cmtt12/<scale id="scale_fx_tabs" min="0x00" max="0x66" format="fx_%03d">[] 
+ []
+
+[16]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 732.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 732.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 732.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 732.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--751
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--751
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--751
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--751
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 760.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 760.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 760.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 760.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--779
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--779
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--779
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--779
+
+ []
+
+[17] [18]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 839.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 839.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 839.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 839.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--896
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--896
+
+ []
+
+
+Overfull \hbox (3.83131pt too wide) in paragraph at lines 869--896
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--896
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--896
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--896
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 906--924
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 906--924
+
+ []
+
+
+Overfull \hbox (23.7252pt too wide) in paragraph at lines 932--932
+[]    /cmtt12/<range min="0x8D" max="0xC3" minval="-12.00" increment="0.20"/>[]
+ 
+ []
+
+[20]
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 932--932
+[]    /cmtt12/<range min="0xC4" max="0xCD" minval="-1.00" increment="0.05"/>[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 932--932
+[]    /cmtt12/<range min="0xCE" max="0x32" minval="-0.50" increment="0.01"/>[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 932--932
+[]    /cmtt12/<range min="0x33" max="0x3C" minval="+0.55" increment="0.05"/>[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 932--932
+[]    /cmtt12/<range min="0x3D" max="0x73" minval="+1.20" increment="0.20"/>[] 
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 933--948
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 933--948
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 933--948
+
+ []
+
+[21] <html_ui.jpg, id=326, 2509.74pt x 2362.67308pt>
+File: html_ui.jpg Graphic file (type jpg)
+ <use html_ui.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 990--992
+
+ []
+
+[22 <html_ui.jpg>]
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 1026--1026
+[]/cmtt12/<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[] 
+ []
+
+
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 1026--1026
+[]/cmtt12/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->[] 
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 1026--1026
+[]/cmtt12/<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[] 
+
+ []
+
+
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 1026--1026
+[]/cmtt12/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->[] 
+ []
+
+
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 1026--1026
+[]/cmtt12/<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[] 
+ []
+
+
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 1026--1026
+[] /cmtt12/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->[] 
+ []
+
+
+Overfull \hbox (23.7252pt too wide) in paragraph at lines 1026--1026
+[]        /cmtt12/<tab caption="Performance Edit" url="triton_perfedit.htm"/>[]
+ 
+ []
+
+
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 1026--1026
+[]        /cmtt12/<tab caption="Program Basic" url="triton_pgmbasic.htm"/>[] 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1028.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1028.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1028.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1028.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1029--1044
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1029--1044
+
+ []
+
+[23]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1045.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1045.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1045.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1045.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1057
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1057
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1058.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1058.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1058.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1058.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1080
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1080
+
+ []
+
+[24]
+Overfull \hbox (29.9002pt too wide) in paragraph at lines 1158--1158
+[]             /cmtt12/<WIDGET CLASS="ChoiceWidget" DECODER="list_categories">[
+] 
+ []
+
+
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 1158--1158
+[]             /cmtt12/<WIDGET CLASS="SpinWidget" DECODER="scale_arp_gate">[] 
+ []
+
+
+Overfull \hbox (23.7252pt too wide) in paragraph at lines 1158--1158
+[]                     /cmtt12/<WIDGET CLASS="TextWidget" DECODER="list_1-2">[]
+ 
+ []
+
+[25]
+Overfull \hbox (23.7252pt too wide) in paragraph at lines 1158--1158
+[]                        /cmtt12/<PARAMETER ID="MFX1_effect_no"></PARAMETER>[]
+ 
+ []
+
+
+Overfull \hbox (23.7252pt too wide) in paragraph at lines 1158--1158
+[]                        /cmtt12/<PARAMETER ID="MFX1_effect_no"></PARAMETER>[]
+ 
+ []
+
+[26] [27] [28]
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 1305--1305
+[]/cmtt12/[pixels]        integer value that represents dimension in pixels[] 
+ []
+
+[29]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1312.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1312.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1312.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1312.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1339
+
+ []
+
+
+Overfull \hbox (29.9002pt too wide) in paragraph at lines 1357--1357
+[]        /cmtt12/<PARAMETER ID="COMMON_osc_mode" indexer="false"></PARAMETER>[
+] 
+ []
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1392
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1392
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1392
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1392
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1393.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1393.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1393.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1393.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1394--1416
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1394--1416
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1394--1416
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1394--1416
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1440--1459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1440--1459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1461--1479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1461--1479
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1499
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1499
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1501--1517
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1501--1517
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1519--1539
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1519--1539
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1519--1539
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1519--1539
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1519--1539
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1553--1574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1553--1574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1553--1574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1553--1574
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1576--1593
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1576--1593
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1595--1610
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1595--1610
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1628
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1628
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 1630--1649
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1630--1649
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1651--1670
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1651--1670
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1672--1687
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1672--1687
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1689--1707
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1689--1707
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1689--1707
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1689--1707
+
+ []
+
+
+Overfull \hbox (29.9002pt too wide) in paragraph at lines 1718--1718
+[]        /cmtt12/<PARAMETER ID="COMMON_osc_mode" indexer="false"></PARAMETER>[
+] 
+ []
+
+
+Underfull \vbox (badness 1117) has occurred while \output is active []
+
+ [37]
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 1797--1797
+[]/cmtt12/<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - -[] 
+ []
+
+
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 1797--1797
+[]/cmtt12/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->[] 
+ []
+
+[38]
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1799.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1799.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1799.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 1799.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1801--1821
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1801--1821
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1801--1821
+
+ []
+
+[39]
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 1881--1881
+[]/cmtt12/<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[] 
+ []
+
+
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 1881--1881
+[] /cmtt12/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->[] 
+ []
+
+[40]
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 1881--1881
+[]/cmtt12/<scale id="scale_fx_tabs" min="0x00" max="0x66" format="fx_%03d">[] 
+ []
+
+
+Overfull \hbox (21.56252pt too wide) in paragraph at lines 1883--1897
+[]/cmr12/This de-coder will con-vert the []/cmtt12/IFX1[]effect[]no[]/cmr12/: [
+] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1883--1897
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1883--1897
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1883--1897
+
+ []
+
+
+Overfull \hbox (1.71819pt too wide) in paragraph at lines 1914--1916
+[]/cmr12/The patch def-i-ni-tion []/cmtt12/<patch id="fx[]002">[] /cmr12/match-
+ing the de-coded value
+ []
+
+
+Overfull \hbox (23.6362pt too wide) in paragraph at lines 1917--1921
+/cmr12/patch (Pro-gram PCM) at off-set []/cmtt12/16[]/cmr12/, the off-set spec-
+i-fied in []/cmtt12/IFX1[]data[]offset[]/cmr12/. 
+ []
+
+[41] (dev_guide.aux) )<cmmi12.pfb><cmsy10.pfb><cmtt12.pfb><cmbx12.pfb><cmti12.p
+fb><cmr12.pfb><cmr17.pfb>
+Output written on dev_guide.pdf (41 pages, 303617 bytes).

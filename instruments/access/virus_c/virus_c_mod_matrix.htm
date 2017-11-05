@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Mod Matrix</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="6" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Modulation Matrix</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial"></FONT></TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Source:</FONT></TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Destination:</FONT></TD> 
+		  <TD WIDTH="150"><FONT FACE="Arial">Intensity:</FONT></TD> 
+		</TR>
+		<TR>
+ 	      <TD><FONT FACE="Arial">Assign 1:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_mod_matrix_sources"> 
+			  <PARAMETER ID="assign1_source"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign1_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign1_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign1_destination"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign1_source.getData() &gt; 0 and assign1_destination.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign1_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign1_destination" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign1_amount"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+	      <TD><FONT FACE="Arial">Assign 2:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_mod_matrix_sources"> 
+			  <PARAMETER ID="assign2_source"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign2_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign2_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign2_destination1"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign2_source.getData() &gt; 0 and assign2_destination1.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign2_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign2_destination1" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign2_amount1"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+		  <TD></TD> 
+		  <TD></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign2_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign2_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign2_destination2"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign2_source.getData() &gt; 0 and assign2_destination2.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign2_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign2_destination2" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign2_amount2"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+	      <TD><FONT FACE="Arial">Assign 3:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_mod_matrix_sources"> 
+			  <PARAMETER ID="assign3_source"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign3_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign3_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_destination1"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign3_source.getData() &gt; 0 and assign3_destination1.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign3_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_destination1" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_amount1"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+		  <TD></TD> 
+		  <TD></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign3_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign3_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_destination2"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign3_source.getData() &gt; 0 and assign3_destination2.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign3_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_destination2" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_amount2"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+		  <TD></TD> 
+		  <TD></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign3_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign3_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_destination3"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign3_source.getData() &gt; 0 and assign3_destination3.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign3_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_destination3" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign3_amount3"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+ 	      <TD><FONT FACE="Arial">Assign 4:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_mod_matrix_sources"> 
+			  <PARAMETER ID="assign4_source"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign4_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign4_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign4_destination"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign4_source.getData() &gt; 0 and assign4_destination.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign4_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign4_destination" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign4_amount"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+ 	      <TD><FONT FACE="Arial">Assign 5:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_mod_matrix_sources"> 
+			  <PARAMETER ID="assign5_source"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign5_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign5_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign5_destination"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign5_source.getData() &gt; 0 and assign5_destination.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign5_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign5_destination" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign5_amount"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR>
+ 	      <TD><FONT FACE="Arial">Assign 6:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_mod_matrix_sources"> 
+			  <PARAMETER ID="assign6_source"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" ENABLE="assign6_source.getData() &gt; 0" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="assign6_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign6_destination"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" 
+			  ENABLE="assign6_source.getData() &gt; 0 and assign6_destination.getData() &gt; 0" 
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="assign6_source" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign6_destination" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="assign6_amount"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+    </TABLE> 
+  </BODY>
+</HTML>

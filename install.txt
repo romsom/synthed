@@ -1,0 +1,17 @@
+SynthEd is in the prototype stage. We are using the Korg TRITON and Access VIRUS as an example for the prototype.
+
+To install the Synthed prototype:
+
+1. Download and install Python 2.2 from http://www.python.org
+2. Download and install wxPython 2.4 for Python 2.2 from http://www.wxpython.org
+3. Verify that a few of the wxPython sample programs work to check the baseline installation
+4. A sample VIRUS .SYX file is now included in the instruments/access/virus_c/sysex subdirectory. 
+5. Create a SYNTHED_HOME environment variable and set it to the directory where you installed SynthEd
+6. Add the SynthEd home directory to the PYTHONPATH environment variable
+7. Run Synthed. For example, under Windows, assuming that Synthed was installed in C:\synthed, open a command window and type:
+    set SYNTHED_HOME=c:\synthed
+    cd %SYNTHED_HOME%
+    c:\python22\python synthed.py
+From the File menu, Open a VIRUS .SYX file from the unzipped preload disk file. SynthEd will load the file and display a list of available banks. Select one of 
+the SINGLE banks and the available patches in the bank will be displayed. Double-click one or more of the patches to try out the patch editor.
+ 

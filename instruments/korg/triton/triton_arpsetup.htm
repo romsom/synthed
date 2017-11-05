@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Arpeggiator Setup</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table cellspacing="1"> 
+         <tr> 
+            <td><font color="#006666" face="Arial">Arpeggiator Tempo</font></td> 
+            <td><widget class="SpinWidget" format="%03d">
+               <parameter id="ARP_tempo"></parameter>
+            </widget></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+         </tr>
+      </table>
+      <table cellspacing="1"> 
+         <tr> 
+            <th colspan="6" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Arpeggiator Setup</b></font></th> 
+         </tr> 
+         <tr> 
+            <td><font color="#006666" face="Arial">Pattern</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_arp_patterns">
+               <parameter id="ARP_pattern_no"></parameter>
+            </widget></td>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">Octave</font></td> 
+            <td><widget class="SpinWidget" decoder="scale_1">
+               <parameter id="ARP_octave"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">Resolution</font></td> 
+            <td><widget class="SpinWidget" decoder="list_resolutions">
+               <parameter id="ARP_resolution"></parameter>
+            </widget></td>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">Gate</font></td> 
+            <td><widget class="SpinWidget" decoder="scale_arp_gate">
+               <parameter id="ARP_gate"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">Sort</font></td> 
+            <td><widget class="CheckWidget">
+               <parameter id="ARP_sort"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">Key Sync.</font></td> 
+            <td><widget class="CheckWidget">
+               <parameter id="ARP_key_sync"></parameter>
+            </widget></td>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">Velocity</font></td> 
+            <td><widget class="SpinWidget" decoder="scale_arp_velocity">
+               <parameter id="ARP_velocity"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">Latch</font></td> 
+            <td><widget class="CheckWidget">
+               <parameter id="ARP_latch"></parameter>
+            </widget></td>
+            <td><font color="#006666" face="Arial">Keyboard</font></td> 
+            <td><widget class="CheckWidget">
+               <parameter id="ARP_keyboard"></parameter>
+            </widget></td>
+         </tr>
+         <tr> 
+            <td><font color="#006666" face="Arial">Swing</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+               <parameter id="ARP_swing"></parameter>
+            </widget></td>
+         </tr>
+      </table> 
+   </body>
+</html>

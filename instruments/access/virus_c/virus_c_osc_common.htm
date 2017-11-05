@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Other Oscillator Parameters</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Phase</b></font>
+           </th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Phase Init:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_osc_phases"> 
+			  <PARAMETER ID="osc_init_phase"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Sub Oscillator</b></font>
+           </th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Shape:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_suboscillator_shapes"> 
+			  <PARAMETER ID="suboscillator_shape"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Volume:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="suboscillator_volume"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Noise</b></font>
+           </th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Color:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="150" LAYOUT="horizontal" DECODER="scale_noise_colors"> 
+			  <PARAMETER ID="noise_color"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Volume:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="noise_volume"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+	 </TABLE> 
+  </BODY>
+</HTML>

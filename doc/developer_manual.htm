@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>SynthEd Developer Guide</TITLE><LINK REL="STYLESHEET"
+	 HREF="doc.css"> 
+  </HEAD> 
+  <BODY> 
+	 <H1>SynthEd Developer Guide</H1> 
+	 <P>A SynthEd module is composed of several component files: </P> 
+	 <UL> 
+		<LI><A HREF="#config_file">SynthEd Configuration file</A></LI> 
+		<LI><A HREF="#instrument_file">Instrument file</A></LI> 
+		<LI>Data description files</LI> 
+		<LI>Decoder files</LI> 
+		<LI>Interface files</LI> 
+		<LI>Script files</LI> 
+	 </UL> 
+	 <P></P> 
+	 <H3>Directory Structure</H3> 
+	 <P>Here is a simplified version of the SynthEd directory structure:</P> 
+	 <P></P> 
+	 <PRE>
+    |
+    |---synthed/
+    |   |---config.dtd
+    |   |---config.xml
+    |   |
+    |   |---doc/
+    |   |
+    |   |---instruments/
+    |   |   |---data.dtd
+    |   |   |---decoder.dtd
+    |   |   |---instrument.dtd
+    |   |   |---interface.dtd
+    |   |   |
+    |   |   |---access/
+    |   |   |
+    |   |   |---korg/
+    |   |   |   |
+    |   |   |   |---triton/
+    |   |   |   |   |---triton.xml
+    |   |   |   |   |---triton_rack.xml
+    |   |   |   |   |---triton_pcm.xml
+    |   |   |   |   |---triton_decoder.xml
+    |   |   |   |   |---triton_ui.xml
+    |   |   |   |   |---triton.py
+    |   |   |   |   |---triton_arp.htm
+    |   |   |   |   |---triton_perfedit.htm
+    |   |   |   |   |---triton_pgmbasic.htm
+    |   |   |   |   |---triton_pitcheg.htm
+    |   |   |   |   |---images/
+    |   |   |   |   |   |---	 
+</PRE> 
+	 <P><CODE></CODE>SynthEd module files may be placed anywhere, but by convention they
+		reside under the <CODE>instruments/</CODE> subdirectory, and they are organized into a <CODE>manufacturer/family/model</CODE> hierarchy where possible.</P> 
+	 <H3>About XML</H3> 
+	 <P>XML documents use a self-describing, simple grammar. If you are not
+		already familiar with XML, check out this
+		<A HREF="http://www.w3schools.com/xml/default.asp">XML tutorial</A>.There are
+		several good XML editors available. <A HREF="http://xmlcooktop.com/">XML
+		Cooktop</A> is one example of a free XML editor for Windows. After editing an
+		XML file, always validate the file against the DTD (Data Type Definition). Find
+		and fix any problems before using the file with SynthEd. Use of invalid or
+		malformed XML documents can cause unpredictable results.</P> 
+	 <H3><A NAME="config_file">SynthEd Configuration File (config.xml)</A></H3> 
+	 <P>The <CODE>config.xml</CODE> file contains installation-specific configuration info or preferences.
+		Typically this will include information about which synths are installed, the
+		MIDI ports, sysex device numbers and channels to use, etc. Here is a minimal <CODE>config.xml</CODE> file:</P> 
+	 <PRE>
+&lt;?xml version="1.0"?&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    config.xml
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+
+&lt;!DOCTYPE synthed SYSTEM "config.dtd"&gt;
+
+&lt;synthed&gt;
+	&lt;instruments&gt;
+		&lt;!-- &lt;instrument id="k2000" caption="K2600XS" path="instruments/kurzweil/k2000/k2000.xml"/&gt; --&gt;
+		&lt;instrument id="triton_rack" caption="TRITON-Rack" path="instruments/korg/triton/triton_rack.xml"/&gt;
+		&lt;instrument id="synthdev" caption="SynthEd" path="instruments/synthed/synthdev.xml"/&gt;
+	&lt;/instruments&gt;
+&lt;/synthed&gt;
+</PRE> 
+	 <P>Each synth or MIDI device that is to be managed by SynthEd must be
+		described by an <CODE>&lt;instrument&gt;</CODE> element.</P> 
+	 <H4><CODE>&lt;instrument&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>id</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>a unique name for the synth.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>caption</CODE></TD> 
+		  <TD>N</TD> 
+		  <TD>the name that SynthEd will display for the synth.</TD> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>path</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the path to the instrument file. Relative paths are evaluated
+			 relative to the SynthEd home directory.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>The <CODE>config.xml</CODE> file will be extended with more attributes as needed.</P> 
+	 <H3><A NAME="instrument_file">Instrument File</A></H3> 
+	 <P>The instrument file serves as an index to the rest of the synth "module"
+		information. Here is an example instrument file for the Korg TRITON-Rack:</P> 
+	 <P></P> 
+	 <PRE>
+&lt;?xml version="1.0"?&gt;
+
+&lt;!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	triton_rack.xml
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --&gt;
+
+&lt;!DOCTYPE instrument SYSTEM "../../instrument.dtd"&gt;
+
+&lt;instrument id="triton_rack"&gt;
+
+	&lt;module id="triton"/&gt;
+	
+	&lt;data&gt;
+		&lt;patch path="triton_pcm.xml"/&gt;
+		&lt;patch path="triton_fx.xml"/&gt;
+	&lt;/data&gt;
+	
+	&lt;decoders&gt;
+		&lt;decoder path="triton_decoder.xml"/&gt;
+	&lt;/decoders&gt;
+	
+	&lt;interfaces&gt;
+		&lt;interface path="triton_ui.xml"/&gt;
+	&lt;/interfaces&gt;
+	
+	&lt;modes&gt;
+		&lt;mode id="prog" caption="Program"&gt;
+			&lt;bank caption="PROG INT-A" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-B" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-C" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-D" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-E" min="0" max="127"/&gt;
+			&lt;bank caption="PROG INT-F" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-A" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-B" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-C" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-D" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-E" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-F" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-G" min="0" max="127"/&gt;
+			&lt;bank caption="PROG EXT-H" min="0" max="127"/&gt;
+		&lt;/mode&gt;
+		&lt;mode id="combi" caption="Combination"&gt;
+			&lt;bank caption="COMBI INT-A" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-B" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-C" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-D" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-E" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI INT-F" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-A" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-B" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-C" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-D" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-E" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-F" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-G" min="0" max="127"/&gt;
+			&lt;bank caption="COMBI EXT-H" min="0" max="127"/&gt;
+		&lt;/mode&gt;
+		&lt;mode id="GLOB" caption="Global"&gt;
+		&lt;/mode&gt;
+	&lt;/modes&gt;
+	
+&lt;/instrument&gt;
+</PRE> 
+	 <P>The instrument file contains the following elements:</P> 
+	 <H4><CODE>&lt;module&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>id</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the Python module name.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>An instrument file may have one or more <CODE>&lt;module&gt;</CODE> elements. The Python module contains objects and functions that are too
+		complex to describe in XML. The Python module is imported into the instrument's
+		namespace when the instrument definition is loaded. Python module objects may
+		be referenced by certain XML elements.</P> 
+	 <H4><CODE>&lt;patch&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>path</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the path for a patch definition file. Relative paths are evaluated
+			 relative to the path of the instrument file.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>An instrument file may have one or more <CODE>&lt;patch&gt;</CODE> elements. Each <CODE>&lt;patch&gt;</CODE> describes the parameter layout for one type of patch. Note that the
+		word "patch" is used to mean the layout or schema of any one data type. For
+		example, a given instrument may have a Program patch, a Performance patch and a
+		Global patch. Our use of the word "patch" should not be confused with the use
+		of the word "patch" by some synth manufacturers. For example, a Roland JP-8080
+		has a "Patch", a "Performance" and a "System" data type. Each of these data
+		types would have a corresponding <CODE>&lt;patch&gt;</CODE> element in a SynthEd instrument file.</P> 
+	 <H4><CODE>&lt;decoder&gt;</CODE></H4> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Attribute</TH> 
+		  <TH>Required</TH> 
+		  <TH>Description</TH> 
+		</TR> 
+		<TR> 
+		  <TD><CODE>path</CODE></TD> 
+		  <TD>Y</TD> 
+		  <TD>the path for a decoder file. Relative paths are evaluated relative
+			 to the path of the instrument file.</TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>An instrument file may have one or more <CODE>&lt;decoder&gt;</CODE> elements. Each <CODE>&lt;decoder&gt;</CODE> describes the location of a decoder file. Decoder files contain a sets
+		of specifications for converting between internal (data) values and external
+		(display) values. As an example of one such decoder spec, an oscillator mode
+		parameter may decode as:</P> 
+	 <TABLE BORDER="1"> 
+		<TR> 
+		  <TH>Data Value</TH> 
+		  <TH>Display Value</TH> 
+		</TR> 
+		<TR> 
+		  <TD>0</TD> 
+		  <TD>Single</TD> 
+		</TR> 
+		<TR> 
+		  <TD>1</TD> 
+		  <TD>Double</TD> 
+		</TR> 
+		<TR> 
+		  <TD>2</TD> 
+		  <TD>Drumkit</TD> 
+		</TR> 
+	 </TABLE>
+	 <P>More information on the content of the decoder files will be presented
+		later.</P> 
+  </BODY>
+</HTML>

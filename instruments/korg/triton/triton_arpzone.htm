@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Scan Zone</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table>
+         <tr>
+            <td width="100"></td>
+            <td width="70"><font color="#006666" face="Arial">Bottom</font></td> 
+            <td align="center"><font color="#006666" face="Arial">Zone</font></td> 
+            <td width="70"><font color="#006666" face="Arial">Top</font></td> 
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Scan</font></td> 
+            <td><widget class="SpinWidget" decoder="list_keys">
+	       <parameter id="ARP_bottom_key"></parameter>
+	    </widget></td>
+            <td><widget class="GaugeWidget">
+               <parameter id="ARP_bottom_key"></parameter>	
+               <parameter id="ARP_top_key"></parameter>	
+            </widget></td>
+            <td><widget class="SpinWidget" decoder="list_keys">
+	       <parameter id="ARP_top_key"></parameter>
+	    </widget></td>
+         </tr>
+	 <tr>
+	    <td><font color="#006666" face="Arial">Velocity</font></td> 
+	    <td><widget class="SpinWidget" format="%03d">
+	       <parameter id="ARP_bottom_velocity"></parameter>
+	    </widget></td>
+	    <td><widget class="GaugeWidget">
+	       <parameter id="ARP_bottom_velocity"></parameter>	
+	       <parameter id="ARP_top_velocity"></parameter>	
+	    </widget></td>
+	    <td><widget class="SpinWidget" format="%03d">
+	       <parameter id="ARP_top_velocity"></parameter>	
+	    </widget></td>
+	 </tr>
+      </table>
+   </body>
+</html>

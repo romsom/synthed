@@ -1,0 +1,50 @@
+\BOOKMARK [1][-]{section.1}{Overview}{}
+\BOOKMARK [1][-]{section.2}{Directory Structure}{}
+\BOOKMARK [1][-]{section.3}{SynthEd Modules}{}
+\BOOKMARK [1][-]{section.4}{Configuration File}{}
+\BOOKMARK [2][-]{subsection.4.1}{<instrument>}{section.4}
+\BOOKMARK [1][-]{section.5}{Instrument File}{}
+\BOOKMARK [2][-]{subsection.5.1}{<module>}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{<patch>}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{<decoder>}{section.5}
+\BOOKMARK [2][-]{subsection.5.4}{<interface>}{section.5}
+\BOOKMARK [1][-]{section.6}{Patch Files}{}
+\BOOKMARK [2][-]{subsection.6.1}{<patch>}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Attribute Expressions}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{Parameter Child Elements}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.3.1}{<array>}{subsection.6.3}
+\BOOKMARK [3][-]{subsubsection.6.3.2}{<byte>}{subsection.6.3}
+\BOOKMARK [2][-]{subsection.6.4}{Parameter Naming Conventions}{section.6}
+\BOOKMARK [1][-]{section.7}{Decoder Files}{}
+\BOOKMARK [2][-]{subsection.7.1}{<list>}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{List Child Elements}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.2.1}{<item>}{subsection.7.2}
+\BOOKMARK [2][-]{subsection.7.3}{<scale>}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.3.1}{range}{subsection.7.3}
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Decoder Design Guidelines}{subsection.7.3}
+\BOOKMARK [1][-]{section.8}{Interface Files}{}
+\BOOKMARK [2][-]{subsection.8.1}{<mode>}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{<page>}{section.8}
+\BOOKMARK [2][-]{subsection.8.3}{<tab>}{section.8}
+\BOOKMARK [1][-]{section.9}{Editor Files}{}
+\BOOKMARK [2][-]{subsection.9.1}{Supported HTML Elements}{section.9}
+\BOOKMARK [2][-]{subsection.9.2}{Supported HTML Attributes}{section.9}
+\BOOKMARK [2][-]{subsection.9.3}{Extended HTML tags}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.3.1}{<widget>}{subsection.9.3}
+\BOOKMARK [3][-]{subsubsection.9.3.2}{<parameter>}{subsection.9.3}
+\BOOKMARK [2][-]{subsection.9.4}{Widgets}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.4.1}{ButtonWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.2}{CheckWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.3}{ChoiceWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.4}{EditWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.5}{EnvelopeWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.6}{GaugeWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.7}{LabelWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.8}{RadioWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.9}{SliderWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.10}{SpinWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.11}{TextWidget}{subsection.9.4}
+\BOOKMARK [3][-]{subsubsection.9.4.12}{GroupWidget}{subsection.9.4}
+\BOOKMARK [1][-]{section.10}{Dynamic Content}{}
+\BOOKMARK [2][-]{subsection.10.1}{Dynamic <tab> elements}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{Dynamic Tab Operation}{section.10}

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	triton_midi.xml
+
+	This data definition should be compatible with Korg TRITON, pro, 
+	proX, Rack and Studio. Korg TRITON LE and KARMA differ slightly, so they 
+	can be derived from this definition at a later time.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE data SYSTEM "../../data.dtd">
+
+<data>
+
+<!-- Make a default editor to edit and print patches -->
+<!-- Make a utility to send and receive these -->
+<patch id="mode_request" caption="Mode Request">
+	<parameter value="0xF042">
+		<array offset="0" length="2"/>
+	</parameter>
+	<parameter value="0x03">
+		<byte offset="2" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="MR_global_channel" min="0" max="15">
+		<byte offset="2" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter value="0x5012F7">
+		<array offset="3" length="3"/>
+	</parameter>
+</patch>
+
+<patch id="current_pgm_param_dump_request" caption="Current Program Parameter Dump Request">
+	<parameter value="0xF042">
+		<array offset="0" length="2"/>
+	</parameter>
+	<parameter value="0x03">
+		<byte offset="2" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="CPPDR_global_channel" min="0" max="15">
+		<byte offset="2" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter value="0x501000F7">
+		<array offset="3" length="4"/>
+	</parameter>
+</patch>
+
+<patch id="pgm_param_dump_request" caption="Program Parameter Dump Request">
+	<parameter value="0xF042">
+		<array offset="0" length="2"/>
+	</parameter>
+	<parameter value="0x03">
+		<byte offset="2" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="PPDR_global_channel" min="0" max="15">
+		<byte offset="2" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter value="0x501C">
+		<array offset="3" length="2"/>
+	</parameter>
+	<parameter id="PPDR_kind" min="0" max="15">
+		<byte offset="5" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="PDDR_bank" min="0" max="15">
+		<byte offset="5" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter id="PDDR_program" min="0" max="127">
+		<byte offset="6"/>
+	</parameter>
+	<parameter value="0xF7">
+		<byte offset="7"/>
+	</parameter>
+</patch>
+
+<patch id="pgm_param_dump" caption="Program Parameter Dump">
+	<parameter value="0xF042">
+		<array offset="0" length="2"/>
+	</parameter>
+	<parameter value="0x03">
+		<byte offset="2" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="PPD_global_channel" min="0" max="15">
+		<byte offset="2" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter value="0x504C">
+		<array offset="3" length="2"/>
+	</parameter>
+	<parameter id="PPD_kind" min="0" max="15">
+		<byte offset="5" bitstart="4" bitstop="7"/>
+	</parameter>
+	<parameter id="PPD_bank" min="0" max="15">
+		<byte offset="5" bitstart="0" bitstop="3"/>
+	</parameter>
+	<parameter id="PPD_program" min="0" max="127">
+		<byte offset="6"/>
+	</parameter>
+	<parameter id="PPD_data">
+		<!-- Note this is variable length delimited by a 0xF7 -->
+		<array offset="7" enddelimiter="0xF7"/>
+	</parameter>
+	<parameter value="0xF7">
+		<byte begindelimiter="0xF7"/>
+	</parameter>
+</patch>
+
+</data>	

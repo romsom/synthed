@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Main</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Analog Inputs</b></font>
+           </th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Mode:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_input_modes"> 
+			  <PARAMETER ID="input_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><font face="Arial">In Select:</font></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_input_selects"> 
+			  <PARAMETER ID="input_select"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Envelope Follower</b></font>
+           </th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Mode:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_input_follower_modes"> 
+			  <PARAMETER ID="input_follower_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD>
+		  <TD WIDTH="100"><FONT FACE="Arial">Gain:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  ENABLE="input_follower_mode.getData() &gt; 0"> 
+			  <PARAMETER ID="input_follower_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="filter_env_sustain"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Attack:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  ENABLE="input_follower_mode.getData() &gt; 0"> 
+			  <PARAMETER ID="input_follower_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="filter_env_attack"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Release:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  ENABLE="input_follower_mode.getData() &gt; 0"
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="input_follower_mode" INDEXER="false"></PARAMETER>
+			  <PARAMETER ID="filter_env_decay"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font face="Arial" size="4" color="#FFFFFF">Ring Modulator</font></th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Intensity:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="punch_intensity"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+	 </TABLE> 
+  </BODY>
+</HTML>

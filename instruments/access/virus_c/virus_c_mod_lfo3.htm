@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>LFO 3</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="6" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Waveform</b></font>
+           </th> 
+         </tr> 
+		<TR> 
+		  <TD WIDTH="75"><FONT FACE="Arial">Shape:</FONT></TD> 
+		  <TD colspan="2">
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="scale_lfo_shapes"> 
+			  <PARAMETER ID="lfo3_shape"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Rate:</FONT></TD> 
+		  <TD colspan="2">
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%"> 
+			  <PARAMETER ID="lfo3_rate"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Fade-in Time:</FONT></TD> 
+		  <TD colspan="2">
+			 <WIDGET CLASS="SpinWidget" WIDTH="100%"> 
+			  <PARAMETER ID="lfo3_fade_in_time"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Mode:</FONT></TD> 
+		  <TD colspan="2">
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_lfo_modes"> 
+			  <PARAMETER ID="lfo3_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+		<TR colspan="2"> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Clock:</FONT></TD> 
+		  <TD colspan="2">
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" DECODER="list_lfo_clocks"> 
+			  <PARAMETER ID="lfo3_clock"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial"></FONT></TD> 
+		  <TD colspan="2">
+		  </TD> 
+		</TR>
+		<TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial"></FONT></TD> 
+		  <TD colspan="2">
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Keyfollow:</FONT></TD> 
+		  <TD colspan="2">
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" decoder="scale_keyfollow"> 
+			  <PARAMETER ID="lfo3_keyfollow"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		</TR>
+         <tr>
+		  <TD WIDTH="75"><FONT FACE="Arial">Assign Dest:</FONT></TD> 
+		  <TD colspan="2">
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal" 
+			  DECODER="list_mod_matrix_destinations"> 
+			  <PARAMETER ID="lfo3_destination"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+         </tr>
+         <tr> 
+           <th colspan="6" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Intensity</b></font>
+           </th> 
+         </tr>
+		      <tr valign="TOP"> 
+		         <td><font size="-1"  color="#000000" face="Arial">Osc</font></td>
+		         <td><font size="-1"  color="#000000" face="Arial"></font></td> 
+		         <td><font size="-1"  color="#000000" face="Arial"></font></td> 
+		         <td><font size="-1"  color="#000000" face="Arial"></font></td> 
+		         <td><font size="-1"  color="#000000" face="Arial"></font></td> 
+		         <td><font size="-1"  color="#000000" face="Arial"></font></td> 
+		      </tr> 
+		      <tr> 
+			    <td><widget class="SliderWidget" layout="vertical" decoder="scale_centered">
+			        <parameter id="osc_lfo3_amount"/>
+		        </widget></td> 
+		        <td></td> 
+		        <td></td> 
+		        <td></td> 
+		        <td></td>
+		        <td></td>
+		       </tr>
+    </TABLE> 
+  </BODY>
+</HTML>

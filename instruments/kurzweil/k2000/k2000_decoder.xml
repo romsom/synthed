@@ -1,0 +1,1244 @@
+<?xml version="1.0"?>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	k2000_decoder.xml
+
+	This data definition should be compatible with the Kurzweil K2000, 
+	K2500 and K2600 series.
+	
+	Copyright (c) 2002 by John Bair. ALL RIGHTS RESERVED.
+
+	This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+	
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+	General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License 
+	along with this program; if not, write to the Free Software Foundation, 
+	Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA	
+	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE decoder SYSTEM "../../decoder.dtd">
+
+<decoder>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Lists of values that can be referenced by controls. They are arranged 
+	alphabetically in the hope that they will be easier to maintain. 
+	Lists may be nested. 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<lists>
+
+<!-- AMPENV modes -->
+<list id="list_ampenv_modes">
+	<item value="Natural"/>
+	<item value="User"/>
+</list>
+
+<!-- AMPENV loop types -->
+<list id="list_ampenv_loop_types">
+	<item value="Off"/>
+	<item value="Seg1F"/>
+	<item value="Seg2F"/>
+	<item value="Seg3F"/>
+	<item value="Seg1B"/>
+	<item value="Seg2B"/>
+	<item value="Seg3B"/>
+</list>
+
+<!-- ASR modes -->
+<list id="list_asr_modes">
+	<item value="Norm"/>
+	<item value="Hold"/>
+	<item value="Rept"/>
+</list>
+
+<!-- Control sources -->
+<list id="list_control_sources">
+	<item value="OFF"/>
+	<item value="MWheel"/>
+	<item value="Breath"/>
+	<item value="MIDI03"/>
+	<item value="Foot"/>
+	<item value="PortTim"/>
+	<item value="Data"/>
+	<item value="Volume"/>
+	<item value="Balance"/>
+	<item value="MIDI09"/>
+	<item value="Pan"/>
+	<item value="Express"/>
+	<item value="MIDI12"/>
+	<item value="MIDI13"/>
+	<item value="MIDI14"/>
+	<item value="MIDI15 (AuxBend2)"/>
+	<item value="Ctl A"/>
+	<item value="Ctl B"/>
+	<item value="Ctl C"/>
+	<item value="Ctl D"/>
+	<item value="MIDI20"/>
+	<item value="MIDI21 (AuxBend1)"/>
+	<item value="MIDI22"/>
+	<item value="MIDI23"/>
+	<item value="MIDI24"/>
+	<item value="MIDI25"/>
+	<item value="MIDI26"/>
+	<item value="MIDI27"/>
+	<item value="MIDI28"/>
+	<item value="MIDI29"/>
+	<item value="MIDI30"/>
+	<item value="MIDI31"/>
+	<item value="Chan St"/>
+	<item value="MPress"/>
+	<item value="BMPress"/>
+	<item value="PWheel"/>
+	<item value="Bi-Mwl"/>
+	<item value="AbsPwl"/>
+	<item value="GASR2"/>
+	<item value="GFUN2"/>
+	<item value="GLFO2"/>
+	<item value="GLFO2ph"/>
+	<item value="GFUN4"/>
+	<item value="VolCtl"/>
+	<item value="BalCtl"/>
+	<item value="PanCtl"/>
+	<item value="ChanCnt"/>
+	<item value="A Clk4"/>
+	<item value="~AClk4"/>
+	<item value="B Clk4"/>
+	<item value="-BClk4"/>
+	<item value="A Clk2"/>
+	<item value="~AClk2"/>
+	<item value="B Clk2"/>
+	<item value="-BClk2"/>
+	<item value="Tempo/SyncSt"/>
+	<item value="AClock"/>
+	<item value="~A Clk"/>
+	<item value="BClock"/>
+	<item value="~B Clk"/>
+	<item value="GPhase1"/>
+	<item value="GPhase2"/>
+	<item value="GRandV1"/>
+	<item value="GRandV2"/>
+	<item value="Sustain"/>
+	<item value="PortSw"/>
+	<item value="SostPd"/>
+	<item value="SoftPd"/>
+	<item value="LegatoSw"/>
+	<item value="FrezPd"/>
+	<item value="MIDI70"/>
+	<item value="MIDI71"/>
+	<item value="MIDI72"/>
+	<item value="MIDI73"/>
+	<item value="MIDI74"/>
+	<item value="MIDI75"/>
+	<item value="MIDI76"/>
+	<item value="MIDI77"/>
+	<item value="MIDI78"/>
+	<item value="MIDI79"/>
+	<item value="Ctl E"/>
+	<item value="Ctl F"/>
+	<item value="Ctl G"/>
+	<item value="Ctl H"/>
+	<item value="MIDI84"/>
+	<item value="MIDI85"/>
+	<item value="MIDI86"/>
+	<item value="MIDI87"/>
+	<item value="MIDI88"/>
+	<item value="MIDI89"/>
+	<item value="MIDI90"/>
+	<item value="FX Depth"/>
+	<item value="MIDI92"/>
+	<item value="MIDI93"/>
+	<item value="MIDI94"/>
+	<item value="MIDI95"/>
+	<item value="Note St"/>
+	<item value="Key St"/>
+	<item value="KeyNum"/>
+	<item value="BKeyNum"/>
+	<item value="AttVel"/>
+	<item value="InvAVel"/>
+	<item value="PPress"/>
+	<item value="BPPress"/>
+	<item value="RelVel"/>
+	<item value="Bi-AVel"/>
+	<item value="VTRIG1"/>
+	<item value="VTRIG2"/>
+	<item value="RandV1"/>
+	<item value="RandV2"/>
+	<item value="ASR1"/>
+	<item value="ASR2"/>
+	<item value="FUN1"/>
+	<item value="FUN2"/>
+	<item value="LFO1"/>
+	<item value="LFO1ph"/>
+	<item value="LFO2"/>
+	<item value="LFO2ph"/>
+	<item value="FUN3"/>
+	<item value="FUN4"/>
+	<item value="AMPENV"/>
+	<item value="ENV2"/>
+	<item value="ENV3"/>
+	<item value="Loop St"/>
+	<item value="PB Rate"/>
+	<item value="Atk Stat"/>
+	<item value="Rel Stat"/>
+	<item value="ON"/>
+	<item value="-ON"/>
+	<item value="GKeyNum"/>
+	<item value="GAttVel"/>
+	<item value="GLowKey"/>
+	<item value="GHiKey"/>
+</list>
+
+<!-- Function arguments = all control sources + constants -->
+<list id="list_function_arguments">
+	<item value="OFF"/>
+	<item value="MWheel"/>
+	<item value="Breath"/>
+	<item value="MIDI03"/>
+	<item value="Foot"/>
+	<item value="PortTim"/>
+	<item value="Data"/>
+	<item value="Volume"/>
+	<item value="Balance"/>
+	<item value="MIDI09"/>
+	<item value="Pan"/>
+	<item value="Express"/>
+	<item value="MIDI12"/>
+	<item value="MIDI13"/>
+	<item value="MIDI14"/>
+	<item value="MIDI15 (AuxBend2)"/>
+	<item value="Ctl A"/>
+	<item value="Ctl B"/>
+	<item value="Ctl C"/>
+	<item value="Ctl D"/>
+	<item value="MIDI20 (AuxBend1)"/>
+	<item value="MIDI21"/>
+	<item value="MIDI22"/>
+	<item value="MIDI23"/>
+	<item value="MIDI24"/>
+	<item value="MIDI25"/>
+	<item value="MIDI26"/>
+	<item value="MIDI27"/>
+	<item value="MIDI28"/>
+	<item value="MIDI29"/>
+	<item value="MIDI30"/>
+	<item value="MIDI31"/>
+	<item value="Chan St"/>
+	<item value="MPress"/>
+	<item value="BMPress"/>
+	<item value="PWheel"/>
+	<item value="Mwl"/>
+	<item value="AbsPwl"/>
+	<item value="GASR2"/>
+	<item value="GFUN2"/>
+	<item value="GLFO2"/>
+	<item value="GLFO2ph"/>
+	<item value="GFUN4"/>
+	<item value="VolCtl"/>
+	<item value="BalCtl"/>
+	<item value="PanCtl"/>
+	<item value="ChanCnt"/>
+	<item value="A Clk4"/>
+	<item value="~AClk4"/>
+	<item value="Clk4"/>
+	<item value="BClk4"/>
+	<item value="Clk2"/>
+	<item value="AClk2"/>
+	<item value="Clk2"/>
+	<item value="BClk2"/>
+	<item value="Sync St / Tempo"/>
+	<item value="AClock"/>
+	<item value="Clk"/>
+	<item value="BClock"/>
+	<item value="Clk"/>
+	<item value="GPhas1"/>
+	<item value="GPhas2"/>
+	<item value="GRand1"/>
+	<item value="GRand2"/>
+	<item value="Sustain"/>
+	<item value="PortSw"/>
+	<item value="SostPd"/>
+	<item value="SoftPd"/>
+	<item value="LegatoSw"/>
+	<item value="FrezPd"/>
+	<item value="MIDI70"/>
+	<item value="MIDI71"/>
+	<item value="MIDI72"/>
+	<item value="MIDI73"/>
+	<item value="MIDI74"/>
+	<item value="MIDI75"/>
+	<item value="MIDI76"/>
+	<item value="MIDI77"/>
+	<item value="MIDI78"/>
+	<item value="MIDI79"/>
+	<item value="Ctl E"/>
+	<item value="Ctl F"/>
+	<item value="Ctl G"/>
+	<item value="Ctl H"/>
+	<item value="MIDI84"/>
+	<item value="MIDI85"/>
+	<item value="MIDI86"/>
+	<item value="MIDI87"/>
+	<item value="MIDI88"/>
+	<item value="MIDI89"/>
+	<item value="MIDI90"/>
+	<item value="FX Depth"/>
+	<item value="MIDI92"/>
+	<item value="MIDI93"/>
+	<item value="MIDI94"/>
+	<item value="MIDI95"/>
+	<item value="Note St"/>
+	<item value="Key St"/>
+	<item value="KeyNum"/>
+	<item value="BKeyNum"/>
+	<item value="AttVel"/>
+	<item value="InvAVel"/>
+	<item value="PPress"/>
+	<item value="BPPress"/>
+	<item value="RelVel"/>
+	<item value="AVel"/>
+	<item value="VTRIG1"/>
+	<item value="VTRIG2"/>
+	<item value="RandV1"/>
+	<item value="RandV2"/>
+	<item value="ASR1"/>
+	<item value="ASR2"/>
+	<item value="FUN1"/>
+	<item value="FUN2"/>
+	<item value="LFO1"/>
+	<item value="LFO1ph"/>
+	<item value="LFO2"/>
+	<item value="LFO2ph"/>
+	<item value="FUN3"/>
+	<item value="FUN4"/>
+	<item value="AMPENV"/>
+	<item value="ENV2"/>
+	<item value="ENV3"/>
+	<item value="Loop St"/>
+	<item value="PB Rate"/>
+	<item value="Atk Stat"/>
+	<item value="Rel Stat"/>
+	<item value="ON"/>
+	<item value="ON"/>
+	<item value="GKeyNum"/>
+	<item value="GAttVel"/>
+	<item value="GLowKey"/>
+	<item value="GHiKey"/>
+	<item value="-0.99"/>
+	<item value="-0.98"/>
+	<item value="-0.97"/>
+	<item value="-0.96"/>
+	<item value="-0.95"/>
+	<item value="-0.94"/>
+	<item value="-0.93"/>
+	<item value="-0.92"/>
+	<item value="-0.91"/>
+	<item value="-0.90"/>
+	<item value="-0.88"/>
+	<item value="-0.86"/>
+	<item value="-0.84"/>
+	<item value="-0.82"/>
+	<item value="-0.80"/>
+	<item value="-0.78"/>
+	<item value="-0.76"/>
+	<item value="-0.74"/>
+	<item value="-0.72"/>
+	<item value="-0.70"/>
+	<item value="-0.68"/>
+	<item value="-0.66"/>
+	<item value="-0.64"/>
+	<item value="-0.62"/>
+	<item value="-0.60"/>
+	<item value="-0.58"/>
+	<item value="-0.56"/>
+	<item value="-0.54"/>
+	<item value="-0.52"/>
+	<item value="-0.50"/>
+	<item value="-0.48"/>
+	<item value="-0.46"/>
+	<item value="-0.44"/>
+	<item value="-0.42"/>
+	<item value="-0.40"/>
+	<item value="-0.38"/>
+	<item value="-0.36"/>
+	<item value="-0.34"/>
+	<item value="-0.32"/>
+	<item value="-0.30"/>
+	<item value="-0.28"/>
+	<item value="-0.26"/>
+	<item value="-0.24"/>
+	<item value="-0.22"/>
+	<item value="-0.20"/>
+	<item value="-0.18"/>
+	<item value="-0.16"/>
+	<item value="-0.14"/>
+	<item value="-0.12"/>
+	<item value="-0.10"/>
+	<item value="-0.09"/>
+	<item value="-0.08"/>
+	<item value="-0.07"/>
+	<item value="-0.06"/>
+	<item value="-0.05"/>
+	<item value="-0.04"/>
+	<item value="-0.03"/>
+	<item value="-0.02"/>
+	<item value="-0.01"/>
+	<item value="0.00"/>
+	<item value="0.01"/>
+	<item value="0.02"/>
+	<item value="0.03"/>
+	<item value="0.04"/>
+	<item value="0.05"/>
+	<item value="0.06"/>
+	<item value="0.07"/>
+	<item value="0.08"/>
+	<item value="0.09"/>
+	<item value="0.10"/>
+	<item value="0.12"/>
+	<item value="0.14"/>
+	<item value="0.16"/>
+	<item value="0.18"/>
+	<item value="0.20"/>
+	<item value="0.22"/>
+	<item value="0.24"/>
+	<item value="0.26"/>
+	<item value="0.28"/>
+	<item value="0.30"/>
+	<item value="0.32"/>
+	<item value="0.34"/>
+	<item value="0.36"/>
+	<item value="0.38"/>
+	<item value="0.40"/>
+	<item value="0.42"/>
+	<item value="0.44"/>
+	<item value="0.46"/>
+	<item value="0.48"/>
+	<item value="0.50"/>
+	<item value="0.52"/>
+	<item value="0.54"/>
+	<item value="0.56"/>
+	<item value="0.58"/>
+	<item value="0.60"/>
+	<item value="0.62"/>
+	<item value="0.64"/>
+	<item value="0.66"/>
+	<item value="0.68"/>
+	<item value="0.70"/>
+	<item value="0.72"/>
+	<item value="0.74"/>
+	<item value="0.76"/>
+	<item value="0.78"/>
+	<item value="0.80"/>
+	<item value="0.82"/>
+	<item value="0.84"/>
+	<item value="0.86"/>
+	<item value="0.88"/>
+	<item value="0.90"/>
+	<item value="0.91"/>
+	<item value="0.92"/>
+	<item value="0.93"/>
+	<item value="0.94"/>
+	<item value="0.95"/>
+	<item value="0.96"/>
+	<item value="0.97"/>
+	<item value="0.98"/>
+	<item value="0.99"/>
+	<item value="0.99"/>
+	<item value="0.99"/>
+	<item value="0.99"/>
+	<item value="0.99"/>
+</list>
+
+<!-- Drawbar steps -->
+<list id="list_drawbar_steps">
+	<item value="0-127"/>
+	<item value="0-8"/>
+</list>
+
+<!-- Drawbar steps -->
+<list id="list_drawbar_modes">
+	<item value="Preset"/>
+	<item value="Live"/>
+</list>
+
+<!-- Function operations -->
+<list id="list_function_operations">
+	<item value="None"/>
+	<item value="a+b"/>
+	<item value="a-b"/>
+	<item value="(a+b)/2"/>
+	<item value="a/2+b"/>
+	<item value="a/4+b/2"/>
+	<item value="(a+2b)/3"/>
+	<item value="a*b"/>
+	<item value="-a*b"/>
+	<item value="a*10^b"/>
+	<item value="|a+b|"/>
+	<item value="|a-b|"/>
+	<item value="min(a,b)"/>
+	<item value="max(a,b)"/>
+	<item value="Quantize B To A"/>
+	<item value="lowpass(f=a,b)"/>
+	<item value="hipass(f=a,b)"/>
+	<item value="b/(1-a)"/>
+	<item value="a(b-y)"/>
+	<item value="(a+b)^2"/>
+	<item value="sin(a+b)"/>
+	<item value="cos(a+b)"/>
+	<item value="tri(a+b)"/>
+	<item value="warp1(a,b)"/>
+	<item value="warp2(a,b)"/>
+	<item value="warp3(a,b)"/>
+	<item value="warp4(a,b)"/>
+	<item value="warp8(a,b)"/>
+	<item value="a AND b"/>
+	<item value="a OR b"/>
+	<item value="b > a"/>
+	<item value="ramp(f=a+b)"/>
+	<item value="ramp(f=a-b)"/>
+	<item value="ramp(f=(a+b)/2)"/>
+	<item value="ramp(f=a*b)"/>
+	<item value="ramp(f=-a*b)"/>
+	<item value="ramp(f=a*10^b)"/>
+	<item value="ramp(f=(a+b)/4)"/>
+	<item value="a(y+b)"/>
+	<item value="ay+b"/>
+	<item value="(a+1)y+b"/>
+	<item value="y+a(y+b)"/>
+	<item value="a|y|+b"/>
+	<item value="Sample B on A"/>
+	<item value="Sample B on ~A"/>
+	<item value="Track B while A"/>
+	<item value="diode(a-b)"/>
+	<item value="diode(a-b+.5)"/>
+	<item value="diode(a-b-.5)"/>
+	<item value="diode(a-b+.25)"/>
+	<item value="diode(a-b-.25)"/>
+	<item value="Track B while ~A"/>
+</list>
+
+<!-- FXMod buses -->
+<list id="list_fxmod_buses">
+	<item value=""/>
+	<item value="InA/InAL"/>
+	<item value="InAR"/>
+	<item value="InB/InBL"/>
+	<item value="InBR"/>
+	<item value="InC/InCL"/>
+	<item value="InCR"/>
+	<item value="InD/InDL"/>
+	<item value="InDR"/>
+	<item value="Fx1"/>
+	<item value="Fx2"/>
+	<item value="Fx3"/>
+	<item value="Fx4"/>
+	<item value="Aux"/>
+	<item value="Mix"/>
+</list>
+
+<list id="list_low_high">
+	<item value="Low"/>
+	<item value="High"/>
+</list>
+
+<list id="list_kb3_drawbars">
+	<item value="None"/>
+	<item value="DrawBar 1"/>
+	<item value="DrawBar 2"/>
+	<item value="DrawBar 3"/>
+	<item value="DrawBar 4"/>
+	<item value="DrawBar 5"/>
+	<item value="DrawBar 6"/>
+	<item value="DrawBar 7"/>
+	<item value="DrawBar 8"/>
+	<item value="DrawBar 9"/>
+</list>
+
+<list id="list_kb3_eq_frequencies">
+	<item value="16 Hz"/>
+	<item value="17 Hz"/>
+	<item value="18 Hz"/>
+	<item value="19 Hz"/>
+	<item value="21 Hz"/>
+	<item value="22 Hz"/>
+	<item value="23 Hz"/>
+	<item value="24 Hz"/>
+	<item value="26 Hz"/>
+	<item value="28 Hz"/>
+	<item value="29 Hz"/>
+	<item value="31 Hz"/>
+	<item value="33 Hz"/>
+	<item value="35 Hz"/>
+	<item value="37 Hz"/>
+	<item value="39 Hz"/>
+	<item value="41 Hz"/>
+	<item value="44 Hz"/>
+	<item value="46 Hz"/>
+	<item value="49 Hz"/>
+	<item value="52 Hz"/>
+	<item value="55 Hz"/>
+	<item value="58 Hz"/>
+	<item value="62 Hz"/>
+	<item value="65 Hz"/>
+	<item value="69 Hz"/>
+	<item value="73 Hz"/>
+	<item value="78 Hz"/>
+	<item value="82 Hz"/>
+	<item value="87 Hz"/>
+	<item value="92 Hz"/>
+	<item value="98 Hz"/>
+	<item value="104 Hz"/>
+	<item value="110 Hz"/>
+	<item value="117 Hz"/>
+	<item value="123 Hz"/>
+	<item value="131 Hz"/>
+	<item value="139 Hz"/>
+	<item value="147 Hz"/>
+	<item value="156 Hz"/>
+	<item value="165 Hz"/>
+	<item value="175 Hz"/>
+	<item value="185 Hz"/>
+	<item value="196 Hz"/>
+	<item value="208 Hz"/>
+	<item value="220 Hz"/>
+	<item value="233 Hz"/>
+	<item value="247 Hz"/>
+	<item value="262 Hz"/>
+	<item value="277 Hz"/>
+	<item value="294 Hz"/>
+	<item value="311 Hz"/>
+	<item value="330 Hz"/>
+	<item value="349 Hz"/>
+	<item value="370 Hz"/>
+	<item value="392 Hz"/>
+	<item value="415 Hz"/>
+	<item value="440 Hz"/>
+	<item value="466 Hz"/>
+	<item value="494 Hz"/>
+	<item value="523 Hz"/>
+	<item value="554 Hz"/>
+	<item value="587 Hz"/>
+	<item value="622 Hz"/>
+	<item value="659 Hz"/>
+	<item value="698 Hz"/>
+	<item value="740 Hz"/>
+	<item value="784 Hz"/>
+	<item value="831 Hz"/>
+	<item value="880 Hz"/>
+	<item value="932 Hz"/>
+	<item value="988 Hz"/>
+	<item value="1047 Hz"/>
+	<item value="1109 Hz"/>
+	<item value="1175 Hz"/>
+	<item value="1245 Hz"/>
+	<item value="1319 Hz"/>
+	<item value="1397 Hz"/>
+	<item value="1480 Hz"/>
+	<item value="1568 Hz"/>
+	<item value="1661 Hz"/>
+	<item value="1760 Hz"/>
+	<item value="1865 Hz"/>
+	<item value="1976 Hz"/>
+	<item value="2093 Hz"/>
+	<item value="2217 Hz"/>
+	<item value="2349 Hz"/>
+	<item value="2489 Hz"/>
+	<item value="2637 Hz"/>
+	<item value="2794 Hz"/>
+	<item value="2960 Hz"/>
+	<item value="3136 Hz"/>
+	<item value="3322 Hz"/>
+	<item value="3520 Hz"/>
+	<item value="3729 Hz"/>
+	<item value="3951 Hz"/>
+	<item value="4186 Hz"/>
+	<item value="4435 Hz"/>
+	<item value="4699 Hz"/>
+	<item value="4978 Hz"/>
+	<item value="5274 Hz"/>
+	<item value="5588 Hz"/>
+	<item value="5920 Hz"/>
+	<item value="6272 Hz"/>
+	<item value="6645 Hz"/>
+	<item value="7040 Hz"/>
+	<item value="7459 Hz"/>
+	<item value="7902 Hz"/>
+	<item value="8372 Hz"/>
+	<item value="8870 Hz"/>
+	<item value="9397 Hz"/>
+	<item value="9956 Hz"/>
+	<item value="10548 Hz"/>
+	<item value="11175 Hz"/>
+	<item value="11840 Hz"/>
+	<item value="12544 Hz"/>
+	<item value="13290 Hz"/>
+	<item value="14080 Hz"/>
+	<item value="14917 Hz"/>
+	<item value="15804 Hz"/>
+	<item value="16744 Hz"/>
+	<item value="17740 Hz"/>
+	<item value="18795 Hz"/>
+	<item value="19912 Hz"/>
+	<item value="21096 Hz"/>
+	<item value="22351 Hz"/>
+	<item value="23680 Hz"/>
+	<item value="25088 Hz"/>
+</list>
+
+<list id="list_kb3_leak_modes">
+	<item value="None"/>
+	<item value="TypeA"/>
+	<item value="TypeX"/>
+	<item value="TypeY"/>
+	<item value="TypeZ"/>
+</list>
+
+<!-- KB3 Tone note attack and release -->
+<list id="list_kb3_note_attack_release">
+	<item value="Normal"/>
+	<item value="Hard"/>
+	<item value="PercHard"/>
+</list>
+
+<!-- KB3 Tone wheel organ map -->
+<list id="list_kb3_tonewheel_organ_map">
+	<item value="Equal"/>
+	<item value="Peck's"/>
+	<item value="Bob's"/>
+	<item value="Eric's"/>
+</list>
+
+<!-- KB3 Tone wheel volume map -->
+<list id="list_kb3_tonewheel_volume_map">
+	<item value="Equal"/>
+	<item value="Bright"/>
+	<item value="Mellow"/>
+	<item value="Junky"/>
+</list>
+
+<list id="list_kb3_vibrato_chorus_modes">
+	<item value="Vib1"/>
+	<item value="Vib2"/>
+	<item value="Vib3"/>
+	<item value="Chor1"/>
+	<item value="Chor2"/>
+	<item value="Chor3"/>
+</list>
+
+<list id="list_keymap_alt_methods">
+	<item value="Switched"/>
+	<item value="Continuous"/>
+</list>
+
+<list id="list_keymap_playback_mode">
+	<item value="Normal"/>
+	<item value="Reverse"/>
+	<item value="BiDirect"/>
+	<item value="Noise"/>
+</list>
+
+<list id="list_key_numbers">
+	<item value="C -1"/>
+	<item value="C#-1"/>
+	<item value="D -1"/>
+	<item value="D#-1"/>
+	<item value="E -1"/>
+	<item value="F -1"/>
+	<item value="F#-1"/>
+	<item value="G -1"/>
+	<item value="G#-1"/>
+	<item value="A -1"/>
+	<item value="A#-1"/>
+	<item value="B -1"/>
+	<item value="C  0"/>
+	<item value="C# 0"/>
+	<item value="D  0"/>
+	<item value="D# 0"/>
+	<item value="E  0"/>
+	<item value="F  0"/>
+	<item value="F# 0"/>
+	<item value="G  0"/>
+	<item value="G# 0"/>
+	<item value="A  0"/>
+	<item value="A# 0"/>
+	<item value="B  0"/>
+	<item value="C  1"/>
+	<item value="C# 1"/>
+	<item value="D  1"/>
+	<item value="D# 1"/>
+	<item value="E  1"/>
+	<item value="F  1"/>
+	<item value="F# 1"/>
+	<item value="G  1"/>
+	<item value="G# 1"/>
+	<item value="A  1"/>
+	<item value="A# 1"/>
+	<item value="B  1"/>
+	<item value="C  2"/>
+	<item value="C# 2"/>
+	<item value="D  2"/>
+	<item value="D# 2"/>
+	<item value="E  2"/>
+	<item value="F  2"/>
+	<item value="F# 2"/>
+	<item value="G  2"/>
+	<item value="G# 2"/>
+	<item value="A  2"/>
+	<item value="A# 2"/>
+	<item value="B  2"/>
+	<item value="C  3"/>
+	<item value="C# 3"/>
+	<item value="D  3"/>
+	<item value="D# 3"/>
+	<item value="E  3"/>
+	<item value="F  3"/>
+	<item value="F# 3"/>
+	<item value="G  3"/>
+	<item value="G# 3"/>
+	<item value="A  3"/>
+	<item value="A# 3"/>
+	<item value="B  3"/>
+	<item value="C  4"/>
+	<item value="C# 4"/>
+	<item value="D  4"/>
+	<item value="D# 4"/>
+	<item value="E  4"/>
+	<item value="F  4"/>
+	<item value="F# 4"/>
+	<item value="G  4"/>
+	<item value="G# 4"/>
+	<item value="A  4"/>
+	<item value="A# 4"/>
+	<item value="B  4"/>
+	<item value="C  5"/>
+	<item value="C# 5"/>
+	<item value="D  5"/>
+	<item value="D# 5"/>
+	<item value="E  5"/>
+	<item value="F  5"/>
+	<item value="F# 5"/>
+	<item value="G  5"/>
+	<item value="G# 5"/>
+	<item value="A  5"/>
+	<item value="A# 5"/>
+	<item value="B  5"/>
+	<item value="C  6"/>
+	<item value="C# 6"/>
+	<item value="D  6"/>
+	<item value="D# 6"/>
+	<item value="E  6"/>
+	<item value="F  6"/>
+	<item value="F# 6"/>
+	<item value="G  6"/>
+	<item value="G# 6"/>
+	<item value="A  6"/>
+	<item value="A# 6"/>
+	<item value="B  6"/>
+	<item value="C  7"/>
+	<item value="C# 7"/>
+	<item value="D  7"/>
+	<item value="D# 7"/>
+	<item value="E  7"/>
+	<item value="F  7"/>
+	<item value="F# 7"/>
+	<item value="G  7"/>
+	<item value="G# 7"/>
+	<item value="A  7"/>
+	<item value="A# 7"/>
+	<item value="B  7"/>
+	<item value="C  8"/>
+	<item value="C# 8"/>
+	<item value="D  8"/>
+	<item value="D# 8"/>
+	<item value="E  8"/>
+	<item value="F  8"/>
+	<item value="F# 8"/>
+	<item value="G  8"/>
+	<item value="G# 8"/>
+	<item value="A  8"/>
+	<item value="A# 8"/>
+	<item value="B  8"/>
+	<item value="C  9"/>
+	<item value="C# 9"/>
+	<item value="D  9"/>
+	<item value="D# 9"/>
+	<item value="E  9"/>
+	<item value="F  9"/>
+	<item value="F# 9"/>
+	<item value="G  9"/>
+</list>
+
+<list id="list_layer_playback_mode">
+	<item value="All"/>
+	<item value="Off"/>
+	<item value="Key"/>
+</list>
+
+<list id="list_layer_velocity">
+	<item value="ppp"/>
+	<item value="pp"/>
+	<item value="p"/>
+	<item value="mp"/>
+	<item value="mf"/>
+	<item value="f"/>
+	<item value="ff"/>
+	<item value="fff"/>
+</list>
+
+<!-- LFO phases -->
+<list id="list_lfo_phases">
+	<item value="  0 deg"/>
+	<item value=" 90 deg"/>
+	<item value="180 deg"/>
+	<item value="270 deg"/>
+</list>
+
+<!-- Off/On -->
+<list id="list_off_on">
+	<item value="Off"/>
+	<item value="On"/>
+</list>
+
+<!-- On/Off Double-check to make sure you want this one! -->
+<list id="list_on_off">
+	<item value="On"/>
+	<item value="Off"/>
+</list>
+
+<list id="list_sample_skip">
+	<item value="Off"/>
+	<item value="Auto"/>
+	<item value="On"/>
+</list>
+
+<list id="list_sense">
+	<item value="Normal"/>
+	<item value="Reverse"/>
+</list>
+
+<list id="list_slow_fast">
+	<item value="Slow"/>
+	<item value="Fast"/>
+</list>
+
+<list id="list_soft_loud">
+	<item value="Soft"/>
+	<item value="Loud"/>
+</list>
+
+</lists>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Number scales describe number ranges to decode hexadecimal values 
+	into their corresponding decimal values. Scales may not be nested.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<scales>
+
+<!-- AMPENV att1 times -->
+<scale id="scale_ampenv_att1_times" min="0" max="255" format="%5.3f s">
+	<range min="0" max="0" minval="0.000 s"/>
+	<range min="1" max="1" minval="0.002 s"/>
+	<range min="2" max="2" minval="0.005 s"/>
+	<range min="3" max="3" minval="0.010 s"/>
+	<range min="4" max="102" minval="0.02" increment="0.02"/>
+	<range min="103" max="177" minval="2.00" increment="0.04"/>
+	<range min="178" max="227" minval="5.00" increment="0.10"/>
+	<range min="228" max="237" minval="10.00" increment="0.50"/>
+	<range min="238" max="249" minval="15.00" increment="1.00"/>
+	<range min="250" max="250" minval="35.00" increment="5.00"/>
+</scale>
+
+<!-- AMPENV number of loops -->
+<scale id="scale_ampenv_number_of_loopes" min="0" max="31" format="%d x">
+	<range min="0" max="0" minval="Inf"/>
+</scale>
+
+<!-- ASR times -->
+<scale id="scale_asr_times" min="0" max="249">
+	<range min="0" max="0" minval="0.000 s"/>
+	<range min="4" max="102" minval="0.02" increment="0.02"/>
+	<range min="103" max="177" minval="2.00" increment="0.04"/>
+	<range min="178" max="227" minval="5.00" increment="0.10"/>
+	<range min="228" max="237" minval="10.00" increment="0.50"/>
+	<range min="238" max="249" minval="15.00" increment="1.00"/>
+</scale>
+
+<!-- Effect preset numbers -->
+<scale id="scale_effect_presets" min="1" max="127">
+	<range min="1" max="37" minval="1" increment="1"/>
+    <range min="38" max="47" minval="100" increment="1"/>
+    <range min="48" max="57" minval="200" increment="1"/>
+    <range min="58" max="67" minval="300" increment="1"/>
+    <range min="68" max="77" minval="400" increment="1"/>
+    <range min="78" max="87" minval="500" increment="1"/>
+    <range min="88" max="97" minval="600" increment="1"/>
+    <range min="98" max="107" minval="700" increment="1"/>
+    <range min="108" max="117" minval="800" increment="1"/>
+    <range min="118" max="127" minval="900" increment="1"/>
+</scale>
+
+<!-- ENVCTL scale -->
+<scale id="scale_envctl" min="-43" max="43" format="%4.3f x">
+	<range min="-43" max="-43" minval="0.018 x"/>
+	<range min="-42" max="-42" minval="0.020 x"/>
+ 	<range min="-41" max="-41" minval="0.022 x"/>
+ 	<range min="-40" max="-40" minval="0.025 x"/>
+ 	<range min="-39" max="-36" minval="0.027 x" increment="0.003"/>
+ 	<range min="-35" max="-35" minval="0.040 x"/>
+ 	<range min="-34" max="-34" minval="0.043 x"/>
+ 	<range min="-33" max="-33" minval="0.047 x"/>
+ 	<range min="-32" max="-31" minval="0.050 x" increment="0.005"/>
+ 	<range min="-30" max="-28" minval="0.061 x" increment="0.006"/>
+	<range min="-27" max="-20" minval="0.080 x" increment="0.010"/>
+	<range min="-19" max="-16" minval="0.160" increment="0.020"/>
+	<range min="-15" max="-15" minval="0.250 x"/>
+	<range min="-14" max="-11" minval="0.270" increment="0.030"/>
+	<range min="-10" max="-10" minval="0.400 x"/>
+	<range min="-9" max="-9" minval="0.430 x"/>
+	<range min="-8" max="-8" minval="0.470 x"/>
+	<range min="-7" max="-6" minval="0.500" increment="0.050"/>
+	<range min="-5" max="-3" minval="0.610" increment="0.060"/>
+	<range min="-2" max="5" minval="0.800" increment="0.100"/>
+	<range min="6" max="9" minval="1.600" increment="0.200"/>
+	<range min="10" max="10" minval="2.500 x"/>
+	<range min="11" max="14" minval="2.700" increment="0.300"/>
+	<range min="15" max="15" minval="4.000 x"/>
+	<range min="16" max="17" minval="4.300" increment="0.400"/>
+	<range min="18" max="19" minval="5.000" increment="0.500"/>
+	<range min="20" max="22" minval="6.100" increment="0.600"/>
+	<range min="23" max="31" minval="8.000" increment="1.000"/>
+	<range min="32" max="34" minval="18.000" increment="2.000"/>
+	<range min="35" max="35" minval="25.000 x"/>
+	<range min="36" max="39" minval="27.000" increment="3.000"/>
+	<range min="40" max="40" minval="40.000 x"/>
+	<range min="41" max="42" minval="43.000" increment="4.000"/>
+	<range min="43" max="43" minval="50.000 x"/>
+</scale>
+
+<!-- ENV2/ENV3 times -->
+<scale id="scale_env_times" min="0" max="255" format="%5.3f s">
+	<range min="0" max="0" minval="0.000 s"/>
+	<range min="4" max="102" minval="0.02" increment="0.02"/>
+	<range min="103" max="177" minval="2.00" increment="0.04"/>
+	<range min="178" max="227" minval="5.00" increment="0.10"/>
+	<range min="228" max="237" minval="10.00" increment="0.50"/>
+	<range min="238" max="249" minval="15.00" increment="1.00"/>
+	<range min="250" max="250" minval="35.00" increment="5.00"/>
+</scale>
+
+<!-- KB3 EQ Gain -->
+<scale id="scale_kb3_eq_gain" min="0" max="192" format="%3.2f dB">
+	<range min="-120" max="120" minval="-24.0" increment="0.2"/>
+</scale>
+
+<!-- KB3 EQ Width -->
+<scale id="scale_kb3_eq_width" min="-64" max="64" format="%d St">
+	<range min="-128" max="128" minval="-64" increment="2"/>
+</scale>
+
+<!-- KB3 organ Levels -->
+<scale id="scale_kb3_organ_levels" min="-120" max="120" format="%3.1f dB">
+	<range min="0" max="240" minval="-12.0" increment="0.1"/>
+</scale>
+
+<!-- KB3 percussion Levels -->
+<scale id="scale_kb3_percussion_levels" min="0" max="240" format="%3.2f dB">
+	<range min="0" max="240" minval="0.0" increment="0.1"/>
+</scale>
+
+<!-- KB3 percussion decay times -->
+<scale id="scale_kb3_percussion_decay_times" min="0" max="255" format="%3.2f secs">
+	<range min="0" max="255" minval="0.01" increment="0.02"/>
+</scale>
+
+<!-- KB3 Keyclick decay -->
+<scale id="scale_kb3_keyclick_decay" min="0" max="255" format="%4.3f sec">
+	<range min="0" max="255" minval="0.005" increment="0.005"/>
+</scale>
+
+<!-- KB3 Tonewheel volume adjust -->
+<scale id="scale_kb3_volume_adjust" min="-96" max="96" format="%d dB">
+	<range min="-96" max="95" minval="-96" increment="1"/>
+</scale>
+
+<!-- KB3 Leakage -->
+<scale id="scale_kb3_leakage" min="0" max="192" format="%3.2f dB">
+	<range min="0" max="192" minval="-96.0" increment="0.5"/>
+</scale>
+
+<!-- Key track -->
+<scale id="scale_key_track" min="-120" max="120" format="%d ct/key">
+	<range min="-120" max="-116" minval="-2400" increment="200"/>
+	<range min="-115" max="-113" minval="-1500" increment="100"/>
+	<range min="-112" max="-97" minval="-1200" increment="50"/>
+	<range min="-96" max="-87" minval="-400" increment="20"/>
+	<range min="-86" max="-79" minval="-200" increment="5"/>
+	<range min="-78" max="-54" minval="-160" increment="2"/>
+	<range min="-53" max="-34" minval="-110" increment="1"/>
+	<range min="-33" max="-9" minval="-90" increment="2"/>
+	<range min="-8" max="8" minval="-40" increment="5"/>
+	<range min="9" max="33" minval="42" increment="2"/>
+	<range min="34" max="53" minval="91" increment="1"/>
+	<range min="54" max="78" minval="112" increment="2"/>
+	<range min="79" max="86" minval="165" increment="5"/>
+	<range min="87" max="96" minval="220" increment="20"/>
+	<range min="97" max="112" minval="450" increment="50"/>
+	<range min="113" max="115" minval="1300" increment="100"/>
+	<range min="116" max="120" minval="1600" increment="200"/>
+</scale>
+
+<!-- Velocity track -->
+<scale id="scale_velocity_track" min="-123" max="-123" format="%d ct">
+	<range min="-123" max="-119" minval="-7200" increment="500"/>
+	<range min="-118" max="-117" minval="-5300" increment="300"/>
+	<range min="-116" max="-78" minval="-4900" increment="100"/>
+	<range min="-77" max="-66" minval="-1000" increment="50"/>
+	<range min="-65" max="-56" minval="-400" increment="20"/>
+	<range min="-55" max="-46" minval="-200" increment="10"/>
+	<range min="-45" max="-36" minval="-100" increment="5"/>
+	<range min="-35" max="-21" minval="-50" increment="2"/>
+	<range min="-20" max="19" minval="-20" increment="1"/>
+	<range min="20" max="34" minval="20" increment="2"/>
+	<range min="35" max="44" minval="50" increment="5"/>
+	<range min="45" max="53" minval="100" increment="10"/>
+	<range min="54" max="64" minval="200" increment="20"/>
+	<range min="65" max="76" minval="400" increment="50"/>
+	<range min="77" max="117" minval="1000" increment="100"/>
+	<range min="118" max="119" minval="5300" increment="200"/>
+	<range min="120" max="123" minval="5300" increment="500"/>
+</scale>
+
+<!-- Layer enable min -->
+<scale id="scale_layer_enable_min" min="0" max="255">
+	<range min="0" max="63" minval="64" increment="1"/>
+	<range min="64" max="255" minval="-128" increment="1"/>
+</scale>
+
+<!-- Layer enable max -->
+<scale id="scale_layer_enable_max" min="0" max="255">
+	<range min="0" max="0" minval="127"/>
+	<range min="1" max="255" minval="-128" increment="1"/>
+</scale>
+
+<!-- LFO rates -->
+<scale id="scale_lfo_rates" min="0" max="184" format="%4.2f Hz">
+	<range min="0" max="19" minval="0.01" increment="0.01"/>
+	<range min="20" max="35" minval="0.20" increment="0.05"/>
+	<range min="36" max="125" minval="1.00" increment="0.10"/>
+	<range min="126" max="175" minval="10.00" increment="0.20"/>
+	<range min="176" max="184" minval="20.00" increment="0.50"/>
+</scale>
+
+<!-- LFO shapes -->
+<scale id="scale_lfo_shapes" min="0" max="39">
+	<range min="0" max="0" minval="None"/>
+	<range min="1" max="1" minval="Sine"/>
+	<range min="2" max="2" minval="+Sine"/>
+	<range min="3" max="3" minval="Square"/>
+	<range min="4" max="4" minval="+Square"/>
+	<range min="5" max="5" minval="Triangle"/>
+	<range min="6" max="6" minval="+Triangle"/>
+	<range min="7" max="7" minval="Rise Saw"/>
+	<range min="8" max="8" minval="+Rise Saw"/>
+	<range min="9" max="9" minval="Fall Saw"/>
+	<range min="10" max="10" minval="+Fall Saw"/>
+	<range min="20" max="20" minval="3 Step"/>
+	<range min="21" max="21" minval="+3 Step"/>
+	<range min="22" max="22" minval="4 Step"/>
+	<range min="23" max="23" minval="+4 Step"/>
+	<range min="24" max="24" minval="5 Step"/>
+	<range min="25" max="25" minval="+5 Step"/>
+	<range min="26" max="26" minval="6 Step"/>
+	<range min="27" max="27" minval="+6 Step"/>
+	<range min="28" max="28" minval="7 Step"/>
+	<range min="29" max="29" minval="+7 Step"/>
+	<range min="30" max="30" minval="8 Step"/>
+	<range min="31" max="31" minval="+8 Step"/>
+	<range min="34" max="34" minval="10 Step"/>
+	<range min="35" max="35" minval="+10 Step"/>
+	<range min="38" max="38" minval="12 Step"/>
+	<range min="39" max="39" minval="+12 Step"/>
+</scale>
+
+<!-- Min/Max delay times -->
+<scale id="scale_min_max_delay" min="0" max="255" format="%5.3f s">
+	<range min="0" max="24" minval="0.000" increment="0.002"/>
+	<range min="25" max="34" minval="0.050" increment="0.005"/>
+	<range min="35" max="54" minval="0.100" increment="0.010"/>
+	<range min="55" max="89" minval="0.300" increment="0.020"/>
+	<range min="90" max="169" minval="1.000" increment="0.050"/>
+	<range min="170" max="219" minval="5.000" increment="0.100"/>
+	<range min="220" max="229" minval="10.000" increment="0.200"/>
+	<range min="230" max="253" minval="12.000" increment="0.500"/>
+	<range min="254" max="255" minval="24.000" increment="1.000"/>
+</scale>
+
+<!-- Pitch bend range -->
+<scale id="scale_pitch_bend_range" min="-123" max="123" format="%04d ct">
+	<range min="-123" max="-123" minval="-7200 ct"/>
+	<range min="-122" max="-121" minval="-6500" increment="200"/>
+	<range min="-120" max="-119" minval="-5500" increment="500"/>
+	<range min="-118" max="-117" minval="-5000" increment="300"/>
+	<range min="-116" max="-77" minval="-5000" increment="100"/>
+	<range min="-76" max="-65" minval="-950" increment="50"/>
+	<range min="-64" max="-55" minval="-380" increment="20"/>
+	<range min="-54" max="-35" minval="-190" increment="10"/>
+	<range min="-34" max="-20" minval="-48" increment="2"/>
+	<range min="-19" max="19" minval="-19" increment="1"/>
+	<range min="20" max="34" minval="48" increment="2"/>
+	<range min="35" max="54" minval="190" increment="10"/>
+	<range min="55" max="64" minval="380" increment="20"/>
+	<range min="65" max="76" minval="950" increment="50"/>
+	<range min="77" max="116" minval="4900" increment="100"/>
+	<range min="117" max="118" minval="5000" increment="300"/>
+	<range min="119" max="120" minval="5500" increment="500"/>
+	<range min="121" max="122" minval="6500" increment="200"/>
+	<range min="123" max="123" minval="7200 ct"/>
+</scale>
+
+<!-- Pitch Fine Hz -->
+<scale id="pitch_fine_hz" min="-60" max="60" format="%3.2f Hz">
+	<range min="-60" max="60" minval="6.00" increment="0.10"/>
+</scale>
+
+<!-- Portamento rates -->
+<scale id="scale_portamento_rate" min="1" max="127" format="%5.1f">
+	<range min="1" max="19" minval="1.0" increment="0.2"/>
+	<range min="20" max="21" minval="5.0" increment="0.3"/>
+	<range min="22" max="23" minval="5.6" increment="0.4"/>
+	<range min="24" max="30" minval="6.5" increment="0.5"/>
+	<range min="31" max="46" minval="10.0" increment="1.0"/>
+	<range min="47" max="58" minval="26.0" increment="2.0"/>
+	<range min="59" max="60" minval="50.0" increment="3.0"/>
+	<range min="61" max="62" minval="56.0" increment="4.0"/>
+	<range min="63" max="69" minval="65.0" increment="5.0"/>
+	<range min="70" max="85" minval="100.0" increment="10.0"/>
+	<range min="86" max="97" minval="260.0" increment="20.0"/>
+	<range min="98" max="99" minval="500.0" increment="30.0"/>
+	<range min="100" max="101" minval="560.0" increment="40.0"/>
+	<range min="102" max="108" minval="650" increment="50.0"/>
+	<range min="109" max="124" minval="1000.0" increment="100.0"/>
+	<range min="125" max="127" minval="2600.0" increment="200.0"/>
+</scale>
+
+<!-- Timbre shift -->
+<scale id="scale_timbre_shift" min="-60" max="60">
+	<range min="-60" max="60" minval="60" increment="-1"/>
+</scale>
+
+<!-- Wet/Dry mix -->
+<scale id="scale_wet_dry_mix" min="0" max="100" format="%d Wet">
+	<range min="0" max="100" minval="0" increment="1"/>
+</scale>
+
+</scales>
+
+</decoder>

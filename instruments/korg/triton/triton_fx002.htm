@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>Stereo Compressor</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table>
+         <tr> 
+            <th colspan="6" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Stereo Compressor</b></font></th> 
+         </tr>
+         <tr>
+            <td><font color="#006666" face="Arial">Envelope Select</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_envelopes">
+	       <parameter id="FX_002_envelope_select"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Sensitivity</font></td> 
+            <td><widget class="SpinWidget" format="%03d">
+	       <parameter id="FX_002_sensitivity"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Attack</font></td> 
+            <td><widget class="SpinWidget" format="%03d">
+	       <parameter id="FX_002_attack"></parameter>
+	    </widget></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+	   <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Output</b></font></th> 
+	   <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Pre EQ</b></font></th> 
+	 </tr>
+	 <tr>
+            <td><font color="#006666" face="Arial">Level</font></td> 
+	    <td><widget class="SpinWidget">
+	       <parameter id="FX_002_output_level"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Trim</font></td> 
+	    <td><widget class="SpinWidget" format="%03d">
+	       <parameter id="FX_002_eq_trim"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+            <td><font color="#006666" face="Arial">Mod. Source</font></td> 
+	    <td><widget class="ChoiceWidget" decoder="list_dmod_source1">
+	       <parameter id="FX_002_output_level_src"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Low EQ Gain</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_pre_eq">
+	       <parameter id="FX_002_pre_leq_gain_db"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+            <td><font color="#006666" face="Arial">Mod. Amt.</font></td> 
+	    <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="FX_002_output_level_amt"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">High EQ Gain</font></td> 
+	    <td><widget class="SpinWidget" decoder="scale_pre_eq">
+	       <parameter id="FX_002_pre_heq_gain_db"></parameter>
+	    </widget></td>
+	 </tr>
+      </table>
+      <table>
+         <tr> 
+            <th colspan="5" bgcolor="#FFFF99"><font size="4" color="#006666"
+               face="Arial"><b>Wet/Dry</b></font></th> 
+         </tr>
+	 <tr>
+            <td><font color="#006666" face="Arial">Wet/Dry</font></td> 
+            <td><widget class="SpinWidget" decoder="list_dry_wet">
+	       <parameter id="FX_002_wet_dry"></parameter>
+	    </widget></td>
+	 </tr>
+	 <tr>
+            <td><font color="#006666" face="Arial">Mod. Source</font></td> 
+            <td><widget class="ChoiceWidget" decoder="list_dmod_source1">
+	       <parameter id="FX_002_wet_dry_src"></parameter>
+	    </widget></td>
+            <td><font color="#006666" face="Arial">Mod. Amt.</font></td> 
+            <td><widget class="SpinWidget" format="%+03d">
+	       <parameter id="FX_002_wet_dry_amt"></parameter>
+	    </widget></td>
+	 </tr>
+      </table>
+   </body>
+</html>

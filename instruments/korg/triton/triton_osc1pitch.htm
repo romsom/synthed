@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<html> 
+   <head> 
+      <title>OSC1 Pitch Mod.</title> 
+   </head> 
+   <body bgcolor="#CCFFCC"> 
+      <table>
+         <tr> 
+           <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+             face="Arial"><b>Pitch</b></font></th> 
+         </tr> 
+         <tr>
+            <td>
+               <table>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Pitch Slope</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_pitch_slope">
+                        <parameter id="OSC1_PITCH_pitch_slope"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">JS(+X)</font></td> 
+                     <td><widget class="SpinWidget" format="%+03d">
+                        <parameter id="OSC1_PITCH_pitch_js_plus_x"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Ribbon</font></td> 
+                     <td><widget class="SpinWidget" format="%+03d">
+                           <parameter id="OSC1_PITCH_pitch_ribbon_x"></parameter>
+                     </widget></td>
+                     <td><font color="#006666" face="Arial">JS(-X)</font></td> 
+                     <td><widget class="SpinWidget" format="%+03d">
+                        <parameter id="OSC1_PITCH_pitch_js_minus_x"></parameter>
+                     </widget></td>
+                  </tr>
+               </table>
+            </td>
+            <td>
+               <table>
+                  <tr>
+                     <td><font color="#006666" face="Arial">AMS</font></td> 
+                     <td><widget class="ChoiceWidget" decoder="list_1-4">
+                        <parameter id="OSC1_PITCH_am_source_pitch"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Intensity</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_1-7">
+                           <parameter id="OSC1_PITCH_am_int_pitch"></parameter>
+                     </widget></td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <table>
+         <tr> 
+           <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+             face="Arial"><b>Pitch EG</b></font></th> 
+         </tr> 
+         <tr>
+            <td>
+               <table>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Intensity</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_1-7">
+                        <parameter id="OSC1_PITCH_int_pitch_eg"></parameter>
+                     </widget></td>
+                  </tr>
+               </table>
+            </td>
+            <td>
+               <table>
+                  <tr>
+                     <td><font color="#006666" face="Arial">AMS</font></td> 
+                     <td><widget class="ChoiceWidget" decoder="list_1-4">
+                        <parameter id="OSC1_PITCH_am_source_pitch_eg"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Intensity</font></td> 
+                     <td><widget class="SpinWidget" decoder="scale_1-7">
+                           <parameter id="OSC1_PITCH_am_int_pitch_eg"></parameter>
+                     </widget></td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <table valign="top">
+         <tr>
+            <td width="25%">
+               <table>
+                  <tr> 
+                    <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+                      face="Arial"><b>Portamento</b></font></th> 
+                  </tr> 
+                  <tr>
+                     <td><font color="#006666" face="Arial">Enable</font></td> 
+                     <td width="60%"><widget class="CheckWidget">
+                        <parameter id="OSC1_PITCH_portamento"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Fingered</font></td> 
+                     <td><widget class="CheckWidget">
+                        <parameter id="OSC1_PITCH_portamento_fingered"></parameter>
+                     </widget></td>
+                  </tr>
+                  <tr>
+                     <td><font color="#006666" face="Arial">Time</font></td> 
+                     <td><widget class="SpinWidget" format="%03d">
+                        <parameter id="OSC1_PITCH_portamento_time"></parameter>
+                        </widget></td>
+                  </tr>
+               </table>
+            </td>
+            <td width="75%">
+               <table>
+                  <tr> 
+                    <th colspan="2" bgcolor="#FFFF99"><font size="4" color="#006666"
+                      face="Arial"><b>LFO 1/2</b></font></th> 
+                  </tr> 
+                  <tr>
+                     <td>
+                        <table>
+                           <tr>
+                              <td><font color="#006666" face="Arial">LFO1 Int.</font></td> 
+                              <td><widget class="SpinWidget" decoder="scale_1-7">
+                                 <parameter id="OSC1_PITCH_int_osc1_lfo1"></parameter>
+                              </widget></td>
+                           </tr>
+                           <tr>
+                              <td><font color="#006666" face="Arial">JS(+Y) Int.</font></td> 
+                              <td><widget class="SpinWidget" decoder="scale_1-7">
+                                 <parameter id="OSC1_PITCH_lfo1_int_js_plus_y"></parameter>
+                              </widget></td>
+                           </tr>
+                        </table>
+                     </td>
+                     <td>
+                        <table>
+                           <tr>
+                              <td><font color="#006666" face="Arial">LFO1 AMS</font></td> 
+                              <td><widget class="ChoiceWidget" decoder="list_1-4">
+                                 <parameter id="OSC1_PITCH_am_source_lfo1_int"></parameter>
+                              </widget></td>
+                           </tr>
+                           <tr>
+                              <td><font color="#006666" face="Arial">Intensity</font></td> 
+                              <td><widget class="SpinWidget" decoder="scale_1-7">
+                                    <parameter id="OSC1_PITCH_am_int_lfo1_int"></parameter>
+                              </widget></td>
+                           </tr>
+                        </table>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <table>
+                           <tr>
+                              <td><font color="#006666" face="Arial">LFO2 Int.</font></td> 
+                              <td><widget class="SpinWidget" decoder="scale_1-7">
+                                 <parameter id="OSC1_PITCH_int_osc1_lfo2"></parameter>
+                              </widget></td>
+                           </tr>
+                           <tr>
+                              <td><font color="#006666" face="Arial">JS(+Y) Int.</font></td> 
+                              <td><widget class="SpinWidget" decoder="scale_1-7">
+                                 <parameter id="OSC1_PITCH_lfo2_int_js_plus_y"></parameter>
+                              </widget></td>
+                           </tr>
+                        </table>
+                     </td>
+                     <td>
+                        <table>
+                           <tr>
+                              <td><font color="#006666" face="Arial">LFO2 AMS</font></td> 
+                              <td><widget class="ChoiceWidget" decoder="list_1-4">
+                                 <parameter id="OSC1_PITCH_am_source_lfo2_int"></parameter>
+                              </widget></td>
+                           </tr>
+                           <tr>
+                              <td><font color="#006666" face="Arial">Intensity</font></td> 
+                              <td><widget class="SpinWidget" decoder="scale_1-7">
+                                    <parameter id="OSC1_PITCH_am_int_lfo2_int"></parameter>
+                              </widget></td>
+                           </tr>
+                        </table>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

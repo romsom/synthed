@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> 
+	 <TITLE>Main</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#C0C0C0"> 
+	 <TABLE CELLSPACING="1"> 
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Common</b></font>
+           </th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Name:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="EditWidget" WIDTH="100%"> 
+			  <PARAMETER ID="single_name"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Clock Tempo:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_clock_tempos"> 
+			  <PARAMETER ID="clock_tempo"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Smoothing:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="list_control_smooth_modes"> 
+			  <PARAMETER ID="control_smooth_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Patch Vol:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="patch_volume"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Panorama:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="panorama"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Key Mode:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="list_key_modes"> 
+			  <PARAMETER ID="key_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Portamento:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="portamento_time"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Transpose:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="transpose"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Bend Scale:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="ChoiceWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="list_bender_scales"> 
+			  <PARAMETER ID="bender_scale"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Bend Up:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="bender_range_up"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Bend Down:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="bender_range_down"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Unison</b></font>
+           </th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Mode:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="list_unison_modes"> 
+			  <PARAMETER ID="unison_mode"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Detune:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="unison_detune"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Pan Spread:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="unison_panorama_spread"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Lfo Phase:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"
+			  DECODER="scale_centered"> 
+			  <PARAMETER ID="unison_lfo_phase"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+         <tr> 
+           <th colspan="4" bgcolor="#000000">
+             <font size="4" color="#FFFFFF" face="Arial"><b>Punch</b></font></th> 
+         </tr> 
+ 		 <TR> 
+		  <TD WIDTH="100"><FONT FACE="Arial">Intensity:</FONT></TD> 
+		  <TD>
+			 <WIDGET CLASS="SliderWidget" WIDTH="100%" LAYOUT="horizontal"> 
+			  <PARAMETER ID="punch_intensity"></PARAMETER> 
+			 </WIDGET> 
+		  </TD> 
+		 </TR>
+	 </TABLE> 
+  </BODY>
+</HTML>

@@ -1,0 +1,1909 @@
+ID	SubID	High Offset	High Start	High Stop	Mid Offset	Mid Start	Mid Stop	Low Offset	Low Start	Low Stop	Parameter	Data(Hex)	 Value 
+1											 01: St. Amp Simulation 		
+1	0	0	0	7							 Amplifier Type 	 00~02 	 SS~6L6 
+1	1	1	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+1	2	2	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+1	3	3	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+2											 02: Stereo Compressor		
+2	0	0	0	7							 Envelope Select 	 00~01 	 L/R Mix~L/R individually 
+2	1	1	0	7							 Sensitivity 	 01~64 	 1~100 
+2	2	2	0	7							 Attack 	 01~64 	 1~100 
+2	3	3	0	7							 EQ Trim 	 00~64 	 0~100 
+2	4	4	0	7							 Pre LEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+2	5	5	0	7							 Pre HEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+2	6	6	0	7							 Output Level 	 00~64 	 0~100 
+2	7	7	0	7							 Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+2	8	8	0	7							 Output Level: Amt 	 9C~64 	 -100~+100 
+2	9	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+2	10	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+2	11	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+3											 03: Stereo Limiter 		
+3	9	0	3	3							 Trigger Moniter 	 00~01 	 Off~On 
+3	8	0	2	2							 Side PEQ insert 	 00~01 	 Off~On 
+3	0	0	0	1							 Envelope Select 	 00~03 	 L/R Mix~L/R individually 
+3	1	1	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+3	2	2	0	7							 Threshold [dB] 	 D8~00 	 -40~0dB 
+3	3	3	0	7							 Attack 	 01~64 	 1~100 
+3	4	4	0	7							 Release 	 01~64 	 1~100 
+3	5	5	0	7							 Gain Adjust [dB] 	 D9~18 	 -inf~+24dB 
+3	6	6	0	7							 Gain Adjust: Src 	 00~1F 	 Off~Tempo(*1) 
+3	7	7	0	7							 Gain Adjust: Amt 	 C1~3F 	 -63~+63 
+3	10	8	0	7							 Side PEQ Cutoff [Hz] 	 01~C8 	 20~12.00kHz 
+3	11	9	0	7							 Q 	 00~5F 	 0.5~10.0 
+3	12	10	0	7							 Gain [dB] 	 DC~24 	 -18.0~+18.0dB 
+3	13	11	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+3	14	12	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+3	15	13	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+4											 04: Multiband Limiter 		
+4	0	0	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+4	1	1	0	7							 Threshold [dB] 	 D8~00 	 -40~0dB 
+4	2	2	0	7							 Attack 	 01~64 	 1~100 
+4	3	3	0	7							 Release 	 01~64 	 1~100 
+4	7	4	0	7							 Gain Adjust [dB] 	 D9~18 	 -inf~+24dB 
+4	4	5	0	7							 Low Offset [dB] 	 D8~00 	 -40~0dB 
+4	5	6	0	7							 Mid Offset [dB] 	 D8~00 	 -40~0dB 
+4	6	7	0	7							 High Offset [dB] 	 D8~00 	 -40~0dB 
+4	10	8	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+4	12	9	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+4	11	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+4	8	11	0	7							 Gain Adjust: Src 	 00~1F 	 Off~Tempo(*1) 
+4	9	12	0	7							 Gain Adjust: Amt 	 C1~3F 	 -63~+63 
+
+5											 05: Stereo Gate 		
+5	0	0	0	7							 Envelope Select 	 00~03 	 D-mod~R Only 
+5	1	1	0	7							 Envelope Select: Src 	 00~04 	 Off~Gate2+Dmpr(*2) 
+5	2	2	0	7							 Polarity 	 00~01 	 +~- 
+5	3	3	0	7							 Threshold 	 00~64 	 0~100 
+5	4	4	0	7							 Attack 	 01~64 	 1~100 
+5	5	5	0	7							 Release 	 01~64 	 1~100 
+5	6	6	0	7							 Delay Time [msec] 	 00~64 	 0~100 
+5	7	7	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+5	8	8	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+5	9	9	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+6											 06: OD/Hi.Gain Wah 		
+6	13	0	2	7							 Mid1 Cutoff[Hz] 	 01~3F 	 300~10kHz 
+6	12	0	0	1	1	4	7				 Low Cutoff: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+6	11	1	0	3	2	6	7				 Low Cutoff[Hz] 	 00~31 	 20~1.00kHz 
+6	8	2	0	5	3	7	7				 Output Level 	 00~32 	 0~50 
+6	7	3	1	4							 Pre Low-cut 	 00~0A 	 0~10 
+6	2	3	0	0							 Wah.Sw 	 00~01 	 Toggle~Moment 
+6	21	4	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+6	20	4	0	0							 Speaker Simulation 	 00~01 	 Off~On 
+6	17	5	2	7							 Mid2: Q 	 00~3C 	 0.5~10.0 
+6	16	5	0	1	6	4	7				 Mid2 Cutoff[Hz] 	 00~37 	 500~20.00kHz 
+6	15	6	0	3	7	6	7				 Mid1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+6	14	7	0	5							 Mid1: Q 	 00~3C 	 0.5~10.0 
+6	22	8	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+6	18	8	0	2	9	5	7				 Mid2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+6	9	9	0	4							 Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+6	3	10	3	7							 Wah Sweep Range 	 F6~0A 	 -10~+10 
+6	4	10	0	2	11	6	7				 Wah Sweep Src 	 00~1F 	 Off~Tempo(*1) 
+6	1	11	1	5							 Wah: Src 	 00~1F 	 Off~Tempo(*1) 
+6	0	11	0	0							 Wah 	 00~01 	 Off~On 
+6	19	12	1	6							 Direct Mix 	 00~32 	 0~50 
+6	5	12	0	0							 Drive Mode 	 00~01 	 Overdrive~Hi-Gain 
+6	6	13	0	7							 Drive 	 01~64 	 1~100 
+6	10	14	0	7							 Output Level: Amt 	 CE~32 	 -50~+50 
+6	23	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+7											 07: St. Parametric 4EQ 		
+7	7	0	1	7							 Band1: Gain [dB] 	 DC~24 	 -18.0~+18.0dB 
+7	6	0	0	0	1	2	7				 Band1: Q 	 00~5F 	 0.5~10.0 
+7	4	1	0	1	2	4	7				 Band2 Dynamic Gain Amt [dB] 	 EE~12 	 -18.0~+18.0dB 
+7	3	2	0	3	3	7	7				 Band2 Dynamic Gain Src 	 00~1F 	 Off~Tempo(*1) 
+7	0	3	0	6							 Trim 	 00~64 	 0~100 
+7	18	4	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+7	11	4	0	2	5	4	7				 Band3 Cutoff[Hz] 	 00~61 	 300~10kHz 
+7	10	5	0	3	6	5	7				 Band2: Gain [dB] 	 DC~24 	 -18.0~+18.0dB 
+7	9	6	0	4	7	6	7				 Band2: Q 	 00~5F 	 0.5~10.0 
+7	5	7	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+7	8	8	0	7							 Band2 Cutoff [Hz] 	 00~C7 	 50~10.00kHz 
+7	12	9	1	7							 Band3: Q 	 00~5F 	 0.5~10.0 
+7	1	9	0	0							 Band1 Type 	 00~01 	 Peaking~Shelving-Low 
+7	13	10	1	7							 Band3: Gain [dB] 	 DC~24 	 -18.0~+18.0dB 
+7	2	10	0	0							 Band4 Type 	 00~01 	 Peaking~Shelving-High 
+7	14	11	0	7							 Band4 Cutoff [Hz] 	 00~C3 	 500~20.00kHz 
+7	15	12	0	7							 Band4: Q 	 00~5F 	 0.5~10.0 
+7	16	13	0	7							 Band4: Gain [dB] 	 DC~24 	 -18.0~+18.0dB 
+7	17	14	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+7	19	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+8											 08: St. Graphic 7EQ 		
+8	0	0	0	7							 Type 	 00~0B 	 1:Wide 1 ~ 12:Wide High 
+8	1	1	0	7							 Trim 	 00~64 	 0~100 
+8	2	2	0	7							 Band1 [dB] 	 DC~24 	 -18.0~+18.0dB 
+8	3	3	0	7							 Band2 [dB] 	 DC~24 	 -18.0~+18.0dB 
+8	4	4	0	7							 Band3 [dB] 	 DC~24 	 -18.0~+18.0dB 
+8	5	5	0	7							 Band4 [dB] 	 DC~24 	 -18.0~+18.0dB 
+8	6	6	0	7							 Band5 [dB] 	 DC~24 	 -18.0~+18.0dB 
+8	7	7	0	7							 Band6 [dB] 	 DC~24 	 -18.0~+18.0dB 
+8	8	8	0	7							 Band7 [dB] 	 DC~24 	 -18.0~+18.0dB 
+8	9	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+8	10	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+8	11	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+9											 09: St. Wah/Auto Wah 		
+9	2	0	6	7							 Sweep Mode 	 00~02 	 Auto~LFO 
+9	1	0	0	5	1	7	7				 Frequency Top 	 00~64 	 0~100 
+9	0	1	0	6							 Frequency Bottom 	 00~64 	 0~100 
+9	18	2	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+9	16	2	2	2							 Low Pass Filter 	 00~01 	 Off~On 
+9	8	2	0	1	3	5	7				 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+9	3	3	0	4							 Sweep Mode: Src 	 00~1F 	 Off~Tempo(*1) 
+9	4	4	0	7							 Response 	 00~64 	 0~100 
+9	6	5	0	7							 Envelope Shape 	 9C~64 	 -100~+100 
+9	7	6	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+9	9	7	0	7							 LFO Frequency [Hz]: Amt 	 8D~73 	 -20.00~+20.00Hz 
+9	15	8	0	7							 Resonance 	 00~64 	 0~100 
+9	17	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+9	19	10	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+9	5	13	1	7							 Envelope Sens 	 00~64 	 0~100 
+9	10	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+9	11	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+9	14	15	7	7							 (Reserved) 	 00~01 	 0~1(*3) 
+9	13	15	3	6							 Times 	 00~0F 	 x1~x16 
+9	12	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+10											 10: St. Random Filter 		
+10	14	0	0	7							 Manual 	 00~64 	 0~100 
+10	2	1	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+10	4	2	0	7							 LFO Frequency [Hz]: Amt 	 8D~73 	 -20.00~+20.00Hz 
+10	5	3	0	7							 LFO Step Freq [Hz] 	 01~C8 	 0.05~50.00Hz 
+10	6	4	0	7							 LFO Step Freq [Hz]: Amt 	 9C~64 	 -50.00~50.00Hz 
+10	17	5	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+10	18	6	0	7							 Resonance 	 00~64 	 0~100 
+10	19	7	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+10	21	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+10	15	9	1	7							 Depth 	 00~64 	 0~100 
+10	0	9	0	0							 LFO Waveform 	 00~01 	 Step-Tri~Random 
+10	20	10	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+10	16	10	0	2	11	6	7				 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+10	1	11	0	5							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+10	13	12	6	6							 (Reserved) 	 00~01 	 0~1(*4) 
+10	7	12	5	5							 BPM/MIDI Sync 	 00~01 	 Off~On 
+10	3	12	0	4							 LFO Frequency [Hz]: Src 	 00~1F 	 Off~Tempo(*1) 
+10	8	13	0	7							 BPM 	 27~F0 	 MIDI~240 
+10	12	14	3	7							 Step Base Note: Times 	 00~1F 	 x1~x32 
+10	9	14	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+10	11	15	4	7							 Step Base Note 	 00~09 	 32/16T/16..4/2T/2/1 
+10	10	15	0	3							 Base Note: Times 	 00~0F 	 x1~x16 
+
+11											 11: St. Exciter/Enhncr 		
+11	0	0	0	7							 Exciter Blend 	 9C~64 	 -100~+100 
+11	2	1	0	7							 Exciter Blend: Amt 	 9C~64 	 -100~+100 
+11	3	2	0	7							 Emphatic Point 	 00~46 	 0~70 
+11	5	3	0	7							 Emphatic Point: Amt 	 BA~46 	 -70~+70 
+11	6	4	0	7							 Enhancer Dly L [msec] 	 00~8C 	 0.0~50.0msec 
+11	7	5	0	7							 Enhancer Dly R [msec] 	 00~8C 	 0.0~50.0msec 
+11	10	6	0	7							 Enhancer Depth: Amt 	 9C~64 	 -100~+100 
+11	16	7	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+11	11	8	0	6							 EQ Trim 	 00~64 	 0~100 
+11	8	9	0	0	10	2	7				 Enhancer Depth 	 00~64 	 0~100 
+11	4	10	0	1	11	5	7				 Emphatic Point: Src 	 00~1F 	 Off~Tempo(*1) 
+11	1	11	0	4							 Exciter Blend: Src 	 00~1F 	 Off~Tempo(*1) 
+11	15	12	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+11	14	12	0	1	13	3	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+11	13	13	0	2	14	4	7				 Pre HEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+11	12	14	0	3	15	5	7				 Pre LEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+11	9	15	0	4							 Enhancer Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+
+12											 12: St. Sub Oscillator 		
+12	0	0	0	7							 OSC Mode 	 00~01 	 Note~Fixed 
+12	1	1	0	7							 Note Interval 	 D0~00 	 -48~0 
+12	2	2	0	7							 (Reserved) 	 	 
+12	3	3	0	7							 Note Fine 	 9C~64 	 -100~+100 
+12	4	4	0	7							 Fixed Frequency [Hz] 	 14~A0 	 10.0~80.0Hz 
+12	5	5	0	7							 Fixed Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+12	6	6	0	7							 Fixed Frequency: Amt 	 B0~50 	 -80~+80Hz 
+12	7	7	0	7							 Envelope Pre LPF 	 01~64 	 1~100 
+12	8	8	0	7							 Envelope Sens 	 00~64 	 0~100 
+12	9	9	0	7							 Envelope Shape 	 9C~64 	 -100~+100 
+12	10	10	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+12	11	11	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+12	12	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+13											 13: Talking Modulator  		
+13	1	0	1	7							 Manual Voice Control 	 00~64 	 Bottom~Top 
+13	0	0	0	0							 Sweep Mode 	 00~01 	 D-mod~LFO 
+13	11	1	5	7							 Voice Top 	 00~04 	 A~O 
+13	2	1	0	4							 Manual Voice Control: Src 	 00~1F 	 Off~Tempo(*1) 
+13	13	2	3	5							 Voice Bottom 	 00~04 	 A~O 
+13	12	2	0	2							 Voice Center 	 00~04 	 A~O 
+13	3	3	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+13	4	4	0	7							 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+13	5	5	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~20.00Hz 
+13	14	6	0	7							 Formant Shift 	 9C~64 	 -100~+100 
+13	15	7	0	7							 Resonance 	 00~64 	 0~100 
+13	17	8	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+13	18	9	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+13	16	13	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+13	6	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+13	7	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+13	10	15	7	7							 (Reserved) 	 00~01 	 0~1(*5) 
+13	9	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+13	8	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+14											 14: Stereo Decimator 		
+14	7	0	3	7							 Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+14	5	0	0	2	1	5	7				 Resolution 	 04~18 	 4~24 
+14	2	1	0	4							 Sampling Freq: Src 	 00~1F 	 Off~Tempo(*1) 
+14	16	2	2	6							 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+14	13	2	0	1	3	5	7				 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+14	10	3	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+14	4	4	1	7							 High Damp [percent] 	 00~64 	 0~100% 
+14	0	4	0	0							 Pre LPF 	 00~01 	 Off~On 
+14	6	5	0	7							 Output Level 	 00~64 	 0~100 
+14	8	6	0	7							 Output Level: Amt 	 9C~64 	 -100~+100 
+14	11	7	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+14	12	8	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+14	14	9	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+14	9	10	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+14	1	10	0	0	11	0	7				 Sampling Freq [Hz] 	 0A~01E0 	 1.00~48.00kHz 
+14	15	12	1	7							 Depth 	 00~64 	 0~100 
+14	3	12	0	0	13	0	7				 Sampling Freq: Amt 	 10~F0 	 -48.00~+48.00kHz 
+14	17	15	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+
+15											 15: St. Analog Record 		
+15	2	0	1	7							 Noise Density 	 00~64 	 0~100 
+15	1	0	0	0	1	2	7				 Flutter 	 00~64 	 0~100 
+15	0	1	0	1							 Speed [RPM] 	 00~02 	 33 1/3 ~ 78 
+15	15	2	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+15	8	2	0	1	3	5	7				 Click Level: Src 	 00~1F 	 Off~Tempo(*1) 
+15	5	3	0	4							 Noise Level: Src 	 00~1F 	 Off~Tempo(*1) 
+15	3	4	0	6							 Noise Tone 	 00~64 	 0~100 
+15	4	5	0	6							 Noise Level 	 00~64 	 0~100 
+15	7	6	0	6							 Click Level 	 00~64 	 0~100 
+15	10	7	0	6							 EQ Trim 	 00~64 	 0~100 
+15	11	8	0	6							 Pre EQ Cutoff [Hz] 	 00~61 	 300~10.00kHz 
+15	12	9	0	6							 Pre EQ Cutoff: Q 	 00~5F 	 0.5~10.0 
+15	13	10	0	6							 Pre EQ Cutoff: Gain [dB] 	 DC~24 	 -18.0~+18.0dB 
+15	14	11	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+15	6	13	0	7							 Noise Level: Amt 	 9C~64 	 -100~+100 
+15	9	14	0	7							 Click Level: Amt 	 9C~64 	 -100~+100 
+15	16	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+16											 16: St. Chorus 		
+16	2	0	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+16	4	1	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+16	10	2	0	7							 L Pre Delay [msec] 	 00~8C 	 0.0~50.0msec 
+16	11	3	0	7							 R Pre Delay [msec] 	 00~8C 	 0.0~50.0msec 
+16	12	4	0	7							 Depth 	 00~64 	 0~100 
+16	14	5	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+16	17	6	0	7							 Pre HEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+16	18	7	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+16	19	8	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+16	20	9	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+16	16	10	2	7							 Pre LEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+16	13	10	0	1	11	5	7				 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+16	3	11	0	4							 LFO Frequency [Hz]: Src 	 00~1F 	 Off~Tempo(*1) 
+16	1	12	1	6							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+16	0	12	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+16	15	13	1	7							 EQ Trim 	 00~64 	 0~100 
+16	5	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+16	6	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+16	9	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+16	8	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+16	7	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+17											 17: St. Harmonic Chorus  		
+17	16	0	1	7							 High Damp [percent] 	 00~64 	 0~100% 
+17	14	0	0	0	1	2	7				 High/Low Split Point 	 01~64 	 1~100 
+17	11	1	0	1	2	3	7				 Depth 	 00~64 	 0~100 
+17	3	2	0	2	3	6	7				 LFO Frequency [Hz]: Src 	 00~1F 	 Off~Tempo(*1) 
+17	1	3	1	5							 LFO Phase [degree] 	 F7~09 	 -180~+180 
+17	0	3	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+17	21	4	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+17	20	5	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+17	18	5	0	2	6	4	7				 High Level 	 00~64 	 0~100 
+17	17	6	0	3	7	5	7				 Low Level 	 00~64 	 0~100 
+17	12	7	4	0							 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+17	2	8	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+17	4	9	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~20.00Hz 
+17	10	10	0	7							 Pre Delay [msec] 	 00~8C 	 0.0~50.0msec 
+17	13	11	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+17	15	12	0	7							 Feedback 	 9C~64 	 -100~+100 
+17	19	13	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+17	5	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+17	6	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+17	9	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+17	8	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+17	7	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+18											 18: Multitap Cho/Dly 		
+18	17	0	0	7							 Tap1 Feedback 	 9C~64 	 -100~+100 
+18	18	1	0	7							 Tap1 Feedback: Amt 	 9C~64 	 -100~+100 
+18	21	2	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+18	4	3	4	7							 Tap1: Pan 	 FA~06 	 L6~R6 
+18	16	3	0	3							 Tap4: Pan 	 FA~06 	 L6~R6 
+18	8	4	4	7							 Tap2: Pan 	 FA~06 	 L6~R6 
+18	12	4	0	3							 Tap3: Pan 	 FA~06 	 L6~R6 
+18	19	5	0	5	6	7	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+18	20	6	2	6							 Tap1 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+18	7	6	0	1	7	5	7				 Tap2: Level 	 00~1E 	 0~30 
+18	11	7	0	4							 Tap3: Level 	 00~1E 	 0~30 
+18	3	8	3	7							 Tap1: Level 	 00~1E 	 0~30 
+18	5	8	0	2	9	4	7				 Tap2 (180) [msec] 	 00~7F 	 0~570msec 
+18	6	9	0	3	10	7	7				 Tap2: Depth 	 00~1E 	 0~30 
+18	10	10	2	6							 Tap3: Depth 	 00~1E 	 0~30 
+18	2	10	0	1	11	5	7				 Tap1: Depth 	 00~1E 	 0~30 
+18	14	11	0	4							 Tap4: Depth 	 00~1E 	 0~30 
+18	15	12	3	7							 Tap4: Level 	 00~1E 	 0~30 
+18	0	12	0	2	13	5	7				 LFO Frequency [Hz] 	 01~3F 	 0.02~13.00Hz 
+18	9	13	0	4	14	6	7				 Tap3 (090) [msec] 	 00~7F 	 0~570msec 
+18	1	14	0	5	15	7	7				 Tap1 (000) [msec] 	 00~7F 	 0~570msec 
+18	13	15	0	6							 Tap4 (270) [msec] 	 00~7F 	 0~570msec 
+
+19											 19: Ensemble 		
+19	0	0	0	7							 Speed 	 01~64 	 1~100 
+19	1	1	0	7							 Speed: Src 	 00~1F 	 Off~Tempo(*1) 
+19	2	2	0	7							 Speed: Amt 	 9C~64 	 -100~+100 
+19	3	3	0	7							 Depth 	 00~64 	 0~100 
+19	4	4	0	7							 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+19	5	5	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+19	6	6	0	7							 Shimmer 	 00~64 	 0~100 
+19	7	7	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+19	8	8	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+19	9	9	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+20											 20: Stereo Flanger 		
+20	0	0	0	7							 Delay Time [msec] 	 00~8C 	 0.0~50.0msec 
+20	2	1	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+20	4	2	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+20	5	3	0	7							 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+20	6	4	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+20	12	5	0	7							 Depth 	 00~64 	 0~100 
+20	13	6	0	7							 Feedback 	 9C~64 	 -100~+100 
+20	14	7	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+20	15	9	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+20	16	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+20	17	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+20	3	12	1	6							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+20	1	12	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+20	7	13	0	7							 BPM/MIDI Sync 	 00~01 	 Off~On 
+20	8	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+20	11	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+20	10	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+20	9	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+21											 21: St. Random Flanger 		
+21	0	0	0	7							 Delay Time [msec] 	 00~8C 	 0.0~50.0msec 
+21	3	1	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+21	5	2	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~20.00Hz 
+21	6	3	0	7							 LFO Step Freq [Hz] 	 01~C8 	 0.05~50.00Hz 
+21	7	4	0	7							 LFO Step Freq: Amt 	 9C~64 	 -50.00~+50.00Hz 
+21	15	5	0	7							 Depth 	 00~64 	 0~100 
+21	16	6	0	7							 Feedback 	 9C~64 	 -100~+100 
+21	17	7	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+21	18	8	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+21	19	9	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+21	20	10	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+21	2	11	1	6							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+21	1	11	0	0							 LFO Waveform 	 00~01 	 Step-Tri~Random 
+21	14	12	6	6							 (Reserved) 	 00~01 	 0~1(*4) 
+21	8	12	5	5							 BPM/MIDI Sync 	 00~01 	 Off~On 
+21	4	12	0	4							 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+21	9	13	0	7							 BPM 	 27~F0 	 MIDI~240 
+21	13	14	3	7							 Step Base Note: Times 	 00~1F 	 x1~x32 
+21	10	14	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+21	12	15	4	7							 Step Base Note 	 00~09 	 32/16T/16..4/2T/2/1 
+21	11	15	0	3							 Base Note: Times 	 00~0F 	 x1~x16 
+
+22											 22: St. Env. Flanger 		
+22	0	0	0	7							 L Dly Bottom [msec] 	 00~8C 	 0.0~50.0msec 
+22	1	1	0	7							 L Dly Top [msec] 	 00~8C 	 0.0~50.0msec 
+22	2	2	0	7							 R Dly Bottom [msec] 	 00~8C 	 0.0~50.0msec 
+22	3	3	0	7							 R Dly Top [msec] 	 00~8C 	 0.0~50.0msec 
+22	4	4	0	7							 Sweep Mode 	 00~01 	 EG~D-mod 
+22	5	5	0	7							 Sweep Mode: Src 	 00~1F 	 Off~Tempo(*1) 
+22	6	6	0	7							 EG Attack 	 01~64 	 1~100 
+22	7	7	0	7							 EG Delay 	 01~64 	 1~100 
+22	8	8	0	7							 Feedback 	 9C~64 	 -100~+100 
+22	9	9	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+22	10	10	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+22	11	11	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+22	12	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+23											 23: Stereo Phaser 		
+23	1	0	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+23	3	1	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+23	4	2	0	7							 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+23	5	3	0	7							 LFO Frequency : Amt 	 8D~73 	 -20.00~+20.00Hz 
+23	11	4	0	7							 Manual 	 00~64 	 0~100 
+23	12	5	0	7							 Depth 	 00~64 	 0~100 
+23	13	6	0	7							 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+23	14	7	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+23	15	8	0	7							 Resonance 	 9C~64 	 -100~+100 
+23	17	9	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+23	18	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+23	19	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+23	2	12	1	6							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+23	0	12	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+23	16	13	1	7							 High Damp [percent] 	 00~64 	 0~100% 
+23	6	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+23	7	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+23	10	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+23	9	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+23	8	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+24											 24: St. Random Phaser 		
+24	14	0	0	7							 Manual 	 00~64 	 0~100 
+24	2	1	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+24	4	2	0	7							 LFO Frequency : Amt 	 8D~73 	 -20.00~+20.00Hz 
+24	5	3	0	7							 LFO Step Freq [Hz] 	 01~C8 	 0.05~50.00Hz 
+24	6	4	0	7							 LFO Step Freq: Amt 	 9C~64 	 -50.00~+50.00Hz 
+24	15	5	0	7							 Depth 	 00~64 	 0~100 
+24	16	6	0	7							 Resonance 	 9C~64 	 -100~+100 
+24	17	7	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+24	18	8	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+24	19	9	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+24	20	10	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+24	1	11	2	7							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+24	0	11	0	1							 LFO Waveform 	 00~02 	 Step-Tri~Random 
+24	13	12	6	6							 (Reserved) 	 00~01 	 0~1(*4) 
+24	7	12	5	5							 BPM/MIDI Sync 	 00~01 	 Off~On 
+24	3	12	0	4							 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+24	8	13	0	7							 BPM 	 27~F0 	 MIDI~240 
+24	12	14	3	7							 Step Base Note: Times 	 00~1F 	 x1~x32 
+24	9	14	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+24	11	15	4	7							 Step Base Note 	 00~09 	 32/16T/16..4/2T/2/1 
+24	10	15	0	3							 Base Note: Times 	 00~0F 	 x1~x16 
+
+25											 25: St. Env Phaser 		
+25	0	0	0	7							 L Manu Bottom 	 00~64 	 0~100 
+25	1	1	0	7							 L Manu Top 	 00~64 	 0~100 
+25	2	2	0	7							 R Manu Bottom 	 00~64 	 0~100 
+25	3	3	0	7							 R Manu Top 	 00~64 	 0~100 
+25	4	4	0	7							 Sweep Mode 	 00~01 	 EG~D-mod 
+25	5	5	0	7							 Sweep Mode: Src 	 00~1F 	 Off~Tempo 
+25	6	6	0	7							 EG Attack 	 01~64 	 1~100 
+25	7	7	0	7							 EG Delay 	 01~64 	 1~100 
+25	8	8	0	7							 Resonance 	 9C~64 	 -100~+100 
+25	9	9	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+25	10	10	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+25	11	11	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+25	12	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+26											 26: St.Biphase Mod. 		
+26	3	0	0	7							 LFO1 Frequency [Hz] 	 01~FA 	 0.02~30.00Hz 
+26	6	1	0	7							 LFO2 Frequency [Hz] 	 01~FA 	 0.02~30.00Hz 
+26	13	2	0	7							 L Pre Delay [msec] 	 00~8C 	 0.0~50.0msec 
+26	0	3	7	7							 LFO1 Waveform 	 00~01 	 Triangle~Sine 
+26	8	3	0	6							 Depth1 	 00~64 	 0~100 
+26	1	4	7	7							 LFO2 Waveform 	 00~01 	 Triangle~Sine 
+26	11	4	0	6							 Depth2 	 00~64 	 0~100 
+26	15	5	0	7							 Feedback 	 9C~64 	 -100~+100 
+26	2	6	7	7							 LFO Phase Sw 	 00~01 	 0 degree ~ 180 degree 
+26	16	6	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+26	17	7	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+26	5	8	0	7							 LFO1 Frequency: Amt 	 83~7D 	 -30.00~+30.00 
+26	7	9	0	7							 LFO2 Frequency: Amt 	 83~7D 	 -30.00~+30.00 
+26	10	10	0	7							 Depth1: Amt 	 9C~64 	 -100~+100 
+26	12	11	0	7							 Depth2: Amt 	 9C~64 	 -100~+100 
+26	19	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+26	14	13	0	7							 R Pre Delay [msec] 	 00~8C 	 0.0~50.0msec 
+26	4	14	2	6							 LFO1 Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+26	9	14	0	1	15	5	7				 Depth1: Src 	 00~1F 	 Off~Tempo(*1) 
+26	18	15	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+
+27											 27: Stereo Vibrato 		
+27	15	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+27	12	0	0	2	1	6	7				 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+27	4	1	1	5							 LFO Freqency: Src 	 00~1F 	 Off~Tempo(*1) 
+27	0	1	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+27	1	2	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+27	3	3	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+27	5	4	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+27	13	5	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+27	16	6	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+27	19	7	0	7							 Fade-In Delay [msec] 	 00~C8 	 00~2000msec 
+27	17	10	0	4							 AUTOFADE Src 	 00~1F 	 Off~Tempo(*1) 
+27	14	11	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+27	11	12	1	7							 Depth 	 00~64 	 0~100 
+27	2	12	0	0							 LFO Frequency Mod 	 00~01 	 D-mod~AUTOFADE 
+27	18	13	1	7							 Fade-In Rate 	 01~64 	 1~100 
+27	6	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+27	7	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+27	10	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+27	9	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+27	8	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+28											 28: St. Auto Fade Mod. 		
+28	16	0	2	6							 AUTOFADE Src 	 00~1F 	 Off~Tempo(*1) 
+28	8	0	0	1	1	0	7	2	5	7	 R Delay Time [msec] 	 00~1388 	 0.0~500.0msec 
+28	7	2	0	4	3	0	7				 L Delay Time [msec] 	 00~1388 	 0.0~500.0msec 
+28	14	4	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+28	5	4	0	2	5	6	7				 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+28	3	5	5	5							 LFO Frequency Mod 	 00~01 	 D-mod~AUTOFADE 
+28	2	5	1	4							 LFO Phase [degree] 	 FC~04 	 -180~+180 
+28	0	5	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+28	12	6	7	7							 Wet/Dry Mod 	 00~01 	 D-mod~AUTOFADE 
+28	11	6	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+28	4	7	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+28	6	8	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+28	9	9	0	7							 Depth 	 00~C8 	 0~200 
+28	1	10	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+28	10	11	0	7							 Feedback 	 9C~64 	 -100~+100 
+28	17	12	0	6							 Fade-In Rate 	 01~64 	 1~100 
+28	13	13	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+28	15	14	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+28	18	15	0	7							 Fade-In Dly [msec] 	 00~C8 	 0~2000msec 
+
+29											 29: 2Voice Resonator 		
+29	20	0	4	7							 Voice2: Fine [cent] 	 FB~05 	 -50~+50 
+29	19	0	0	3							 Voice1: Fine [cent] 	 FB~05 	 -50~+50 
+29	1	1	7	7							 LFO/D-mod Invert 	 00~01 	 Off~On 
+29	3	1	0	6							 Trim 	 00~64 	 0~100 
+29	8	2	0	7							 Voice1: Resonance 	 9C~64 	 -100~+100 
+29	9	3	0	7							 Voice2: Resonance 	 9C~64 	 -100~+100 
+29	4	4	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+29	18	5	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+29	5	6	0	7							 Mod. Depth 	 9C~64 	 -100~+100 
+29	15	7	4	7							 Voice2: Pan 	 FA~06 	 L6~R6 
+29	14	7	0	3							 Voice1: Pan 	 FA~06 	 L6~R6 
+29	17	8	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+29	2	8	0	1	9	5	7				 D-mod Src 	 00~1F 	 Off~Tempo(*1) 
+29	16	9	0	4	10	6	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+29	13	10	0	5	11	7	7				 Voice2: Level 	 00~64 	 0~100 
+29	12	11	0	6							 Voice1: Level 	 00~64 	 0~100 
+29	0	12	4	5							 Control Mode 	 00~02 	 Manual~D-mod 
+29	11	12	0	3	13	5	7				 Voice2: High Damp [percent] 	 00~64 	 0~100% 
+29	10	13	0	4	14	6	7				 Voice1: High Damp [percent] 	 00~64 	 0~100% 
+29	7	14	0	5	15	7	7				 Voice2: Pitch 	 00~6B 	 C0~B8 
+29	6	15	0	6							 Voice1: Pitch 	 00~6B 	 C0~B8 
+
+30											 30: Doppler 		
+30	17	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+30	14	0	0	2	1	6	7				 Pan Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+30	11	1	1	5							 Pitch Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+30	10	1	0	0	2	2	7				 Pitch Depth 	 00~64 	 0~100 
+30	3	2	0	1	3	5	7				 LFO Frequency : Src 	 00~1F 	 Off~Tempo(*1) 
+30	1	3	0	4							 LFO Mode: Src 	 00~1F 	 Off~Tempo(*1) 
+30	16	4	1	7							 Wet/Dry 	 00~64 	 Dey~Wet 
+30	0	4	0	0							 LFO Mode 	 00~01 	 Loop~1-Shot 
+30	2	5	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+30	4	6	0	7							 LFO Frequency : Amt 	 8D~73 	 -20.00~+20.00Hz 
+30	12	7	0	7							 Pitch Depth: Amt 	 9C~64 	 -100~+100 
+30	13	8	0	7							 Pan Depth 	 9C~64 	 -100~+100 
+30	15	9	0	7							 Pan Depth: Amt 	 9C~64 	 -100~+100 
+30	18	10	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+30	19	13	1	1							 LFO Sync 	 00~01 	 Off~On 
+30	5	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+30	6	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+30	9	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+30	8	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+30	7	15	2	0							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+31											 31: Scratch 		
+31	9	0	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+31	6	1	6	7							 Direct Mix 	 00~02 	 Always On ~ Cross Fade 
+31	3	1	1	5							 Envelope Select: Src 	 00~1F 	 Off~Tempo(*1) 
+31	4	2	1	7							 Threshold 	 00~64 	 0~100 
+31	2	2	0	0							 Envelope Select 	 00~01 	 D-mod~Input 
+31	7	3	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+31	8	4	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+31	0	5	1	5							 Scratch Source 	 00~1F 	 Off~Tempo(*1) 
+31	5	6	0	7							 Response 	 00~64 	 0~100 
+31	1	7	0	7							 Scratch Response 	 00~64 	 0~100 
+
+32											 32: Stereo Tremolo 		
+32	1	0	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+32	3	1	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+32	5	2	0	7							 LFO Frequency : Amt 	 8D~73 	 -20.00~+20.00Hz 
+32	11	3	0	7							 Depth 	 00~64 	 0~100 
+32	12	4	0	7							 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+32	13	5	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+32	14	6	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+32	15	7	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+32	16	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+32	4	9	3	7							 LFO Frequency : Src 	 00~1F 	 Off~Tempo(*1) 
+32	0	9	0	2							 LFO Waveform 	 00~04 	 Triangle~Down 
+32	2	12	1	6							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+32	6	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+32	7	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+32	10	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+32	9	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+32	8	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+33											 33: St. Env. Tremolo 		
+33	0	0	0	7							 Envelope Sens 	 00~64 	 0~100 
+33	1	1	0	7							 Envelope Shape 	 9C~64 	 -100~+100 
+33	2	2	0	7							 LFO Waveform 	 00~02 	 Triangle~Vintage 
+33	3	3	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+33	4	4	0	7							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+33	5	5	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+33	6	6	0	7							 Envelope Amount [Hz] 	 8D~73 	 -20.00~+20.00Hz 
+33	7	7	0	7							 Depth 	 00~64 	 0~100 
+33	8	8	0	7							 Envelope Amount 	 9C~64 	 -100~+100 
+33	9	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+33	10	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+33	11	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+34											 34: Stereo Auto Pan 		
+34	1	0	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+34	3	1	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+34	5	2	0	7							 LFO Frequency : Amt 	 8D~73 	 -20.00~+20.00Hz 
+34	11	3	0	7							 Depth 	 00~64 	 0~100 
+34	12	4	0	7							 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+34	13	5	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+34	14	6	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+34	15	7	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+34	16	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+34	4	9	3	7							 LFO Frequency : Src 	 00~1F 	 Off~Tempo(*1) 
+34	0	9	0								 LFO Waveform 	 00~01 	 Triangle~Sine 
+34	2	12	1	6							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+34	6	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+34	7	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+34	10	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+34	9	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+34	8	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+35											 35: St. Phaser + Trml 		
+35	3	0	3	7							 LFO Frequency : Src 	 00~1F 	 Off~Tempo(*1) 
+35	0	0	0	2							 Type 	 00~05 	 Phs-Trml~Phs LR-Trml LR 
+35	12	1	3	7							 Phaser Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+35	1	1	0	2							 LFO Phase [degree] 	 FE~02 	 -180~+180 
+35	2	2	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+35	4	3	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+35	18	4	3	7							 Tremolo Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+35	15	4	0	2	5	4	7				 Phaser Wet/Dry 	 CE~32 	 -Wet~Wet 
+35	14	5	0	3	6	5	7				 Resonance 	 CE~32 	 -100~+100 
+35	13	6	0	4	7	6	7				 Phaser Depth: Amt 	 CE~32 	 -100~+100 
+35	11	7	0	5							 Phaser Depth 	 00~32 	 0~100 
+35	21	8	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+35	20	8	0	2	9	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+35	19	9	0	3	10	5	7				 Tremolo Depth: Amt 	 CE~32 	 -100~+100 
+35	17	10	0	4	11	7	7				 Tremolo Depth 	 00~32 	 0~100 
+35	16	11	0	6							 Tremolo Shape 	 CE~32 	 -100~+100 
+35	22	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+35	10	13	1	7							 Phaser Manual 	 00~64 	 0~100 
+35	5	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+35	6	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+35	9	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+35	8	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+35	7	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+36											 36: St. Ring Modulator 		
+36	19	0	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+36	6	0	0	0	1	4	7				 (Reserved) 	 05~05 	 5~5 
+36	5	1	0	3	2	5	7				 Note Offset 	 D0~30 	 -48~+48 
+36	4	2	0	4	3	5	7				 Fixed Frequency: Amt 	 8E~72 	 -12.00~+12.00kHz 
+36	3	3	0	4							 Fixed Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+36	20	4	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+36	17	4	0	1	5	5	7				 LFO Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+36	9	5	0	4							 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+36	1	6	7	7							 OSC Mode 	 00~01 	 Fixed~Note 
+36	0	6	0	6							 Pre LPF 	 00~64 	 0~100 
+36	2	7	0	7							 Fixed Frequency [Hz] 	 00~E4 	 0~12.00kHz 
+36	7	8	0	7							 Note Fine 	 9C~64 	 -100~+100 
+36	8	9	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+36	10	10	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+36	18	11	0	7							 LFO Depth: Amt 	 9C~64 	 -100~+100 
+36	21	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+36	16	13	1	7							 LFO Depth 	 00~64 	 0~100 
+36	11	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+36	12	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+36	15	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+36	14	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+36	13	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+37											 37: Detune 		
+37	0	0	0	7							 Pitch Shift [cent] 	 9C~64 	 -100~+100cent 
+37	1	1	0	7							 Pitch Shift: Src 	 00~1F 	 Off~Tempo(*1) 
+37	2	2	0	7							 Pitch Shift: Amt 	 9C~64 	 -100~+100 
+37	3	3	0	7							 Delay Time [msec] 	 00~BE 	 0~1000msec 
+37	4	4	0	7							 Feedback 	 9C~64 	 -100~+100 
+37	5	5	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+37	6	6	0	7							 Input Level: Src 	 00~1F 	 Off~Tempo(*1) 
+37	7	7	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+37	8	8	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+37	9	9	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+37	10	10	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+38											 38: Pitch Shifter 		
+38	0	0	0	7							 Mode 	 00~02 	 Slow~Fast 
+38	1	1	0	7							 Pitch Shift [1/2tone] 	 E8~18 	 -24~+24 
+38	2	2	0	7							 Pitch Shift: Src 	 00~1F 	 Off~Tempo(*1) 
+38	3	3	0	7							 Pitch Shift: Amt 	 E8~18 	 -24~+24 
+38	4	4	0	7							 Fine [cent] 	 9C~64 	 -100~+100cent 
+38	5	5	0	7							 Fine: Amt 	 9C~64 	 -100~+100cent 
+38	6	6	0	7							 Delay Time [msec] 	 00~BE 	 0~1000msec 
+38	7	7	0	7							 Feedback Position 	 00~01 	 Pre~Post 
+38	8	8	0	7							 Feedback 	 9C~64 	 -100~+100 
+38	9	9	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+38	10	10	0	7							 Input Level: Src 	 00~1F 	 Off~Tempo(*1) 
+38	11	11	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+38	12	12	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+38	13	13	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+38	14	14	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+39											 39: Pitch Shift Mod. 		
+39	0	0	0	7							 Pitch Shift [cent] 	 9C~64 	 -100~+100cent 
+39	1	1	0	7							 LFO Waveform 	 00~01 	 Triangle~Square 
+39	2	2	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+39	3	3	0	7							 LFO Frequency: Src 	 00~1F 	 Off~Tempo(*1) 
+39	4	4	0	7							 LFO Frequency: Amt 	 8D~73 	 -20.00~+20.00Hz 
+39	10	5	0	7							 Depth 	 9C~64 	 -100~+100 
+39	11	6	0	7							 Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+39	12	7	0	7							 Depth: Amt 	 9C~64 	 -100~+100 
+39	13	8	0	7							 Pan 	 00~64 	 L~R 
+39	14	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+39	15	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+39	16	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+39	5	13	0	0							 BPM/MIDI Sync 	 00~01 	 Off~On 
+39	6	14	0	7							 BPM 	 27~F0 	 MIDI~240 
+39	9	15	7	7							 (Reserved) 	 00~01 	 0~1(*4) 
+39	8	15	3	6							 Base Note: Times 	 00~0F 	 x1~x16 
+39	7	15	0	2							 Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+
+40											 40: Rotary Speaker 		
+40	5	0	3	3							 Speed Switch: Sw 	 00~01 	 Toggle~Moment 
+40	2	0	2	2							 Mode Switch: Sw 	 00~01 	 Toggle~Moment 
+40	3	0	1	1							 Speed Switch 	 00~01 	 Slow~Fast 
+40	0	0	0	0							 Mode Switch 	 00~01 	 Rotate~Stop 
+40	7	1	0	7							 Rotor Acceleration 	 00~64 	 0~100 
+40	8	2	0	7							 Rotor Ratio 	 31~C8 	 Stop~2.00 
+40	9	3	0	7							 Horn Acceleration 	 00~64 	 0~100 
+40	10	4	0	7							 Horn Ratio 	 31~C8 	 Stop~2.00 
+40	11	5	0	7							 Horn/Rotor Balance 	 00~64 	 0~100 
+40	12	6	0	7							 Mic Distance 	 00~64 	 0~100 
+40	13	7	0	7							 Mic Spread 	 00~64 	 0~100 
+40	14	8	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+40	6	9	0	7							 Manual Speed Ctrl 	 00~1F 	 Off~Tempo(*1) 
+40	1	10	0	7							 Mode Switch: Src 	 00~1F 	 Off~Tempo(*1) 
+40	4	11	0	7							 Speed Switch: Src 	 00~1F 	 Off~Tempo(*1) 
+40	15	12	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+40	16	13	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+41											 41: Early Reflections 		
+41	0	0	0	7							 Type 	 00~03 	 Sharp~Reverse 
+41	1	1	0	7							 ER Time [msec] 	 0A~AA 	 10~800msec 
+41	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+41	3	3	0	7							 EQ Trim 	 00~64 	 0~100 
+41	4	4	0	7							 Pre LEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+41	5	5	0	7							 Pre HEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+41	6	6	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+41	7	7	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+41	8	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+42											 42: Auto Reverse 		
+42	7	0	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+42	4	1	6	7							 Direct Mix 	 00~02 	 Always On~Cross Fade 
+42	2	1	1	5							 Envelope: Src 	 00~1F 	 Off~Tempo(*1) 
+42	0	1	0	0							 Rec Mode 	 00~01 	 Single~Multi 
+42	3	2	1	7							 Threshold 	 00~64 	 0~100 
+42	1	2	0	0							 Envelope Select 	 00~01 	 D-mod~Input 
+42	5	3	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+42	6	4	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+42	8	5	0	7							 Reverse Time [msec] 	 14~DE 	 20~1320msec 
+42	9	6	0	7							 Response 	 00~64 	 0~100 
+
+43											 43: L/C/R Delay 		
+43	6	0	0	7							 Feedback (C Delay) 	 9C~64 	 -100~+100 
+43	2	1	0	7	2	4	7				 C Delay Time [msec] 	 00~0550 	 0~1360msec 
+43	0	2	0	3	3	0	7				 L Delay Time [msec] 	 00~0550 	 0~1360msec 
+43	8	4	0	7							 Feedback: Amt 	 9C~64 	 -100~+100 
+43	4	5	0	7	6	4	7				 R Delay Time [msec] 	 00~0550 	 0~1360msec 
+43	3	6	0	3	7	6	7				 C Delay Level	 00~32 	 0~50 
+43	1	7	0	5							 L Delay Level 	 00~32 	 0~50 
+43	12	8	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+43	13	9	2	7							 Spread 	 00~32 	 0~50 
+43	9	9	0	1	10	3	7				 High Damp [percent] 	 00~64 	 0~100% 
+43	7	10	0	2	11	6	7				 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+43	5	11	0	5							 R Delay Level 	 00~32 	 0~50 
+43	16	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+43	15	13	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+43	14	13	0	2	14	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+43	11	14	0	3	15	7	7				 Input Level: Src 	 00~1F 	 Off~Tempo(*1) 
+43	10	15	0	6							 Low Damp [percent] 	 00~64 	 0~100% 
+
+44											 44: Stereo/Cross Delay 		
+44	5	0	0	7							 L Feedback 	 9C~64 	 -100~+100 
+44	6	1	0	7							 R Feedback 	 9C~64 	 -100~+100 
+44	8	2	0	7							 L Feedback: Amt 	 9C~64 	 -100~+100 
+44	9	3	0	7							 R Feedback: Amt 	 9C~64 	 -100~+100 
+44	4	4	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100
+44	13	5	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+44	12	6	0	3	7	7	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+44	15	8	7	7							 Stereo/Cross 	 00~01 	 Stereo~Cross 
+44	7	8	2	6							 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+44	3	8	0	1	9	5	7				 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+44	10	9	0	4	10	6	7				 High Damp [percent] 	 00~64 	 0~100% 
+44	14	10	0	5	11	7	7				 Spread 	 CE~32 	 -50~+50 
+44	2	11	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+44	1	12	0	3	13	0	7	14	6	7	 R Delay Time [msec] 	 00~1A90 	 0.0~680.0msec 
+44	0	14	0	5	15	0	7				 L Delay Time [msec] 	 00~1A90 	 0.0~680.0msec 
+
+45											 45: St. Multitap Delay 		
+45	5	0	0	7							 Feedback (Tap2) 	 9C~64 	 -100~+100 
+45	7	1	0	7							 Feedback: Amt 	 9C~64 	 -100~+100 
+45	12	2	0	7							 Spread 	 9C~64 	 -100~+100 
+45	14	3	0	7							 Spread: Amt 	 9C~64 	 -100~+100 
+45	4	4	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+45	11	5	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+45	15	6	2	3							 Mode 	 00~03 	 Normal~Cross Pan2 
+45	10	6	0	1	7	5	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+45	3	7	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+45	6	8	3	7							 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+45	16	8	0	2	9	4	7				 Tap1 Level 	 00~64 	 0~100 
+45	2	9	0	3	10	5	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+45	0	10	0	4	11	0	7				 Tap1 Time [msec] 	 00~1A90 	 0.0~680.0msec 
+45	13	12	3	7							 Spread: Src 	 00~1F 	 Off~Tempo(*1) 
+45	9	12	0	2	13	4	7				 Low Damp [percent] 	 00~64 	 0~100% 
+45	8	13	0	3	14	5	7				 High Damp [percent] 	 00~64 	 0~100% 
+45	1	14	0	4	15	0	7				 Tap2 Time [msec] 	 00~1A90 	 0.0~680.0msec 
+
+46											 46: St. Modulation Delay 		
+46	14	0	0	7							 L Feedback 	 9C~64 	 -100~+100 
+46	15	1	0	7							 R Feedback 	 9C~64 	 -100~+100 
+46	10	2	0	7							 L Depth 	 00~C8 	 0~200 
+46	11	3	0	7							 R Depth 	 00~C8 	 0~200 
+46	4	4	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+46	5	5	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+46	18	6	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+46	3	7	7	7							 LFO Waveform 	 00~01 	 Triangle~Sine 
+46	0	7	6	6							 Modulation Mode 	 00~01 	 LFO~D-mod 
+46	8	7	0	5							 L LFO Phase [degree] 	 EE~12 	 -180~+180 
+46	16	8	0	7							 Wet/Dry 	 9C~64 	 -Wet~Wet 
+46	6	9	7	7							 LFO Sync 	 00~01 	 Off~On 
+46	1	9	2	6							 D-mod Modulation: Src 	 00~1F 	 Off~Tempo(*1) 
+46	7	9	0	1	10	5	7				 LFO Sync: Src 	 00~1F 	 Off~Tempo(*1) 
+46	17	10	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+46	19	11	7	7							 D-mod Modulation 	 00~01 	 L/R:+/+~L/R:+/- 
+46	2	11	0	6							 Response 	 00~1E 	 0~30 
+46	9	12	2	7							 R LFO Phase [degree] 	 EE~12 	 -180~+180 
+46	13	12	0	1	13	0	7	14	5	7	 R Delay Time [msec] 	 00~1388 	 0.0~500.0msec 
+46	12	14	0	4	15	0	7				 L Delay Time [msec] 	 00~1388 	 0.0~500.0msec 
+
+47											 47: St. Dynamic Delay 		
+47	2	0	0	7							 Threshold 	 00~64 	 0~100 
+47	3	1	0	7							 Attack 	 01~64 	 1~100 
+47	4	2	0	7							 Release 	 01~64 	 1~100 
+47	10	3	0	7							 Feedback 	 9C~64 	 -100~+100 
+47	11	4	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+47	12	5	0	7							 Low Damp [percent] 	 00~64 	 0~100% 
+47	13	6	0	7							 Spread 	 9C~64 	 -100~+100 
+47	7	7	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+47	8	8	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+47	9	9	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+47	0	10	0	7							 Control Target 	 00~02 	 None~FB 
+47	14	11	1	7							 Offset 	 00~64 	 0~100 
+47	1	11	0	0							 Polarity 	 00~01 	 +~- 
+47	5	12	0	7	13	0	7				 L Delay Time [msec] 	 00~1A90 	 0.0~680.0msec 
+47	6	14	0	7	15	0	7				 R Delay Time [msec] 	 00~1A90 	 0.0~680.0msec 
+
+48											 48: St. Auto Panning Dly 		
+48	8	0	2	7							 LFO Phase [degree] 	 EE~12 	 -180~+180 
+48	1	0	0	1	1	0	7	2	5	7	 R Delay Time [msec] 	 00~1A90 	 0.0~680.0msec 
+48	0	2	0	4	3	0	7				 L Delay Time [msec] 	 00~1A90 	 0.0~680.0msec 
+48	14	4	0	2	5	6	7				 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+48	11	5	1	5							 Panning Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+48	6	5	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+48	2	6	0	7							 L Feedback 	 9C~64 	 -100~+100 
+48	3	7	0	7							 R Feedback 	 9C~64 	 -100~+100 
+48	4	8	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+48	5	9	0	7							 Low Damp [percent] 	 00~64 	 0~100% 
+48	7	10	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+48	9	11	0	7							 Panning Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+48	12	12	0	7							 Panning Depth: Amt 	 9C~64 	 -100~+100 
+48	10	13	0	7							 Panning Depth 	 00~64 	 0~100 
+48	13	14	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+48	15	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+49											 49: L/C/R BPM Delay 		
+49	12	0	0	7							 Feedback (C Delay) 	 9C~64 	 -100~+100 
+49	1	1	2	2							 (Reserved) 	 00~01 	 0~1(*6) 
+49	11	1	1	1							 Time Over? > 	 00~01 	 ----~OVER!! 
+49	9	1	0	0	2	5	7				 R Delay Base Note: Times 	 00~0F 	 x1~x16 
+49	6	2	1	4							 C Delay Base Note: Times 	 00~0F 	 x1~x16 
+49	8	2	0	0	3	6	7				 R Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+49	5	3	3	5							 C Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+49	2	3	0	2							 L Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+49	14	4	0	7							 Feedback: Amt 	 9C~64 	 -100~+100 
+49	0	5	0	7							 BPM 	 27~F0 	 MIDI~240 
+49	3	6	4	7							 L Delay Base Note: Times 	 00~0F 	 x1~x16 
+49	7	6	0	3	7	6	7				 C Delay Level 	 00~32 	 0~50 
+49	4	7	0	5							 L Delay Level 	 00~32 	 0~50 
+49	18	8	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+49	19	9	2	7							 Spread 	 00~32 	 0~50 
+49	15	9	0	1	10	3	7				 High Damp [percent] 	 00~64 	 0~100% 
+49	13	10	0	2	11	6	7				 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+49	10	11	0	5							 R Delay Level 	 00~32 	 0~50 
+49	22	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+49	21	13	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+49	20	13	0	2	14	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+49	17	14	0	3	15	7	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+49	16	15	0	6							 Low Damp [percent] 	 00~64 	 0~100% 
+
+50											 50: St. BPM Delay 		
+50	13	0	0	7							 L Feedback 	 9C~64 	 -100~+100 
+50	14	1	0	7							 R Feedback 	 9C~64 	 -100~+100 
+50	16	2	0	7							 L Feedback: Amt 	 9C~64 	 -100~+100 
+50	17	3	0	7							 R Feedback: Amt 	 9C~64 	 -100~+100 
+50	0	4	0	7							 BPM 	 27~F0 	 MIDI~240 
+50	5	5	7	7							 Time Over? L > 	 00~01 	 ---~OVER!! 
+50	3	5	3	6							 L Delay Base Note: Times 	 00~0F 	 x1~x16 
+50	2	5	0	2							 L Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+50	9	6	7	7							 Time Over? R > 	 00~01 	 ---~OVER!! 
+50	7	6	3	6							 R Delay Base Note: Times 	 00~0F 	 x1~x16 
+50	6	6	0	2							 R Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+50	21	7	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+50	12	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+50	1	9	7	7							 (Reserved) 	 00~01 	 0~1(*6) 
+50	10	9	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+50	4	10	0	7	11	7	7				 L Delay: Adjust [percent] 	 0106~FA 	 -2.5~2.5% 
+50	18	11	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+50	8	12	0	7	13	7	7				 R Delay: Adjust [percent] 	 0106~FA 	 -2.5~2.5% 
+50	19	13	0	6							 Low Damp [percent] 	 00~64 	 0~100% 
+50	11	14	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+50	20	14	0	1	15	5	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+50	15	15	0	4							 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+
+51											 51: Sequence Delay 		
+51	0	0	0	7							 BPM 	 2B~F0 	 MIDI~240 
+51	2	1	0	7							 Rhythm Pattern 	 00~14 	 Rhythm Patterns
+51	3	2	0	7							 Feedback 	 9C~64 	 -100~+100 
+51	5	3	0	7							 Feedback: Amt 	 9C~64 	 -100~+100 
+51	9	4	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+51	12	5	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+51	6	6	1	7							 High Damp [percent] 	 00~64 	 0~100% 
+51	1	6	0	0							 (Reserved) 	 00~01 	 0~1(*6) 
+51	7	7	1	7							 Low Damp [percent] 	 00~64 	 0~100% 
+51	16	8	0	3	9	5	7				 Tap4 Pan 	 00~64 	 L~R 
+51	15	9	0	4	10	6	7				 Tap3 Pan 	 00~64 	 L~R 
+51	14	10	0	5	11	7	7				 Tap2 Pan 	 00~64 	 L~R 
+51	13	11	0	6							 Tap1 Pan 	 00~64 	 L~R 
+51	10	13	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+51	11	14	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+51	8	14	0	1	15	5	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+51	4	15	0	4							 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+
+52											 52: Reverb Hall		
+52	0	0	0	7							 Reverb Time [sec] 	 01~64 	 0.1~10.0sec 
+52	1	1	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+52	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+52	3	3	0	7							 Pre Delay Thru [percent] 	 00~64 	 0~100% 
+52	4	6	0	7							 EQ Trim 	 00~64 	 0~100 
+52	5	7	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+52	6	8	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+52	7	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+52	8	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+52	9	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+53											 53: Reverb SmoothHall		
+53	0	0	0	7							 Reverb Time [sec] 	 01~64 	 0.1~10.0sec 
+53	1	1	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+53	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+53	3	3	0	7							 Pre Delay Thru [percent] 	 00~64 	 0~100% 
+53	4	6	0	7							 EQ Trim 	 00~64 	 0~100 
+53	5	7	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+53	6	8	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+53	7	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+53	8	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+53	9	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+54											 54: Reverb Wet Plate		
+54	0	0	0	7							 Reverb Time [sec] 	 01~64 	 0.1~10.0sec 
+54	1	1	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+54	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+54	3	3	0	7							 Pre Delay Thru [percent] 	 00~64 	 0~100% 
+54	4	6	0	7							 EQ Trim 	 00~64 	 0~100 
+54	5	7	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+54	6	8	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+54	7	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+54	8	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+54	9	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+55											 55: Reverb Dry Plate 		
+55	0	0	0	7							 Reverb Time [sec] 	 01~64 	 0.1~10.0sec 
+55	1	1	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+55	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+55	3	3	0	7							 Pre Delay Thru [percent] 	 00~64 	 0~100% 
+55	4	6	0	7							 EQ Trim 	 00~64 	 0~100 
+55	5	7	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+55	6	8	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+55	7	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+55	8	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+55	9	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+56											 56: Reverb Room		
+56	0	0	0	7							 Reverb Time [sec] 	 01~1E 	 0.1~3.0sec 
+56	1	1	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+56	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+56	3	3	0	7							 Pre Delay Thru [percent] 	 00~64 	 0~100% 
+56	4	4	0	7							 ER Level 	 00~64 	 0~100 
+56	5	5	0	7							 Reverb Level 	 00~64 	 0~100 
+56	6	6	0	7							 EQ Trim 	 00~64 	 0~100 
+56	7	7	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+56	8	8	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+56	9	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+56	10	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+56	11	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+57											 57: Reverb BrightRoom 		
+57	0	0	0	7							 Reverb Time [sec] 	 01~1E 	 0.1~3.0sec 
+57	1	1	0	7							 High Damp [percent] 	 00~64 	 0~100% 
+57	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+57	3	3	0	7							 Pre Delay Thru [percent] 	 00~64 	 0~100% 
+57	4	4	0	7							 ER Level 	 00~64 	 0~100 
+57	5	5	0	7							 Reverb Level 	 00~64 	 0~100 
+57	6	6	0	7							 EQ Trim 	 00~64 	 0~100 
+57	7	7	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+57	8	8	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+57	9	9	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+57	10	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+57	11	11	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+58											 58: P4EQ - Exciter 		
+58	3	0	2	7							 Band1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+58	2	0	0	1	1	6	7				 Band1: Q 	 00~0F 	 0.5~10 
+58	1	1	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+58	6	2	2	7							 Band2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+58	5	2	0	1	3	6	7				 Band2: Q 	 00~0F 	 0.5~10 
+58	4	3	0	5							 Band2 Cutoff [Hz] 	 00~3B 	 50~5.00kHz 
+58	9	4	2	7							 Band3: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+58	8	4	0	1	5	6	7				 Band3: Q 	 00~0F 	 0.5~10 
+58	7	5	0	5							 Band3 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+58	12	6	2	7							 Band4: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+58	11	6	0	1	7	6	7				 Band4: Q 	 00~0F 	 0.5~10 
+58	10	7	0	5							 Band4 Cutoff [Hz] 	 00~37 	 500~20.00kHz 
+58	0	10	0	7							 Trim 	 00~64 	 0~100 
+58	14	11	0	7							 Emphatic Point 	 00~46 	 0~70 
+58	15	12	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+58	16	13	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+58	13	14	0	7							 Exciter Blend 	 9C~64 	 -100~+100 
+58	17	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+59											 59: P4EQ - Wah 		
+59	3	0	2	7							 Band1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+59	2	0	0	1	1	6	7				 Band1: Q 	 00~0F 	 0.5~10 
+59	1	1	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+59	6	2	2	7							 Band2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+59	5	2	0	1	3	6	7				 Band2: Q 	 00~0F 	 0.5~10 
+59	4	3	0	5							 Band2 Cutoff [Hz] 	 00~3B 	 50~5.00kHz 
+59	9	4	2	7							 Band3: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+59	8	4	0	1	5	6	7				 Band3: Q 	 00~0F 	 0.5~10 
+59	7	5	0	5							 Band3 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+59	12	6	2	7							 Band4: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+59	11	6	0	1	7	6	7				 Band4: Q 	 00~0F 	 0.5~10 
+59	10	7	0	5							 Band4 Cutoff [Hz] 	 00~37 	 500~20.00kHz 
+59	22	8	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+59	16	8	0	2	9	6	7				 Sweep Mode: Src 	 00~1F 	 Off~Tempo(*1) 
+59	13	9	0	5							 Frequency Bottom 	 00~3D 	 0~100 
+59	0	10	0	7							 Trim 	 00~64 	 0~100 
+59	15	11	6	7							 Sweep Mode 	 00~02 	 Auto~LFO 
+59	14	11	0	5							 Frequency Top 	 00~3D 	 0~100 
+59	17	12	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+59	21	13	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+59	20	13	0	0							 Routing 	 00~01 	 PEQ->WAH~WAH~PEQ 
+59	19	14	7	7							 LPF 	 00~01 	 Off~On 
+59	18	14	0	6							 Resonance 	 00~64 	 0~100 
+59	23	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+60											 60: P4EQ - Cho/Flng 		
+60	3	0	2	7							 Band1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+60	2	0	0	1	1	6	7				 Band1: Q 	 00~0F 	 0.5~10 
+60	1	1	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+60	6	2	2	7							 Band2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+60	5	2	0	1	3	6	7				 Band2: Q 	 00~0F 	 0.5~10 
+60	4	3	0	5							 Band2 Cutoff [Hz] 	 00~3B 	 50~5.00kHz 
+60	9	4	2	7							 Band3: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+60	8	4	0	1	5	6	7				 Band3: Q 	 00~0F 	 0.5~10 
+60	7	5	0	5							 Band3 Cutoff[Hz] 	 01~3F 	 300~10kHz 
+60	12	6	2	7							 Band4: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+60	11	6	0	1	7	6	7				 Band4: Q 	 00~0F 	 0.5~10 
+60	10	7	0	5							 Band4 Cutoff [Hz] 	 00~37 	 500~20.00kHz 
+60	21	8	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+60	17	8	0	2	9	4	7				 Feedback 	 CE~32 	 -100~+100 
+60	16	9	0	3	10	6	7				 Depth 	 00~32 	 0~100 
+60	13	10	0	5	11	7	7				 Delay Time [msec] 	 00~73 	 0.0~50.0msec 
+60	0	11	0	6							 Trim 	 00~64 	 0~100 
+60	18	12	1	7							 Cho/Flg Wet/Dry 	 CE~32 	 -Wet~Wet 
+60	14	12	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+60	20	13	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+60	19	13	0	0							 Output Mode 	 00~01 	 Normal~Wet Invert 
+60	15	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+60	22	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+61											 61: P4EQ - Phaser 		
+61	3	0	2	7							 Band1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+61	2	0	0	1	1	6	7				 Band1: Q 	 00~0F 	 0.5~10 
+61	1	1	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+61	6	2	2	7							 Band2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+61	5	2	0	1	3	6	7				 Band2: Q 	 00~0F 	 0.5~10 
+61	4	3	0	5							 Band2 Cutoff [Hz] 	 00~3B 	 50~5.00kHz 
+61	9	4	2	7							 Band3: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+61	8	4	0	1	5	6	7				 Band3: Q 	 00~0F 	 0.5~10 
+61	7	5	0	5							 Band3 Cutoff[Hz] 	 01~3F 	 300~10kHz 
+61	12	6	2	7							 Band4: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+61	11	6	0	1	7	6	7				 Band4: Q 	 00~0F 	 0.5~10 
+61	10	7	0	5							 Band4 Cutoff [Hz] 	 00~37 	 500~20.00kHz 
+61	21	8	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+61	17	8	0	2	9	4	7				 Resonance 	 CE~32 	 -100~+100 
+61	16	9	0	3	10	6	7				 Depth 	 00~32 	 0~100 
+61	15	10	0	5	11	7	7				 Manual 	 00~64 	 0~100 
+61	0	11	0	6							 Trim 	 00~64 	 0~100 
+61	18	12	1	7							 Phaser Wet/Dry 	 CE~32 	 -Wet~Wet 
+61	13	12	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+61	20	13	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+61	19	13	0	0							 Output Mode 	 00~01 	 Normal~Wet Invert 
+61	14	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+61	22	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+62											 62: P4EQ - Mt. Delay 		
+62	3	0	2	7							 Band1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+62	2	0	0	1	1	6	7				 Band1: Q 	 00~0F 	 0.5~10 
+62	1	1	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+62	6	2	2	7							 Band2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+62	5	2	0	1	3	6	7				 Band2: Q 	 00~0F 	 0.5~10 
+62	4	3	0	5							 Band2 Cutoff [Hz] 	 00~3B 	 50~5.00kHz 
+62	9	4	2	7							 Band3: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+62	8	4	0	1	5	6	7				 Band3: Q 	 00~0F 	 0.5~10 
+62	7	5	0	5							 Band3 Cutoff[Hz] 	 01~3F 	 300~10kHz 
+62	12	6	2	7							 Band4: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+62	11	6	0	1	7	6	7				 Band4: Q 	 00~0F 	 0.5~10 
+62	10	7	0	5							 Band4 Cutoff [Hz] 	 00~37 	 500~20.00kHz 
+62	16	8	1	7							 Feedback (Tap2) 	 CE~32 	 -100~+100 
+62	15	8	0	0	9	4	7				 Tap1 Level 	 00~19 	 0~100 
+62	14	9	0	3	10	5	7				 Tap2 Delay Time [msec] 	 00~7B 	 0~680msec 
+62	13	10	0	4	11	6	7				 Tap1 Delay Time [msec] 	 00~7B 	 0~680msec 
+62	0	11	0	5							 Trim 	 00~32 	 0~100 
+62	21	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+62	20	13	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+62	19	13	0	2	14	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+62	18	14	0	3	15	6	7				 Mt.Delay Wet/Dry 	 00~32 	 Dry~Wet 
+62	17	15	0	5							 High Damp [percent] 	 00~32 	 0~100% 
+
+63											 63: Comp - Wah 		
+63	12	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+63	7	0	0	2	1	3	7				 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+63	6	1	0	2	2	6	7				 Sweep Mode: Src 	 00~1F 	 Off~Tempo(*1) 
+63	1	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+63	0	3	0	6							 Sensitivity 	 01~64 	 1~100 
+63	5	4	6	7							 Sweep Mode 	 00~02 	 Auto~LFO 
+63	3	4	0	5	5	7	7				 Frequency Bottom 	 00~64 	 0~100 
+63	2	5	0	6							 CMP: Output Level 	 00~64 	 0~100 
+63	14	8	0	7							 EQ Trim 	 00~64 	 0~100 
+63	15	9	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+63	16	10	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+63	8	12	0	6							 Resonance 	 00~64 	 0~100 
+63	11	13	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+63	10	13	0	0							 Routing 	 00~01 	 CMP->WAH~WAH~CMP 
+63	9	14	7	7							 Low Pass Filter 	 00~01 	 Off~On 
+63	4	14	0	6							 Frequency Top 	 00~64 	 0~100 
+63	13	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+64											 64: Comp - Amp Sim 		
+64	7	0	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+64	4	1	7	7							 Routing 	 00~01 	 CMP->AMP~AMP~CMP 
+64	2	1	0	6							 CMP: Output Level 	 00~64 	 0~100 
+64	3	2	6	7							 Amplifier Type 	 00~02 	 SS~6L6 
+64	1	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+64	0	3	0	6							 Sensitivity 	 01~64 	 1~100 
+64	6	6	0	3	7	7	7				 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+64	5	7	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+64	8	8	0	7							 EQ Trim 	 00~64 	 0~100 
+64	9	9	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+64	10	10	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+
+65											 65: Comp - OD/HiGain 		
+65	15	0	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+65	7	0	0	0	1	3	7				 Low Cutoff: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+65	6	1	0	2	2	5	7				 Low Cutoff[Hz] 	 00~31 	 20~1.00kHz 
+65	5	2	0	4	3	7	7				 OD: Output Level 	 00~32 	 0~50 
+65	4	3	0	6							 Drive 	 01~64 	 1~100 
+65	10	4	2	7							 Mid1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+65	9	4	0	1	5	6	7				 Mid1: Q 	 00~0F 	 0.5~10 
+65	8	5	0	5							 Mid1 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+65	13	6	2	7							 Mid2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+65	12	6	0	1	7	6	7				 Mid2: Q 	 00~0F 	 0.5~10 
+65	11	7	0	5							 Mid2 Cutoff[Hz] 	 00~37 	 500~20.00kHz 
+65	19	8	0	3	9	5	7				 OD: Output Level: Amt 	 CE~32 	 -50~+50 
+65	18	9	0	4							 OD: Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+65	0	11	0	6							 Sensitivity 	 01~64 	 1~100 
+65	16	12	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+65	3	13	7	7							 Drive Mode 	 00~01 	 Overdrive~Hi-Gain 
+65	1	13	0	6							 Attack 	 01~64 	 1~100 
+65	14	14	7	7							 Routing 	 00~01 	 CMP->OD~OD->CMP 
+65	2	14	0	6							 CMP: Output Level 	 00~64 	 0~100 
+65	17	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+66											 66: Comp - Param4EQ 		
+66	6	0	2	7							 Band1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+66	5	0	0	1	1	6	7				 Band1: Q 	 00~0F 	 0.5~10 
+66	4	1	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+66	9	2	2	7							 Band2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+66	8	2	0	1	3	6	7				 Band2: Q 	 00~0F 	 0.5~10 
+66	7	3	0	5							 Band2 Cutoff [Hz] 	 00~3B 	 50~5.00kHz 
+66	12	4	2	7							 Band3: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+66	11	4	0	1	5	6	7				 Band3: Q 	 00~0F 	 0.5~10 
+66	10	5	0	5							 Band3 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+66	15	6	2	7							 Band4: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+66	14	6	0	1	7	6	7				 Band4: Q 	 00~0F 	 0.5~10 
+66	13	7	0	5							 Band4 Cutoff [Hz] 	 00~37 	 500~20.00kHz 
+66	18	9	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+66	17	10	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+66	0	11	0	6							 Sensitivity 	 01~64 	 1~100 
+66	3	12	0	6							 Trim 	 00~64 	 0~100 
+66	1	13	0	6							 Attack 	 01~64 	 1~100 
+66	16	14	7	7							 Routing 	 00~01 	 CMP->PEQ~PEQ->CMP 
+66	2	14	0	6							 CMP: Output Level 	 00~64 	 0~100 
+66	19	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+67											 67: Comp - Cho/Flng 		
+67	12	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+67	6	0	0	2	1	5	7				 Depth 	 00~32 	 0~100 
+67	2	1	0	4	2	6	7				 CMP: Output Level 	 00~64 	 0~100 
+67	1	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+67	0	3	0	6							 Sensitivity 	 01~64 	 1~100 
+67	4	4	7	7							 LFO Waveform 	 00~01 	 Triangle~Sine 
+67	3	4	0	6							 Delay Time [msec] 	 00~73 	 0.0~50.0msec 
+67	9	5	7	7							 Output Mode 	 00~01 	 Normal~Wet Invert 
+67	7	5	0	6							 Feedback 	 CE~32 	 -100~+100 
+67	10	6	7	7							 Routing 	 00~01 	 CMP->FLNG~FLNG->CMP 
+67	8	6	0	6							 Cho/Flng Wet/Dry 	 CE~32 	 -Wet~Wet 
+67	11	7	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+67	14	8	0	7							 Trim 	 00~64 	 0~100 
+67	15	9	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+67	16	10	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+67	5	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+67	13	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+68											 68: Comp - Phaser 		
+68	12	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+68	6	0	0	2	1	5	7				 Depth 	 00~32 	 0~100 
+68	2	1	0	4	2	6	7				 CMP: Output Level 	 00~64 	 0~100 
+68	1	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+68	0	3	0	6							 Sensitivity 	 01~64 	 1~100 
+68	3	4	7	7							 LFO Waveform 	 00~01 	 Triangle~Sine 
+68	5	4	0	6							 Manual 	 00~64 	 0~100 
+68	9	5	7	7							 Output Mode 	 00~01 	 Normal~Wet Invert 
+68	7	5	0	6							 Resonance 	 CE~32 	 -100~+100 
+68	10	6	7	7							 Routing 	 00~01 	 CMP->PHS~PHS->CMP 
+68	8	6	0	6							 Phaser Wet/Dry 	 CE~32 	 -Wet~Wet 
+68	11	7	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+68	14	8	0	7							 Trim 	 00~64 	 0~100 
+68	15	9	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+68	16	10	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+68	4	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+68	13	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+69											 69: Comp - Mt.Delay 		
+69	11	0	0	2	1	6	7				 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+69	9	1	5	5							 Routing 	 00~01 	 CMP->DLY~DLY->CMP 
+69	2	1	0	4	2	6	7				 CMP: Output Level 	 00~64 	 0~100 
+69	1	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+69	0	3	0	6							 Sensitivity 	 01~64 	 1~100 
+69	5	4	0	6							 Tap1 Level 	 00~64 	 0~100 
+69	7	5	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+69	8	6	0	6							 Mt.Delay Wet/Dry 	 00~64 	 Dry~Wet 
+69	10	7	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+69	13	8	0	7							 EQ Trim 	 00~64 	 0~100 
+69	14	9	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+69	15	10	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+69	3	12	0	7							 Tap1 Time [msec] 	 00~8A 	 0~680msec 
+69	4	13	0	7							 Tap2 Time [msec] 	 00~8A 	 0~680msec 
+69	6	14	0	7							 Feedback (Tap2) 	 9C~64 	 -100~+100 
+69	12	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+70											 70: Limiter - P4EQ 		
+70	8	0	2	7							 Band1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+70	7	0	0	1	1	6	7				 Band1: Q 	 00~0F 	 0.5~10 
+70	6	1	0	5							 Band1 Cutoff [Hz] 	 00~31 	 20~1.00kHz 
+70	11	2	2	7							 Band2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+70	10	2	0	1	3	6	7				 Band2: Q 	 00~0F 	 0.5~10 
+70	9	3	0	5							 Band2 Cutoff [Hz] 	 00~3B 	 50~5.00kHz 
+70	14	4	2	7							 Band3: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+70	13	4	0	1	5	6	7				 Band3: Q 	 00~0F 	 0.5~10 
+70	12	5	0	5							 Band3 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+70	17	6	2	7							 Band4: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+70	16	6	0	1	7	6	7				 Band4: Q 	 00~0F 	 0.5~10 
+70	15	7	0	5							 Band4 Cutoff [Hz] 	 00~37 	 500~20.00kHz 
+70	20	8	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+70	5	8	0	2	9	4	7				 Trim 	 00~64 	 0~100 
+70	3	9	0	3	10	5	7				 Release 	 01~64 	 1~100 
+70	2	10	0	4	11	6	7				 Attack 	 01~64 	 1~100 
+70	4	11	0	5							 Gain Adjust [dB] 	 E0~1F 	 -inf~+24dB 
+70	19	12	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+70	18	12	0	7							 Routing 	 00~01 	 LMT->PEQ~PEQ->LMT 
+70	0	13	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+70	21	14	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+70	1	15	0	6							 Threshold [dB] 	 D8~00 	 -40~0dB 
+
+71											 71: Limiter - Cho/Flng 		
+71	14	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+71	4	0	0	2	1	5	7				 Gain Adjust [dB] 	 E0~1F 	 -inf~+24dB 
+71	3	1	0	4	2	6	7				 Release 	 01~64 	 1~100 
+71	2	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+71	1	3	0	6							 Threshold [dB] 	 D8~00 	 -40~0dB 
+71	6	4	7	7							 LFO Waveform 	 00~01 	 Triangle~Sine 
+71	5	4	0	6							 Delay Time [msec] 	 00~73 	 0.0~50.0msec 
+71	11	5	7	7							 Output Mode 	 00~01 	 Normal~Wet Invert 
+71	9	5	0	6							 Feedback 	 CE~32 	 -100~+100 
+71	12	6	7	7							 Routing 	 00~01 	 LMT->FLNG~FLNG->LMT 
+71	10	6	0	6							 Cho/Flng Wet/Dry 	 CE~32 	 -Wet~Wet 
+71	13	7	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+71	16	9	0	7							 EQ Trim 	 00~64 	 0~100 
+71	17	10	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+71	18	11	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+71	8	12	0	5							 Depth 	 00~32 	 0~100 
+71	0	13	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+71	7	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+71	15	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+72											 72: Limiter - Phaser 		
+72	14	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+72	4	0	0	2	1	5	7				 Gain Adjust [dB] 	 E0~1F 	 -inf~+24dB 
+72	3	1	0	4	2	6	7				 Release 	 01~64 	 1~100 
+72	2	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+72	1	3	0	6							 Threshold [dB] 	 D8~00 	 -40~0dB 
+72	5	4	7	7							 LFO Waveform 	 00~01 	 Triangle~Sine 
+72	7	4	0	6							 Manual 	 00~64 	 0~100 
+72	11	5	7	7							 Output Mode 	 00~01 	 Normal~Wet Invert 
+72	9	5	0	6							 Resonance 	 CE~32 	 -100~+100 
+72	12	6	7	7							 Routing 	 00~01 	 LMT->PHS~PHS->LMT 
+72	10	6	0	6							 Phaser Wet/Dry 	 CE~32 	 -Wet~Wet 
+72	13	7	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+72	8	12	0	5							 Depth 	 00~32 	 0~100 
+72	0	13	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+72	6	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+72	15	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+73											 73: Limiter - Mt. Delay 		
+73	13	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+73	4	0	0	2	1	5	7				 Gain Adjust [dB] 	 E0~1F 	 -inf~+24dB 
+73	3	1	0	4	2	6	7				 Release 	 01~64 	 1~100 
+73	2	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+73	1	3	0	6							 Threshold [dB] 	 D8~00 	 -40~0dB 
+73	7	7	0	6							 Tap1 Level 	 00~64 	 0~100 
+73	9	8	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+73	10	9	0	6							 Mt.Delay Wet/Dry 	 00~64 	 Dry~Wet 
+73	11	10	7	7							 Routing 	 00~01 	 LMT->DLY~DLY->LMT 
+73	12	10	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+73	0	11	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+73	5	12	0	7							 Tap1 Time [msec] 	 00~8A 	 0~680msec 
+73	6	13	0	7							 Tap2 Time [msec] 	 00~8A 	 0~680msec 
+73	8	14	0	7							 Feedback (Tap2) 	 9C~64 	 -100~+100 
+73	14	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+74											 74: Exciter - Comp 		
+74	0	0	0	7							 Exciter Blend 	 9C~64 	 -100~+100 
+74	1	1	0	7							 Emphatic Point 	 00~46 	 0~70 
+74	2	2	0	7							 Sensitivity 	 01~64 	 1~100 
+74	3	3	0	7							 Attack 	 01~64 	 1~100 
+74	4	4	0	7							 Output Level 	 00~64 	 0~100 
+74	9	8	0	7							 EQ Trim 	 00~64 	 0~100 
+74	10	9	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+74	11	10	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+74	7	13	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+74	6	14	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+74	5	 	0	0							 Routing 	 00~01 	 XCT->CMP~CMP->XCT 
+74	8	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+75											 75: Exciter - Limiter 		
+75	9	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+75	6	0	0	2	1	5	7				 Gain Adjust [dB] 	 E0~1F 	 -inf~+24dB 
+75	5	1	0	4	2	6	7				 Release 	 01~64 	 1~100 
+75	4	2	0	5	3	7	7				 Attack 	 01~64 	 1~100 
+75	3	3	0	6							 Threshold [dB] 	 D8~00 	 -40~0dB 
+75	0	4	0	7							 Exciter Blend 	 9C~64 	 -100~+100 
+75	1	5	0	7							 Emphatic Point 	 00~46 	 0~70 
+75	2	6	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+75	10	7	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+75	8	8	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+75	7	8	0	0							 Routing 	 00~01 	 XCT->LMT~LMT->XCT 
+75	12	9	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+75	13	10	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+75	11	11	0	7							 EQ Trim 	 00~64 	 0~100 
+
+76											 76: Exciter - Cho/Flng 		
+76	10	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+76	7	0	0	2	1	4	7				 Cho/Flng Wet/Dry 	 CE~32 	 -Wet~Wet 
+76	6	1	0	3	2	5	7				 Feedback 	 CE~32 	 -100~+100 
+76	5	2	0	4	3	7	7				 Depth 	 00~32 	 0~100 
+76	2	3	0	6							 Delay Time [msec] 	 00~73 	 0.0~50.0msec 
+76	0	4	0	7							 Exciter Blend 	 9C~64 	 -100~+100 
+76	1	5	0	7							 Emphatic Point 	 00~46 	 0~70 
+76	9	6	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+76	3	6	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+76	4	7	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+76	11	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+76	12	9	1	7							 EQ Trim 	 00~64 	 0~100 
+76	8	9	0	0							 Output Mode 	 00~01 	 Normal~Wet Invert 
+76	13	10	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+76	14	11	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+
+77											 77: Exciter - Phaser 		
+77	10	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+77	7	0	0	2	1	4	7				 Phaser Wet/Dry 	 CE~32 	 -Wet~Wet 
+77	6	1	0	3	2	5	7				 Resonance 	 CE~32 	 -100~+100 
+77	5	2	0	4	3	7	7				 Depth 	 00~32 	 0~100 
+77	4	3	0	6							 Manual 	 00~64 	 0~100 
+77	0	4	0	7							 Exciter Blend 	 9C~64 	 -100~+100 
+77	1	5	0	7							 Emphatic Point 	 00~46 	 0~70 
+77	9	6	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+77	2	6	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+77	3	7	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+77	11	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+77	12	9	1	7							 EQ Trim 	 00~64 	 0~100 
+77	8	9	0	0							 Output Mode 	 00~01 	 Normal~Wet Invert 
+77	13	10	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+77	14	11	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+
+78											 78: Exciter - Mt.Delay 		
+78	4	0	0	6							 Tap1 Level 	 00~64 	 0~100 
+78	6	1	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+78	7	2	0	6							 Mt.Delay Wet/Dry 	 00~64 	 Dry~Wet 
+78	8	3	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+78	13	4	2	6							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+78	12	4	0	1	5	5	7				 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+78	9	5	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+78	11	6	0	7							 EQ Trim 	 00~64 	 0~100 
+78	0	10	0	7							 Exciter Blend 	 9C~64 	 -100~+100 
+78	1	11	0	7							 Emphatic Point 	 00~46 	 0~70 
+78	2	12	0	7							 Tap1 Time [msec] 	 00~8A 	 0~680msec 
+78	3	13	0	7							 Tap2 Time [msec] 	 00~8A 	 0~680msec 
+78	5	14	0	7							 Feedback (Tap2) 	 9C~64 	 -100~+100 
+78	10	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+79											 79: OD/HG - Amp Sim 		
+79	13	0	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+79	4	0	0	0	1	3	7				 Low Cutoff: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+79	3	1	0	2	2	5	7				 Low Cutoff[Hz] 	 00~31 	 20~1.00kHz 
+79	2	2	0	4	3	7	7				 OD: Output Level 	 00~32 	 0~50 
+79	1	3	0	6							 Drive 	 01~64 	 1~100 
+79	7	4	2	7							 Mid1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+79	6	4	0	1	5	6	7				 Mid1: Q 	 00~0F 	 0.5~10 
+79	5	5	0	5							 Mid1 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+79	10	6	2	7							 Mid2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+79	9	6	0	1	7	6	7				 Mid2: Q 	 00~0F 	 0.5~10 
+79	8	7	0	5							 Mid2 Cutoff[Hz] 	 01~37 	 300~10.00kHz 
+79	16	12	0	4							 OD: Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+79	17	13	1	7							 OD: Output Level: Amt 	 CE~32 	 -50~+50 
+79	0	13	0	0							 Drive Mode 	 00~01 	 Overdrive~Hi-Gain 
+79	11	14	6	7							 Amplifier Type 	 00~02 	 SS~6L6 
+79	12	14	5	5							 Routing 	 00~01 	 OD->AMP~AMP->OD 
+79	14	14	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+79	15	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+80											 80: OD/HG - Cho/Flng 		
+80	5	0	2	7							 Mid1 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+80	4	0	0	1	1	4	7				 Low Cutoff: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+80	3	1	0	3	2	6	7				 Low Cutoff[Hz] 	 00~31 	 20~1.00kHz 
+80	2	2	0	5							 OD: Output Level 	 00~32 	 0~50 
+80	1	3	1	7							 Drive 	 01~64 	 1~100 
+80	0	3	0	0							 Drive Mode 	 00~01 	 Overdrive~Hi-Gain 
+80	20	4	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+80	16	4	0	2	5	4	7				 Cho/Flng Wet/Dry 	 CE~32 	 -Wet~Wet 
+80	15	5	0	3	6	5	7				 Feedback 	 CE~32 	 -100~+100 
+80	11	6	0	4	7	6	7				 Delay Time [msec] 	 00~73 	 0.0~50.0msec 
+80	10	7	0	5							 Mid2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+80	8	8	2	7							 Mid2 Cutoff[Hz] 	 00~37 	 500~20.00kHz 
+80	7	8	0	1	9	4	7				 Mid1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+80	6	9	0	3							 Mid1: Q 	 00~0F 	 0.5~10 
+80	19	10	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+80	12	10	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+80	18	11	7	7							 Routing 	 00~01 	 OD->FLNG~FLNG->OD 
+80	17	11	6	6							 Output Mode 	 00~01 	 Normal~Wet Invert 
+80	14	11	0	5							 Depth 	 00~32 	 0~100 
+80	23	12	1	7							 OD: Output Level: Amt 	 CE~32 	 -50~+50 
+80	22	12	0	0	13	4	7				 OD: Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+80	9	13	0	3							 Mid2: Q 	 00~0F 	 0.5~10 
+80	13	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+80	21	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+81											 81: OD/HG - Phaser 		
+81	5	0	2	7							 Mid1 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+81	4	0	0	1	1	4	7				 Low Cutoff: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+81	3	1	0	3	2	6	7				 Low Cutoff[Hz] 	 00~31 	 20~1.00kHz 
+81	2	2	0	5							 OD: Output Level 	 00~32 	 0~50 
+81	1	3	1	7							 Drive 	 01~64 	 1~100 
+81	0	3	0	0							 Drive Mode 	 00~01 	 Overdrive~Hi-Gain 
+81	20	4	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+81	16	4	0	2	5	4	7				 Phaser Wet/Dry 	 CE~32 	 -Wet~Wet 
+81	15	5	0	3	6	5	7				 Resonance 	 CE~32 	 -100~+100 
+81	13	6	0	4	7	6	7				 Manual 	 00~64 	 0~100 
+81	10	7	0	5							 Mid2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+81	8	8	2	7							 Mid2 Cutoff[Hz] 	 01~37 	 500~20.00kHz 
+81	7	8	0	1	9	4	7				 Mid1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+81	6	9	0	3							 Mid1: Q 	 00~0F 	 0.5~10 
+81	19	10	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+81	11	10	0	0							 LFO Waveform 	 00~01 	 Triangle~Sine 
+81	18	11	7	7							 Routing 	 00~01 	 OD->PHS~PHS->OD 
+81	17	11	6	6							 Output Mode 	 00~01 	 Normal~Wet Invert 
+81	14	11	0	5							 Depth 	 00~32 	 0~100 
+81	23	12	1	7							 OD: Output Level: Amt 	 CE~32 	 -50~+50 
+81	22	12	0	0	13	4	7				 OD: Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+81	9	13	0	3							 Mid2: Q 	 00~0F 	 0.5~10 
+81	12	14	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+81	21	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+82											 82: OD/HG - Mt. Delay 		
+82	5	0	2	7							 Mid1 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+82	4	0	0	1	1	4	7				 Low Cutoff: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+82	3	1	0	3	2	6	7				 Low Cutoff[Hz] 	 00~31 	 20~1.00kHz 
+82	2	2	0	5							 OD: Output Level 	 00~32 	 0~50 
+82	1	3	1	7							 Drive 	 01~64 	 1~100 
+82	0	3	0	0							 Drive Mode 	 00~01 	 Overdrive~Hi-Gain 
+82	14	4	1	7							 Feedback (Tap2) 	 CE~32 	 -100~+100 
+82	13	4	0	0	5	4	7				 Tap1 Level 	 00~19 	 0~100 
+82	12	5	0	3	6	5	7				 Tap2 Delay Time [msec] 	 00~7B 	 0~680msec 
+82	11	6	0	4	7	6	7				 Tap1 Delay Time [msec] 	 00~7B 	 0~680msec 
+82	10	7	0	5							 Mid2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+82	8	8	2	7							 Mid2 Cutoff[Hz] 	 01~37 	 500~20.00kHz 
+82	7	8	0	1	9	4	7				 Mid1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+82	6	9	0	3							 Mid1: Q 	 00~0F 	 0.5~10 
+82	20	10	3	7							 OD: Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+82	18	10	0	2	11	6	7				 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+82	16	11	0	5							 Mt.Delay Wet/Dry 	 00~32 	 Dry~Wet 
+82	21	12	1	7							 OD: Output Level: Amt 	 CE~32 	 -50~+50 
+82	19	12	0	0	13	1	7				 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+82	17	13	0	0	14	2	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+82	15	14	0	1	15	4	7				 High Damp [percent] 	 00~32 	 0~100% 
+82	9	15	0	3							 Mid2: Q 	 00~0F 	 0.5~10 
+
+83											 83: Wah - Amp Sim 		
+83	10	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+83	4	0	0	2	1	3	7				 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+83	3	1	0	2	2	6	7				 Sweep Mode: Src 	 00~1F 	 Off~Tempo(*1) 
+83	1	2	0	5	3	7	7				 Frequency Top 	 00~64 	 0~100 
+83	0	3	0	6							 Frequency Bottom 	 00~64 	 0~100 
+83	7	12	2	3							 Amplifier Type 	 00~02 	 SS~6L6 
+83	2	12	0	1							 Sweep Mode 	 00~02 	 Auto~LFO 
+83	6	13	7	7							 Low Pass Filter 	 00~01 	 Off~On 
+83	5	13	0	6							 Resonance 	 00~64 	 0~100 
+83	9	14	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+83	8	14	0	0							 Routing 	 00~01 	 WAH->AMP~AMP~WAH 
+83	11	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+84											 84: Decimator - Amp 		
+84	8	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+84	7	0	0	2	1	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+84	4	1	0	3	2	5	7				 DECI: Output Level 	 00~64 	 0~100 
+84	3	2	0	4	3	7	7				 Resolution 	 04~18 	 4~24 
+84	2	3	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+84	6	4	4	4							 Routing 	 00~01 	 DECI->AMP~AMP~DECI 
+84	5	4	2	3							 Amplifier Type 	 00~02 	 SS~6L6 
+84	1	4	0	1	5	1	7				 Sampling Freq [Hz] 	 0A~01E0 	 1.00~48.00kHz 
+84	0	5	0	0							 Pre LPF 	 00~01 	 Off~On 
+84	9	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+85											 85: Decimator - Comp 		
+85	10	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+85	5	0	0	2	1	4	7				 Sensitivity 	 01~64 	 1~100 
+85	4	1	0	3	2	5	7				 DECI: Output Level 	 00~64 	 0~100 
+85	3	2	0	4	3	7	7				 Resolution 	 04~18 	 4~24 
+85	2	3	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+85	6	4	1	7							 Attack 	 01~64 	 1~100 
+85	1	4	0	0	5	0	7				 Sampling Freq [Hz] 	 0A~01E0 	 1.00~48.00kHz 
+85	7	6	1	7							 CMP: Output Level 	 00~64 	 0~100 
+85	0	6	0	0							 Pre LPF 	 00~01 	 Off~On 
+85	9	7	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+85	8	7	0	0							 Routing 	 00~01 	 DECI->CMP~CMP~DECI 
+85	11	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+86											 86: Amp Sim - Tremolo 		
+86	3	0	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+86	6	1	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+86	5	1	0	2	2	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+86	4	2	0	3	3	5	7				 Depth 	 00~64 	 0~100 
+86	1	3	2	4							 LFO Waveform 	 00~04 	 Triangle~Down 
+86	0	3	0	1							 Amplifier Type 	 00~02 	 SS~6L6 
+86	2	14	0	7							 LFO Shape 	 9C~64 	 -100~+100 
+86	7	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+87											 87: Cho/Flng - Mt.Dly 		
+87	13	0	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+87	8	0	0	2	1	4	7				 Tap1 Level 	 00~64 	 0~100 
+87	5	1	0	3	2	5	7				 Cho/Flng Wet/Dry 	 CE~32 	 -Wet~Wet 
+87	4	2	0	4	3	6	7				 Feedback 	 CE~32 	 -100~+100 
+87	3	3	0	5							 Depth 	 00~32 	 0~100 
+87	15	4	0	7							 EQ Trim 	 00~64 	 0~100 
+87	16	5	0	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+87	17	6	0	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+87	12	7	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+87	10	8	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+87	11	9	0	6							 Mt.Delay Wet/Dry 	 00~64 	 Dry~Wet 
+87	1	10	7	7							 LFO Waveform 	 00~01 	 Triangle~Sine 
+87	0	10	0	6							 Delay Time [msec] 	 00~73 	 0.0~50.0msec 
+87	2	11	0	7							 LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+87	6	12	0	7							 Tap1 Time [msec] 	 00~8A 	 0~680msec 
+87	7	13	0	7							 Tap2 Time [msec] 	 00~8A 	 0~680msec 
+87	9	14	0	7							 Feedback (Tap2) 	 9C~64 	 -100~+100 
+87	14	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+88											 88: Phaser - Cho/Flng 		
+88	17	0	3	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+88	5	0	0	2	1	4	7				 Phaser Wet/Dry 	 CE~32 	 -Wet~Wet 
+88	4	1	0	3	2	5	7				 Resonance 	 CE~32 	 -100~+100 
+88	3	2	0	4	3	7	7				 Phaser: Depth 	 00~32 	 0~100 
+88	2	3	0	6							 Manual 	 00~64 	 0~100 
+88	14	4	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+88	11	4	0	2	5	4	7				 Cho/Flng Wet/Dry 	 CE~32 	 -Wet~Wet 
+88	10	5	0	3	6	5	7				 Feedback 	 CE~32 	 -100~+100 
+88	9	6	0	4	7	7	7				 Flng: Depth 	 00~32 	 0~100 
+88	6	7	0	6							 Delay Time [msec] 	 00~73 	 0.0~50.0msec 
+88	18	10	1	5							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+88	12	10	0	0							 Output Mode 	 00~01 	 Normal~Wet Invert 
+88	16	11	1	7							 EQ Trim 	 00~64 	 0~100 
+88	7	11	0	0							 Flng: LFO Waveform 	 00~01 	 Triangle~Sine 
+88	13	12	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+88	0	12	0	0							 Phaser: LFO Waveform 	 00~01 	 Triangle~Sine 
+88	1	13	0	7							 Phaser: LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+88	8	14	0	7							 Flng: LFO Frequency [Hz] 	 01~E6 	 0.02~20.00Hz 
+88	15	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+89											 89: Reverb - Gate 		
+89	16	0	3	7							 Pre HEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+89	5	0	0	2	1	6	7				 Envelope Select: Src 	 00~04 	 Off~Gate2+Dmpr(*2) 
+89	4	1	5	5							 Envelope Select 	 00~01 	 D-mod~Input 
+89	3	1	0	4	2	6	7				 Reverb Balance 	 00~64 	 Dry~Wet 
+89	1	2	0	5	3	7	7				 High Damp [percent] 	 00~64 	 0~100% 
+89	0	3	0	6							 Reverb Time [sec] 	 01~64 	 0.1~10.0sec 
+89	15	4	3	7							 Pre LEQ Gain [dB] 	 F1~0F 	 -15.0~+15.0dB 
+89	12	4	0	2	5	6	7				 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+89	10	5	0	5	6	7	7				 Release 	 01~64 	 1~100 
+89	9	6	0	6							 Attack 	 01~64 	 1~100 
+89	8	7	1	7							 Threshold 	 00~64 	 0~100 
+89	7	7	0	0							 Polarity 	 00~01 	 +~- 
+89	14	9	0	4	10	6	7				 EQ Trim 	 00~64 	 0~100 
+89	11	10	0	5	11	7	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+89	6	11	0	6							 Input Reverb Mix 	 00~64 	 Dry~Wet 
+89	2	14	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+89	13	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+90											 90: Piano Body/Damper 		
+90	0	0	0	7							 Sound Board Depth 	 00~64 	 0~100 
+90	1	1	0	7							 Damper Depth 	 00~64 	 0~100 
+90	2	2	0	7							 Damper Depth: Src 	 00~1F 	 Off~Tempo(*1) 
+90	3	3	0	7							 Tone 	 01~64 	 1~100 
+90	4	4	0	7							 Mid Shape 	 00~24 	 0~36 
+90	5	5	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+90	6	6	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+90	7	7	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+90	8	8	0	7							 Tune 	 FB~05 	 -50~+50 
+
+91											 91: St. Mltband Limiter 		
+91	0	0	0	7							 Ratio 	 00~83 	 1.0:1~inf:1 
+91	1	1	0	7							 Threshold [dB] 	 D8~00 	 -40~0dB 
+91	2	2	0	7							 Attack 	 01~64 	 1~100 
+91	3	3	0	7							 Release 	 01~64 	 1~100 
+91	7	4	0	7							 Gain Adjust [dB] 	 D9~18 	 -inf~+24dB 
+91	4	5	0	7							 Low Offset [dB] 	 D8~00 	 -40~0dB 
+91	5	6	0	7							 Mid Offset [dB] 	 D8~00 	 -40~0dB 
+91	6	7	0	7							 High Offset [dB] 	 D8~00 	 -40~0dB 
+91	10	8	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+91	12	9	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+91	11	10	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+91	8	11	0	7							 Gain Adjust: Src 	 00~1F 	 Off~Tempo(*1) 
+91	9	12	0	7							 Gain Adjust: Amt 	 C1~3F 	 -63~+63 
+
+92											 92: OD/HyperGain Wah 		
+92	13	0	2	7							 Mid1 Cutoff[Hz] 	 01~3F 	 300~10.00kHz 
+92	12	0	0	1	1	4	7				 Low Cutoff: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+92	11	1	0	3	2	6	7				 Low Cutoff[Hz] 	 00~31 	 20~1.00kHz 
+92	8	2	0	5	3	7	7				 Output Level 	 00~32 	 0~50 
+92	7	3	1	4							 Pre Low-cut 	 00~0A 	 0~10 
+92	2	3	0	0							 Wah.Sw 	 00~01 	 Toggle~Moment 
+92	21	4	1	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+92	20	4	0	0							 Speaker Simulation 	 00~01 	 Off~On 
+92	17	5	2	7							 Mid2: Q 	 00~3C 	 0.5~10 
+92	16	5	0	1	6	4	7				 Mid2 Cutoff[Hz] 	 00~37 	 500~20.00kHz 
+92	15	6	0	3	7	6	7				 Mid1: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+92	14	7	0	5							 Mid1: Q 	 00~3C 	 0.5~10 
+92	22	8	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+92	18	8	0	2	9	5	7				 Mid2: Gain [dB] 	 EE~12 	 -18.0~+18.0dB 
+92	9	9	0	4							 Output Level: Src 	 00~1F 	 Off~Tempo(*1) 
+92	3	10	3	7							 Wah Sweep Range 	 F6~0A 	 -10~+10 
+92	4	10	0	2	11	6	7				 Wah Sweep Src 	 00~1F 	 Off~Tempo(*1) 
+92	1	11	1	5							 Wah: Src 	 00~1F 	 Off~Tempo(*1) 
+92	0	11	0	0							 Wah 	 00~01 	 Off~On 
+92	19	12	1	6							 Direct Mix 	 00~32 	 0~50 
+92	5	12	0	0							 Drive Mode 	 00~01 	 Overdrive~Hyper-Gain 
+92	6	13	0	7							 Drive 	 01~78 	 1~120 
+92	10	14	0	7							 Output Level: Amt 	 CE~32 	 -50~+50 
+92	23	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+93											 93: Vocoder 		
+93	7	0	2	7							 Low Gain [dB] 	 F4~0C 	 -12.0~+12.0dB 
+93	5	0	0	1	1	5	7				 Noise Level: Src 	 00~1F 	 Off~Tempo(*1) 
+93	3	1	0	4	2	6	7				 Response 	 00~64 	 0~100 
+93	1	2	0	5	3	7	7				 R (Modulator) Trim 	 00~64 	 0~100 
+93	0	3	0	6							 L (Carrier) Trim 	 00~64 	 0~100 
+93	11	4	3	7							 Vocoder/Carrier: Src 	 00~1F 	 Off~Tempo(*1) 
+93	10	4	0	2	5	4	7				 Vocoder/Carrier 	 00~64 	 Carrier~Vocoder 
+93	9	5	0	3	6	5	7				 Modulator High Mix 	 00~64 	 0~100 
+93	8	6	0	4	7	7	7				 High Gain [dB] 	 F4~0C 	 -12.0~+12.0dB 
+93	4	7	0	6							 Noise Level 	 00~64 	 0~100 
+93	2	10	0	2							 Formant Shift 	 FE~02 	 -2~+2 
+93	14	11	0	4							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+93	13	12	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+93	6	13	0	7							 Noise Level: Amt 	 9C~64 	 -100~+100 
+93	12	14	0	7							 Vocoder/Carrier: Amt 	 9C~64 	 -100~+100 
+93	15	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+94											 94: Multitap Cho/Delay 		
+94	22	0	0	7							 Tap1 Feedback 	 9C~64 	 -100~+100 
+94	23	1	0	7							 Tap1 Feedback: Amt 	 9C~64 	 -100~+100 
+94	3	2	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+94	24	3	6	7							 Panning Preset 	 00~03 	 1~4 
+94	0	3	0	5							 LFO Frequency [Hz] 	 01~3F 	 0.02~13.00Hz 
+94	2	4	3	7							 Tap1 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+94	1	4	0	2	5	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+94	15	5	0	3	6	7	7				 Tap4: Depth 	 00~1E 	 0~30 
+94	14	6	2	6							 Tap2: Depth 	 00~1E 	 0~30 
+94	13	6	0	1	7	5	7				 Tap5: Depth 	 00~1E 	 0~30 
+94	12	7	0	4							 Tap3: Depth 	 00~1E 	 0~30 
+94	21	8	6	7							 Tap4: Status 	 00~03 	 Always On~Off->On(dm) 
+94	20	8	4	5							 Tap2: Status 	 00~03 	 Always On~Off->On(dm) 
+94	19	8	2	3							 Tap5: Status 	 00~03 	 Always On~Off->On(dm) 
+94	18	8	0	1							 Tap3: Status 	 00~03 	 Always On~Off->On(dm) 
+94	11	9	3	7							 Tap1: Depth 	 00~1E 	 0~30 
+94	10	9	0	2	10	6	7				 Tap6: Depth 	 00~1E 	 0~30 
+94	9	10	0	5	11	7	7				 Tap4 (240) [msec] 	 00~7F 	 0~570msec 
+94	8	11	0	6							 Tap2 (180) [msec] 	 00~7F 	 0~570msec 
+94	17	12	6	7							 Tap1: Status 	 00~03 	 Always On~Off->On(dm) 
+94	16	12	4	5							 Tap6: Status 	 00~03 	 Always On~Off->On(dm) 
+94	7	12	0	3	13	5	7				 Tap5 (120) [msec] 	 00~7F 	 0~570msec 
+94	6	13	0	4	14	6	7				 Tap3 (060) [msec] 	 00~7F 	 0~570msec 
+94	5	14	0	5	15	7	7				 Tap1 (000) [msec] 	 00~7F 	 0~570msec 
+94	4	15	0	6							 Tap6 (300) [msec] 	 00~7F 	 0~570msec 
+
+95											 95: St. Pitch Shifter 		
+95	0	0	0	7							 Input Level: Src 	 00~1F 	 Off~Tempo(*1) 
+95	1	1	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+95	4	2	0	7							 Pitch Shift [1/2tone] 	 E8~18 	 -24~+24 
+95	5	3	0	7							 Pitch Shift: Src 	 00~1F 	 Off~Tempo(*1) 
+95	6	4	0	7							 Pitch Shift: Amt 	 E8~18 	 -24~+24 
+95	7	5	0	7							 Fine [cent] 	 9C~64 	 -100~+100cent 
+95	8	6	0	7							 Fine: Amt 	 9C~64 	 -100~+100cent 
+95	9	7	0	7							 Lch Delay [msec] 	 00~BE 	 0~1000msec 
+95	10	8	0	7							 Rch Delay [msec] 	 00~BE 	 0~1000msec 
+95	12	9	0	7							 Feedback 	 9C~64 	 -100~+100 
+95	13	10	1	7							 High Damp [percent] 	 00~64 	 0~100% 
+95	11	10	0	0							 Feedback Position 	 00~01 	 Pre~Post 
+95	14	11	0	7							 Spread 	 9C~64 	 -100~+100 
+95	15	12	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+95	16	13	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+95	17	14	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+95	3	15	7	7							 L/R Pitch 	 00~01 	 Normal~Up/Down 
+95	2	15	5	6							 Mode 	 00~02 	 Slow~Fast 
+
+96											 96: Rotary Speaker OD 		
+96	4	0	0	5	1	7	7				 Overdrive Level 	 00~64 	 0~100 
+96	3	1	0	6							 Overdrive Gain 	 00~64 	 0~100 
+96	13	2	3	7							 Manual Speed Ctrl 	 00~1F 	 Off~Tempo(*1) 
+96	10	2	2	2							 Speed Switch 	 00~01 	 Slow~Fast 
+96	7	2	1	1							 Mode Switch 	 00~01 	 Rotate~Stop 
+96	6	2	0	0							 Speaker Simulator 	 00~01 	 Off~On 
+96	2	3	7	7							 Overdrive: Sw 	 00~01 	 Toggle~Moment 
+96	14	3	0	6							 Rotor Acceleration 	 00~64 	 0~100 
+96	15	4	0	7							 Rotor Ratio 	 31~C8 	 Stop~2.00 
+96	9	5	7	7							 Mode Switch: Sw 	 00~01 	 Toggle~Moment 
+96	16	5	0	6							 Horn Acceleration 	 00~64 	 0~100 
+96	17	6	0	7							 Horn Ratio 	 31~C8 	 Stop~2.00 
+96	12	7	7	7							 Speed Switch: Sw 	 00~01 	 Toggle~Moment 
+96	18	7	0	6							 Horn/Rotor Balance 	 00~64 	 0~100 
+96	19	8	0	7							 Mic Distance 	 00~64 	 0~100 
+96	20	9	0	7							 Mic Spread 	 00~64 	 0~100 
+96	5	10	4	7							 Overdrive Tone 	 00~0F 	 0~15 
+96	21	10	0	3	11	5	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+96	1	11	0	4							 Overdrive: Src 	 00~1F 	 Off~Tempo(*1) 
+96	0	12	7	7							 Overdrive 	 00~01 	 Off~On 
+96	22	12	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+96	11	12	0	1	13	5	7				 Speed Switch: Src 	 00~1F 	 Off~Tempo(*1) 
+96	8	13	0	4							 Mode Switch: Src 	 00~1F 	 Off~Tempo(*1) 
+96	23	15	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+97											 97: Early Reflections 		
+97	0	0	0	7							 Type 	 00~03 	 Sharp~Reverse 
+97	1	1	0	7							 ER Time [msec] 	 0A~FA 	 10~1600msec 
+97	2	2	0	7							 Pre Delay [msec] 	 00~C8 	 0~200msec 
+97	3	3	0	7							 EQ Trim 	 00~64 	 0~100 
+97	4	4	0	7							 Pre LEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+97	5	5	0	7							 Pre HEQ Gain [dB] 	 E2~1E 	 -15.0~+15.0dB 
+97	6	6	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+97	7	7	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+97	8	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+
+98											 98: L/C/R Long Delay  		
+98	6	0	0	7							 Feedback (C Delay) 	 9C~64 	 -100~+100 
+98	2	1	0	7	2	4	7				 C Delay Time [msec] 	 00~0AAA 	 0~2730msec 
+98	0	2	0	3	3	0	7				 L Delay Time [msec] 	 00~0AAA 	 0~2730msec 
+98	8	4	0	7							 Feedback: Amt 	 9C~64 	 -100~+100 
+98	4	5	0	7	6	4	7				 R Delay Time [msec] 	 00~0AAA 	 0~2730msec 
+98	3	6	0	3	7	6	7				 C Delay Level 	 00~32 	 0~50 
+98	1	7	0	5							 L Delay Level 	 00~32 	 0~50 
+98	12	8	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+98	13	9	2	7							 Spread 	 00~32 	 0~50 
+98	9	9	0	1	10	3	7				 High Damp [percent] 	 00~64 	 0~100% 
+98	7	10	0	2	11	6	7				 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+98	5	11	0	5							 R Delay Level 	 00~32 	 0~50 
+98	16	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+98	15	13	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+98	14	13	0	2	14	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+98	11	14	0	3	15	7	7				 Input Level: Src 	 00~1F 	 Off~Tempo(*1) 
+98	10	15	0	6							 Low Damp [percent] 	 00~64 	 0~100% 
+
+99											 99: St/Cross Long Dly  		
+99	5	0	0	7							 L Feedback 	 9C~64 	 -100~+100 
+99	6	1	0	7							 R Feedback 	 9C~64 	 -100~+100 
+99	8	2	0	7							 L Feedback: Amt 	 9C~64 	 -100~+100 
+99	9	3	0	7							 R Feedback: Amt 	 9C~64 	 -100~+100 
+99	4	4	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+99	13	5	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+99	12	6	0	3	7	7	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+99	11	7	0	6							 Low Damp [percent] 	 00~64 	 0~100% 
+99	15	8	7	7							 Stereo/Cross 	 00~01 	 Stereo~Cross 
+99	7	8	2	6							 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+99	3	8	0	1	9	5	7				 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+99	10	9	0	4	10	6	7				 High Damp [percent] 	 00~64 	 0~100% 
+99	14	10	0	5	11	7	7				 Spread 	 CE~32 	 -50~+50 
+99	2	11	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+99	1	12	0	3	13	0	7	14	6	7	 R Delay Time [msec] 	 00~3520 	 0.0~1360.0msec 
+99	0	14	0	5	15	0	7				 L Delay Time [msec] 	 00~3520 	 0.0~1360.0msec 
+
+100											 100: LCR BPM Long Dly  		
+100	12	0	0	7							 Feedback (C Delay) 	 9C~64 	 -100~+100 
+100	1	1	2	2							 (Reserved) 	 00~01 	 0~1(*6) 
+100	11	1	1	1							 Time Over? > 	 00~01 	 ----~OVER!! 
+100	9	1	0	0	2	5	7				 R Delay Base Note: Times 	 00~0F 	 x1~x16 
+100	6	2	1	4							 C Delay Base Note: Times 	 00~0F 	 x1~x16 
+100	8	2	0	0	3	6	7				 R Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+100	5	3	3	5							 C Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+100	2	3	0	2							 L Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+100	14	4	0	7							 Feedback: Amt 	 9C~64 	 -100~+100 
+100	0	5	0	7							 BPM 	 27~F0 	 MIDI~240 
+100	3	6	4	7							 L Delay Base Note: Times 	 00~0F 	 x1~x16 
+100	7	6	0	3	7	6	7				 C Delay Level 	 00~32 	 0~50 
+100	4	7	0	5							 L Delay Level 	 00~32 	 0~50 
+100	18	8	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+100	19	9	2	7							 Spread 	 00~32 	 0~50 
+100	15	9	0	1	10	3	7				 High Damp [percent] 	 00~64 	 0~100% 
+100	13	10	0	2	11	6	7				 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+100	10	11	0	5							 R Delay Level 	 00~32 	 0~50 
+100	22	12	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+100	21	13	3	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+100	20	13	0	2	14	4	7				 Wet/Dry 	 00~64 	 Dry~Wet 
+100	17	14	0	3	15	7	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+100	16	15	0	6							 Low Damp [percent] 	 00~64 	 0~100% 
+
+101											 101: St. BPM Long Delay 		
+101	13	0	0	7							 L Feedback 	 9C~64 	 -100~+100 
+101	14	1	0	7							 R Feedback 	 9C~64 	 -100~+100 
+101	16	2	0	7							 L Feedback: Amt 	 9C~64 	 -100~+100 
+101	17	3	0	7							 R Feedback: Amt 	 9C~64 	 -100~+100 
+101	0	4	0	7							 BPM 	 27~F0 	 MIDI~240 
+101	5	5	7	7							 Time Over? L > 	 00~01 	 ---~OVER!! 
+101	3	5	3	6							 L Delay Base Note: Times 	 00~0F 	 x1~x16 
+101	2	5	0	2							 L Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+101	9	6	7	7							 Time Over? R > 	 00~01 	 ---~OVER!! 
+101	7	6	3	6							 R Delay Base Note: Times 	 00~0F 	 x1~x16 
+101	6	6	0	2							 R Delay Base Note 	 00~07 	 16/8T/8/4T/4/2T/2/1 
+101	21	7	0	7							 Input Level Dmod [percent] 	 9C~64 	 -100~+100 
+101	12	8	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+101	1	9	7	7							 (Reserved) 	 00~01 	 0~1(*6) 
+101	10	9	0	6							 Wet/Dry 	 00~64 	 Dry~Wet 
+101	4	10	0	7	11	7	7				 L Delay: Adjust [percent] 	 0106~0FA 	 -2.5~2.5% 
+101	18	11	0	6							 High Damp [percent] 	 00~64 	 0~100% 
+101	8	12	0	7	13	7	7				 R Delay: Adjust [percent] 	 0106~FA 	 -2.5~2.5% 
+101	19	13	0	6							 Low Damp [percent] 	 00~64 	 0~100% 
+101	11	14	2	6							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+101	20	14	0	1	15	5	7				 Input Level Src 	 00~1F 	 Off~Tempo(*1) 
+101	15	15	0	4							 Feedback: Src 	 00~1F 	 Off~Tempo(*1) 
+
+102											 102: Hold Delay  		
+102	0	0	0	7							 REC Control Src 	 00~1F 	 Off~Tempo(*1) 
+102	2	1	0	7							 RST Control Src 	 00~1F 	 Off~Tempo(*1) 
+102	4	2	0	7							 Pan 	 9C~64 	 L100~R100 
+102	5	3	0	7							 Pan: Src 	 00~1F 	 Off~Tempo(*1) 
+102	6	4	0	7							 Pan: Amt 	 9C~64 	 -100~+100 
+102	7	5	0	7							 Wet/Dry 	 00~64 	 Dry~Wet 
+102	8	6	0	7							 Wet/Dry: Src 	 00~1F 	 Off~Tempo(*1) 
+102	9	7	0	7							 Wet/Dry: Amt 	 9C~64 	 -100~+100 
+102	3	8	5	5							 Manual RST Control 	 00~01 	 Off~RESET 
+102	1	8	4	4							 Manual REC Control 	 00~01 	 REC Off~REC On 
+102	10	8	0	3							 Loop Time [msec] 	 00~0A8C 	 Auto~2700msec 
