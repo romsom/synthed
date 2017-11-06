@@ -31,7 +31,7 @@ import imp
 import os
 import sys
 
-import wxPython.wx as wx
+from wx import wx
 
 from xml2obj import *
 

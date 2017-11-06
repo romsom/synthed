@@ -27,7 +27,7 @@
 #-----------------------------------------------------------------------------
 
 import struct
-import wxPython.wx as wx
+from wx import wx
 
 from instrument import *
 
@@ -39,7 +39,7 @@ from instrument import *
 # A sample function to show that the module is imported and executed
 def OnShowMessage(event):
     'Show a message'
-    dlg = wx.wxMessageDialog(application.main,'This is a runtime script','triton')
+    dlg = wx.MessageDialog(application.main,'This is a runtime script','triton')
     dlg.ShowModal()
     dlg.Destroy()
 
@@ -48,7 +48,7 @@ def OnShowMessage(event):
 def OnInit():
     'Executed when the script is loaded'
     # Construct a menu
-    menu = wx.wxMenu()
+    menu = wx.Menu()
     # Add a menu item
     menu.Append(51,'S&how Message')
     # Insert the menu into the main menu

@@ -27,8 +27,8 @@
 #-----------------------------------------------------------------------------
 
 import array,os,string,sys,time,traceback
-import wxPython.wx as wx
-import wxPython.html as html
+from wx import wx
+from wx import html
 from xml.parsers import expat
 
 from __version__ import ver
@@ -37,12 +37,12 @@ from tag import *
 
 appname = 'SynthEd '+ver
 
-class PatchEditor(wx.wxMDIChildFrame):
+class PatchEditor(wx.MDIChildFrame):
     'Patch Editor'
     def __init__(self,parent,id,title,patch,patchType,instrument,\
                  synthdev,design=0):
         'PatchEditor constructor'
-        wx.wxMDIChildFrame.__init__(self,parent,id,title)
+        wx.MDIChildFrame.__init__(self,parent,id,title)
         
         # These are stored for debugging convenience
         self.patch = patch
@@ -68,7 +68,7 @@ class PatchEditor(wx.wxMDIChildFrame):
         
         # Parse the instrument definition and load the tree
         start = time.clock()
-        wx.wxBeginBusyCursor()
+        wx.BeginBusyCursor()
         self.tree.LoadPatch()
         if not self.design:
             self.tree.ExpandTree()
@@ -78,11 +78,11 @@ class PatchEditor(wx.wxMDIChildFrame):
         statusBar = instrument.module.application.main.statusBar
         statusBar.SetStatusText('%5.2f seconds' % (stop-start))
 
-class PatchEditTree(wx.wxTreeCtrl):
+class PatchEditTree(wx.TreeCtrl):
     'Patch editor tree control is used to select pages in the patch editor'
     def __init__(self,parent,instrument,editor,patch,patchType,design):
         'PatchEditTree constructor'
-        wx.wxTreeCtrl.__init__(self,parent,-1,style=wx.wxSIMPLE_BORDER)
+        wx.TreeCtrl.__init__(self,parent,-1,style=wx.wxSIMPLE_BORDER)
         # Initialize attributes
         self.instrument = instrument
         self.env = SynthEnv()
@@ -116,9 +116,9 @@ class PatchEditTree(wx.wxTreeCtrl):
         
         # Edit the selected element
         if element and element.name == 'page':
-            wx.wxBeginBusyCursor()
+            wx.BeginBusyCursor()
             # Hide the editor
-            self.editor.Show(wx.false)
+            self.editor.Show(False)
             
             # Clear dictionary and map
             self.env.Clear()
@@ -143,16 +143,16 @@ class PatchEditTree(wx.wxTreeCtrl):
             self.env.eventHandler = self.editor
             
             # Show the editor
-            self.editor.Show(wx.true)
+            self.editor.Show(True)
             wx.wxEndBusyCursor()
         elif element and element.name == 'list':
             # Cannot edit sublists
             if element.getElements('list'):
                 return
             
-            wx.wxBeginBusyCursor()
+            wx.BeginBusyCursor()
             # Hide the editor
-            self.editor.Show(wx.false)
+            self.editor.Show(False)
             
             # Clear dictionary and map
             self.env.Clear()
@@ -167,7 +167,7 @@ class PatchEditTree(wx.wxTreeCtrl):
                 self.editor.DeleteAllTabs()
                 
             # Show the editor
-            self.editor.Show(wx.true)
+            self.editor.Show(True)
             wx.wxEndBusyCursor()
 
         if element and self.property:
@@ -230,9 +230,9 @@ class PatchEditTree(wx.wxTreeCtrl):
         self.property = property
         self.env.property = property
         
-class PropertyEditor(wx.wxPanel):
+class PropertyEditor(wx.Panel):
     def __init__(self,parent,id,synthdev):
-        wx.wxPanel.__init__(self,parent,id)
+        wx.Panel.__init__(self,parent,id)
 
         self.element = None
         self.properties = []
@@ -258,31 +258,31 @@ class PropertyEditor(wx.wxPanel):
             self.cancelButton = wx.wxBitmapButton(self,-1,crossArt,\
                                                   (-1,-1),(20,5))
         except:
-            self.okButton = wx.wxButton(self,-1,'/',(-1,-1),(20,5))
-            self.cancelButton = wx.wxButton(self,-1,'X',(-1,-1),(20,5))
+            self.okButton = wx.Button(self,-1,'/',(-1,-1),(20,5))
+            self.cancelButton = wx.Button(self,-1,'X',(-1,-1),(20,5))
             
         self.okButton.Enable(0)
         self.cancelButton.Enable(0)
     
-        self.topSizer.AddWindow(self.okButton,0,wx.wxLEFT|wx.wxTOP|wx.wxBOTTOM|wx.wxEXPAND,3)
-        self.topSizer.AddWindow(self.cancelButton,0,wx.wxLEFT|wx.wxTOP|wx.wxBOTTOM|wx.wxEXPAND,3)
+        self.topSizer.AddWindow(self.okButton,0,wx.LEFT|wx.TOP|wx.BOTTOM|wx.EXPAND,3)
+        self.topSizer.AddWindow(self.cancelButton,0,wx.LEFT|wx.TOP|wx.BOTTOM|wx.EXPAND,3)
     
-        self.valueText = wx.wxTextCtrl(self,-1,'',style=wx.wxPROCESS_ENTER)
-        self.valueText.Enable(wx.false)
-        self.topSizer.AddWindow(self.valueText,1,wx.wxALL|wx.wxEXPAND,3)
+        self.valueText = wx.TextCtrl(self,-1,'',style=wx.wxPROCESS_ENTER)
+        self.valueText.Enable(False)
+        self.topSizer.AddWindow(self.valueText,1,wx.ALL|wx.EXPAND,3)
         
-        self.sizer.AddSizer(self.topSizer,0,wx.wxEXPAND)
+        self.sizer.AddSizer(self.topSizer,0,wx.EXPAND)
     
         # Middle section with two list boxes
         self.middleSizer = wx.wxBoxSizer(wx.wxVERTICAL)
         
         self.valueList = wx.wxListBox(self,-1,(-1,-1),(-1,60))
-        self.valueList.Show(wx.false);
+        self.valueList.Show(False);
         self.propertyScrollingList = wx.wxListBox(self,-1,(-1,-1),(100,100))
         self.middleSizer.AddWindow(self.propertyScrollingList,1,\
-                                   wx.wxALL|wx.wxEXPAND,3)
+                                   wx.ALL|wx.EXPAND,3)
     
-        self.sizer.AddSizer(self.middleSizer,1,wx.wxEXPAND)
+        self.sizer.AddSizer(self.middleSizer,1,wx.EXPAND)
         
         guiFont = self.propertyScrollingList.GetFont()
         pointSize = guiFont.GetPointSize()
@@ -306,7 +306,7 @@ class PropertyEditor(wx.wxPanel):
         if self.buttonFlags & wxPROP_DYNAMIC_VALUE_FIELD:
             if show:
                 self.middleSizer.Prepend(self.valueList,0,\
-                         wx.wxTOP|wx.wxLEFT|wx.wxRIGHT|wx.wxEXPAND,3)
+                         wx.TOP|wx.LEFT|wx.RIGHT|wx.EXPAND,3)
             else:
                 self.middleSizer.Remove(0)
                 
@@ -325,7 +325,7 @@ class PropertyEditor(wx.wxPanel):
     def OnClose(self,event):
         self.OnCheck(event)
         self.Destroy()
-        return wx.true
+        return True
     
     def OnOk(self,event):
         if self.modified:
@@ -388,14 +388,14 @@ class PropertyEditor(wx.wxPanel):
                strval = self.MakeNameValueString(key,value)
                self.propertyScrollingList.Append(strval,key)
 
-class PatchEditBook(wx.wxNotebook):
+class PatchEditBook(wx.Notebook):
     'The patch editor'
     def __init__(self,parent,id,instrument,patch):
         'PatchEditPane constructor'
-        wx.wxNotebook.__init__(self,parent,id)
+        wx.Notebook.__init__(self,parent,id)
         self.instrument = instrument
         self.patch = patch
-        self.nbsizer = wx.wxNotebookSizer(self)
+        self.nbsizer = wx.NotebookSizer(self)
 
         wx.EVT_NOTEBOOK_PAGE_CHANGED(self,self.GetId(),self.OnPageChanged)
         EVT_DATA_CHANGED(self,self.OnDataChanged)
@@ -414,7 +414,7 @@ class PatchEditBook(wx.wxNotebook):
         tab = self.GetPage(index)
 
         # Load the widgets
-        wx.wxBeginBusyCursor()
+        wx.BeginBusyCursor()
         tab.Load()
         wx.wxEndBusyCursor()
         
@@ -424,21 +424,21 @@ class PatchEditBook(wx.wxNotebook):
         'Add a tab to the notebook and populate the tab'
         caption = element.getCaption()
         tab = PatchEditTab(self,env,self.instrument,self.patch,element)
-        wx.wxNotebook.AddPage(self,tab,caption)
+        wx.Notebook.AddPage(self,tab,caption)
         return tab
 
     def AddListTab(self,env,element):
         'Add a tab to the notebook and populate the tab'
         caption = element.getCaption()
         tab = ListEditTab(self,env,element)
-        wx.wxNotebook.AddPage(self,tab,caption)
+        wx.Notebook.AddPage(self,tab,caption)
         return tab
 
     def DeleteAllTabs(self):
         'Delete all tabs'
         self.DeleteAllPages()
         
-class PatchEditTab(WidgetBase,wx.wxPanel):
+class PatchEditTab(WidgetBase,wx.Panel):
     'A patch editor tab'
     def __init__(self,parent,env,instrument,patch,element):
         'PatchEditTab constructor'
@@ -449,7 +449,7 @@ class PatchEditTab(WidgetBase,wx.wxPanel):
         
         # Initialize the base class
         WidgetBase.__init__(self,env,element,patch,0)
-        wx.wxPanel.__init__(self,parent,-1)
+        wx.Panel.__init__(self,parent,-1)
         
         wx.EVT_SIZE(self,self.OnSize)
         
@@ -474,11 +474,11 @@ class PatchEditTab(WidgetBase,wx.wxPanel):
         if self.panel:
             self.panel.SetSize(self.GetClientSize())
 
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable()
         self.panel.Enable(flag)
 
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         # Similar to Enable() but refreshes values
         if not self.reset:
             reset = self.getAttribute('reset','')
@@ -493,7 +493,7 @@ class PatchEditTab(WidgetBase,wx.wxPanel):
                 if self.panel.group:
                     self.panel.group.RefreshValue(source,flag)
 
-class PatchEditHtmlPage(html.wxHtmlWindow):
+class PatchEditHtmlPage(wx.html.HtmlWindow):
     'A patch editor tab'
     def __init__(self,parent,env,instrument,patch,url):
         'PatchEditTab constructor'
@@ -505,7 +505,7 @@ class PatchEditHtmlPage(html.wxHtmlWindow):
         self.reset = 0
         
         # Initialize the base classes
-        html.wxHtmlWindow.__init__(self,parent,-1)
+        wx.html.HtmlWindow.__init__(self,parent,-1)
         self.SetSize(parent.GetClientSize())
         
         # Initialize attributes
@@ -597,21 +597,21 @@ class PatchEditHtmlPage(html.wxHtmlWindow):
         # reset this flag
         self.reset = 0
         
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         # It would be nice to enable/disable the tab handle itself
         # but I don't know how to do that so I enable or disable 
         # all children.
-        html.wxHtmlWindow.Enable(self,flag)
+        wx.html.HtmlWindow.Enable(self,flag)
         if self.group:
             self.group.Enable(flag)
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         # Similar to Enable() but refreshes values
-        html.wxHtmlWindow.Enable(self,flag)
+        wx.html.HtmlWindow.Enable(self,flag)
         if self.group:
             self.group.RefreshValue(source,flag)
      
-class ListEditTab(wx.wxScrolledWindow):
+class ListEditTab(wx.ScrolledWindow):
     'Edits a list in design mode'
     def __init__(self,parent,env,element):
         'PatchEditTab constructor'
@@ -620,16 +620,16 @@ class ListEditTab(wx.wxScrolledWindow):
         self.element = element
         
         # Initialize the base class
-        wx.wxScrolledWindow.__init__(self,parent,-1)
+        wx.ScrolledWindow.__init__(self,parent,-1)
         self.elb = gizmos.wxEditableListBox(self, -1, element.getCaption(),\
                                      (50,50), (250, 250))
 
         strings = element.getList()
         self.elb.SetStrings(strings)
       
-def ShowMessage(parent,message,style=wx.wxOK):
+def ShowMessage(parent,message,style=wx.OK):
     'Display a message box'
-    dlg = wx.wxMessageDialog(parent,message,appname,style)
+    dlg = wx.MessageDialog(parent,message,appname,style)
     intval = dlg.ShowModal()
     dlg.Destroy()
     return intval

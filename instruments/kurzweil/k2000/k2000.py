@@ -27,7 +27,7 @@
 #-----------------------------------------------------------------------------
 
 import struct
-import wxPython.wx as wx
+from wx import wx
 
 from instrument import *
 

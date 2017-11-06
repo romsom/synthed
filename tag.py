@@ -44,9 +44,9 @@ The following tags are handled:
 import string
 import types
 
-from wxPython.wx import *
-from wxPython.html import *
-from wxPython.lib.wxpTag import *
+from wx import *
+from wx.html import *
+from wx.lib.wxpTag import *
 from xml2obj import *
 
 import parameter
@@ -232,4 +232,4 @@ def _param2dict(param):
 
 #----------------------------------------------------------------------
 # Add this tag handler to the HTML parser
-wxHtmlWinParser_AddTagHandler(TagHandler)
+HtmlWinParser_AddTagHandler(TagHandler)

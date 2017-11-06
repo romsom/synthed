@@ -31,7 +31,7 @@ classes and methods that are called by the parent frame.
 """
 
 import array,os,string,sys,time,traceback
-import wxPython.wx as wx
+from wx import wx
 from xml.parsers import expat
 
 from __version__ import ver
@@ -42,11 +42,11 @@ from parameter import *
 appname = 'SynthEd '+ver
 SYNTHED_HOME = ''
 
-class SynthEd(wx.wxMDIParentFrame):
+class SynthEd(wx.MDIParentFrame):
     'SynthEd Parent frame'
     def __init__(self,parent,id,title,pos,size):
         'SynthEd constructor'
-        wx.wxMDIParentFrame.__init__(self,parent,id,title,pos,size)
+        wx.MDIParentFrame.__init__(self,parent,id,title,pos,size)
         
         # Add menus, tool bar and status bar
         self.CreateMenu()
@@ -71,47 +71,47 @@ class SynthEd(wx.wxMDIParentFrame):
         # Todo: move this to a resource file?
         
         # File menu
-        self.fileMenu = wx.wxMenu()
+        self.fileMenu = wx.Menu()
         self.fileMenu.Append(10,'&New')
-        self.fileMenu.Enable(10,wx.false)
+        self.fileMenu.Enable(10,False)
         self.fileMenu.Append(11,'&Open')
         self.fileMenu.Append(12,'&Close')
-        self.fileMenu.Enable(12,wx.false)
+        self.fileMenu.Enable(12,False)
         self.fileMenu.AppendSeparator()
         self.fileMenu.Append(13,'&Save')
-        self.fileMenu.Enable(13,wx.false)
+        self.fileMenu.Enable(13,False)
         self.fileMenu.Append(14,'Save &As...')
-        self.fileMenu.Enable(14,wx.false)
+        self.fileMenu.Enable(14,False)
         self.fileMenu.AppendSeparator()
         self.fileMenu.Append(19,'E&xit')
         
         # View menu
-        self.viewMenu = wx.wxMenu()
-        self.insSubMenu = wx.wxMenu()
+        self.viewMenu = wx.Menu()
+        self.insSubMenu = wx.Menu()
         self.viewMenu.AppendMenu(20,'&Instrument',self.insSubMenu)
         self.viewMenu.AppendSeparator()
         self.viewMenu.Append(21,'&Toolbars')
-        self.viewMenu.Enable(21,wx.false)
+        self.viewMenu.Enable(21,False)
         self.viewMenu.Append(22,'&Status bar')
-        self.viewMenu.Enable(22,wx.false)
+        self.viewMenu.Enable(22,False)
         self.viewMenu.AppendSeparator()
         self.viewMenu.Append(29,'&Options...')
-        self.viewMenu.Enable(29,wx.false)
+        self.viewMenu.Enable(29,False)
         
         # Tools menu
-        self.toolsMenu = wx.wxMenu()
-        self.designSubMenu = wx.wxMenu()
+        self.toolsMenu = wx.Menu()
+        self.designSubMenu = wx.Menu()
         self.toolsMenu.AppendMenu(30,'&Design',self.designSubMenu)
         self.toolsMenu.AppendSeparator()
         self.toolsMenu.Append(31,'&Shell')
         
         # Help menu
-        self.helpMenu = wx.wxMenu()
+        self.helpMenu = wx.Menu()
         self.helpMenu.Append(90,'&Help')
         self.helpMenu.Append(91,'&About')
         
         # Menu bar
-        self.menuBar = wx.wxMenuBar()
+        self.menuBar = wx.MenuBar()
         self.menuBar.Append(self.fileMenu,'&File')
         self.menuBar.Append(self.viewMenu,'&View')
         self.menuBar.Append(self.toolsMenu,'&Tools')
@@ -133,13 +133,13 @@ class SynthEd(wx.wxMDIParentFrame):
             SYNTHED_HOME = os.environ['SYNTHED_HOME']
         except:
             message = 'Could not find the SYNTHED_HOME environment variable.\n'
-            ShowMessage(self,message,wx.wxOK)
+            ShowMessage(self,message,wx.OK)
             self.Destroy()
         
         # The config.xml file will be in the SYNTHED_HOME directory
         path = os.path.join(SYNTHED_HOME,'config.xml')
         
-        wx.wxBeginBusyCursor()
+        wx.BeginBusyCursor()
         # chdir to the home directory
         oldDir = os.getcwd()
         os.chdir(SYNTHED_HOME)
@@ -149,7 +149,7 @@ class SynthEd(wx.wxMDIParentFrame):
             message = 'Could not open the configuration file:\n' +\
                 path+'\n'+\
                 'Please check the SYNTHED_HOME environment variable.\n'
-            ShowError(self,wx.wxOK)
+            ShowError(self,wx.OK)
 
         # chdir back
         os.chdir(oldDir)
@@ -163,7 +163,7 @@ class SynthEd(wx.wxMDIParentFrame):
         for instrument in instruments.getElements():
             self.insSubMenu.Append(id,instrument.getCaption())
             if instrument.getId() == 'synthdev':
-                self.insSubMenu.Enable(id,wx.false)
+                self.insSubMenu.Enable(id,False)
             wx.EVT_MENU(self,id,self.OnInstrument)
             id += 1
                         
@@ -174,13 +174,13 @@ class SynthEd(wx.wxMDIParentFrame):
         for instrument in instruments.getElements():
             self.designSubMenu.Append(id,instrument.getCaption())
             if instrument.getId() == 'synthdev':
-                self.designSubMenu.Enable(id,wx.false)
+                self.designSubMenu.Enable(id,False)
             wx.EVT_MENU(self,id,self.OnInstrument)
             id += 1
             
         self.designSubMenu.AppendSeparator()
         self.designSubMenu.Append(id,'&New')
-        self.designSubMenu.Enable(id,wx.false)
+        self.designSubMenu.Enable(id,False)
         id += 1
                         
     def OnAbout(self,event):
@@ -210,7 +210,7 @@ class SynthEd(wx.wxMDIParentFrame):
         # Construct an Instrument object
         instrument = Instrument(element,SYNTHED_HOME,application)
         if instrument:
-            wx.wxBeginBusyCursor()
+            wx.BeginBusyCursor()
             
             # Create a dummy patch
             patch = Patch()
@@ -248,7 +248,7 @@ class SynthEd(wx.wxMDIParentFrame):
             element = self.config.GetInstrumentByAssociation(path)
             instrument = Instrument(element,SYNTHED_HOME,application)
             if instrument:
-                wx.wxBeginBusyCursor()
+                wx.BeginBusyCursor()
                 # Construct a bank editor for the file
                 child = BankEditor(self,-1,instrument,self.synthdev,path)
                 stop = time.clock()
@@ -261,9 +261,9 @@ class SynthEd(wx.wxMDIParentFrame):
     def OnShell(self,event):
         'Shell for debugging'
         try:
-            wx.wxBeginBusyCursor()
+            wx.BeginBusyCursor()
             # Create a child frame
-            child = wx.wxMDIChildFrame(self,-1,'Python Shell')
+            child = wx.MDIChildFrame(self,-1,'Python Shell')
             # Shell
             win = wx.py.shell.Shell(child, -1, style=wx.wxCLIP_CHILDREN,locals=globals())
             win.SetFocus()
@@ -277,7 +277,7 @@ class SynthEd(wx.wxMDIParentFrame):
         'Cleanup and quit'
         self.Destroy()
         
-class BankEditor(wx.wxMDIChildFrame):
+class BankEditor(wx.MDIChildFrame):
     'Bank Editor'
     def __init__(self,parent,id,instrument,synthdev,path):
         'BankEditor constructor'
@@ -294,7 +294,7 @@ class BankEditor(wx.wxMDIChildFrame):
         self.y = 0
         
         # Base class
-        wx.wxMDIChildFrame.__init__(self,parent,id,instrument.caption)
+        wx.MDIChildFrame.__init__(self,parent,id,instrument.caption)
         
         'Parse the file and load the bank list'
         self.banks = self.instrument.module.FileReader(self.path)
@@ -388,7 +388,7 @@ class BankEditor(wx.wxMDIChildFrame):
         event.Skip()
 
     def OnRightClick(self, event):
-        menu = wx.wxMenu()
+        menu = wx.Menu()
 
         menu.Append(0,'Cu&t')
         menu.Append(1,'&Copy')
@@ -472,12 +472,12 @@ class SynthEdConfig:
                         break
         return instrument
                         
-class App(wx.wxApp):
+class App(wx.App):
     'The App'
     def OnInit(self):
-        wx.wxInitAllImageHandlers()
-        self.main = SynthEd(None,wx.wxNewId(),appname,\
-                                     wx.wxDefaultPosition,wx.wxDefaultSize)
+        wx.InitAllImageHandlers()
+        self.main = SynthEd(None,wx.NewId(),appname,\
+                                     wx.DefaultPosition,wx.DefaultSize)
 
         # Ensure frame is of a reasonable size
         (width,height) = self.main.GetClientSizeTuple()
@@ -486,23 +486,23 @@ class App(wx.wxApp):
             
         self.main.Center()
         self.main.Show()
-        return wx.true
+        return True
 
 # Utility functions that should be moved to a utilities module
-def ShowMessage(parent,message,style=wx.wxOK):
+def ShowMessage(parent,message,style=wx.OK):
     'Display a message box'
-    dlg = wx.wxMessageDialog(parent,message,appname,style)
+    dlg = wx.MessageDialog(parent,message,appname,style)
     intval = dlg.ShowModal()
     dlg.Destroy()
     return intval
     
-def ShowError(parent,style=wx.wxOK):
+def ShowError(parent,style=wx.OK):
     'Display an exception and traceback in a message box'
     message = ''
     TBStrings = traceback.format_exception(*sys.exc_info())
     for line in TBStrings:
         message += (line)
-    dlg = wx.wxMessageDialog(parent,message,appname,style)
+    dlg = wx.MessageDialog(parent,message,appname,style)
     intval = dlg.ShowModal()
     dlg.Destroy()
     return intval

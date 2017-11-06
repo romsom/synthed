@@ -42,16 +42,16 @@ Todo:
 """
 
 import array,imp,sys,traceback
-import wxPython.wx as wx
-import wxPython.html as html
+from wx import wx
+from wx import html
 
 from xml2obj import *
 from instrument import *
 
 # Some constants for sizer styles
-SIZER_FORMAT = wx.wxALL|wx.wxALIGN_CENTER_VERTICAL
-SIZER_ALIGN_RIGHT = SIZER_FORMAT|wx.wxALIGN_TOP|wx.wxALIGN_RIGHT|wx.wxADJUST_MINSIZE
-SIZER_ALIGN_LEFT = SIZER_FORMAT|wx.wxALIGN_TOP|wx.wxALIGN_LEFT|wx.wxADJUST_MINSIZE
+SIZER_FORMAT = wx.ALL|wx.ALIGN_CENTER_VERTICAL
+SIZER_ALIGN_RIGHT = SIZER_FORMAT|wx.ALIGN_TOP|wx.ALIGN_RIGHT|wx.ADJUST_MINSIZE
+SIZER_ALIGN_LEFT = SIZER_FORMAT|wx.ALIGN_TOP|wx.ALIGN_LEFT|wx.ADJUST_MINSIZE
 
 # wxMSW GetCharWidth() returns too small a value
 CHAR_WIDTH_PAD = 2
@@ -69,7 +69,7 @@ def AddVariable(dictionary,object):
 def CreateLabel(parent,group,element):
     'Create a label and insert left-aligned into the group'
     caption = element.getAttribute('caption','') + ':'
-    label = wx.wxStaticText(parent,-1,caption)
+    label = wx.StaticText(parent,-1,caption)
     if group:
         group.AddWindow(label,0,SIZER_ALIGN_LEFT,5)
     return label
@@ -82,13 +82,13 @@ def FormatVal(format,val):
         strval = str(val)
     return strval
         
-def ShowError(parent,style=wx.wxOK):
+def ShowError(parent,style=wx.OK):
     'Display an exception and traceback in a message box'
     message = ''
     TBStrings = traceback.format_exception(*sys.exc_info())
     for line in TBStrings:
         message += (line)
-    dlg = wx.wxMessageDialog(parent,message,'SynthEd',style)
+    dlg = wx.MessageDialog(parent,message,'SynthEd',style)
     intval = dlg.ShowModal()
     dlg.Destroy()
     return intval
@@ -107,14 +107,14 @@ def TwosComplement(intdata):
     return intdata
 
 # EVT_DATA_CHANGED is used to notify widgets of data value changes
-wxEVT_DATA_CHANGED = wx.wxNewEventType()
+wxEVT_DATA_CHANGED = wx.NewEventType()
 
 def EVT_DATA_CHANGED(win,func):
     win.Connect(-1,-1,wxEVT_DATA_CHANGED,func)
 
-class DataChangedEvent(wx.wxPyEvent):
+class DataChangedEvent(wx.PyEvent):
     def __init__(self,source,dest):
-        wx.wxPyEvent.__init__(self)
+        wx.PyEvent.__init__(self)
         self.SetEventType(wxEVT_DATA_CHANGED)
         self.source = source
         self.dest = dest
@@ -1058,7 +1058,7 @@ class WidgetBase(Element):
         for param in self.params:
             param.Unregister()
             
-class ButtonWidget(WidgetBase,wx.wxButton):
+class ButtonWidget(WidgetBase,wx.Button):
     'Button widget'
     def __init__(self,parent,env,element,patch,init):
         'CheckWidget constructor'
@@ -1066,7 +1066,7 @@ class ButtonWidget(WidgetBase,wx.wxButton):
         
         # Add the button
         label = self.getCurrentVal()
-        wx.wxButton.__init__(self,parent,-1,label)
+        wx.Button.__init__(self,parent,-1,label)
 
         # Set tool tip
         self.SetTip(self)
@@ -1087,27 +1087,27 @@ class ButtonWidget(WidgetBase,wx.wxButton):
         
         event.Skip()
     
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         'Enable/disable the button'
         flag = self.CheckEnable(flag)
-        wx.wxButton.Enable(self,flag)
+        wx.Button.Enable(self,flag)
         return flag
 
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             'Refresh the widget from the data'
             label = self.getCurrentVal()
             self.SetLabel(label)
 
-class CheckWidget(WidgetBase,wx.wxCheckBox):
+class CheckWidget(WidgetBase,wx.CheckBox):
     'CheckBox widget'
     def __init__(self,parent,env,element,patch,init):
         'CheckWidget constructor'
         WidgetBase.__init__(self,env,element,patch,init)
         
         # Add the checkbox
-        wx.wxCheckBox.__init__(self,parent,-1,'')
+        wx.CheckBox.__init__(self,parent,-1,'')
         
         self.SetForegroundColour(parent.GetForegroundColour())
         self.SetBackgroundColour(parent.GetBackgroundColour())
@@ -1132,27 +1132,27 @@ class CheckWidget(WidgetBase,wx.wxCheckBox):
             intdata = 0
         self.setData(self,intdata)
     
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         'Enable/disable the CheckBox'
         flag = self.CheckEnable(flag)
-        wx.wxCheckBox.Enable(self,flag)
+        wx.CheckBox.Enable(self,flag)
         return flag
 
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             'Refresh the widget from the data'
             intdata = self.getData()
             self.SetValue(intdata)
 
-class ChoiceWidget(WidgetBase,wx.wxPanel):
+class ChoiceWidget(WidgetBase,wx.Panel):
     'Choice widget (Dropdown read-only combo box)'
     def __init__(self,parent,env,element,patch,init):
         'ChoiceWidget constructor'
         WidgetBase.__init__(self,env,element,patch,init)
         
         # Construct the choice control
-        wx.wxPanel.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
+        wx.Panel.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
         self.sizer = wx.wxBoxSizer(wx.wxHORIZONTAL)
         
         self.combo = wx.wxComboBox(self,-1,\
@@ -1206,14 +1206,14 @@ class ChoiceWidget(WidgetBase,wx.wxPanel):
         for item in items:
             self.combo.Append(item)
             
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         'Enable/Disable'
         flag = self.CheckEnable(flag)
-        wx.wxPanel.Enable(self,flag)
+        wx.Panel.Enable(self,flag)
         self.combo.Enable(flag)
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             'Refresh the widget from the data'
@@ -1221,7 +1221,7 @@ class ChoiceWidget(WidgetBase,wx.wxPanel):
             intdata = self.getData()
             self.combo.SetSelection(intdata)
                 
-class EditWidget(WidgetBase,wx.wxTextCtrl):  
+class EditWidget(WidgetBase,wx.TextCtrl):  
     'Textedit widget'
     def __init__(self,parent,env,element,patch,init):
         'EditWidget constructor'
@@ -1230,7 +1230,7 @@ class EditWidget(WidgetBase,wx.wxTextCtrl):
         
         # Add the text control
         strval = self.getCurrentVal()
-        wx.wxTextCtrl.__init__(self,parent,-1,strval,style=wx.wxTE_PROCESS_ENTER)
+        wx.TextCtrl.__init__(self,parent,-1,strval,style=wx.wxTE_PROCESS_ENTER)
 
         # Set tool tip
         self.SetTip(self)
@@ -1241,21 +1241,21 @@ class EditWidget(WidgetBase,wx.wxTextCtrl):
         
     def OnText(self,event):
         self.insertionPoint = self.GetInsertionPoint()
-        strval = wx.wxTextCtrl.GetValue(self)
+        strval = wx.TextCtrl.GetValue(self)
         self.SetValue(strval)
         self.SetInsertionPoint(self.insertionPoint)
         
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxTextCtrl.Enable(self,flag)
+        wx.TextCtrl.Enable(self,flag)
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         strval = self.getCurrentVal()
         self.SetValue(strval)
 
-class EnvelopeWidget(WidgetBase,wx.wxControl):
+class EnvelopeWidget(WidgetBase,wx.Control):
     'Envelope widget'
     def __init__(self,parent,env,element,patch,init):
         'EnvelopeWidget constructor'
@@ -1281,7 +1281,7 @@ class EnvelopeWidget(WidgetBase,wx.wxControl):
         self.minWidth = self.width
         
         # Create the panel
-        wx.wxControl.__init__(self,parent,-1,wx.wxDefaultPosition,size,style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,wx.DefaultPosition,size,style=wx.wxBORDER_NONE)
 
         # Construct pens and brushes
         self.background = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_WINDOW)
@@ -1485,18 +1485,18 @@ class EnvelopeWidget(WidgetBase,wx.wxControl):
         
         return (self.width,self.height)
     
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxControl.Enable(self,flag)
+        wx.Control.Enable(self,flag)
         self.Refresh()
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         self.Enable(flag)
         self.Refresh()
     
 # Todo: implement a gauge with a start and stop value
-class GaugeWidget(WidgetBase,wx.wxControl):
+class GaugeWidget(WidgetBase,wx.Control):
     'Gauge widget'
     def __init__(self,parent,env,element,patch,init):
         'GaugeWidget constructor'
@@ -1507,7 +1507,7 @@ class GaugeWidget(WidgetBase,wx.wxControl):
         width = self.max - self.min + 1
         
         # Add the gauge
-        wx.wxControl.__init__(self,parent,-1,wx.wxDefaultPosition,(width,25),style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,wx.DefaultPosition,(width,25),style=wx.wxBORDER_NONE)
 
         # Set tool tip
         self.SetTip(self)
@@ -1563,16 +1563,16 @@ class GaugeWidget(WidgetBase,wx.wxControl):
         
         dc.EndDrawing()
         
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxControl.Enable(self,flag)
+        wx.Control.Enable(self,flag)
         self.Refresh()
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         self.Enable(flag)
 
-class LabelWidget(WidgetBase,wx.wxStaticText):
+class LabelWidget(WidgetBase,wx.StaticText):
     'Standalone label'
     def __init__(self,parent,env,element,patch,init):
         'LabelWidget constructor'
@@ -1580,7 +1580,7 @@ class LabelWidget(WidgetBase,wx.wxStaticText):
         
         # Add the label
         caption = self.getCaption() + ':'
-        wx.wxStaticText.__init__(self,parent,-1,caption)
+        wx.StaticText.__init__(self,parent,-1,caption)
 
         self.SetForegroundColour(parent.GetForegroundColour())
         self.SetBackgroundColour(parent.GetBackgroundColour())
@@ -1591,18 +1591,18 @@ class LabelWidget(WidgetBase,wx.wxStaticText):
         # Event handlers
         wx.EVT_SET_FOCUS(self,self.OnFocus)
 
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxStaticText.Enable(self,flag)
+        wx.StaticText.Enable(self,flag)
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             strval = self.getCurrentVal()
             self.SetValue(strval)
         
-class RadioWidget(WidgetBase,wx.wxRadioBox):
+class RadioWidget(WidgetBase,wx.RadioBox):
     'Radiobox widget'
     def __init__(self,parent,env,element,patch,init):
         'RadioWidget constructor'
@@ -1622,7 +1622,7 @@ class RadioWidget(WidgetBase,wx.wxRadioBox):
             orient = wx.wxRA_SPECIFY_COLS
             
         # Add the radio box
-        wx.wxRadioBox.__init__(self,parent,-1,caption,choices=items,\
+        wx.RadioBox.__init__(self,parent,-1,caption,choices=items,\
                                majorDimension=1,style=orient)
 
         self.SetForegroundColour(parent.GetForegroundColour())
@@ -1648,24 +1648,24 @@ class RadioWidget(WidgetBase,wx.wxRadioBox):
         intdata = self.GetSelection()
         self.setData(self,intdata)
     
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxRadioBox.Enable(self,flag)
+        wx.RadioBox.Enable(self,flag)
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             intdata = self.getData()
             self.SetSelection(intdata)
 
-class SliderWidget(WidgetBase,wx.wxControl):
+class SliderWidget(WidgetBase,wx.Control):
     'Slider widget'
     def __init__(self,parent,env,element,patch,init):
         'SliderWidget constructor'
         WidgetBase.__init__(self,env,element,patch,init)
         
-        wx.wxControl.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
         self.SetBackgroundColour(parent.GetBackgroundColour())
 
         # Get the orientation
@@ -1688,7 +1688,7 @@ class SliderWidget(WidgetBase,wx.wxControl):
         self.sizer = wx.wxBoxSizer(sizerLayout)
         
         # Add the textbox
-        self.edit = wx.wxTextCtrl(self,-1,'',\
+        self.edit = wx.TextCtrl(self,-1,'',\
                 style=wx.wxTE_PROCESS_ENTER)
         
         # Adjust the size for best fit
@@ -1699,7 +1699,7 @@ class SliderWidget(WidgetBase,wx.wxControl):
     
         # Add the slider
         self.slider = wx.wxSlider(self,-1,self.meandata,self.mindata,\
-                             self.maxdata,wx.wxDefaultPosition,size,\
+                             self.maxdata,wx.DefaultPosition,size,\
                              sliderLayout|wx.wxSL_AUTOTICKS)
         self.slider.SetBackgroundColour(parent.GetBackgroundColour())
         self.sizer.AddWindow(self.slider,1,SIZER_FORMAT,0)
@@ -1781,14 +1781,14 @@ class SliderWidget(WidgetBase,wx.wxControl):
             self.setData(self,dataval)
             self.UpdateSlider(self)
         
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxControl.Enable(self,flag)
+        wx.Control.Enable(self,flag)
         self.slider.Enable(flag)
         self.edit.Enable(flag)
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             self.UpdateSlider(source)
@@ -1816,7 +1816,7 @@ class SliderWidget(WidgetBase,wx.wxControl):
 # define to implement auto-repeat on the spinner buttons
 SPINBUTTON_REPEAT = 1
 
-class SpinWidget(WidgetBase,wx.wxControl):
+class SpinWidget(WidgetBase,wx.Control):
     'Spinner widget that supports a variety of data types and formats'
     def __init__(self,parent,env,element,patch,init):
         'SpinWidget constructor'
@@ -1825,7 +1825,7 @@ class SpinWidget(WidgetBase,wx.wxControl):
         # Used for SPINBUTTON_REPEAT
         self.increment = 0
 
-        wx.wxControl.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
         
         self.SetBackgroundColour(parent.GetBackgroundColour())
 
@@ -1833,7 +1833,7 @@ class SpinWidget(WidgetBase,wx.wxControl):
         self.sizer = wx.wxBoxSizer(wx.wxHORIZONTAL)
         
         # Add the edit control
-        self.edit = wx.wxTextCtrl(self,-1,'', style=wx.wxTE_PROCESS_ENTER)
+        self.edit = wx.TextCtrl(self,-1,'', style=wx.wxTE_PROCESS_ENTER)
         
         # Bind the enter key to update the value
         wx.EVT_TEXT_ENTER(self,self.edit.GetId(),self.OnEnter)
@@ -1850,7 +1850,7 @@ class SpinWidget(WidgetBase,wx.wxControl):
         self.buttonsizer = wx.wxBoxSizer(wx.wxVERTICAL)
 
         # Add the increment button
-        self.upbutton = wx.wxButton(self,-1,'+',(width,0),(20,12))
+        self.upbutton = wx.Button(self,-1,'+',(width,0),(20,12))
         upId = self.upbutton.GetId()
         self.buttonsizer.AddWindow(self.upbutton,1,SIZER_FORMAT,0)
 
@@ -1859,7 +1859,7 @@ class SpinWidget(WidgetBase,wx.wxControl):
             wx.EVT_BUTTON(self.upbutton,upId,self.OnUpButtonClick)
 
         # Add the decrement button
-        self.downbutton = wx.wxButton(self,-1,'-',(width,12),(20,12))
+        self.downbutton = wx.Button(self,-1,'-',(width,12),(20,12))
         downId = self.downbutton.GetId()
         self.buttonsizer.AddWindow(self.downbutton,1,SIZER_FORMAT,0)
 
@@ -1900,7 +1900,7 @@ class SpinWidget(WidgetBase,wx.wxControl):
             wx.EVT_LEFT_UP(self.downbutton,self.OnMouseUp)
 
             # Use a timer to simulate key repeat
-            self.timerId = wx.wxNewId()
+            self.timerId = wx.NewId()
             self.timer = wx.wxTimer(self,self.timerId)
             wx.EVT_TIMER(self,self.timerId,self.OnTimer)
         
@@ -1965,15 +1965,15 @@ class SpinWidget(WidgetBase,wx.wxControl):
         # button image will never return to the "unclicked" state
         event.Skip()
         
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxControl.Enable(self,flag)
+        wx.Control.Enable(self,flag)
         self.edit.Enable(flag)
         self.upbutton.Enable(flag)
         self.downbutton.Enable(flag)
         return flag
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             strval = self.getCurrentVal()
@@ -1996,7 +1996,7 @@ class SpinWidget(WidgetBase,wx.wxControl):
         strval = self.getCurrentVal()
         self.edit.SetValue(strval)
 
-class TextWidget(WidgetBase,wx.wxTextCtrl):
+class TextWidget(WidgetBase,wx.TextCtrl):
     'Textbox widget'
     def __init__(self,parent,env,element,patch,init):
         'TextWidget constructor'
@@ -2006,7 +2006,7 @@ class TextWidget(WidgetBase,wx.wxTextCtrl):
         value = self.getCurrentVal()
         
         # Add the text control
-        wx.wxTextCtrl.__init__(self,parent,-1,value,\
+        wx.TextCtrl.__init__(self,parent,-1,value,\
             style=wx.wxTE_PROCESS_ENTER|wx.wxTE_READONLY)
 
         # Adjust the size for best fit
@@ -2029,12 +2029,12 @@ class TextWidget(WidgetBase,wx.wxTextCtrl):
         pos = self.ClientToScreenXY(event.m_x,event.m_y)
         listctl = PopupList(self.GetParent(),-1,pos,items,intval,param)
                                 
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
-        wx.wxTextCtrl.Enable(self,flag)
+        wx.TextCtrl.Enable(self,flag)
         return flag
 
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.Enable(flag)
         if flag:
             value = self.getCurrentVal()
@@ -2077,7 +2077,7 @@ class GroupWidget(WidgetBase):
                 flag = WidgetBase.CheckEnable(self)
         return flag
         
-    def Enable(self,flag=wx.true):
+    def Enable(self,flag=True):
         flag = self.CheckEnable(flag)
         for child in self._children:
             try:
@@ -2085,7 +2085,7 @@ class GroupWidget(WidgetBase):
             except:
                 pass
         
-    def RefreshValue(self,source,flag=wx.true):
+    def RefreshValue(self,source,flag=True):
         flag = self.CheckEnable(flag)
         for child in self._children:
             try:
@@ -2093,10 +2093,10 @@ class GroupWidget(WidgetBase):
             except:
                 pass
         
-    def Show(self,flag=wx.true):
+    def Show(self,flag=True):
         self.ShowChildren(flag)
 
-class PopupList(wx.wxSingleChoiceDialog):
+class PopupList(wx.SingleChoiceDialog):
     def __init__(self,parent,id,pos,items,selection,param):
         self.param = param
         self.selection = selection
@@ -2104,9 +2104,9 @@ class PopupList(wx.wxSingleChoiceDialog):
         (x,y) = pos
         pos = (max(0,x-200),max(0,y-100))
         
-        wx.wxSingleChoiceDialog.__init__(self,parent,'Old Value = %s' % items[selection],\
+        wx.SingleChoiceDialog.__init__(self,parent,'Old Value = %s' % items[selection],\
                              'Select a New Value',pos=pos,choices=items,\
-                             style=wx.wxOK|wx.wxCANCEL)
+                             style=wx.OK|wx.wxCANCEL)
 
         self.SetSelection(selection)
                 
