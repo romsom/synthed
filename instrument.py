@@ -138,7 +138,12 @@ class Instrument:
     
     def GetPatchInfo(self,type):
         for element in self.data:
+            #print("element:")
+            print(element)
             for patch in element.getElements('patch'):
+                #print("found matching element")
+                print(patch.getId())
+                #print(type)
                 if patch.getId() == type:
                     return patch
 

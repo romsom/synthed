@@ -154,7 +154,7 @@ class SynthEd(wx.MDIParentFrame):
         # chdir back
         os.chdir(oldDir)
         
-        wx.wxEndBusyCursor()
+        wx.EndBusyCursor()
 
     def LoadInsSubMenu(self):
         'Create a menu item for each instrument'
@@ -206,6 +206,8 @@ class SynthEd(wx.MDIParentFrame):
         # Get the XML element
         instruments = self.config.GetInstruments()
         element = instruments.children[index]
+        print("instrument element: ")
+        print(element.children)
         
         # Construct an Instrument object
         instrument = Instrument(element,SYNTHED_HOME,application)
@@ -219,7 +221,7 @@ class SynthEd(wx.MDIParentFrame):
             # Open a patch editor
             child = PatchEditor(self,-1,instrument.caption,patch,\
                                 None,instrument,self.synthdev,design)
-            wx.wxEndBusyCursor()
+            wx.EndBusyCursor()
             
     def OnDesign(self,event):
         pass
@@ -236,8 +238,8 @@ class SynthEd(wx.MDIParentFrame):
 
         # Display a wxFileDialog
         path = ''        
-        dlg = wx.wxFileDialog(None,'Open a file','','',wildcards,wx.wxOPEN)
-        if dlg.ShowModal() == wx.wxID_OK:
+        dlg = wx.FileDialog(None,'Open a file','','',wildcards,wx.OPEN)
+        if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
         dlg.Destroy()
         
@@ -253,7 +255,7 @@ class SynthEd(wx.MDIParentFrame):
                 child = BankEditor(self,-1,instrument,self.synthdev,path)
                 stop = time.clock()
                 self.statusBar.SetStatusText('%5.2f seconds' % (stop-start))
-                wx.wxEndBusyCursor()
+                wx.EndBusyCursor()
             else:
                 ShowMessage(self,'The file:\n\t' +\
                             path + '\nis not associated with an instrument.')
@@ -268,9 +270,9 @@ class SynthEd(wx.MDIParentFrame):
             win = wx.py.shell.Shell(child, -1, style=wx.wxCLIP_CHILDREN,locals=globals())
             win.SetFocus()
             
-            wx.wxEndBusyCursor()
+            wx.EndBusyCursor()
         except:
-            wx.wxEndBusyCursor()
+            wx.EndBusyCursor()
             ShowError(self)
         
     def OnQuit(self,event):
@@ -301,15 +303,15 @@ class BankEditor(wx.MDIChildFrame):
         if len(self.banks) > 1:
             
             # Put a splitter in the frame
-            self.vertsplit = wx.wxSplitterWindow(self,-1)
+            self.vertsplit = wx.SplitterWindow(self,-1)
             
             # Bank list on the left
-            self.bankList = wx.wxListBox(self.vertsplit,-1,style=wx.wxSIMPLE_BORDER)
+            self.bankList = wx.ListBox(self.vertsplit,-1,style=wx.SIMPLE_BORDER)
             bankListId = self.bankList.GetId()
             
             # Patch list on the right
-            self.patchList = wx.wxListCtrl(self.vertsplit,-1,\
-               style=wx.wxLC_LIST|wx.wxLC_EDIT_LABELS)
+            self.patchList = wx.ListCtrl(self.vertsplit,-1,\
+               style=wx.LC_LIST|wx.LC_EDIT_LABELS)
             
             self.vertsplit.SplitVertically(self.bankList, self.patchList, 160)
             
@@ -322,8 +324,8 @@ class BankEditor(wx.MDIChildFrame):
             self.bankList.SetSelection(0)
         else:
             # Patch list on the right
-            self.patchList = wx.wxListCtrl(self,-1,size=self.GetClientSize(),\
-               style=wx.wxLC_LIST|wx.wxLC_EDIT_LABELS)
+            self.patchList = wx.ListCtrl(self,-1,size=self.GetClientSize(),\
+               style=wx.LC_LIST|wx.LC_EDIT_LABELS)
             
         patchListId = self.patchList.GetId()
         

@@ -41,6 +41,7 @@ class PatchEditor(wx.MDIChildFrame):
     'Patch Editor'
     def __init__(self,parent,id,title,patch,patchType,instrument,\
                  synthdev,design=0):
+        print("patchtype in editor (init): " + patchType)
         'PatchEditor constructor'
         wx.MDIChildFrame.__init__(self,parent,id,title)
         
@@ -52,10 +53,10 @@ class PatchEditor(wx.MDIChildFrame):
         self.design = design
         
         # Put a splitter in the frame
-        self.vertsplit = wx.wxSplitterWindow(self,-1)
+        self.vertsplit = wx.SplitterWindow(self,-1)
         
         # Populate the splitter with two scrolling panes
-        self.horizsplit = wx.wxSplitterWindow(self.vertsplit,-1)
+        self.horizsplit = wx.SplitterWindow(self.vertsplit,-1)
         self.right = PatchEditBook(self.vertsplit,-1,instrument,patch)
         self.vertsplit.SplitVertically(self.horizsplit, self.right, 160)
         
@@ -72,7 +73,7 @@ class PatchEditor(wx.MDIChildFrame):
         self.tree.LoadPatch()
         if not self.design:
             self.tree.ExpandTree()
-        wx.wxEndBusyCursor()
+        wx.EndBusyCursor()
         stop = time.clock()
         # Todo: remove this timing info?
         statusBar = instrument.module.application.main.statusBar
@@ -81,8 +82,9 @@ class PatchEditor(wx.MDIChildFrame):
 class PatchEditTree(wx.TreeCtrl):
     'Patch editor tree control is used to select pages in the patch editor'
     def __init__(self,parent,instrument,editor,patch,patchType,design):
+        print("patchtype on init: " + patchType)
         'PatchEditTree constructor'
-        wx.TreeCtrl.__init__(self,parent,-1,style=wx.wxSIMPLE_BORDER)
+        wx.TreeCtrl.__init__(self,parent,-1,style=wx.SIMPLE_BORDER)
         # Initialize attributes
         self.instrument = instrument
         self.env = SynthEnv()
@@ -102,7 +104,7 @@ class PatchEditTree(wx.TreeCtrl):
         self.allNodes = []
         
         # Trees need an image list to do Drag and Drop
-        self.il = wx.wxImageList(16,16)
+        self.il = wx.ImageList(16,16)
         self.SetImageList(self.il)
         
         # Event handlers
@@ -144,7 +146,7 @@ class PatchEditTree(wx.TreeCtrl):
             
             # Show the editor
             self.editor.Show(True)
-            wx.wxEndBusyCursor()
+            wx.EndBusyCursor()
         elif element and element.name == 'list':
             # Cannot edit sublists
             if element.getElements('list'):
@@ -168,7 +170,7 @@ class PatchEditTree(wx.TreeCtrl):
                 
             # Show the editor
             self.editor.Show(True)
-            wx.wxEndBusyCursor()
+            wx.EndBusyCursor()
 
         if element and self.property:
             # Properties editor
@@ -246,10 +248,10 @@ class PropertyEditor(wx.Panel):
             self.dictionary = {}
         
         # Main sizer
-        self.sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+        self.sizer = wx.BoxSizer(wx.VERTICAL)
         
         # Top section with two buttons and textCtrl
-        self.topSizer = wx.wxBoxSizer(wx.wxHORIZONTAL)
+        self.topSizer = wx.BoxSizer(wx.HORIZONTAL)
     
         try:
             tickArt = wx.wxArtProvider_GetBitmap(wx.wxART_TICK_MARK)
@@ -267,18 +269,18 @@ class PropertyEditor(wx.Panel):
         self.topSizer.AddWindow(self.okButton,0,wx.LEFT|wx.TOP|wx.BOTTOM|wx.EXPAND,3)
         self.topSizer.AddWindow(self.cancelButton,0,wx.LEFT|wx.TOP|wx.BOTTOM|wx.EXPAND,3)
     
-        self.valueText = wx.TextCtrl(self,-1,'',style=wx.wxPROCESS_ENTER)
+        self.valueText = wx.TextCtrl(self,-1,'',style=wx.PROCESS_ENTER)
         self.valueText.Enable(False)
         self.topSizer.AddWindow(self.valueText,1,wx.ALL|wx.EXPAND,3)
         
         self.sizer.AddSizer(self.topSizer,0,wx.EXPAND)
     
         # Middle section with two list boxes
-        self.middleSizer = wx.wxBoxSizer(wx.wxVERTICAL)
+        self.middleSizer = wx.BoxSizer(wx.VERTICAL)
         
-        self.valueList = wx.wxListBox(self,-1,(-1,-1),(-1,60))
+        self.valueList = wx.ListBox(self,-1,(-1,-1),(-1,60))
         self.valueList.Show(False);
-        self.propertyScrollingList = wx.wxListBox(self,-1,(-1,-1),(100,100))
+        self.propertyScrollingList = wx.ListBox(self,-1,(-1,-1),(100,100))
         self.middleSizer.AddWindow(self.propertyScrollingList,1,\
                                    wx.ALL|wx.EXPAND,3)
     
@@ -286,7 +288,7 @@ class PropertyEditor(wx.Panel):
         
         guiFont = self.propertyScrollingList.GetFont()
         pointSize = guiFont.GetPointSize()
-        fixedFont = wx.wxFont(pointSize,wx.wxTELETYPE,wx.wxNORMAL,wx.wxNORMAL)
+        fixedFont = wx.Font(pointSize,wx.TELETYPE,wx.NORMAL,wx.NORMAL)
         self.propertyScrollingList.SetFont(fixedFont)
 
         # Todo: Bottom with buttons 
@@ -395,7 +397,7 @@ class PatchEditBook(wx.Notebook):
         wx.Notebook.__init__(self,parent,id)
         self.instrument = instrument
         self.patch = patch
-        self.nbsizer = wx.NotebookSizer(self)
+        self.nbsizer = wx.Notebook.Sizer
 
         wx.EVT_NOTEBOOK_PAGE_CHANGED(self,self.GetId(),self.OnPageChanged)
         EVT_DATA_CHANGED(self,self.OnDataChanged)
@@ -416,7 +418,7 @@ class PatchEditBook(wx.Notebook):
         # Load the widgets
         wx.BeginBusyCursor()
         tab.Load()
-        wx.wxEndBusyCursor()
+        wx.EndBusyCursor()
         
         event.Skip()
         
@@ -515,7 +517,7 @@ class PatchEditHtmlPage(wx.html.HtmlWindow):
         
     def Load(self,env,patch,modeId,reset):
         'Load and show the editor'
-
+        print("env: {}, patch: {}, modeId: {}, reset: {}".format(env, patch, modeId, reset))
         self.reset = reset
         
         # Check for dynamic content. This is a little more complicated 
@@ -572,6 +574,7 @@ class PatchEditHtmlPage(wx.html.HtmlWindow):
                 
                 # Get the params for this patch
                 patchId = tab.getAttribute('patch')
+                print("patchId: " + patchId)
                 patchInfo = self.instrument.GetPatchInfo(patchId)
                 
                 # Create new copies of the params for this patch

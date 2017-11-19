@@ -1153,7 +1153,7 @@ class ChoiceWidget(WidgetBase,wx.Panel):
         
         # Construct the choice control
         wx.Panel.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
-        self.sizer = wx.wxBoxSizer(wx.wxHORIZONTAL)
+        self.sizer = wx.BoxSizer(wx.HORIZONTAL)
         
         self.combo = wx.wxComboBox(self,-1,\
               style=wx.wxCB_DROPDOWN|wx.wxCB_READONLY)
@@ -1671,11 +1671,11 @@ class SliderWidget(WidgetBase,wx.Control):
         # Get the orientation
         self.layout = self.getLayout()
         if self.layout == 'vertical':
-            sizerLayout = wx.wxVERTICAL
+            sizerLayout = wx.VERTICAL
             sliderLayout = wx.wxSL_VERTICAL
             size = (40,100)
         else:
-            sizerLayout = wx.wxHORIZONTAL
+            sizerLayout = wx.HORIZONTAL
             sliderLayout = wx.wxSL_HORIZONTAL
             size = (100,25)
             
@@ -1685,7 +1685,7 @@ class SliderWidget(WidgetBase,wx.Control):
         self.meandata = (self.maxdata+self.mindata)/2.0
         
         # Create a sizer
-        self.sizer = wx.wxBoxSizer(sizerLayout)
+        self.sizer = wx.BoxSizer(sizerLayout)
         
         # Add the textbox
         self.edit = wx.TextCtrl(self,-1,'',\
@@ -1830,7 +1830,7 @@ class SpinWidget(WidgetBase,wx.Control):
         self.SetBackgroundColour(parent.GetBackgroundColour())
 
       # Add a sizer to size the edit box and buttons
-        self.sizer = wx.wxBoxSizer(wx.wxHORIZONTAL)
+        self.sizer = wx.BoxSizer(wx.HORIZONTAL)
         
         # Add the edit control
         self.edit = wx.TextCtrl(self,-1,'', style=wx.wxTE_PROCESS_ENTER)
@@ -1847,7 +1847,7 @@ class SpinWidget(WidgetBase,wx.Control):
         # Put the edit box in the spin sizer
         self.sizer.AddWindow(self.edit,0,SIZER_FORMAT,0)
 
-        self.buttonsizer = wx.wxBoxSizer(wx.wxVERTICAL)
+        self.buttonsizer = wx.BoxSizer(wx.VERTICAL)
 
         # Add the increment button
         self.upbutton = wx.Button(self,-1,'+',(width,0),(20,12))
