@@ -223,6 +223,7 @@ class SynthEd(wx.MDIParentFrame):
             # Open a patch editor
             child = PatchEditor(self,-1,instrument.caption,patch,\
                                 'single',instrument,self.synthdev,design)
+            child.Show(True)
             wx.EndBusyCursor()
             
     def OnDesign(self,event):

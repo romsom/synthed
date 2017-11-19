@@ -54,6 +54,8 @@ class PatchEditor(wx.MDIChildFrame):
         synthdev -- ?
         design -- ?
         '''
+        wx.MDIChildFrame.__init__(self,parent,id,title)
+        self.Maximize()
         print("initializing editor {}".format(title))
         print("patchtype in editor (init): {}".format(patchType))
         print("instrument is {} and can do:".format(instrument))
@@ -61,7 +63,6 @@ class PatchEditor(wx.MDIChildFrame):
         print("patch is {} and can do:".format(patch))
         print(dir(patch))
         print("patchdata: {}".format(patch.tostring()))
-        wx.MDIChildFrame.__init__(self,parent,id,title)
         
         # These are stored for debugging convenience
         self.patch = patch
@@ -69,21 +70,21 @@ class PatchEditor(wx.MDIChildFrame):
         self.instrument = instrument
         self.synthdev = synthdev
         self.design = design
-        
+
         # Put a splitter in the frame
-        self.vertsplit = wx.SplitterWindow(self,-1)
+        self.editorArea = wx.SplitterWindow(self,-1)
         
         # Populate the splitter with two scrolling panes
-        self.horizsplit = wx.SplitterWindow(self.vertsplit,-1)
-        self.right = PatchEditBook(self.vertsplit,-1,instrument,patch)
-        self.vertsplit.SplitVertically(self.horizsplit, self.right, 160)
+        self.menuArea = wx.SplitterWindow(self.editorArea,-1)
+        self.right = PatchEditBook(self.editorArea,-1,instrument,patch)
+        self.editorArea.SplitVertically(self.menuArea, self.right, 160)
         
         # Split the left pane between a tree control and a property editor
-        self.tree = PatchEditTree(self.horizsplit,self.instrument,\
+        self.tree = PatchEditTree(self.menuArea,self.instrument,\
                               self.right,self.patch,self.patchType,self.design)
-        self.property = PropertyEditor(self.horizsplit,-1,self.synthdev)
+        self.property = PropertyEditor(self.menuArea,-1,self.synthdev)
         self.tree.SetPropertyEditor(self.property)
-        self.horizsplit.SplitHorizontally(self.tree, self.property, 200)
+        self.menuArea.SplitHorizontally(self.tree, self.property, 200)
         
         # Parse the instrument definition and load the tree
         start = time.clock()
@@ -219,6 +220,7 @@ class PatchEditTree(wx.TreeCtrl):
         for documents in self.instrument.decoders:
             for decoders in documents.getElements():
                 for decoder in decoders.getElements():
+                    print('add decoder: "{}", type "{}"'.format(decoder.getId(), decoder.name))
                     if decoder.name == 'list':
                         element = ValueList(decoder.name,decoder.attributes,\
                                             decoder.getElements())
@@ -234,7 +236,7 @@ class PatchEditTree(wx.TreeCtrl):
 
         # Instantiate the interface
         if mode:
-            print('LoadPatch: type: "{}", mode: "{}"'.format(self.patchType, mode))
+            print('LoadPatch: type: "{}", mode: "{}"'.format(self.patchType, mode.getId()))
             self.rootElement = mode
             caption = mode.getCaption()
             root = self.AddRoot(caption)
@@ -251,6 +253,7 @@ class PatchEditTree(wx.TreeCtrl):
         'Expand all tree nodes'
         self.Freeze()
         for item in self.allNodes:
+            print(item)
             self.Expand(item)
         self.Thaw()
         
