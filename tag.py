@@ -42,11 +42,12 @@ The following tags are handled:
 '''
 
 import string
-import types
+#import types
+import inspect
 
-from wx import *
-from wx.html import *
-from wx.lib.wxpTag import *
+import wx
+import wx.html
+import wx.lib.wxpTag
 from xml2obj import *
 
 import parameter
@@ -54,9 +55,10 @@ import parameter
 WIDGET_TAG = 'WIDGET'
 PARAM_TAG = 'PARAMETER'
 
-class TagHandler(wxpTagHandler):
+class TagHandler(wx.lib.wxpTag.wxpTagHandler):
     def __init__(self):
-        wxpTagHandler.__init__(self)
+        wx.lib.wxpTag.wxpTagHandler.__init__(self)
+        print('instanciating a new TagHandler')
         self.stack = []
         
     def GetSupportedTags(self):
@@ -64,12 +66,19 @@ class TagHandler(wxpTagHandler):
 
     def HandleTag(self, tag):
         name = tag.GetName()
-        if name == WIDGET_TAG:
-            return self.HandleWidgetTag(tag)
-        elif name == PARAM_TAG:
-            return self.HandleParameterTag(tag)
-        else:
-            raise ValueError, 'unknown tag: ' + name
+        print('tag name: {}'.format(name))
+        try:
+            if name == WIDGET_TAG:
+                # AttributeError happens here?:
+                return self.HandleWidgetTag(tag)
+            elif name == PARAM_TAG:
+                return self.HandleParameterTag(tag)
+            else:
+                raise ValueError, 'unknown tag: ' + name
+        except AttributeError as e:
+            print(e)
+            print('hello')
+            return False
 
     def HandleWidgetTag(self, tag):
         
@@ -84,16 +93,21 @@ class TagHandler(wxpTagHandler):
             context.classMod = _my_import(modName)
         else:
             context.classMod = parameter
-
+        print('mark 1')
         # find and verify the class
         if not tag.HasParam('CLASS'):
             raise AttributeError, 'WIDGET element requires a "CLASS" attribute'
-
+        print('mark1.5')
         className = tag.GetParam('CLASS')
         context.classObj = getattr(context.classMod, className)
-        if type(context.classObj) != types.ClassType:
+        #if type(context.classObj) != types.ClassType:
+        if not inspect.isclass(context.classObj):
+            # here it fails, but error message gets lost:
+            print('"{}" does not seem to be a class:'.format(context.classObj))
+            print('type mismatch: {} != {}'.format(type(context.classObj), types.ClassType))
             raise TypeError, 'WIDGET attribute "CLASS" must name a class'
 
+        print('mark2')
         # now look for width and height
         width = -1
         height = -1
@@ -106,7 +120,7 @@ class TagHandler(wxpTagHandler):
                 width = string.atoi(width)
         else:
             context.floatWidth = 100
-            
+        print('mark3')
         if tag.HasParam('HEIGHT'):
             height = string.atoi(tag.GetParam('HEIGHT'))
         
@@ -125,7 +139,7 @@ class TagHandler(wxpTagHandler):
             
         # pop context off of stack
         self.stack.pop()
-
+        print('mark4')
         # create the object
         parent = self.GetParser().GetWindow()
         if parent:
@@ -156,12 +170,12 @@ class TagHandler(wxpTagHandler):
                     obj.AddChild(child)
                     if hasattr(child,'SetParent'):
                         child.SetParent(obj)
-                
-        return true
+        print('mark5')
+        return True
 
     def HandleParameterTag(self, tag):
         if not tag.HasParam('ID'):
-            return false
+            return False
 
         params = tag.GetAllParams()
         attributes =  _param2dict(params)
@@ -177,7 +191,7 @@ class TagHandler(wxpTagHandler):
             msg = 'Standalone <parameter id=%s> is illegal' % id
             raise(str.encode(msg))
 
-        return false
+        return False
 
 class _Context:
     def __init__(self):
@@ -232,4 +246,4 @@ def _param2dict(param):
 
 #----------------------------------------------------------------------
 # Add this tag handler to the HTML parser
-HtmlWinParser_AddTagHandler(TagHandler)
+wx.html.HtmlWinParser_AddTagHandler(TagHandler)
