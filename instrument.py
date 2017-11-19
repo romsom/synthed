@@ -63,7 +63,15 @@ def LoadModule(name,file,filename,description,application):
 class Instrument:
     'Base instrument class'
     def __init__(self,element,home,application):
-        'Instrument constructor'
+        '''Instrument constructor: load instrument xml from path in element
+
+        Keyword Arguments:
+        element -- config xml node containing the path
+        home -- base directory path
+        application -- ?
+        '''
+        print('init instrument from xml {}'.format(element))
+        
         # Name added to attribute dictionary for this object
         self.id = element.getId()
         # Title for this instrument to display in title bars
@@ -77,6 +85,7 @@ class Instrument:
 
         # Pathname of XML instrument definition
         self.path = os.path.normpath(element.getAttribute('path'))
+        print("instrument path from xml: ".format(self.path))
         (directory,filename) = os.path.split(self.path)
         if not os.path.isdir(directory):
             self.path = os.path.normpath(os.path.join(home,self.path))
@@ -138,13 +147,16 @@ class Instrument:
     
     def GetPatchInfo(self,type):
         for element in self.data:
-            #print("element:")
-            print(element)
+            print('element from "{}" is a "{}": '.format(element.path, element.name))
+            print("Instrument.GetPatchInfo: iterating patches:")
             for patch in element.getElements('patch'):
-                #print("found matching element")
-                print(patch.getId())
-                #print(type)
-                if patch.getId() == type:
+                print("patch: {}".format(patch))
+                print(" type/id: {}".format(patch.getAttribute('id')))
+                print(" tag name: {}".format(patch.name))
+                #print('==================== patch xml ====================')
+                #print(patch.WriteXml())
+                #print('==================== patch end ====================')
+                if patch.getId() == type: # should that not be .getAttribute('type') ?
                     return patch
 
     def GetInterfaceInfo(self,type):
@@ -193,7 +205,7 @@ class Patch:
         
     def tostring(self):
         return self.data.tostring()
-        
+
     def set(self,offset,value):
         # set the new value at the specified offset
         self.data[self.offset+offset] = value

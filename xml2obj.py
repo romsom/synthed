@@ -202,6 +202,8 @@ class Xml2Obj:
         'SAX start element even handler'
         # Instantiate an Element object
         element = Element(name.encode(),attributes,[])
+        # DEBUG try to not use encode
+        #element = Element(name,attributes,[])
         
         # Push element onto the stack and make it a child of parent
         if len(self.nodeStack) > 0:
@@ -226,6 +228,7 @@ class Xml2Obj:
 
     def Parse(self,filename):
         # Create a SAX parser
+        print('parsing XML file: {}'.format(filename))
         Parser = expat.ParserCreate()
 
         # SAX event handlers
@@ -237,6 +240,14 @@ class Xml2Obj:
         self.root = None
         self.nodeStack = []
         ParserStatus = Parser.Parse(open(filename,'r').read(), 1)
-        
+        print('parsing done, status: {}'.format(ParserStatus))
+        print('root name: {}'.format(self.root.name))
+        print('root children: {}'.format(self.root.children))
+        print('root children names: {}'.format([c.name for c in self.root.children]))
+        # add filename to root node for DEBUG
+        self.root.path = filename
+        print('==================== root xml ====================')
+        print(self.root.WriteXml())
+        print('==================== root end ====================')
         return self.root
         

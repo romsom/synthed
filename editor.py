@@ -1,3 +1,4 @@
+import traceback
 #-----------------------------------------------------------------------------
 # Name:        editor.py
 # Purpose:     Synthesizer Editor
@@ -41,8 +42,25 @@ class PatchEditor(wx.MDIChildFrame):
     'Patch Editor'
     def __init__(self,parent,id,title,patch,patchType,instrument,\
                  synthdev,design=0):
-        print("patchtype in editor (init): " + patchType)
-        'PatchEditor constructor'
+        '''PatchEditor constructor
+
+        Keyword Arguments:
+        parent -- the parent widget (e.g. wx.MDIParentFrame)
+        id -- integer id (may be -1)
+        title -- string?
+        patch -- Patch object
+        patchType -- Patch Type (may be None)
+        instrument -- Instrument object
+        synthdev -- ?
+        design -- ?
+        '''
+        print("initializing editor {}".format(title))
+        print("patchtype in editor (init): {}".format(patchType))
+        print("instrument is {} and can do:".format(instrument))
+        print(dir(instrument))
+        print("patch is {} and can do:".format(patch))
+        print(dir(patch))
+        print("patchdata: {}".format(patch.tostring()))
         wx.MDIChildFrame.__init__(self,parent,id,title)
         
         # These are stored for debugging convenience
@@ -82,8 +100,8 @@ class PatchEditor(wx.MDIChildFrame):
 class PatchEditTree(wx.TreeCtrl):
     'Patch editor tree control is used to select pages in the patch editor'
     def __init__(self,parent,instrument,editor,patch,patchType,design):
-        print("patchtype on init: " + patchType)
         'PatchEditTree constructor'
+        print("patchtype on init: {}".format(patchType))
         wx.TreeCtrl.__init__(self,parent,-1,style=wx.SIMPLE_BORDER)
         # Initialize attributes
         self.instrument = instrument
@@ -178,6 +196,7 @@ class PatchEditTree(wx.TreeCtrl):
             
     def LoadPatch(self):
         'Populate the tree for patch editing'
+        # DEBUG this is called from editor.__init__
         # Add module to dictionary so that it can be referenced
         dictionary = self.env.attributes
         dictionary.update({self.instrument.moduleName:self.instrument.module})
@@ -185,6 +204,8 @@ class PatchEditTree(wx.TreeCtrl):
 
         # Find the matching patch description
         patchInfo = self.instrument.GetPatchInfo(self.patchType)
+        # DEBUG
+        print("patchinfo in LoadPatch: {}".format(patchInfo))
             
         # Instantiate the params
         for element in patchInfo.getElements():
@@ -192,6 +213,8 @@ class PatchEditTree(wx.TreeCtrl):
             dictionary.update({param.getId():param})
             #setattr(self.env.module,param.getId(),param)
                 
+        print('params loaded:')
+        print(dictionary)
         # Instantiate the decoders
         for documents in self.instrument.decoders:
             for decoders in documents.getElements():
@@ -211,6 +234,7 @@ class PatchEditTree(wx.TreeCtrl):
 
         # Instantiate the interface
         if mode:
+            print('LoadPatch: type: "{}", mode: "{}"'.format(self.patchType, mode))
             self.rootElement = mode
             caption = mode.getCaption()
             root = self.AddRoot(caption)
@@ -220,6 +244,8 @@ class PatchEditTree(wx.TreeCtrl):
                 itemId = self.AppendItem(root,caption)
                 self.SetPyData(itemId,element)
                 self.allNodes.append(itemId)
+        else:
+            print('LoadPatch: mode for patchType "{}" not found!'.format(self.patchType))
         
     def ExpandTree(self):
         'Expand all tree nodes'
@@ -574,7 +600,7 @@ class PatchEditHtmlPage(wx.html.HtmlWindow):
                 
                 # Get the params for this patch
                 patchId = tab.getAttribute('patch')
-                print("patchId: " + patchId)
+                print("patchId: {}".format(patchId))
                 patchInfo = self.instrument.GetPatchInfo(patchId)
                 
                 # Create new copies of the params for this patch

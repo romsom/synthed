@@ -28,120 +28,120 @@
 
 <data>
 
-<!-- Make a default editor to edit and print patches -->
-<!-- Make a utility to send and receive these -->
+  <!-- Make a default editor to edit and print patches -->
+  <!-- Make a utility to send and receive these -->
 
-<!-- Bank Select -->
+  <!-- Bank Select -->
 
-<!-- Program Change -->
+  <!-- Program Change -->
 
-<!-- Part Bank Select -->
+  <!-- Part Bank Select -->
 
-<!-- Part Bank Change -->
+  <!-- Part Bank Change -->
 
-<!-- Part Program Change -->
-<patch id="part_program_change" caption="Part Program Change" type="message">
-	<parameter value="0xF000203301">
-		<array offset="0" length="5"/>
-	</parameter>
-	<parameter id="PPC_device_id">
-		<byte offset="5"/>
-	</parameter>
-	<parameter value="0x72">
-		<byte offset="6"/>
-	</parameter>
-	<parameter id="PPC_part_number" min="0" max="15">
-		<byte offset="7"/>
-	</parameter>
-	<parameter value="0x21">
-		<byte offset="8"/>
-	</parameter>
-	<parameter id="PPC_program_number" min="0" max="127">
-		<byte offset="9"/>
-	</parameter>
-	<parameter value="0xF7">
-		<array offset="10" length="1"/>
-	</parameter>
-</patch>
+  <!-- Part Program Change -->
+  <patch id="part_program_change" caption="Part Program Change" type="message">
+    <parameter value="0xF000203301">
+      <array offset="0" length="5"/>
+    </parameter>
+    <parameter id="PPC_device_id">
+      <byte offset="5"/>
+    </parameter>
+    <parameter value="0x72">
+      <byte offset="6"/>
+    </parameter>
+    <parameter id="PPC_part_number" min="0" max="15">
+      <byte offset="7"/>
+    </parameter>
+    <parameter value="0x21">
+      <byte offset="8"/>
+    </parameter>
+    <parameter id="PPC_program_number" min="0" max="127">
+      <byte offset="9"/>
+    </parameter>
+    <parameter value="0xF7">
+      <array offset="10" length="1"/>
+    </parameter>
+  </patch>
 
-<!-- Multi Program Change -->
+  <!-- Multi Program Change -->
 
-<!-- Parameter value change -->
-<patch id="sysex_parameter_change" caption="Sysex Parameter Change" type="message">
-	<parameter value="0xF000203301">
-		<array offset="0" length="5"/>
-	</parameter>
-	<parameter id="SPC_device_id">
-		<byte offset="5"/>
-	</parameter>
-	<parameter value="7">
-		<byte offset="6" bitstart="4" bitstop="7"/>
-	</parameter>
-	<parameter id="SPC_page_number" min="0" max="3">
-		<byte offset="6" bitstart="0" bitstop="3"/>
-	</parameter>
-	<parameter id="SPC_part_number" min="0" max="15">
-		<byte offset="7"/>
-	</parameter>
-	<parameter id="SPC_parameter_number" min="0" max="127">
-		<byte offset="8"/>
-	</parameter>
-	<parameter id="SPC_parameter_value" min="0" max="127">
-		<byte offset="9"/>
-	</parameter>
-	<parameter value="0xF7">
-		<array offset="10" length="1"/>
-	</parameter>
-</patch>
+  <!-- Parameter value change -->
+  <patch id="sysex_parameter_change" caption="Sysex Parameter Change" type="message">
+    <parameter value="0xF000203301">
+      <array offset="0" length="5"/>
+    </parameter>
+    <parameter id="SPC_device_id">
+      <byte offset="5"/>
+    </parameter>
+    <parameter value="7">
+      <byte offset="6" bitstart="4" bitstop="7"/>
+    </parameter>
+    <parameter id="SPC_page_number" min="0" max="3">
+      <byte offset="6" bitstart="0" bitstop="3"/>
+    </parameter>
+    <parameter id="SPC_part_number" min="0" max="15">
+      <byte offset="7"/>
+    </parameter>
+    <parameter id="SPC_parameter_number" min="0" max="127">
+      <byte offset="8"/>
+    </parameter>
+    <parameter id="SPC_parameter_value" min="0" max="127">
+      <byte offset="9"/>
+    </parameter>
+    <parameter value="0xF7">
+      <array offset="10" length="1"/>
+    </parameter>
+  </patch>
 
-<!-- Single program dump -->
-<patch id="single_dump" caption="Single Dump" type="message">
-	<parameter value="0xF000203301">
-		<array offset="0" length="5"/>
-	</parameter>
-	<parameter id="SD_device_id">
-		<byte offset="5"/>
-	</parameter>
-	<parameter id="SD_command" value="0x10">
-		<array offset="6" length="1"/>
-	</parameter>
-	<parameter id="SD_bank_number">
-		<byte offset="7"/>
-	</parameter>
-	<parameter id="SD_program_number">
-		<byte offset="8"/>
-	</parameter>
-	<parameter id="SD_patch">
-		<array offset="9" length="256"/>
-	</parameter>
-	<parameter id="SD_checksum">
-		<byte offset="265"/>
-	</parameter>
-	<parameter value="0xF7">
-		<array offset="266" length="1"/>
-	</parameter>
-</patch>
+  <!-- Single program dump -->
+  <patch id="single_dump" caption="Single Dump" type="message">
+    <parameter value="0xF000203301">
+      <array offset="0" length="5"/>
+    </parameter>
+    <parameter id="SD_device_id">
+      <byte offset="5"/>
+    </parameter>
+    <parameter id="SD_command" value="0x10">
+      <array offset="6" length="1"/>
+    </parameter>
+    <parameter id="SD_bank_number">
+      <byte offset="7"/>
+    </parameter>
+    <parameter id="SD_program_number">
+      <byte offset="8"/>
+    </parameter>
+    <parameter id="SD_patch">
+      <array offset="9" length="256"/>
+    </parameter>
+    <parameter id="SD_checksum">
+      <byte offset="265"/>
+    </parameter>
+    <parameter value="0xF7">
+      <array offset="266" length="1"/>
+    </parameter>
+  </patch>
 
-<!-- Request a single program dump -->
-<patch id="single_request" caption="Single Request" type="message">
-	<parameter value="0xF000203301">
-		<array offset="0" length="5"/>
-	</parameter>
-	<parameter id="SR_device_id">
-		<byte offset="5"/>
-	</parameter>
-	<parameter id="SR_command" value="0x30">
-		<array offset="6" length="1"/>
-	</parameter>
-	<parameter id="SR_bank_number">
-		<byte offset="7"/>
-	</parameter>
-	<parameter id="SR_program_number">
-		<byte offset="8"/>
-	</parameter>
-	<parameter value="0xF7">
-		<array offset="9" length="1"/>
-	</parameter>
-</patch>
+  <!-- Request a single program dump -->
+  <patch id="single_request" caption="Single Request" type="message">
+    <parameter value="0xF000203301">
+      <array offset="0" length="5"/>
+    </parameter>
+    <parameter id="SR_device_id">
+      <byte offset="5"/>
+    </parameter>
+    <parameter id="SR_command" value="0x30">
+      <array offset="6" length="1"/>
+    </parameter>
+    <parameter id="SR_bank_number">
+      <byte offset="7"/>
+    </parameter>
+    <parameter id="SR_program_number">
+      <byte offset="8"/>
+    </parameter>
+    <parameter value="0xF7">
+      <array offset="9" length="1"/>
+    </parameter>
+  </patch>
 
 </data>	

@@ -26,14 +26,14 @@
 
 <synthed>
     <instruments>
-    	<!-- <instrument id="k2000" caption="K2600XS" path="instruments/kurzweil/k2000/k2000.xml"/> -->
+    	<instrument id="k2000" caption="K2600XS" path="instruments/kurzweil/k2000/k2000.xml"/>
         <instrument id="virus_c" caption="Virus C" path="instruments/access/virus_c/virus_c.xml"/>
         <instrument id="triton_rack" caption="TRITON-Rack" path="instruments/korg/triton/triton_rack.xml"/>
         <instrument id="synthdev" caption="SynthEd" path="instruments/synthed/synthdev.xml"/>
     </instruments>
     <files>
-        <!-- <file wildcard="K2000 files (*.krz)|*.krz" suffix=".krz" instrument="k2000"/>
-            <file wildcard="K2500 files (*.k25)|*.k25" suffix=".k25" instrument="k2000"/> -->
+        <file wildcard="K2000 files (*.krz)|*.krz" suffix=".krz" instrument="k2000"/>
+        <file wildcard="K2500 files (*.k25)|*.k25" suffix=".k25" instrument="k2000"/>
         <file wildcard="Sysex files (*.syx)|*.syx" suffix=".syx" instrument="virus_c"/>
         <file wildcard="TRITON PCG files (*.pcg)|*.pcg" suffix=".pcg" instrument="triton_rack"/>
     </files>

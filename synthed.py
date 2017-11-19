@@ -189,6 +189,7 @@ class SynthEd(wx.MDIParentFrame):
     def OnInstrument(self,event):
         'Open an instrument patch editor'
         # Compute index into the instruments list
+        print("OnInstrument")
         eventId = event.GetId()
         if eventId >= 300:
             # This is a designSubMenu selection
@@ -206,8 +207,9 @@ class SynthEd(wx.MDIParentFrame):
         # Get the XML element
         instruments = self.config.GetInstruments()
         element = instruments.children[index]
-        print("instrument element: ")
-        print(element.children)
+        print('instrument "{}" from config is {} and can do: '.format(element.name, element))
+        print(dir(element))
+        print(" children: ".format(element.children))
         
         # Construct an Instrument object
         instrument = Instrument(element,SYNTHED_HOME,application)
@@ -220,7 +222,7 @@ class SynthEd(wx.MDIParentFrame):
             
             # Open a patch editor
             child = PatchEditor(self,-1,instrument.caption,patch,\
-                                None,instrument,self.synthdev,design)
+                                'single',instrument,self.synthdev,design)
             wx.EndBusyCursor()
             
     def OnDesign(self,event):
