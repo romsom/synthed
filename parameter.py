@@ -576,7 +576,7 @@ class Param(Element):
             # asynchronously updated.
             for listener in listenerArray:
                 event = DataChangedEvent(source,listener)
-                wx.wxPostEvent(self.env.eventHandler,event)
+                wx.PostEvent(self.env.eventHandler,event)
         
     def getBitLen(self):
         'The bit length is the sum of bits used over all referenced bytes'
@@ -644,7 +644,12 @@ class Param(Element):
 
         # Notify the instrument of the parameter change
         if self.env.initialized and source:
-            self.env.instrument.ParameterChange(self)
+            instrument = self.env.instrument
+            print('instrument is "{}":'.format(type(instrument)))
+            print(instrument)
+            print(dir(instrument))
+            print('try to call ParameterChange (deactivated)')
+            instrument.ParameterChange(self)
         
         # Notify any other affected widgets that the value may have changed
         self._NotifyListeners(source)
@@ -1048,7 +1053,7 @@ class WidgetBase(Element):
     def SetTip(self,window):
         strval = self.getAttribute('tip','')
         if strval and hasattr(window,'SetToolTip'):
-            tip = wx.wxToolTip(strval)
+            tip = wx.ToolTip(strval)
             window.SetToolTip(tip)
             
     def SetWidgetCell(self,cell):
@@ -1152,11 +1157,11 @@ class ChoiceWidget(WidgetBase,wx.Panel):
         WidgetBase.__init__(self,env,element,patch,init)
         
         # Construct the choice control
-        wx.Panel.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
+        wx.Panel.__init__(self,parent,-1,style=wx.BORDER_NONE)
         self.sizer = wx.BoxSizer(wx.HORIZONTAL)
         
-        self.combo = wx.wxComboBox(self,-1,\
-              style=wx.wxCB_DROPDOWN|wx.wxCB_READONLY)
+        self.combo = wx.ComboBox(self,-1,\
+              style=wx.CB_DROPDOWN|wx.CB_READONLY)
         self.sizer.Add(self.combo,1,SIZER_FORMAT,0)
         
         # Initialize the value
@@ -1167,6 +1172,7 @@ class ChoiceWidget(WidgetBase,wx.Panel):
         
         # Adjust the size to fit the list
         size = self.combo.GetBestSize()
+        print('choice size: "{}"'.format(size))
         width = size.GetWidth()
         height = size.GetHeight()
         maxChars = self.getMaxChars() + 1
@@ -1197,7 +1203,7 @@ class ChoiceWidget(WidgetBase,wx.Panel):
             # handled. So I have no choice but to post a second event
             # to tell the combo box that the value may have changed.
             event = DataChangedEvent(self,self)
-            wx.wxPostEvent(self.env.eventHandler,event)
+            wx.PostEvent(self.env.eventHandler,event)
             
     def LoadList(self):
         'Clear and load the list'
@@ -1230,7 +1236,7 @@ class EditWidget(WidgetBase,wx.TextCtrl):
         
         # Add the text control
         strval = self.getCurrentVal()
-        wx.TextCtrl.__init__(self,parent,-1,strval,style=wx.wxTE_PROCESS_ENTER)
+        wx.TextCtrl.__init__(self,parent,-1,strval,style=wx.TE_PROCESS_ENTER)
 
         # Set tool tip
         self.SetTip(self)
@@ -1265,7 +1271,7 @@ class EnvelopeWidget(WidgetBase,wx.Control):
         self.mouseDown = 0
         self.visibleParams = []
         self.points = []
-        self.lastPoint = wx.wxPoint(0,0)
+        self.lastPoint = wx.Point(0,0)
         self.paramIndex = -1
         self.drag = 0
         
@@ -1281,17 +1287,17 @@ class EnvelopeWidget(WidgetBase,wx.Control):
         self.minWidth = self.width
         
         # Create the panel
-        wx.Control.__init__(self,parent,-1,wx.DefaultPosition,size,style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,wx.DefaultPosition,size,style=wx.BORDER_NONE)
 
         # Construct pens and brushes
-        self.background = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_WINDOW)
-        highlight = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_HIGHLIGHT)
-        grey = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_GRAYTEXT)
-        self.dashPen = wx.wxPen(grey,1,wx.wxDOT)
-        self.bluePen = wx.wxPen(highlight,2)
-        self.greyPen = wx.wxPen(grey,2)
-        self.blueBrush = wx.wxBrush(highlight,wx.wxSOLID)	
-        self.greyBrush = wx.wxBrush(grey,wx.wxSOLID)	
+        self.background = wx.SystemSettings_GetColour(wx.SYS_COLOUR_WINDOW)
+        highlight = wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHT)
+        grey = wx.SystemSettings_GetColour(wx.SYS_COLOUR_GRAYTEXT)
+        self.dashPen = wx.Pen(grey,1,wx.DOT)
+        self.bluePen = wx.Pen(highlight,2)
+        self.greyPen = wx.Pen(grey,2)
+        self.blueBrush = wx.Brush(highlight,wx.SOLID)	
+        self.greyBrush = wx.Brush(grey,wx.SOLID)	
         
         # Event handlers
         wx.EVT_PAINT(self,self.OnPaint)
@@ -1308,11 +1314,11 @@ class EnvelopeWidget(WidgetBase,wx.Control):
         self.SetTip(self)
         
         # Change the cursor to indicate that user can move the points
-        self.SetCursor(wx.wxStockCursor(wx.wxCURSOR_HAND))
+        self.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
         
     def OnKillFocus(self,event):
         self.mouseDown = 0
-        self.lastPoint = wx.wxPoint(0,0)
+        self.lastPoint = wx.Point(0,0)
         self.paramIndex = -1
         event.Skip()
         
@@ -1322,7 +1328,7 @@ class EnvelopeWidget(WidgetBase,wx.Control):
         # window, then just resume. Otherwise, stop.
         if not event.LeftIsDown():
             self.mouseDown = 0
-            self.lastPoint = wx.wxPoint(0,0)
+            self.lastPoint = wx.Point(0,0)
             self.paramIndex = -1
         event.Skip()
         
@@ -1344,7 +1350,7 @@ class EnvelopeWidget(WidgetBase,wx.Control):
         
     def OnMouseUp(self,event):
         self.mouseDown = 0
-        self.lastPoint = wx.wxPoint(0,0)
+        self.lastPoint = wx.Point(0,0)
         self.paramIndex = -1
         
     def OnPaint(self,event):
@@ -1359,7 +1365,7 @@ class EnvelopeWidget(WidgetBase,wx.Control):
         (self.width,self.height) = self.GetClientSizeTuple()
         xScale = float(self.width) / float(self.minWidth)
         
-        dc = wx.wxPaintDC(self)
+        dc = wx.PaintDC(self)
         dc.BeginDrawing()
 
         # Draw center line
@@ -1507,7 +1513,7 @@ class GaugeWidget(WidgetBase,wx.Control):
         width = self.max - self.min + 1
         
         # Add the gauge
-        wx.Control.__init__(self,parent,-1,wx.DefaultPosition,(width,25),style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,wx.DefaultPosition,(width,25),style=wx.BORDER_NONE)
 
         # Set tool tip
         self.SetTip(self)
@@ -1524,14 +1530,14 @@ class GaugeWidget(WidgetBase,wx.Control):
 #        wx.EVT_KILL_FOCUS(self,self.OnKillFocus)
         
         # Construct pens and brushes
-        self.background = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_WINDOW)
-        highlight = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_HIGHLIGHT)
-        grey = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_GRAYTEXT)
-        outline = wx.wxSystemSettings_GetColour(wx.wxSYS_COLOUR_WINDOWTEXT)
-        self.bluePen = wx.wxPen(outline,2)
-        self.greyPen = wx.wxPen(grey,2)
-        self.blueBrush = wx.wxBrush(highlight,wx.wxSOLID)	
-        self.greyBrush = wx.wxBrush(grey,wx.wxSOLID)	
+        self.background = wx.SystemSettings_GetColour(wx.SYS_COLOUR_WINDOW)
+        highlight = wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHT)
+        grey = wx.SystemSettings_GetColour(wx.SYS_COLOUR_GRAYTEXT)
+        outline = wx.SystemSettings_GetColour(wx.SYS_COLOUR_WINDOWTEXT)
+        self.bluePen = wx.Pen(outline,2)
+        self.greyPen = wx.Pen(grey,2)
+        self.blueBrush = wx.Brush(highlight,wx.SOLID)	
+        self.greyBrush = wx.Brush(grey,wx.SOLID)	
         
     def OnPaint(self,event):
 
@@ -1542,7 +1548,7 @@ class GaugeWidget(WidgetBase,wx.Control):
             parent = self.GetParent()
             self.SetBackgroundColour(parent.GetBackgroundColour())
             
-        dc = wx.wxPaintDC(self)
+        dc = wx.PaintDC(self)
         dc.BeginDrawing()
 
         # Draw envelope segments
@@ -1617,9 +1623,9 @@ class RadioWidget(WidgetBase,wx.RadioBox):
         # Get the orientation
         layout = self.getLayout()
         if layout == 'horizontal':
-            orient = wx.wxRA_SPECIFY_ROWS
+            orient = wx.RA_SPECIFY_ROWS
         else:
-            orient = wx.wxRA_SPECIFY_COLS
+            orient = wx.RA_SPECIFY_COLS
             
         # Add the radio box
         wx.RadioBox.__init__(self,parent,-1,caption,choices=items,\
@@ -1665,18 +1671,18 @@ class SliderWidget(WidgetBase,wx.Control):
         'SliderWidget constructor'
         WidgetBase.__init__(self,env,element,patch,init)
         
-        wx.Control.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,style=wx.BORDER_NONE)
         self.SetBackgroundColour(parent.GetBackgroundColour())
 
         # Get the orientation
         self.layout = self.getLayout()
         if self.layout == 'vertical':
             sizerLayout = wx.VERTICAL
-            sliderLayout = wx.wxSL_VERTICAL
+            sliderLayout = wx.SL_VERTICAL
             size = (40,100)
         else:
             sizerLayout = wx.HORIZONTAL
-            sliderLayout = wx.wxSL_HORIZONTAL
+            sliderLayout = wx.SL_HORIZONTAL
             size = (100,25)
             
         # Get min/max values
@@ -1689,7 +1695,7 @@ class SliderWidget(WidgetBase,wx.Control):
         
         # Add the textbox
         self.edit = wx.TextCtrl(self,-1,'',\
-                style=wx.wxTE_PROCESS_ENTER)
+                style=wx.TE_PROCESS_ENTER)
         
         # Adjust the size for best fit
         maxChars = self.getMaxChars()
@@ -1698,9 +1704,9 @@ class SliderWidget(WidgetBase,wx.Control):
         self.sizer.AddWindow(self.edit,0,SIZER_FORMAT,0)
     
         # Add the slider
-        self.slider = wx.wxSlider(self,-1,self.meandata,self.mindata,\
+        self.slider = wx.Slider(self,-1,self.meandata,self.mindata,\
                              self.maxdata,wx.DefaultPosition,size,\
-                             sliderLayout|wx.wxSL_AUTOTICKS)
+                             sliderLayout|wx.SL_AUTOTICKS)
         self.slider.SetBackgroundColour(parent.GetBackgroundColour())
         self.sizer.AddWindow(self.slider,1,SIZER_FORMAT,0)
     
@@ -1730,7 +1736,7 @@ class SliderWidget(WidgetBase,wx.Control):
         wx.EVT_LEFT_DCLICK(self.edit,self.OnDoubleClick)
         
         # Change the cursor to indicate that user can move the handle
-        self.slider.SetCursor(wx.wxStockCursor(wx.wxCURSOR_HAND))
+        self.slider.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
         
     def OnChar(self,event):
         key = event.KeyCode()
@@ -1825,7 +1831,7 @@ class SpinWidget(WidgetBase,wx.Control):
         # Used for SPINBUTTON_REPEAT
         self.increment = 0
 
-        wx.Control.__init__(self,parent,-1,style=wx.wxBORDER_NONE)
+        wx.Control.__init__(self,parent,-1,style=wx.BORDER_NONE)
         
         self.SetBackgroundColour(parent.GetBackgroundColour())
 
@@ -1833,7 +1839,7 @@ class SpinWidget(WidgetBase,wx.Control):
         self.sizer = wx.BoxSizer(wx.HORIZONTAL)
         
         # Add the edit control
-        self.edit = wx.TextCtrl(self,-1,'', style=wx.wxTE_PROCESS_ENTER)
+        self.edit = wx.TextCtrl(self,-1,'', style=wx.TE_PROCESS_ENTER)
         
         # Bind the enter key to update the value
         wx.EVT_TEXT_ENTER(self,self.edit.GetId(),self.OnEnter)
@@ -1901,7 +1907,7 @@ class SpinWidget(WidgetBase,wx.Control):
 
             # Use a timer to simulate key repeat
             self.timerId = wx.NewId()
-            self.timer = wx.wxTimer(self,self.timerId)
+            self.timer = wx.Timer(self,self.timerId)
             wx.EVT_TIMER(self,self.timerId,self.OnTimer)
         
     def OnUpButtonClick(self,event):
@@ -2007,7 +2013,7 @@ class TextWidget(WidgetBase,wx.TextCtrl):
         
         # Add the text control
         wx.TextCtrl.__init__(self,parent,-1,value,\
-            style=wx.wxTE_PROCESS_ENTER|wx.wxTE_READONLY)
+            style=wx.TE_PROCESS_ENTER|wx.TE_READONLY)
 
         # Adjust the size for best fit
         maxChars = self.getMaxChars()
@@ -2106,7 +2112,7 @@ class PopupList(wx.SingleChoiceDialog):
         
         wx.SingleChoiceDialog.__init__(self,parent,'Old Value = %s' % items[selection],\
                              'Select a New Value',pos=pos,choices=items,\
-                             style=wx.OK|wx.wxCANCEL)
+                             style=wx.OK|wx.CANCEL)
 
         self.SetSelection(selection)
                 

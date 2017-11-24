@@ -52,22 +52,25 @@ from xml2obj import *
 
 import parameter
 
+import traceback
+
 WIDGET_TAG = 'WIDGET'
 PARAM_TAG = 'PARAMETER'
 
 class TagHandler(wx.lib.wxpTag.wxpTagHandler):
     def __init__(self):
         wx.lib.wxpTag.wxpTagHandler.__init__(self)
-        print('instanciating a new TagHandler')
+        #print('instanciating a new TagHandler')
         self.stack = []
         
     def GetSupportedTags(self):
         return WIDGET_TAG+','+PARAM_TAG
 
     def HandleTag(self, tag):
-        name = tag.GetName()
-        print('tag name: {}'.format(name))
+        # catch exceptions ourselves so we don't have to live with crippled error messages
         try:
+            name = tag.GetName()
+            print('tag name: {}'.format(name))
             if name == WIDGET_TAG:
                 # AttributeError happens here?:
                 return self.HandleWidgetTag(tag)
@@ -75,9 +78,8 @@ class TagHandler(wx.lib.wxpTag.wxpTagHandler):
                 return self.HandleParameterTag(tag)
             else:
                 raise ValueError, 'unknown tag: ' + name
-        except AttributeError as e:
-            print(e)
-            print('hello')
+        except Exception as e:
+            traceback.print_exc(e)
             return False
 
     def HandleWidgetTag(self, tag):
@@ -140,10 +142,19 @@ class TagHandler(wx.lib.wxpTag.wxpTagHandler):
         # pop context off of stack
         self.stack.pop()
         print('mark4')
+
         # create the object
-        parent = self.GetParser().GetWindow()
-        if parent:
+        # get the PatchEditHtmlPage
+        parentInterface = self.GetParser().GetWindowInterface()
+        if parentInterface is not None:
+            parent = parentInterface.GetHTMLWindow()
+
+        print('parent is "{}":'.format(type(parent)))
+        print(parent)
+
+        if parent is not None:
             element = Element(className,attributes,context.params)
+            # instanciate the object
             obj = apply(context.classObj,
                         (parent,parent.env,element,parent.patch,parent.reset,),
                         context.kwargs)
@@ -151,7 +162,7 @@ class TagHandler(wx.lib.wxpTag.wxpTagHandler):
             if className != 'GroupWidget':
                 # add it to the HtmlWindow
                 container = self.GetParser().GetContainer()
-                cell = wxHtmlWidgetCell(obj, context.floatWidth)
+                cell = wx.html.HtmlWidgetCell(obj, context.floatWidth)
                 container.InsertCell(cell)
                 obj.SetWidgetCell(cell)
 
